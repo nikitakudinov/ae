@@ -149,56 +149,62 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     validator:
                         _model.textControllerValidator.asValidator(context),
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                    child: Builder(
-                      builder: (context) {
-                        final serchResults =
-                            FFAppState().BrandCodeSearchResults.toList();
-                        return ListView.builder(
-                          padding: EdgeInsets.zero,
-                          primary: false,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.vertical,
-                          itemCount: serchResults.length,
-                          itemBuilder: (context, serchResultsIndex) {
-                            final serchResultsItem =
-                                serchResults[serchResultsIndex];
-                            return Column(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  serchResultsItem.brand,
-                                  style: FlutterFlowTheme.of(context).bodyLarge,
-                                ),
-                                Text(
-                                  serchResultsItem.code,
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
-                                ),
-                                Text(
-                                  serchResultsItem.name
-                                      .maybeHandleOverflow(maxChars: 100),
-                                  style: FlutterFlowTheme.of(context).bodySmall,
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 5.0),
-                                  child: Container(
-                                    height: 1.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
+                  Container(
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                    ),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          10.0, 10.0, 10.0, 10.0),
+                      child: Builder(
+                        builder: (context) {
+                          final serchResults =
+                              FFAppState().BrandCodeSearchResults.toList();
+                          return ListView.builder(
+                            padding: EdgeInsets.zero,
+                            primary: false,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: serchResults.length,
+                            itemBuilder: (context, serchResultsIndex) {
+                              final serchResultsItem =
+                                  serchResults[serchResultsIndex];
+                              return Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    serchResultsItem.brand,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyLarge,
+                                  ),
+                                  Text(
+                                    serchResultsItem.code,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
+                                  Text(
+                                    serchResultsItem.name
+                                        .maybeHandleOverflow(maxChars: 100),
+                                    style:
+                                        FlutterFlowTheme.of(context).bodySmall,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 5.0, 0.0, 5.0),
+                                    child: Container(
+                                      height: 1.0,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFFAEAEAE),
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
-                            );
-                          },
-                        );
-                      },
+                                ],
+                              );
+                            },
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ],
