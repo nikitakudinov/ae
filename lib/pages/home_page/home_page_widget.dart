@@ -79,12 +79,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           top: true,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
-                  child: TextFormField(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  TextFormField(
                     controller: _model.textController,
                     focusNode: _model.textFieldFocusNode,
                     onChanged: (_) => EasyDebounce.debounce(
@@ -112,7 +111,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         setState(() {});
                       },
                     ),
-                    autofocus: true,
                     obscureText: false,
                     decoration: InputDecoration(
                       labelText: 'Артикул',
@@ -123,71 +121,88 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           color: FlutterFlowTheme.of(context).alternate,
                           width: 2.0,
                         ),
-                        borderRadius: BorderRadius.circular(8.0),
+                        borderRadius: BorderRadius.circular(5.0),
                       ),
                       focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
                           color: FlutterFlowTheme.of(context).primary,
                           width: 2.0,
                         ),
-                        borderRadius: BorderRadius.circular(8.0),
+                        borderRadius: BorderRadius.circular(5.0),
                       ),
                       errorBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
                           color: FlutterFlowTheme.of(context).error,
                           width: 2.0,
                         ),
-                        borderRadius: BorderRadius.circular(8.0),
+                        borderRadius: BorderRadius.circular(5.0),
                       ),
                       focusedErrorBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
                           color: FlutterFlowTheme.of(context).error,
                           width: 2.0,
                         ),
-                        borderRadius: BorderRadius.circular(8.0),
+                        borderRadius: BorderRadius.circular(5.0),
                       ),
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                     validator:
                         _model.textControllerValidator.asValidator(context),
                   ),
-                ),
-                Builder(
-                  builder: (context) {
-                    final serchResults =
-                        FFAppState().BrandCodeSearchResults.toList();
-                    return ListView.builder(
-                      padding: EdgeInsets.zero,
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      itemCount: serchResults.length,
-                      itemBuilder: (context, serchResultsIndex) {
-                        final serchResultsItem =
-                            serchResults[serchResultsIndex];
-                        return Column(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              serchResultsItem.brand,
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                            ),
-                            Text(
-                              serchResultsItem.code,
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                            ),
-                            Text(
-                              serchResultsItem.name
-                                  .maybeHandleOverflow(maxChars: 100),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                            ),
-                          ],
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                    child: Builder(
+                      builder: (context) {
+                        final serchResults =
+                            FFAppState().BrandCodeSearchResults.toList();
+                        return ListView.builder(
+                          padding: EdgeInsets.zero,
+                          primary: false,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          itemCount: serchResults.length,
+                          itemBuilder: (context, serchResultsIndex) {
+                            final serchResultsItem =
+                                serchResults[serchResultsIndex];
+                            return Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  serchResultsItem.brand,
+                                  style: FlutterFlowTheme.of(context).bodyLarge,
+                                ),
+                                Text(
+                                  serchResultsItem.code,
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                                Text(
+                                  serchResultsItem.name
+                                      .maybeHandleOverflow(maxChars: 100),
+                                  style: FlutterFlowTheme.of(context).bodySmall,
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 5.0),
+                                  child: Container(
+                                    height: 1.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
                         );
                       },
-                    );
-                  },
-                ),
-              ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
