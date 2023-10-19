@@ -16,6 +16,7 @@ class AeGroup {
     'key': 'iUwAiDUU26hCVM8UikAopv9SLvP1Tw4YV3EUhyHZnsUK3E79RqYQKJPBT9tS',
   };
   static BrandsCall brandsCall = BrandsCall();
+  static FullsearchCall fullsearchCall = FullsearchCall();
 }
 
 class BrandsCall {
@@ -25,6 +26,31 @@ class BrandsCall {
     return ApiManager.instance.makeApiCall(
       callName: 'BRANDS',
       apiUrl: '${AeGroup.baseUrl}search_brands/?code=${code}&',
+      callType: ApiCallType.GET,
+      headers: {
+        'key': 'iUwAiDUU26hCVM8UikAopv9SLvP1Tw4YV3EUhyHZnsUK3E79RqYQKJPBT9tS',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
+class FullsearchCall {
+  Future<ApiCallResponse> call({
+    String? brand = '',
+    String? code = '',
+    String? deliveryKey = '',
+    int? withCrosses,
+    int? withOffers,
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'FULLSEARCH',
+      apiUrl:
+          '${AeGroup.baseUrl}search_items/?brand=${brand}&code=${code}&delivery_key=${deliveryKey}&with_crosses=${withCrosses}&with_offers=${withOffers}&',
       callType: ApiCallType.GET,
       headers: {
         'key': 'iUwAiDUU26hCVM8UikAopv9SLvP1Tw4YV3EUhyHZnsUK3E79RqYQKJPBT9tS',
