@@ -264,58 +264,24 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     decoration: BoxDecoration(
                       color: Color(0xFFAEAEAE),
                     ),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          10.0, 10.0, 10.0, 10.0),
-                      child: Builder(
-                        builder: (context) {
-                          final fullSerchResults =
-                              FFAppState().FullSearchResultItems.toList();
-                          return ListView.builder(
-                            padding: EdgeInsets.zero,
-                            primary: false,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            itemCount: fullSerchResults.length,
-                            itemBuilder: (context, fullSerchResultsIndex) {
-                              final fullSerchResultsItem =
-                                  fullSerchResults[fullSerchResultsIndex];
-                              return Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    fullSerchResultsItem.brand,
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyLarge,
-                                  ),
-                                  Text(
-                                    fullSerchResultsItem.code,
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                  Text(
-                                    fullSerchResultsItem.name
-                                        .maybeHandleOverflow(maxChars: 100),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodySmall,
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 5.0, 0.0, 5.0),
-                                    child: Container(
-                                      height: 1.0,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFFAEAEAE),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              );
-                            },
-                          );
-                        },
-                      ),
+                    child: Builder(
+                      builder: (context) {
+                        final jkhnkj =
+                            FFAppState().FullSearchResultItems.toList();
+                        return ListView.builder(
+                          padding: EdgeInsets.zero,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          itemCount: jkhnkj.length,
+                          itemBuilder: (context, jkhnkjIndex) {
+                            final jkhnkjItem = jkhnkj[jkhnkjIndex];
+                            return Text(
+                              jkhnkjItem.brand,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            );
+                          },
+                        );
+                      },
                     ),
                   ),
                 ],
