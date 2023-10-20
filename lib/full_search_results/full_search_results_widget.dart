@@ -125,7 +125,26 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
           top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            children: [],
+            children: [
+              Builder(
+                builder: (context) {
+                  final results = FFAppState().FullSearchResultItems.toList();
+                  return ListView.builder(
+                    padding: EdgeInsets.zero,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    itemCount: results.length,
+                    itemBuilder: (context, resultsIndex) {
+                      final resultsItem = results[resultsIndex];
+                      return Text(
+                        resultsItem.brand,
+                        style: FlutterFlowTheme.of(context).bodyMedium,
+                      );
+                    },
+                  );
+                },
+              ),
+            ],
           ),
         ),
       ),
