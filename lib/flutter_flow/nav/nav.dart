@@ -49,6 +49,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'HomePage',
           path: '/homePage',
           builder: (context, params) => HomePageWidget(),
+        ),
+        FFRoute(
+          name: 'fullSearchResults',
+          path: '/fullSearchResults',
+          builder: (context, params) => FullSearchResultsWidget(
+            brand: params.getParam('brand', ParamType.String),
+            code: params.getParam('code', ParamType.String),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

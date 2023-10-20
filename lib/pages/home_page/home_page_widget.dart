@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -176,50 +175,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  _model.apiResult6921 =
-                                      await AeGroup.fullsearchCall.call(
-                                    brand: serchResultsItem.brand,
-                                    code: serchResultsItem.code,
-                                    deliveryKey:
-                                        'A4GAcT7SOcnXN1kucA5bomb4Rj5SO2fV1e5bgkkDgHbY9hrszkUNTsEuZYBmJUwOEPb2iIb01uSVTJYQWkRv05qrVm4c',
-                                    withCrosses: 1,
+                                  context.pushNamed(
+                                    'fullSearchResults',
+                                    queryParameters: {
+                                      'brand': serializeParam(
+                                        serchResultsItem.brand,
+                                        ParamType.String,
+                                      ),
+                                      'code': serializeParam(
+                                        serchResultsItem.code,
+                                        ParamType.String,
+                                      ),
+                                    }.withoutNulls,
                                   );
-                                  if ((_model.apiResult6921?.succeeded ??
-                                      true)) {
-                                    _model.dRFullSearch =
-                                        await actions.jsonFullSearchResult(
-                                      functions
-                                          .newCustomFunction(getJsonField(
-                                            (_model.apiResult6921?.jsonBody ??
-                                                ''),
-                                            r'''$.DATA''',
-                                            true,
-                                          ))
-                                          ?.toList(),
-                                    );
-                                    setState(() {
-                                      FFAppState().FullSearchResultItems =
-                                          _model.dRFullSearch!.toList().cast<
-                                              FullSearchResultItemStruct>();
-                                    });
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return AlertDialog(
-                                          title: Text('1'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    );
-                                  }
-
-                                  setState(() {});
                                 },
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -258,30 +226,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           );
                         },
                       ),
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Color(0xFFAEAEAE),
-                    ),
-                    child: Builder(
-                      builder: (context) {
-                        final jkhnkj =
-                            FFAppState().FullSearchResultItems.toList();
-                        return ListView.builder(
-                          padding: EdgeInsets.zero,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.vertical,
-                          itemCount: jkhnkj.length,
-                          itemBuilder: (context, jkhnkjIndex) {
-                            final jkhnkjItem = jkhnkj[jkhnkjIndex];
-                            return Text(
-                              jkhnkjItem.brand,
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                            );
-                          },
-                        );
-                      },
                     ),
                   ),
                 ],
