@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -187,11 +188,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       true)) {
                                     _model.dRFullSearch =
                                         await actions.jsonFullSearchResult(
-                                      getJsonField(
-                                        (_model.apiResult6921?.jsonBody ?? ''),
-                                        r'''$.DATA''',
-                                        true,
-                                      ),
+                                      functions
+                                          .newCustomFunction(getJsonField(
+                                            (_model.apiResult6921?.jsonBody ??
+                                                ''),
+                                            r'''$.DATA''',
+                                            true,
+                                          ))
+                                          ?.toList(),
                                     );
                                     setState(() {
                                       FFAppState().FullSearchResultItems =
