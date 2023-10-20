@@ -23,6 +23,10 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ApiCallResponse? apiResultnpb;
   // Stores action output result for [Custom Action - jsonBrandCodeSearchResult] action in TextField widget.
   List<BrandCodeSearchItemStruct>? data;
+  // Stores action output result for [Backend Call - API (FULLSEARCH)] action in Column widget.
+  ApiCallResponse? apiResult6921;
+  // Stores action output result for [Custom Action - jsonFullSearchResult] action in Column widget.
+  List<FullSearchResultItemStruct>? dRFullSearch;
 
   /// Initialization and disposal methods.
 

@@ -54,6 +54,37 @@ class FFAppState extends ChangeNotifier {
       int _index, BrandCodeSearchItemStruct _value) {
     _BrandCodeSearchResults.insert(_index, _value);
   }
+
+  List<FullSearchResultItemStruct> _FullSearchResultItems = [];
+  List<FullSearchResultItemStruct> get FullSearchResultItems =>
+      _FullSearchResultItems;
+  set FullSearchResultItems(List<FullSearchResultItemStruct> _value) {
+    _FullSearchResultItems = _value;
+  }
+
+  void addToFullSearchResultItems(FullSearchResultItemStruct _value) {
+    _FullSearchResultItems.add(_value);
+  }
+
+  void removeFromFullSearchResultItems(FullSearchResultItemStruct _value) {
+    _FullSearchResultItems.remove(_value);
+  }
+
+  void removeAtIndexFromFullSearchResultItems(int _index) {
+    _FullSearchResultItems.removeAt(_index);
+  }
+
+  void updateFullSearchResultItemsAtIndex(
+    int _index,
+    FullSearchResultItemStruct Function(FullSearchResultItemStruct) updateFn,
+  ) {
+    _FullSearchResultItems[_index] = updateFn(_FullSearchResultItems[_index]);
+  }
+
+  void insertAtIndexInFullSearchResultItems(
+      int _index, FullSearchResultItemStruct _value) {
+    _FullSearchResultItems.insert(_index, _value);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
