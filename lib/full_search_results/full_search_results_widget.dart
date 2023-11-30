@@ -62,7 +62,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
             );
           },
         );
-        _model.dtFullSearchResults = await actions.jsonFullSearchResult(
+        _model.dtSR = await actions.dtSEARCHRESULTS(
           AeGroup.fullsearchCall
               .data(
                 (_model.apiResultf7s?.jsonBody ?? ''),
@@ -70,9 +70,8 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
               ?.toList(),
         );
         setState(() {
-          FFAppState().FullSearchResultItems = _model.dtFullSearchResults!
-              .toList()
-              .cast<FullSearchResultItemStruct>();
+          FFAppState().FullSearchResultItems =
+              _model.dtSR!.toList().cast<FullSearchResultItemStruct>();
         });
       } else {
         await showDialog(
