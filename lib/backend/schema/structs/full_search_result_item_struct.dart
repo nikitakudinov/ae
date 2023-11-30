@@ -26,7 +26,7 @@ class FullSearchResultItemStruct extends BaseStruct {
     String? stock,
     String? rt,
     String? dealer,
-    int? rejects,
+    double? rejects,
   })  : _offerKey = offerKey,
         _cross = cross,
         _brand = brand,
@@ -166,10 +166,10 @@ class FullSearchResultItemStruct extends BaseStruct {
   bool hasDealer() => _dealer != null;
 
   // "rejects" field.
-  int? _rejects;
-  int get rejects => _rejects ?? 0;
-  set rejects(int? val) => _rejects = val;
-  void incrementRejects(int amount) => _rejects = rejects + amount;
+  double? _rejects;
+  double get rejects => _rejects ?? 0.0;
+  set rejects(double? val) => _rejects = val;
+  void incrementRejects(double amount) => _rejects = rejects + amount;
   bool hasRejects() => _rejects != null;
 
   static FullSearchResultItemStruct fromMap(Map<String, dynamic> data) =>
@@ -193,7 +193,7 @@ class FullSearchResultItemStruct extends BaseStruct {
         stock: data['stock'] as String?,
         rt: data['rt'] as String?,
         dealer: data['dealer'] as String?,
-        rejects: castToType<int>(data['rejects']),
+        rejects: castToType<double>(data['rejects']),
       );
 
   static FullSearchResultItemStruct? maybeFromMap(dynamic data) =>
@@ -304,7 +304,7 @@ class FullSearchResultItemStruct extends BaseStruct {
         ),
         'rejects': serializeParam(
           _rejects,
-          ParamType.int,
+          ParamType.double,
         ),
       }.withoutNulls;
 
@@ -408,7 +408,7 @@ class FullSearchResultItemStruct extends BaseStruct {
         ),
         rejects: deserializeParam(
           data['rejects'],
-          ParamType.int,
+          ParamType.double,
           false,
         ),
       );
@@ -486,7 +486,7 @@ FullSearchResultItemStruct createFullSearchResultItemStruct({
   String? stock,
   String? rt,
   String? dealer,
-  int? rejects,
+  double? rejects,
 }) =>
     FullSearchResultItemStruct(
       offerKey: offerKey,
