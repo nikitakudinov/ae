@@ -8,7 +8,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 class FullSearchResultItemStruct extends BaseStruct {
   FullSearchResultItemStruct({
     String? offerKey,
-    int? stock,
     String? cross,
     String? brand,
     String? code,
@@ -27,8 +26,8 @@ class FullSearchResultItemStruct extends BaseStruct {
     String? warehouseKey,
     int? ttl,
     int? rejects,
+    String? stock,
   })  : _offerKey = offerKey,
-        _stock = stock,
         _cross = cross,
         _brand = brand,
         _code = code,
@@ -46,20 +45,14 @@ class FullSearchResultItemStruct extends BaseStruct {
         _warehouseName = warehouseName,
         _warehouseKey = warehouseKey,
         _ttl = ttl,
-        _rejects = rejects;
+        _rejects = rejects,
+        _stock = stock;
 
   // "offer_key" field.
   String? _offerKey;
   String get offerKey => _offerKey ?? '';
   set offerKey(String? val) => _offerKey = val;
   bool hasOfferKey() => _offerKey != null;
-
-  // "stock" field.
-  int? _stock;
-  int get stock => _stock ?? 0;
-  set stock(int? val) => _stock = val;
-  void incrementStock(int amount) => _stock = stock + amount;
-  bool hasStock() => _stock != null;
 
   // "cross" field.
   String? _cross;
@@ -174,10 +167,15 @@ class FullSearchResultItemStruct extends BaseStruct {
   void incrementRejects(int amount) => _rejects = rejects + amount;
   bool hasRejects() => _rejects != null;
 
+  // "stock" field.
+  String? _stock;
+  String get stock => _stock ?? '';
+  set stock(String? val) => _stock = val;
+  bool hasStock() => _stock != null;
+
   static FullSearchResultItemStruct fromMap(Map<String, dynamic> data) =>
       FullSearchResultItemStruct(
         offerKey: data['offer_key'] as String?,
-        stock: castToType<int>(data['stock']),
         cross: data['cross'] as String?,
         brand: data['brand'] as String?,
         code: data['code'] as String?,
@@ -196,6 +194,7 @@ class FullSearchResultItemStruct extends BaseStruct {
         warehouseKey: data['warehouse_key'] as String?,
         ttl: castToType<int>(data['ttl']),
         rejects: castToType<int>(data['rejects']),
+        stock: data['stock'] as String?,
       );
 
   static FullSearchResultItemStruct? maybeFromMap(dynamic data) =>
@@ -205,7 +204,6 @@ class FullSearchResultItemStruct extends BaseStruct {
 
   Map<String, dynamic> toMap() => {
         'offer_key': _offerKey,
-        'stock': _stock,
         'cross': _cross,
         'brand': _brand,
         'code': _code,
@@ -224,6 +222,7 @@ class FullSearchResultItemStruct extends BaseStruct {
         'warehouse_key': _warehouseKey,
         'ttl': _ttl,
         'rejects': _rejects,
+        'stock': _stock,
       }.withoutNulls;
 
   @override
@@ -231,10 +230,6 @@ class FullSearchResultItemStruct extends BaseStruct {
         'offer_key': serializeParam(
           _offerKey,
           ParamType.String,
-        ),
-        'stock': serializeParam(
-          _stock,
-          ParamType.int,
         ),
         'cross': serializeParam(
           _cross,
@@ -308,6 +303,10 @@ class FullSearchResultItemStruct extends BaseStruct {
           _rejects,
           ParamType.int,
         ),
+        'stock': serializeParam(
+          _stock,
+          ParamType.String,
+        ),
       }.withoutNulls;
 
   static FullSearchResultItemStruct fromSerializableMap(
@@ -316,11 +315,6 @@ class FullSearchResultItemStruct extends BaseStruct {
         offerKey: deserializeParam(
           data['offer_key'],
           ParamType.String,
-          false,
-        ),
-        stock: deserializeParam(
-          data['stock'],
-          ParamType.int,
           false,
         ),
         cross: deserializeParam(
@@ -413,6 +407,11 @@ class FullSearchResultItemStruct extends BaseStruct {
           ParamType.int,
           false,
         ),
+        stock: deserializeParam(
+          data['stock'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -422,7 +421,6 @@ class FullSearchResultItemStruct extends BaseStruct {
   bool operator ==(Object other) {
     return other is FullSearchResultItemStruct &&
         offerKey == other.offerKey &&
-        stock == other.stock &&
         cross == other.cross &&
         brand == other.brand &&
         code == other.code &&
@@ -440,13 +438,13 @@ class FullSearchResultItemStruct extends BaseStruct {
         warehouseName == other.warehouseName &&
         warehouseKey == other.warehouseKey &&
         ttl == other.ttl &&
-        rejects == other.rejects;
+        rejects == other.rejects &&
+        stock == other.stock;
   }
 
   @override
   int get hashCode => const ListEquality().hash([
         offerKey,
-        stock,
         cross,
         brand,
         code,
@@ -464,13 +462,13 @@ class FullSearchResultItemStruct extends BaseStruct {
         warehouseName,
         warehouseKey,
         ttl,
-        rejects
+        rejects,
+        stock
       ]);
 }
 
 FullSearchResultItemStruct createFullSearchResultItemStruct({
   String? offerKey,
-  int? stock,
   String? cross,
   String? brand,
   String? code,
@@ -489,10 +487,10 @@ FullSearchResultItemStruct createFullSearchResultItemStruct({
   String? warehouseKey,
   int? ttl,
   int? rejects,
+  String? stock,
 }) =>
     FullSearchResultItemStruct(
       offerKey: offerKey,
-      stock: stock,
       cross: cross,
       brand: brand,
       code: code,
@@ -511,4 +509,5 @@ FullSearchResultItemStruct createFullSearchResultItemStruct({
       warehouseKey: warehouseKey,
       ttl: ttl,
       rejects: rejects,
+      stock: stock,
     );
