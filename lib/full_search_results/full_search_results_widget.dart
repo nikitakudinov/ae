@@ -49,7 +49,11 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
       );
       if ((_model.apiResultf7s?.succeeded ?? true)) {
         _model.dtsr = await actions.dtSR(
-          (_model.apiResultf7s?.jsonBody ?? ''),
+          AeGroup.fullsearchCall
+              .data(
+                (_model.apiResultf7s?.jsonBody ?? ''),
+              )
+              ?.toList(),
         );
         setState(() {
           FFAppState().sr = _model.dtsr!.toList().cast<SearchResultStruct>();
