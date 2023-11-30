@@ -8,7 +8,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 class SearchResultStruct extends BaseStruct {
   SearchResultStruct({
     String? offerKey,
-    int? stock,
     String? cross,
     String? brand,
     String? code,
@@ -16,28 +15,22 @@ class SearchResultStruct extends BaseStruct {
     int? packing,
     String? price,
     String? currency,
+    String? stock,
   })  : _offerKey = offerKey,
-        _stock = stock,
         _cross = cross,
         _brand = brand,
         _code = code,
         _name = name,
         _packing = packing,
         _price = price,
-        _currency = currency;
+        _currency = currency,
+        _stock = stock;
 
   // "offer_key" field.
   String? _offerKey;
   String get offerKey => _offerKey ?? '';
   set offerKey(String? val) => _offerKey = val;
   bool hasOfferKey() => _offerKey != null;
-
-  // "stock" field.
-  int? _stock;
-  int get stock => _stock ?? 0;
-  set stock(int? val) => _stock = val;
-  void incrementStock(int amount) => _stock = stock + amount;
-  bool hasStock() => _stock != null;
 
   // "cross" field.
   String? _cross;
@@ -82,10 +75,15 @@ class SearchResultStruct extends BaseStruct {
   set currency(String? val) => _currency = val;
   bool hasCurrency() => _currency != null;
 
+  // "stock" field.
+  String? _stock;
+  String get stock => _stock ?? '';
+  set stock(String? val) => _stock = val;
+  bool hasStock() => _stock != null;
+
   static SearchResultStruct fromMap(Map<String, dynamic> data) =>
       SearchResultStruct(
         offerKey: data['offer_key'] as String?,
-        stock: castToType<int>(data['stock']),
         cross: data['cross'] as String?,
         brand: data['brand'] as String?,
         code: data['code'] as String?,
@@ -93,6 +91,7 @@ class SearchResultStruct extends BaseStruct {
         packing: castToType<int>(data['packing']),
         price: data['price'] as String?,
         currency: data['currency'] as String?,
+        stock: data['stock'] as String?,
       );
 
   static SearchResultStruct? maybeFromMap(dynamic data) =>
@@ -100,7 +99,6 @@ class SearchResultStruct extends BaseStruct {
 
   Map<String, dynamic> toMap() => {
         'offer_key': _offerKey,
-        'stock': _stock,
         'cross': _cross,
         'brand': _brand,
         'code': _code,
@@ -108,6 +106,7 @@ class SearchResultStruct extends BaseStruct {
         'packing': _packing,
         'price': _price,
         'currency': _currency,
+        'stock': _stock,
       }.withoutNulls;
 
   @override
@@ -115,10 +114,6 @@ class SearchResultStruct extends BaseStruct {
         'offer_key': serializeParam(
           _offerKey,
           ParamType.String,
-        ),
-        'stock': serializeParam(
-          _stock,
-          ParamType.int,
         ),
         'cross': serializeParam(
           _cross,
@@ -148,6 +143,10 @@ class SearchResultStruct extends BaseStruct {
           _currency,
           ParamType.String,
         ),
+        'stock': serializeParam(
+          _stock,
+          ParamType.String,
+        ),
       }.withoutNulls;
 
   static SearchResultStruct fromSerializableMap(Map<String, dynamic> data) =>
@@ -155,11 +154,6 @@ class SearchResultStruct extends BaseStruct {
         offerKey: deserializeParam(
           data['offer_key'],
           ParamType.String,
-          false,
-        ),
-        stock: deserializeParam(
-          data['stock'],
-          ParamType.int,
           false,
         ),
         cross: deserializeParam(
@@ -197,6 +191,11 @@ class SearchResultStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        stock: deserializeParam(
+          data['stock'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -206,24 +205,23 @@ class SearchResultStruct extends BaseStruct {
   bool operator ==(Object other) {
     return other is SearchResultStruct &&
         offerKey == other.offerKey &&
-        stock == other.stock &&
         cross == other.cross &&
         brand == other.brand &&
         code == other.code &&
         name == other.name &&
         packing == other.packing &&
         price == other.price &&
-        currency == other.currency;
+        currency == other.currency &&
+        stock == other.stock;
   }
 
   @override
   int get hashCode => const ListEquality().hash(
-      [offerKey, stock, cross, brand, code, name, packing, price, currency]);
+      [offerKey, cross, brand, code, name, packing, price, currency, stock]);
 }
 
 SearchResultStruct createSearchResultStruct({
   String? offerKey,
-  int? stock,
   String? cross,
   String? brand,
   String? code,
@@ -231,10 +229,10 @@ SearchResultStruct createSearchResultStruct({
   int? packing,
   String? price,
   String? currency,
+  String? stock,
 }) =>
     SearchResultStruct(
       offerKey: offerKey,
-      stock: stock,
       cross: cross,
       brand: brand,
       code: code,
@@ -242,4 +240,5 @@ SearchResultStruct createSearchResultStruct({
       packing: packing,
       price: price,
       currency: currency,
+      stock: stock,
     );
