@@ -58,7 +58,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
         );
         _model.dtSR = await actions.dtSEARCHRESULTS(
           functions
-              .returnReplacer((_model.apiResultf7s?.jsonBody ?? ''))
+              .newCustomFunction((_model.apiResultf7s?.jsonBody ?? ''))
               ?.toList(),
         );
         setState(() {

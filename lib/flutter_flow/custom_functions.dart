@@ -19,3 +19,30 @@ List<dynamic>? returnReplacer(List<dynamic>? input) {
   final newJson = json.decode(newJsonString);
   return newJson;
 }
+
+List<dynamic>? newCustomFunction(List<dynamic>? jsonArray) {
+  // in jsonArrat convert all float type values to string and replace all words "return" to word rt
+  if (jsonArray == null) return null;
+
+  final List<dynamic> newJsonArray = [];
+
+  for (final item in jsonArray) {
+    if (item is Map<String, dynamic>) {
+      final Map<String, dynamic> newItem = {};
+      item.forEach((key, value) {
+        if (value is double) {
+          newItem[key] = value.toString();
+        } else if (value is String) {
+          newItem[key] = value.replaceAll('return', 'rt');
+        } else {
+          newItem[key] = value;
+        }
+      });
+      newJsonArray.add(newItem);
+    } else {
+      newJsonArray.add(item);
+    }
+  }
+
+  return newJsonArray;
+}
