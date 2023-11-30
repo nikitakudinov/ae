@@ -17,7 +17,6 @@ class FullSearchResultItemStruct extends BaseStruct {
     String? currency,
     int? amount,
     String? unit,
-    String? vozvrat,
     String? orderBefore,
     String? deliveryTime,
     String? deliveryTimeMax,
@@ -25,8 +24,9 @@ class FullSearchResultItemStruct extends BaseStruct {
     String? warehouseName,
     String? warehouseKey,
     int? ttl,
-    int? rejects,
     String? stock,
+    String? rejects,
+    String? rt,
   })  : _offerKey = offerKey,
         _cross = cross,
         _brand = brand,
@@ -37,7 +37,6 @@ class FullSearchResultItemStruct extends BaseStruct {
         _currency = currency,
         _amount = amount,
         _unit = unit,
-        _vozvrat = vozvrat,
         _orderBefore = orderBefore,
         _deliveryTime = deliveryTime,
         _deliveryTimeMax = deliveryTimeMax,
@@ -45,8 +44,9 @@ class FullSearchResultItemStruct extends BaseStruct {
         _warehouseName = warehouseName,
         _warehouseKey = warehouseKey,
         _ttl = ttl,
+        _stock = stock,
         _rejects = rejects,
-        _stock = stock;
+        _rt = rt;
 
   // "offer_key" field.
   String? _offerKey;
@@ -110,12 +110,6 @@ class FullSearchResultItemStruct extends BaseStruct {
   set unit(String? val) => _unit = val;
   bool hasUnit() => _unit != null;
 
-  // "vozvrat" field.
-  String? _vozvrat;
-  String get vozvrat => _vozvrat ?? '';
-  set vozvrat(String? val) => _vozvrat = val;
-  bool hasVozvrat() => _vozvrat != null;
-
   // "order_before" field.
   String? _orderBefore;
   String get orderBefore => _orderBefore ?? '';
@@ -160,18 +154,23 @@ class FullSearchResultItemStruct extends BaseStruct {
   void incrementTtl(int amount) => _ttl = ttl + amount;
   bool hasTtl() => _ttl != null;
 
-  // "rejects" field.
-  int? _rejects;
-  int get rejects => _rejects ?? 0;
-  set rejects(int? val) => _rejects = val;
-  void incrementRejects(int amount) => _rejects = rejects + amount;
-  bool hasRejects() => _rejects != null;
-
   // "stock" field.
   String? _stock;
   String get stock => _stock ?? '';
   set stock(String? val) => _stock = val;
   bool hasStock() => _stock != null;
+
+  // "rejects" field.
+  String? _rejects;
+  String get rejects => _rejects ?? '';
+  set rejects(String? val) => _rejects = val;
+  bool hasRejects() => _rejects != null;
+
+  // "rt" field.
+  String? _rt;
+  String get rt => _rt ?? '';
+  set rt(String? val) => _rt = val;
+  bool hasRt() => _rt != null;
 
   static FullSearchResultItemStruct fromMap(Map<String, dynamic> data) =>
       FullSearchResultItemStruct(
@@ -185,7 +184,6 @@ class FullSearchResultItemStruct extends BaseStruct {
         currency: data['currency'] as String?,
         amount: castToType<int>(data['amount']),
         unit: data['unit'] as String?,
-        vozvrat: data['vozvrat'] as String?,
         orderBefore: data['order_before'] as String?,
         deliveryTime: data['delivery_time'] as String?,
         deliveryTimeMax: data['delivery_time_max'] as String?,
@@ -193,8 +191,9 @@ class FullSearchResultItemStruct extends BaseStruct {
         warehouseName: data['warehouse_name'] as String?,
         warehouseKey: data['warehouse_key'] as String?,
         ttl: castToType<int>(data['ttl']),
-        rejects: castToType<int>(data['rejects']),
         stock: data['stock'] as String?,
+        rejects: data['rejects'] as String?,
+        rt: data['rt'] as String?,
       );
 
   static FullSearchResultItemStruct? maybeFromMap(dynamic data) =>
@@ -213,7 +212,6 @@ class FullSearchResultItemStruct extends BaseStruct {
         'currency': _currency,
         'amount': _amount,
         'unit': _unit,
-        'vozvrat': _vozvrat,
         'order_before': _orderBefore,
         'delivery_time': _deliveryTime,
         'delivery_time_max': _deliveryTimeMax,
@@ -221,8 +219,9 @@ class FullSearchResultItemStruct extends BaseStruct {
         'warehouse_name': _warehouseName,
         'warehouse_key': _warehouseKey,
         'ttl': _ttl,
-        'rejects': _rejects,
         'stock': _stock,
+        'rejects': _rejects,
+        'rt': _rt,
       }.withoutNulls;
 
   @override
@@ -267,10 +266,6 @@ class FullSearchResultItemStruct extends BaseStruct {
           _unit,
           ParamType.String,
         ),
-        'vozvrat': serializeParam(
-          _vozvrat,
-          ParamType.String,
-        ),
         'order_before': serializeParam(
           _orderBefore,
           ParamType.String,
@@ -299,12 +294,16 @@ class FullSearchResultItemStruct extends BaseStruct {
           _ttl,
           ParamType.int,
         ),
-        'rejects': serializeParam(
-          _rejects,
-          ParamType.int,
-        ),
         'stock': serializeParam(
           _stock,
+          ParamType.String,
+        ),
+        'rejects': serializeParam(
+          _rejects,
+          ParamType.String,
+        ),
+        'rt': serializeParam(
+          _rt,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -362,11 +361,6 @@ class FullSearchResultItemStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
-        vozvrat: deserializeParam(
-          data['vozvrat'],
-          ParamType.String,
-          false,
-        ),
         orderBefore: deserializeParam(
           data['order_before'],
           ParamType.String,
@@ -402,13 +396,18 @@ class FullSearchResultItemStruct extends BaseStruct {
           ParamType.int,
           false,
         ),
-        rejects: deserializeParam(
-          data['rejects'],
-          ParamType.int,
-          false,
-        ),
         stock: deserializeParam(
           data['stock'],
+          ParamType.String,
+          false,
+        ),
+        rejects: deserializeParam(
+          data['rejects'],
+          ParamType.String,
+          false,
+        ),
+        rt: deserializeParam(
+          data['rt'],
           ParamType.String,
           false,
         ),
@@ -430,7 +429,6 @@ class FullSearchResultItemStruct extends BaseStruct {
         currency == other.currency &&
         amount == other.amount &&
         unit == other.unit &&
-        vozvrat == other.vozvrat &&
         orderBefore == other.orderBefore &&
         deliveryTime == other.deliveryTime &&
         deliveryTimeMax == other.deliveryTimeMax &&
@@ -438,8 +436,9 @@ class FullSearchResultItemStruct extends BaseStruct {
         warehouseName == other.warehouseName &&
         warehouseKey == other.warehouseKey &&
         ttl == other.ttl &&
+        stock == other.stock &&
         rejects == other.rejects &&
-        stock == other.stock;
+        rt == other.rt;
   }
 
   @override
@@ -454,7 +453,6 @@ class FullSearchResultItemStruct extends BaseStruct {
         currency,
         amount,
         unit,
-        vozvrat,
         orderBefore,
         deliveryTime,
         deliveryTimeMax,
@@ -462,8 +460,9 @@ class FullSearchResultItemStruct extends BaseStruct {
         warehouseName,
         warehouseKey,
         ttl,
+        stock,
         rejects,
-        stock
+        rt
       ]);
 }
 
@@ -478,7 +477,6 @@ FullSearchResultItemStruct createFullSearchResultItemStruct({
   String? currency,
   int? amount,
   String? unit,
-  String? vozvrat,
   String? orderBefore,
   String? deliveryTime,
   String? deliveryTimeMax,
@@ -486,8 +484,9 @@ FullSearchResultItemStruct createFullSearchResultItemStruct({
   String? warehouseName,
   String? warehouseKey,
   int? ttl,
-  int? rejects,
   String? stock,
+  String? rejects,
+  String? rt,
 }) =>
     FullSearchResultItemStruct(
       offerKey: offerKey,
@@ -500,7 +499,6 @@ FullSearchResultItemStruct createFullSearchResultItemStruct({
       currency: currency,
       amount: amount,
       unit: unit,
-      vozvrat: vozvrat,
       orderBefore: orderBefore,
       deliveryTime: deliveryTime,
       deliveryTimeMax: deliveryTimeMax,
@@ -508,6 +506,7 @@ FullSearchResultItemStruct createFullSearchResultItemStruct({
       warehouseName: warehouseName,
       warehouseKey: warehouseKey,
       ttl: ttl,
-      rejects: rejects,
       stock: stock,
+      rejects: rejects,
+      rt: rt,
     );
