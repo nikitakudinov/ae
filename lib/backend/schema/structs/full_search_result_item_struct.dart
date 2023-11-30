@@ -9,7 +9,7 @@ class FullSearchResultItemStruct extends BaseStruct {
   FullSearchResultItemStruct({
     String? offerKey,
     int? stock,
-    int? cross,
+    String? cross,
     String? brand,
     String? code,
     String? name,
@@ -19,12 +19,14 @@ class FullSearchResultItemStruct extends BaseStruct {
     int? amount,
     String? unit,
     String? vozvrat,
+    String? orderBefore,
     String? deliveryTime,
     String? deliveryTimeMax,
     String? rejects,
-    String? dealer,
+    int? dealer,
     String? warehouseName,
     String? warehouseKey,
+    int? ttl,
   })  : _offerKey = offerKey,
         _stock = stock,
         _cross = cross,
@@ -37,12 +39,14 @@ class FullSearchResultItemStruct extends BaseStruct {
         _amount = amount,
         _unit = unit,
         _vozvrat = vozvrat,
+        _orderBefore = orderBefore,
         _deliveryTime = deliveryTime,
         _deliveryTimeMax = deliveryTimeMax,
         _rejects = rejects,
         _dealer = dealer,
         _warehouseName = warehouseName,
-        _warehouseKey = warehouseKey;
+        _warehouseKey = warehouseKey,
+        _ttl = ttl;
 
   // "offer_key" field.
   String? _offerKey;
@@ -58,10 +62,9 @@ class FullSearchResultItemStruct extends BaseStruct {
   bool hasStock() => _stock != null;
 
   // "cross" field.
-  int? _cross;
-  int get cross => _cross ?? 0;
-  set cross(int? val) => _cross = val;
-  void incrementCross(int amount) => _cross = cross + amount;
+  String? _cross;
+  String get cross => _cross ?? '';
+  set cross(String? val) => _cross = val;
   bool hasCross() => _cross != null;
 
   // "brand" field.
@@ -120,6 +123,12 @@ class FullSearchResultItemStruct extends BaseStruct {
   set vozvrat(String? val) => _vozvrat = val;
   bool hasVozvrat() => _vozvrat != null;
 
+  // "order_before" field.
+  String? _orderBefore;
+  String get orderBefore => _orderBefore ?? '';
+  set orderBefore(String? val) => _orderBefore = val;
+  bool hasOrderBefore() => _orderBefore != null;
+
   // "delivery_time" field.
   String? _deliveryTime;
   String get deliveryTime => _deliveryTime ?? '';
@@ -139,9 +148,10 @@ class FullSearchResultItemStruct extends BaseStruct {
   bool hasRejects() => _rejects != null;
 
   // "dealer" field.
-  String? _dealer;
-  String get dealer => _dealer ?? '';
-  set dealer(String? val) => _dealer = val;
+  int? _dealer;
+  int get dealer => _dealer ?? 0;
+  set dealer(int? val) => _dealer = val;
+  void incrementDealer(int amount) => _dealer = dealer + amount;
   bool hasDealer() => _dealer != null;
 
   // "warehouse_name" field.
@@ -156,11 +166,18 @@ class FullSearchResultItemStruct extends BaseStruct {
   set warehouseKey(String? val) => _warehouseKey = val;
   bool hasWarehouseKey() => _warehouseKey != null;
 
+  // "ttl" field.
+  int? _ttl;
+  int get ttl => _ttl ?? 0;
+  set ttl(int? val) => _ttl = val;
+  void incrementTtl(int amount) => _ttl = ttl + amount;
+  bool hasTtl() => _ttl != null;
+
   static FullSearchResultItemStruct fromMap(Map<String, dynamic> data) =>
       FullSearchResultItemStruct(
         offerKey: data['offer_key'] as String?,
         stock: castToType<int>(data['stock']),
-        cross: castToType<int>(data['cross']),
+        cross: data['cross'] as String?,
         brand: data['brand'] as String?,
         code: data['code'] as String?,
         name: data['name'] as String?,
@@ -170,12 +187,14 @@ class FullSearchResultItemStruct extends BaseStruct {
         amount: castToType<int>(data['amount']),
         unit: data['unit'] as String?,
         vozvrat: data['vozvrat'] as String?,
+        orderBefore: data['order_before'] as String?,
         deliveryTime: data['delivery_time'] as String?,
         deliveryTimeMax: data['delivery_time_max'] as String?,
         rejects: data['rejects'] as String?,
-        dealer: data['dealer'] as String?,
+        dealer: castToType<int>(data['dealer']),
         warehouseName: data['warehouse_name'] as String?,
         warehouseKey: data['warehouse_key'] as String?,
+        ttl: castToType<int>(data['ttl']),
       );
 
   static FullSearchResultItemStruct? maybeFromMap(dynamic data) =>
@@ -196,12 +215,14 @@ class FullSearchResultItemStruct extends BaseStruct {
         'amount': _amount,
         'unit': _unit,
         'vozvrat': _vozvrat,
+        'order_before': _orderBefore,
         'delivery_time': _deliveryTime,
         'delivery_time_max': _deliveryTimeMax,
         'rejects': _rejects,
         'dealer': _dealer,
         'warehouse_name': _warehouseName,
         'warehouse_key': _warehouseKey,
+        'ttl': _ttl,
       }.withoutNulls;
 
   @override
@@ -216,7 +237,7 @@ class FullSearchResultItemStruct extends BaseStruct {
         ),
         'cross': serializeParam(
           _cross,
-          ParamType.int,
+          ParamType.String,
         ),
         'brand': serializeParam(
           _brand,
@@ -254,6 +275,10 @@ class FullSearchResultItemStruct extends BaseStruct {
           _vozvrat,
           ParamType.String,
         ),
+        'order_before': serializeParam(
+          _orderBefore,
+          ParamType.String,
+        ),
         'delivery_time': serializeParam(
           _deliveryTime,
           ParamType.String,
@@ -268,7 +293,7 @@ class FullSearchResultItemStruct extends BaseStruct {
         ),
         'dealer': serializeParam(
           _dealer,
-          ParamType.String,
+          ParamType.int,
         ),
         'warehouse_name': serializeParam(
           _warehouseName,
@@ -277,6 +302,10 @@ class FullSearchResultItemStruct extends BaseStruct {
         'warehouse_key': serializeParam(
           _warehouseKey,
           ParamType.String,
+        ),
+        'ttl': serializeParam(
+          _ttl,
+          ParamType.int,
         ),
       }.withoutNulls;
 
@@ -295,7 +324,7 @@ class FullSearchResultItemStruct extends BaseStruct {
         ),
         cross: deserializeParam(
           data['cross'],
-          ParamType.int,
+          ParamType.String,
           false,
         ),
         brand: deserializeParam(
@@ -343,6 +372,11 @@ class FullSearchResultItemStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        orderBefore: deserializeParam(
+          data['order_before'],
+          ParamType.String,
+          false,
+        ),
         deliveryTime: deserializeParam(
           data['delivery_time'],
           ParamType.String,
@@ -360,7 +394,7 @@ class FullSearchResultItemStruct extends BaseStruct {
         ),
         dealer: deserializeParam(
           data['dealer'],
-          ParamType.String,
+          ParamType.int,
           false,
         ),
         warehouseName: deserializeParam(
@@ -371,6 +405,11 @@ class FullSearchResultItemStruct extends BaseStruct {
         warehouseKey: deserializeParam(
           data['warehouse_key'],
           ParamType.String,
+          false,
+        ),
+        ttl: deserializeParam(
+          data['ttl'],
+          ParamType.int,
           false,
         ),
       );
@@ -393,12 +432,14 @@ class FullSearchResultItemStruct extends BaseStruct {
         amount == other.amount &&
         unit == other.unit &&
         vozvrat == other.vozvrat &&
+        orderBefore == other.orderBefore &&
         deliveryTime == other.deliveryTime &&
         deliveryTimeMax == other.deliveryTimeMax &&
         rejects == other.rejects &&
         dealer == other.dealer &&
         warehouseName == other.warehouseName &&
-        warehouseKey == other.warehouseKey;
+        warehouseKey == other.warehouseKey &&
+        ttl == other.ttl;
   }
 
   @override
@@ -415,19 +456,21 @@ class FullSearchResultItemStruct extends BaseStruct {
         amount,
         unit,
         vozvrat,
+        orderBefore,
         deliveryTime,
         deliveryTimeMax,
         rejects,
         dealer,
         warehouseName,
-        warehouseKey
+        warehouseKey,
+        ttl
       ]);
 }
 
 FullSearchResultItemStruct createFullSearchResultItemStruct({
   String? offerKey,
   int? stock,
-  int? cross,
+  String? cross,
   String? brand,
   String? code,
   String? name,
@@ -437,12 +480,14 @@ FullSearchResultItemStruct createFullSearchResultItemStruct({
   int? amount,
   String? unit,
   String? vozvrat,
+  String? orderBefore,
   String? deliveryTime,
   String? deliveryTimeMax,
   String? rejects,
-  String? dealer,
+  int? dealer,
   String? warehouseName,
   String? warehouseKey,
+  int? ttl,
 }) =>
     FullSearchResultItemStruct(
       offerKey: offerKey,
@@ -457,10 +502,12 @@ FullSearchResultItemStruct createFullSearchResultItemStruct({
       amount: amount,
       unit: unit,
       vozvrat: vozvrat,
+      orderBefore: orderBefore,
       deliveryTime: deliveryTime,
       deliveryTimeMax: deliveryTimeMax,
       rejects: rejects,
       dealer: dealer,
       warehouseName: warehouseName,
       warehouseKey: warehouseKey,
+      ttl: ttl,
     );

@@ -50,7 +50,7 @@ class FullsearchCall {
     return ApiManager.instance.makeApiCall(
       callName: 'FULLSEARCH',
       apiUrl:
-          '${AeGroup.baseUrl}search_items/?fields=brand&brand=${brand}&code=${code}&delivery_key=${deliveryKey}&with_crosses=${withCrosses}&with_offers=${withOffers}&',
+          '${AeGroup.baseUrl}search_items/?select=(brand)&brand=${brand}&code=${code}&delivery_key=${deliveryKey}&with_crosses=${withCrosses}&with_offers=${withOffers}&',
       callType: ApiCallType.GET,
       headers: {
         'key': 'iUwAiDUU26hCVM8UikAopv9SLvP1Tw4YV3EUhyHZnsUK3E79RqYQKJPBT9tS',
@@ -62,9 +62,51 @@ class FullsearchCall {
       cache: false,
     );
   }
+
+  dynamic data(dynamic response) => getJsonField(
+        response,
+        r'''$.DATA''',
+        true,
+      );
 }
 
 /// End AE Group Code
+
+/// Start SUPABASE Group Code
+
+class SupabaseGroup {
+  static String baseUrl = 'https://supabase.proplayclub.ru/rest/v1/';
+  static Map<String, String> headers = {
+    'apikey':
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyAgCiAgICAicm9sZSI6ICJhbm9uIiwKICAgICJpc3MiOiAic3VwYWJhc2UtZGVtbyIsCiAgICAiaWF0IjogMTY0MTc2OTIwMCwKICAgICJleHAiOiAxNzk5NTM1NjAwCn0.dc_X5iR_VP_qT0zsiyj_I_OZ2T9FtRU2BBNWN8Bu4GE',
+    'Authorization':
+        'BearereyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyAgCiAgICAicm9sZSI6ICJhbm9uIiwKICAgICJpc3MiOiAic3VwYWJhc2UtZGVtbyIsCiAgICAiaWF0IjogMTY0MTc2OTIwMCwKICAgICJleHAiOiAxNzk5NTM1NjAwCn0.dc_X5iR_VP_qT0zsiyj_I_OZ2T9FtRU2BBNWN8Bu4GE',
+  };
+  static TestCall testCall = TestCall();
+}
+
+class TestCall {
+  Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'test',
+      apiUrl: '${SupabaseGroup.baseUrl}test?select=return',
+      callType: ApiCallType.GET,
+      headers: {
+        'apikey':
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyAgCiAgICAicm9sZSI6ICJhbm9uIiwKICAgICJpc3MiOiAic3VwYWJhc2UtZGVtbyIsCiAgICAiaWF0IjogMTY0MTc2OTIwMCwKICAgICJleHAiOiAxNzk5NTM1NjAwCn0.dc_X5iR_VP_qT0zsiyj_I_OZ2T9FtRU2BBNWN8Bu4GE',
+        'Authorization':
+            'BearereyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyAgCiAgICAicm9sZSI6ICJhbm9uIiwKICAgICJpc3MiOiAic3VwYWJhc2UtZGVtbyIsCiAgICAiaWF0IjogMTY0MTc2OTIwMCwKICAgICJleHAiOiAxNzk5NTM1NjAwCn0.dc_X5iR_VP_qT0zsiyj_I_OZ2T9FtRU2BBNWN8Bu4GE',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
+/// End SUPABASE Group Code
 
 class ApiPagingParams {
   int nextPageNumber = 0;

@@ -10,7 +10,7 @@ import 'place.dart';
 import 'uploaded_file.dart';
 import '/backend/schema/structs/index.dart';
 
-List<dynamic>? newCustomFunction(List<dynamic>? input) {
+List<dynamic>? returnReplacer(List<dynamic>? input) {
   // in input json replace word "return" to word "vozvrat"
   if (input == null) return null;
 

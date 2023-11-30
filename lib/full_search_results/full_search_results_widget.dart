@@ -50,7 +50,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
       if ((_model.apiResultq2k?.succeeded ?? true)) {
         _model.dRResults = await actions.jsonFullSearchResult(
           functions
-              .newCustomFunction(getJsonField(
+              .returnReplacer(getJsonField(
                 (_model.apiResultq2k?.jsonBody ?? ''),
                 r'''$.DATA''',
                 true,
@@ -126,9 +126,17 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
+              Text(
+                FFAppState().FullSearchResultItems.length.toString(),
+                style: FlutterFlowTheme.of(context).bodyMedium,
+              ),
               Builder(
                 builder: (context) {
-                  final results = FFAppState().FullSearchResultItems.toList();
+                  final results = FFAppState()
+                      .FullSearchResultItems
+                      .toList()
+                      .take(5)
+                      .toList();
                   return ListView.builder(
                     padding: EdgeInsets.zero,
                     shrinkWrap: true,
@@ -137,7 +145,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                     itemBuilder: (context, resultsIndex) {
                       final resultsItem = results[resultsIndex];
                       return Text(
-                        resultsItem.brand,
+                        resultsItem.code,
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       );
                     },
