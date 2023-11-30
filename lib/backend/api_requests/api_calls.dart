@@ -51,7 +51,7 @@ class FullsearchCall {
     return ApiManager.instance.makeApiCall(
       callName: 'FULLSEARCH',
       apiUrl:
-          '${AeGroup.baseUrl}search_items/?select=(brand)&brand=${brand}&code=${code}&delivery_key=${deliveryKey}&with_crosses=${withCrosses}&with_offers=${withOffers}&',
+          '${AeGroup.baseUrl}search_items/?select=(brand)&brand=${brand}&code=${code}&delivery_key=${deliveryKey}&with_crosses=${withCrosses}&with_offers=${withOffers}',
       callType: ApiCallType.GET,
       headers: {
         'key': 'iUwAiDUU26hCVM8UikAopv9SLvP1Tw4YV3EUhyHZnsUK3E79RqYQKJPBT9tS',

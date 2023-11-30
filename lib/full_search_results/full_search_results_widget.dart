@@ -1,10 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/custom_code/actions/index.dart' as actions;
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -40,33 +37,35 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.apiResultq2k = await AeGroup.fullsearchCall.call(
+      _model.apiResultf7s = await AeGroup.fullsearchCall.call(
         brand: widget.brand,
         code: widget.code,
         deliveryKey:
-            '6lWDbz3dlG8NtMZNlB1cJtNZrsdPeLA6myCbgkkDgHbY9hrszkUNTsEuZYBmJUwOEPb2iIb01uSVTJYQWkRv05qrVm4c',
+            '3hU2zozHNAND9gLxWTCkxmTkDp9drWHr4W1cRdt2LjErkxuvfoFsRP2EGmixeBVzSBSkqF1UAILvpPgdt5aCph2JaJkDX2',
         withCrosses: 1,
         withOffers: 1,
       );
-      if ((_model.apiResultq2k?.succeeded ?? true)) {
-        _model.dRResults = await actions.jsonFullSearchResult(
-          functions
-              .returnReplacer(getJsonField(
-                (_model.apiResultq2k?.jsonBody ?? ''),
-                r'''$.DATA''',
-                true,
-              ))
-              ?.toList(),
-        );
-        setState(() {
-          FFAppState().FullSearchResultItems =
-              _model.dRResults!.toList().cast<FullSearchResultItemStruct>();
-        });
+      if ((_model.apiResultf7s?.succeeded ?? true)) {
         await showDialog(
           context: context,
           builder: (alertDialogContext) {
             return AlertDialog(
-              title: Text('1'),
+              title: Text('Запрос отправлен успешно'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            );
+          },
+        );
+      } else {
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return AlertDialog(
+              title: Text('Запрос не отправлен'),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(alertDialogContext),
