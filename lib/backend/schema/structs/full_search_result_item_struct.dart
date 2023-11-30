@@ -24,9 +24,9 @@ class FullSearchResultItemStruct extends BaseStruct {
     String? warehouseKey,
     int? ttl,
     String? stock,
-    String? rejects,
     String? rt,
     String? dealer,
+    int? rejects,
   })  : _offerKey = offerKey,
         _cross = cross,
         _brand = brand,
@@ -44,9 +44,9 @@ class FullSearchResultItemStruct extends BaseStruct {
         _warehouseKey = warehouseKey,
         _ttl = ttl,
         _stock = stock,
-        _rejects = rejects,
         _rt = rt,
-        _dealer = dealer;
+        _dealer = dealer,
+        _rejects = rejects;
 
   // "offer_key" field.
   String? _offerKey;
@@ -153,12 +153,6 @@ class FullSearchResultItemStruct extends BaseStruct {
   set stock(String? val) => _stock = val;
   bool hasStock() => _stock != null;
 
-  // "rejects" field.
-  String? _rejects;
-  String get rejects => _rejects ?? '';
-  set rejects(String? val) => _rejects = val;
-  bool hasRejects() => _rejects != null;
-
   // "rt" field.
   String? _rt;
   String get rt => _rt ?? '';
@@ -170,6 +164,13 @@ class FullSearchResultItemStruct extends BaseStruct {
   String get dealer => _dealer ?? '';
   set dealer(String? val) => _dealer = val;
   bool hasDealer() => _dealer != null;
+
+  // "rejects" field.
+  int? _rejects;
+  int get rejects => _rejects ?? 0;
+  set rejects(int? val) => _rejects = val;
+  void incrementRejects(int amount) => _rejects = rejects + amount;
+  bool hasRejects() => _rejects != null;
 
   static FullSearchResultItemStruct fromMap(Map<String, dynamic> data) =>
       FullSearchResultItemStruct(
@@ -190,9 +191,9 @@ class FullSearchResultItemStruct extends BaseStruct {
         warehouseKey: data['warehouse_key'] as String?,
         ttl: castToType<int>(data['ttl']),
         stock: data['stock'] as String?,
-        rejects: data['rejects'] as String?,
         rt: data['rt'] as String?,
         dealer: data['dealer'] as String?,
+        rejects: castToType<int>(data['rejects']),
       );
 
   static FullSearchResultItemStruct? maybeFromMap(dynamic data) =>
@@ -218,9 +219,9 @@ class FullSearchResultItemStruct extends BaseStruct {
         'warehouse_key': _warehouseKey,
         'ttl': _ttl,
         'stock': _stock,
-        'rejects': _rejects,
         'rt': _rt,
         'dealer': _dealer,
+        'rejects': _rejects,
       }.withoutNulls;
 
   @override
@@ -293,10 +294,6 @@ class FullSearchResultItemStruct extends BaseStruct {
           _stock,
           ParamType.String,
         ),
-        'rejects': serializeParam(
-          _rejects,
-          ParamType.String,
-        ),
         'rt': serializeParam(
           _rt,
           ParamType.String,
@@ -304,6 +301,10 @@ class FullSearchResultItemStruct extends BaseStruct {
         'dealer': serializeParam(
           _dealer,
           ParamType.String,
+        ),
+        'rejects': serializeParam(
+          _rejects,
+          ParamType.int,
         ),
       }.withoutNulls;
 
@@ -395,11 +396,6 @@ class FullSearchResultItemStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
-        rejects: deserializeParam(
-          data['rejects'],
-          ParamType.String,
-          false,
-        ),
         rt: deserializeParam(
           data['rt'],
           ParamType.String,
@@ -408,6 +404,11 @@ class FullSearchResultItemStruct extends BaseStruct {
         dealer: deserializeParam(
           data['dealer'],
           ParamType.String,
+          false,
+        ),
+        rejects: deserializeParam(
+          data['rejects'],
+          ParamType.int,
           false,
         ),
       );
@@ -435,9 +436,9 @@ class FullSearchResultItemStruct extends BaseStruct {
         warehouseKey == other.warehouseKey &&
         ttl == other.ttl &&
         stock == other.stock &&
-        rejects == other.rejects &&
         rt == other.rt &&
-        dealer == other.dealer;
+        dealer == other.dealer &&
+        rejects == other.rejects;
   }
 
   @override
@@ -459,9 +460,9 @@ class FullSearchResultItemStruct extends BaseStruct {
         warehouseKey,
         ttl,
         stock,
-        rejects,
         rt,
-        dealer
+        dealer,
+        rejects
       ]);
 }
 
@@ -483,9 +484,9 @@ FullSearchResultItemStruct createFullSearchResultItemStruct({
   String? warehouseKey,
   int? ttl,
   String? stock,
-  String? rejects,
   String? rt,
   String? dealer,
+  int? rejects,
 }) =>
     FullSearchResultItemStruct(
       offerKey: offerKey,
@@ -505,7 +506,7 @@ FullSearchResultItemStruct createFullSearchResultItemStruct({
       warehouseKey: warehouseKey,
       ttl: ttl,
       stock: stock,
-      rejects: rejects,
       rt: rt,
       dealer: dealer,
+      rejects: rejects,
     );
