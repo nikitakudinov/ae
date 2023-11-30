@@ -8,12 +8,11 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-Future<List<FullSearchResultItemStruct>?> jsonFullSearchResult(
-    List<dynamic>? jsonArray) async {
+Future<List<SearchResultStruct>?> dtSR(List<dynamic>? jsonArray) async {
   // Add your function code here!
-  List<FullSearchResultItemStruct> listOfStruct = [];
+  List<SearchResultStruct> listOfStruct = [];
   for (var item in jsonArray!) {
-    listOfStruct.add(FullSearchResultItemStruct.fromMap(item));
+    listOfStruct.add(SearchResultStruct.fromMap(item));
   }
   return listOfStruct;
 }

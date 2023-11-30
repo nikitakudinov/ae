@@ -55,35 +55,33 @@ class FFAppState extends ChangeNotifier {
     _BrandCodeSearchResults.insert(_index, _value);
   }
 
-  List<FullSearchResultItemStruct> _FullSearchResultItems = [];
-  List<FullSearchResultItemStruct> get FullSearchResultItems =>
-      _FullSearchResultItems;
-  set FullSearchResultItems(List<FullSearchResultItemStruct> _value) {
-    _FullSearchResultItems = _value;
+  List<SearchResultStruct> _sr = [];
+  List<SearchResultStruct> get sr => _sr;
+  set sr(List<SearchResultStruct> _value) {
+    _sr = _value;
   }
 
-  void addToFullSearchResultItems(FullSearchResultItemStruct _value) {
-    _FullSearchResultItems.add(_value);
+  void addToSr(SearchResultStruct _value) {
+    _sr.add(_value);
   }
 
-  void removeFromFullSearchResultItems(FullSearchResultItemStruct _value) {
-    _FullSearchResultItems.remove(_value);
+  void removeFromSr(SearchResultStruct _value) {
+    _sr.remove(_value);
   }
 
-  void removeAtIndexFromFullSearchResultItems(int _index) {
-    _FullSearchResultItems.removeAt(_index);
+  void removeAtIndexFromSr(int _index) {
+    _sr.removeAt(_index);
   }
 
-  void updateFullSearchResultItemsAtIndex(
+  void updateSrAtIndex(
     int _index,
-    FullSearchResultItemStruct Function(FullSearchResultItemStruct) updateFn,
+    SearchResultStruct Function(SearchResultStruct) updateFn,
   ) {
-    _FullSearchResultItems[_index] = updateFn(_FullSearchResultItems[_index]);
+    _sr[_index] = updateFn(_sr[_index]);
   }
 
-  void insertAtIndexInFullSearchResultItems(
-      int _index, FullSearchResultItemStruct _value) {
-    _FullSearchResultItems.insert(_index, _value);
+  void insertAtIndexInSr(int _index, SearchResultStruct _value) {
+    _sr.insert(_index, _value);
   }
 }
 

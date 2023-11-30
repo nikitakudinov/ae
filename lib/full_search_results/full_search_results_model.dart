@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'full_search_results_widget.dart' show FullSearchResultsWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -16,10 +15,10 @@ class FullSearchResultsModel extends FlutterFlowModel<FullSearchResultsWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Stores action output result for [Backend Call - API (test)] action in fullSearchResults widget.
+  // Stores action output result for [Backend Call - API (SR)] action in fullSearchResults widget.
   ApiCallResponse? apiResultf7s;
-  // Stores action output result for [Custom Action - dtSEARCHRESULTS] action in fullSearchResults widget.
-  List<FullSearchResultItemStruct>? dtSR;
+  // Stores action output result for [Custom Action - dtSR] action in fullSearchResults widget.
+  List<SearchResultStruct>? dtsr;
 
   /// Initialization and disposal methods.
 

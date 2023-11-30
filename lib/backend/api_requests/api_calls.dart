@@ -83,14 +83,15 @@ class SupabaseGroup {
     'Authorization':
         'BearereyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyAgCiAgICAicm9sZSI6ICJhbm9uIiwKICAgICJpc3MiOiAic3VwYWJhc2UtZGVtbyIsCiAgICAiaWF0IjogMTY0MTc2OTIwMCwKICAgICJleHAiOiAxNzk5NTM1NjAwCn0.dc_X5iR_VP_qT0zsiyj_I_OZ2T9FtRU2BBNWN8Bu4GE',
   };
-  static TestCall testCall = TestCall();
+  static SrCall srCall = SrCall();
 }
 
-class TestCall {
+class SrCall {
   Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
-      callName: 'test',
-      apiUrl: '${SupabaseGroup.baseUrl}ae_search_results?',
+      callName: 'SR',
+      apiUrl:
+          '${SupabaseGroup.baseUrl}ae_search_results?select=offer_key,stock,cross,brand,code,name,packing,price,currency',
       callType: ApiCallType.GET,
       headers: {
         'apikey':

@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -40,30 +39,13 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.apiResultf7s = await SupabaseGroup.testCall.call();
+      _model.apiResultf7s = await SupabaseGroup.srCall.call();
       if ((_model.apiResultf7s?.succeeded ?? true)) {
-        await showDialog(
-          context: context,
-          builder: (alertDialogContext) {
-            return AlertDialog(
-              title: Text('Запрос отправлен успешно'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            );
-          },
-        );
-        _model.dtSR = await actions.dtSEARCHRESULTS(
-          functions
-              .newCustomFunction((_model.apiResultf7s?.jsonBody ?? ''))
-              ?.toList(),
+        _model.dtsr = await actions.dtSR(
+          (_model.apiResultf7s?.jsonBody ?? ''),
         );
         setState(() {
-          FFAppState().FullSearchResultItems =
-              _model.dtSR!.toList().cast<FullSearchResultItemStruct>();
+          FFAppState().sr = _model.dtsr!.toList().cast<SearchResultStruct>();
         });
       } else {
         await showDialog(
@@ -132,30 +114,19 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Text(
-                FFAppState().FullSearchResultItems.length.toString(),
+                FFAppState().sr.length.toString(),
                 style: FlutterFlowTheme.of(context).bodyMedium,
               ),
-              Builder(
-                builder: (context) {
-                  final results = FFAppState()
-                      .FullSearchResultItems
-                      .toList()
-                      .take(5)
-                      .toList();
-                  return ListView.builder(
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    itemCount: results.length,
-                    itemBuilder: (context, resultsIndex) {
-                      final resultsItem = results[resultsIndex];
-                      return Text(
-                        resultsItem.code,
-                        style: FlutterFlowTheme.of(context).bodyMedium,
-                      );
-                    },
-                  );
-                },
+              ListView(
+                padding: EdgeInsets.zero,
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                children: [
+                  Text(
+                    'Hello World',
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  ),
+                ],
               ),
             ],
           ),
