@@ -169,7 +169,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Hello World',
+                                brandsListViewItem,
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ],
