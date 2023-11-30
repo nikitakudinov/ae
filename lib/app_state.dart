@@ -83,6 +83,35 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInSr(int _index, SearchResultStruct _value) {
     _sr.insert(_index, _value);
   }
+
+  List<String> _brands = [];
+  List<String> get brands => _brands;
+  set brands(List<String> _value) {
+    _brands = _value;
+  }
+
+  void addToBrands(String _value) {
+    _brands.add(_value);
+  }
+
+  void removeFromBrands(String _value) {
+    _brands.remove(_value);
+  }
+
+  void removeAtIndexFromBrands(int _index) {
+    _brands.removeAt(_index);
+  }
+
+  void updateBrandsAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _brands[_index] = updateFn(_brands[_index]);
+  }
+
+  void insertAtIndexInBrands(int _index, String _value) {
+    _brands.insert(_index, _value);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

@@ -106,6 +106,12 @@ class SrCall {
       cache: false,
     );
   }
+
+  dynamic brand(dynamic response) => getJsonField(
+        response,
+        r'''$[:].brand''',
+        true,
+      );
 }
 
 /// End SUPABASE Group Code

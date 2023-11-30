@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -46,6 +47,14 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
         );
         setState(() {
           FFAppState().sr = _model.dtsr!.toList().cast<SearchResultStruct>();
+          FFAppState().brands = functions
+              .newCustomFunction2(SupabaseGroup.srCall
+                  .brand(
+                    (_model.apiResultf7s?.jsonBody ?? ''),
+                  )
+                  ?.toList())!
+              .toList()
+              .cast<String>();
         });
       } else {
         await showDialog(
@@ -96,13 +105,18 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: true,
-          title: Text(
-            'Page Title',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Outfit',
-                  color: Colors.white,
-                  fontSize: 22.0,
-                ),
+          title: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Text(
+                'Page Title',
+                style: FlutterFlowTheme.of(context).headlineMedium.override(
+                      fontFamily: 'Outfit',
+                      color: Colors.white,
+                      fontSize: 22.0,
+                    ),
+              ),
+            ],
           ),
           actions: [],
           centerTitle: false,
@@ -117,6 +131,21 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                 Text(
                   FFAppState().sr.length.toString(),
                   style: FlutterFlowTheme.of(context).bodyMedium,
+                ),
+                Builder(
+                  builder: (context) {
+                    final brands = FFAppState().brands.toList();
+                    return Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: List.generate(brands.length, (brandsIndex) {
+                        final brandsItem = brands[brandsIndex];
+                        return Text(
+                          brandsItem,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
+                        );
+                      }).divide(SizedBox(width: 10.0)),
+                    );
+                  },
                 ),
                 Builder(
                   builder: (context) {

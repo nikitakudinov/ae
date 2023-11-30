@@ -50,3 +50,20 @@ List<dynamic>? newCustomFunction(List<dynamic>? jsonArray) {
 
   return newList;
 }
+
+List<String>? newCustomFunction2(List<dynamic>? jsonArray) {
+  // delite dupblicates from jsonArray
+  if (jsonArray == null) return null;
+
+  final uniqueSet = <String>{};
+  final result = <String>[];
+
+  for (final item in jsonArray) {
+    final jsonString = json.encode(item);
+    if (uniqueSet.add(jsonString)) {
+      result.add(jsonString);
+    }
+  }
+
+  return result;
+}
