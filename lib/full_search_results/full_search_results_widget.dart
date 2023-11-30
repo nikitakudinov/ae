@@ -15,8 +15,8 @@ export 'full_search_results_model.dart';
 class FullSearchResultsWidget extends StatefulWidget {
   const FullSearchResultsWidget({
     Key? key,
-    required this.brand,
-    required this.code,
+    this.brand,
+    this.code,
   }) : super(key: key);
 
   final String? brand;
