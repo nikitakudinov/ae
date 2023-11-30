@@ -149,16 +149,16 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                 ),
                 Builder(
                   builder: (context) {
-                    final search =
-                        FFAppState().sr.sortedList((e) => e.brand).toList();
+                    final brandsListView = FFAppState().brands.toList();
                     return ListView.builder(
                       padding: EdgeInsets.zero,
                       primary: false,
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
-                      itemCount: search.length,
-                      itemBuilder: (context, searchIndex) {
-                        final searchItem = search[searchIndex];
+                      itemCount: brandsListView.length,
+                      itemBuilder: (context, brandsListViewIndex) {
+                        final brandsListViewItem =
+                            brandsListView[brandsListViewIndex];
                         return Container(
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
@@ -168,20 +168,41 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Text(
-                                    searchItem.brand,
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                  Text(
-                                    searchItem.code,
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                ].divide(SizedBox(width: 15.0)),
+                              Builder(
+                                builder: (context) {
+                                  final brandItems = FFAppState()
+                                      .sr
+                                      .where(
+                                          (e) => e.brand == brandsListViewItem)
+                                      .toList();
+                                  return ListView.builder(
+                                    padding: EdgeInsets.zero,
+                                    shrinkWrap: true,
+                                    scrollDirection: Axis.vertical,
+                                    itemCount: brandItems.length,
+                                    itemBuilder: (context, brandItemsIndex) {
+                                      final brandItemsItem =
+                                          brandItems[brandItemsIndex];
+                                      return Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            brandItemsItem.brand,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                          ),
+                                          Text(
+                                            brandItemsItem.code,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                },
                               ),
                             ],
                           ),
