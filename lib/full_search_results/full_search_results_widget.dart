@@ -168,41 +168,9 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Builder(
-                                builder: (context) {
-                                  final brandItems = FFAppState()
-                                      .sr
-                                      .where(
-                                          (e) => e.brand == brandsListViewItem)
-                                      .toList();
-                                  return ListView.builder(
-                                    padding: EdgeInsets.zero,
-                                    shrinkWrap: true,
-                                    scrollDirection: Axis.vertical,
-                                    itemCount: brandItems.length,
-                                    itemBuilder: (context, brandItemsIndex) {
-                                      final brandItemsItem =
-                                          brandItems[brandItemsIndex];
-                                      return Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            brandItemsItem.brand,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
-                                          ),
-                                          Text(
-                                            brandItemsItem.code,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                  );
-                                },
+                              Text(
+                                'Hello World',
+                                style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ],
                           ),
