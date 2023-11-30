@@ -90,7 +90,7 @@ class TestCall {
   Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'test',
-      apiUrl: '${SupabaseGroup.baseUrl}test?select=return',
+      apiUrl: '${SupabaseGroup.baseUrl}ae_search_results?',
       callType: ApiCallType.GET,
       headers: {
         'apikey':

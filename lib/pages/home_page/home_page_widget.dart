@@ -234,17 +234,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         'fullSearchResults',
                         queryParameters: {
                           'brand': serializeParam(
-                            'CASTROL',
+                            'MAPCO',
                             ParamType.String,
                           ),
                           'code': serializeParam(
-                            '15CA3B',
+                            '5413',
                             ParamType.String,
                           ),
                         }.withoutNulls,
                       );
                     },
-                    text: '15CA3B CASTROL',
+                    text: 'ЗАПРОС',
                     options: FFButtonOptions(
                       height: 40.0,
                       padding:

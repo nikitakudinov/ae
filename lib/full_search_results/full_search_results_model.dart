@@ -15,7 +15,7 @@ class FullSearchResultsModel extends FlutterFlowModel<FullSearchResultsWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Stores action output result for [Backend Call - API (FULLSEARCH)] action in fullSearchResults widget.
+  // Stores action output result for [Backend Call - API (test)] action in fullSearchResults widget.
   ApiCallResponse? apiResultf7s;
   // Stores action output result for [Custom Action - dtSEARCHRESULTS] action in fullSearchResults widget.
   List<FullSearchResultItemStruct>? dtSR;
