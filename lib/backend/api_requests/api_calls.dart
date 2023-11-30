@@ -43,9 +43,10 @@ class FullsearchCall {
   Future<ApiCallResponse> call({
     String? brand = '',
     String? code = '',
-    String? deliveryKey = '',
-    int? withCrosses,
-    int? withOffers,
+    String? deliveryKey =
+        '6lWDbz3dlG8NtMZNlB1cJtNZrsdPeLA6myCbgkkDgHbY9hrszkUNTsEuZYBmJUwOEPb2iIb01uSVTJYQWkRv05qrVm4c',
+    int? withCrosses = 1,
+    int? withOffers = 1,
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'FULLSEARCH',
