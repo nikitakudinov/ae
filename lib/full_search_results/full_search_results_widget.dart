@@ -120,7 +120,8 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                 ),
                 Builder(
                   builder: (context) {
-                    final search = FFAppState().sr.toList();
+                    final search =
+                        FFAppState().sr.sortedList((e) => e.brand).toList();
                     return ListView.builder(
                       padding: EdgeInsets.zero,
                       primary: false,
