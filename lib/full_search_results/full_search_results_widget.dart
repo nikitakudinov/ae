@@ -172,6 +172,32 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                 brandsListViewItem,
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
+                              Builder(
+                                builder: (context) {
+                                  final asss = FFAppState()
+                                      .sr
+                                      .map((e) => e)
+                                      .toList()
+                                      .where((e) =>
+                                          '\"${e.brand}\"' ==
+                                          brandsListViewItem)
+                                      .toList();
+                                  return ListView.builder(
+                                    padding: EdgeInsets.zero,
+                                    shrinkWrap: true,
+                                    scrollDirection: Axis.vertical,
+                                    itemCount: asss.length,
+                                    itemBuilder: (context, asssIndex) {
+                                      final asssItem = asss[asssIndex];
+                                      return Text(
+                                        asssItem.code,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                      );
+                                    },
+                                  );
+                                },
+                              ),
                             ],
                           ),
                         );
