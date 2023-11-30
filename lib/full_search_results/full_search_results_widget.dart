@@ -109,7 +109,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: false,
+          automaticallyImplyLeading: true,
           title: Text(
             'Page Title',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
