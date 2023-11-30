@@ -139,13 +139,20 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                searchItem.brand,
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
-                              Text(
-                                searchItem.code,
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Text(
+                                    searchItem.code,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
+                                  Text(
+                                    searchItem.brand,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
+                                ].divide(SizedBox(width: 15.0)),
                               ),
                             ],
                           ),
