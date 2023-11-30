@@ -143,12 +143,12 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    searchItem.code,
+                                    searchItem.brand,
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
                                   ),
                                   Text(
-                                    searchItem.brand,
+                                    searchItem.code,
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
                                   ),
