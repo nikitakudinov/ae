@@ -21,28 +21,32 @@ List<dynamic>? returnReplacer(List<dynamic>? input) {
 }
 
 List<dynamic>? newCustomFunction(List<dynamic>? jsonArray) {
-  // in jsonArrat convert all float type values to string and replace all words "return" to word rt
+  // convert all float values to double replace values  "return" to rt
   if (jsonArray == null) return null;
 
-  final List<dynamic> newJsonArray = [];
+  final List<dynamic> newList = [];
 
   for (final item in jsonArray) {
-    if (item is Map<String, dynamic>) {
-      final Map<String, dynamic> newItem = {};
+    if (item is List<dynamic>) {
+      newList.add(newCustomFunction(item));
+    } else if (item is Map<String, dynamic>) {
+      final Map<String, dynamic> newMap = {};
       item.forEach((key, value) {
-        if (value is double) {
-          newItem[key] = value.toString();
-        } else if (value is String) {
-          newItem[key] = value.replaceAll('return', 'rt');
+        if (value is num) {
+          newMap[key] = value.toDouble();
+        } else if (value is String && value.toLowerCase() == 'return') {
+          newMap[key] = 'rt';
         } else {
-          newItem[key] = value;
+          newMap[key] = value;
         }
       });
-      newJsonArray.add(newItem);
+      newList.add(newMap);
+    } else if (item is String && item.toLowerCase() == 'return') {
+      newList.add('rt');
     } else {
-      newJsonArray.add(item);
+      newList.add(item);
     }
   }
 
-  return newJsonArray;
+  return newList;
 }
