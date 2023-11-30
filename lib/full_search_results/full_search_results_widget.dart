@@ -39,7 +39,14 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.apiResultf7s = await SupabaseGroup.srCall.call();
+      _model.apiResultf7s = await AeGroup.fullsearchCall.call(
+        brand: 'TRW',
+        code: 'GCH1065',
+        deliveryKey:
+            'A4GAcT7SOcnXN1kucA5bomb4Rj5SO2fV1e5bgkkDgHbY9hrszkUNTsEuZYBmJUwOEPb2iIb01uSVTJYQWkRv05qrVm4c',
+        withCrosses: 1,
+        withOffers: 0,
+      );
       if ((_model.apiResultf7s?.succeeded ?? true)) {
         _model.dtsr = await actions.dtSR(
           (_model.apiResultf7s?.jsonBody ?? ''),
