@@ -91,7 +91,7 @@ class SrCall {
     return ApiManager.instance.makeApiCall(
       callName: 'SR',
       apiUrl:
-          '${SupabaseGroup.baseUrl}ae_search_results?select=offer_key,stock,cross,brand,code,name,packing,price,currency',
+          '${SupabaseGroup.baseUrl}ae_search_results?select=offer_key,stock,cross,brand,code,name,packing,price,currency,amount,unit,return,order_before,delivery_time,delivery_time_max,rejects,dealer,warehouse_name,warehouse_key,ttl',
       callType: ApiCallType.GET,
       headers: {
         'apikey':

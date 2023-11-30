@@ -16,6 +16,16 @@ class SearchResultStruct extends BaseStruct {
     String? price,
     String? currency,
     int? stock,
+    int? amount,
+    String? unit,
+    String? orderBefore,
+    String? deliveryTime,
+    String? deliveryTimeMax,
+    double? rejects,
+    int? dealer,
+    String? warehouseName,
+    String? warehouseKey,
+    int? ttl,
   })  : _offerKey = offerKey,
         _cross = cross,
         _brand = brand,
@@ -24,7 +34,17 @@ class SearchResultStruct extends BaseStruct {
         _packing = packing,
         _price = price,
         _currency = currency,
-        _stock = stock;
+        _stock = stock,
+        _amount = amount,
+        _unit = unit,
+        _orderBefore = orderBefore,
+        _deliveryTime = deliveryTime,
+        _deliveryTimeMax = deliveryTimeMax,
+        _rejects = rejects,
+        _dealer = dealer,
+        _warehouseName = warehouseName,
+        _warehouseKey = warehouseKey,
+        _ttl = ttl;
 
   // "offer_key" field.
   String? _offerKey;
@@ -82,6 +102,70 @@ class SearchResultStruct extends BaseStruct {
   void incrementStock(int amount) => _stock = stock + amount;
   bool hasStock() => _stock != null;
 
+  // "amount" field.
+  int? _amount;
+  int get amount => _amount ?? 0;
+  set amount(int? val) => _amount = val;
+  void incrementAmount(int amount) => _amount = amount + amount;
+  bool hasAmount() => _amount != null;
+
+  // "unit" field.
+  String? _unit;
+  String get unit => _unit ?? '';
+  set unit(String? val) => _unit = val;
+  bool hasUnit() => _unit != null;
+
+  // "order_before" field.
+  String? _orderBefore;
+  String get orderBefore => _orderBefore ?? '';
+  set orderBefore(String? val) => _orderBefore = val;
+  bool hasOrderBefore() => _orderBefore != null;
+
+  // "delivery_time" field.
+  String? _deliveryTime;
+  String get deliveryTime => _deliveryTime ?? '';
+  set deliveryTime(String? val) => _deliveryTime = val;
+  bool hasDeliveryTime() => _deliveryTime != null;
+
+  // "delivery_time_max" field.
+  String? _deliveryTimeMax;
+  String get deliveryTimeMax => _deliveryTimeMax ?? '';
+  set deliveryTimeMax(String? val) => _deliveryTimeMax = val;
+  bool hasDeliveryTimeMax() => _deliveryTimeMax != null;
+
+  // "rejects" field.
+  double? _rejects;
+  double get rejects => _rejects ?? 0.0;
+  set rejects(double? val) => _rejects = val;
+  void incrementRejects(double amount) => _rejects = rejects + amount;
+  bool hasRejects() => _rejects != null;
+
+  // "dealer" field.
+  int? _dealer;
+  int get dealer => _dealer ?? 0;
+  set dealer(int? val) => _dealer = val;
+  void incrementDealer(int amount) => _dealer = dealer + amount;
+  bool hasDealer() => _dealer != null;
+
+  // "warehouse_name" field.
+  String? _warehouseName;
+  String get warehouseName => _warehouseName ?? '';
+  set warehouseName(String? val) => _warehouseName = val;
+  bool hasWarehouseName() => _warehouseName != null;
+
+  // "warehouse_key" field.
+  String? _warehouseKey;
+  String get warehouseKey => _warehouseKey ?? '';
+  set warehouseKey(String? val) => _warehouseKey = val;
+  bool hasWarehouseKey() => _warehouseKey != null;
+
+  // "ttl" field.
+  int? _ttl;
+  int get ttl => _ttl ?? 0;
+  set ttl(int? val) => _ttl = val;
+  void incrementTtl(int amount) => _ttl = ttl + amount;
+  bool hasTtl() => _ttl != null;
+
   static SearchResultStruct fromMap(Map<String, dynamic> data) =>
       SearchResultStruct(
         offerKey: data['offer_key'] as String?,
@@ -93,6 +177,16 @@ class SearchResultStruct extends BaseStruct {
         price: data['price'] as String?,
         currency: data['currency'] as String?,
         stock: castToType<int>(data['stock']),
+        amount: castToType<int>(data['amount']),
+        unit: data['unit'] as String?,
+        orderBefore: data['order_before'] as String?,
+        deliveryTime: data['delivery_time'] as String?,
+        deliveryTimeMax: data['delivery_time_max'] as String?,
+        rejects: castToType<double>(data['rejects']),
+        dealer: castToType<int>(data['dealer']),
+        warehouseName: data['warehouse_name'] as String?,
+        warehouseKey: data['warehouse_key'] as String?,
+        ttl: castToType<int>(data['ttl']),
       );
 
   static SearchResultStruct? maybeFromMap(dynamic data) =>
@@ -108,6 +202,16 @@ class SearchResultStruct extends BaseStruct {
         'price': _price,
         'currency': _currency,
         'stock': _stock,
+        'amount': _amount,
+        'unit': _unit,
+        'order_before': _orderBefore,
+        'delivery_time': _deliveryTime,
+        'delivery_time_max': _deliveryTimeMax,
+        'rejects': _rejects,
+        'dealer': _dealer,
+        'warehouse_name': _warehouseName,
+        'warehouse_key': _warehouseKey,
+        'ttl': _ttl,
       }.withoutNulls;
 
   @override
@@ -146,6 +250,46 @@ class SearchResultStruct extends BaseStruct {
         ),
         'stock': serializeParam(
           _stock,
+          ParamType.int,
+        ),
+        'amount': serializeParam(
+          _amount,
+          ParamType.int,
+        ),
+        'unit': serializeParam(
+          _unit,
+          ParamType.String,
+        ),
+        'order_before': serializeParam(
+          _orderBefore,
+          ParamType.String,
+        ),
+        'delivery_time': serializeParam(
+          _deliveryTime,
+          ParamType.String,
+        ),
+        'delivery_time_max': serializeParam(
+          _deliveryTimeMax,
+          ParamType.String,
+        ),
+        'rejects': serializeParam(
+          _rejects,
+          ParamType.double,
+        ),
+        'dealer': serializeParam(
+          _dealer,
+          ParamType.int,
+        ),
+        'warehouse_name': serializeParam(
+          _warehouseName,
+          ParamType.String,
+        ),
+        'warehouse_key': serializeParam(
+          _warehouseKey,
+          ParamType.String,
+        ),
+        'ttl': serializeParam(
+          _ttl,
           ParamType.int,
         ),
       }.withoutNulls;
@@ -197,6 +341,56 @@ class SearchResultStruct extends BaseStruct {
           ParamType.int,
           false,
         ),
+        amount: deserializeParam(
+          data['amount'],
+          ParamType.int,
+          false,
+        ),
+        unit: deserializeParam(
+          data['unit'],
+          ParamType.String,
+          false,
+        ),
+        orderBefore: deserializeParam(
+          data['order_before'],
+          ParamType.String,
+          false,
+        ),
+        deliveryTime: deserializeParam(
+          data['delivery_time'],
+          ParamType.String,
+          false,
+        ),
+        deliveryTimeMax: deserializeParam(
+          data['delivery_time_max'],
+          ParamType.String,
+          false,
+        ),
+        rejects: deserializeParam(
+          data['rejects'],
+          ParamType.double,
+          false,
+        ),
+        dealer: deserializeParam(
+          data['dealer'],
+          ParamType.int,
+          false,
+        ),
+        warehouseName: deserializeParam(
+          data['warehouse_name'],
+          ParamType.String,
+          false,
+        ),
+        warehouseKey: deserializeParam(
+          data['warehouse_key'],
+          ParamType.String,
+          false,
+        ),
+        ttl: deserializeParam(
+          data['ttl'],
+          ParamType.int,
+          false,
+        ),
       );
 
   @override
@@ -213,12 +407,41 @@ class SearchResultStruct extends BaseStruct {
         packing == other.packing &&
         price == other.price &&
         currency == other.currency &&
-        stock == other.stock;
+        stock == other.stock &&
+        amount == other.amount &&
+        unit == other.unit &&
+        orderBefore == other.orderBefore &&
+        deliveryTime == other.deliveryTime &&
+        deliveryTimeMax == other.deliveryTimeMax &&
+        rejects == other.rejects &&
+        dealer == other.dealer &&
+        warehouseName == other.warehouseName &&
+        warehouseKey == other.warehouseKey &&
+        ttl == other.ttl;
   }
 
   @override
-  int get hashCode => const ListEquality().hash(
-      [offerKey, cross, brand, code, name, packing, price, currency, stock]);
+  int get hashCode => const ListEquality().hash([
+        offerKey,
+        cross,
+        brand,
+        code,
+        name,
+        packing,
+        price,
+        currency,
+        stock,
+        amount,
+        unit,
+        orderBefore,
+        deliveryTime,
+        deliveryTimeMax,
+        rejects,
+        dealer,
+        warehouseName,
+        warehouseKey,
+        ttl
+      ]);
 }
 
 SearchResultStruct createSearchResultStruct({
@@ -231,6 +454,16 @@ SearchResultStruct createSearchResultStruct({
   String? price,
   String? currency,
   int? stock,
+  int? amount,
+  String? unit,
+  String? orderBefore,
+  String? deliveryTime,
+  String? deliveryTimeMax,
+  double? rejects,
+  int? dealer,
+  String? warehouseName,
+  String? warehouseKey,
+  int? ttl,
 }) =>
     SearchResultStruct(
       offerKey: offerKey,
@@ -242,4 +475,14 @@ SearchResultStruct createSearchResultStruct({
       price: price,
       currency: currency,
       stock: stock,
+      amount: amount,
+      unit: unit,
+      orderBefore: orderBefore,
+      deliveryTime: deliveryTime,
+      deliveryTimeMax: deliveryTimeMax,
+      rejects: rejects,
+      dealer: dealer,
+      warehouseName: warehouseName,
+      warehouseKey: warehouseKey,
+      ttl: ttl,
     );
