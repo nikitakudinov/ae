@@ -225,53 +225,50 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                     ),
                                   ),
                                 ),
-                                expanded: Container(
-                                  decoration: BoxDecoration(),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Text(
-                                                '',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelSmall,
-                                              ),
-                                            ],
-                                          ),
-                                          Expanded(
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(
-                                                  'Hello World',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
+                                expanded: Builder(
+                                  builder: (context) {
+                                    final resultsRow = FFAppState()
+                                        .sr
+                                        .where((e) =>
+                                            '\"${e.brand}\"' ==
+                                            brandsListViewItem)
+                                        .toList();
+                                    return ListView.builder(
+                                      padding: EdgeInsets.zero,
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      itemCount: resultsRow.length,
+                                      itemBuilder: (context, resultsRowIndex) {
+                                        final resultsRowItem =
+                                            resultsRow[resultsRowIndex];
+                                        return Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              resultsRowItem.deliveryTime,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
                                                       .bodyMedium,
-                                                ),
-                                              ],
                                             ),
-                                          ),
-                                          Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Text(
-                                                'Hello World',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
+                                            Text(
+                                              resultsRowItem.stock.toString(),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                            Text(
+                                              resultsRowItem.price,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  },
                                 ),
                                 theme: ExpandableThemeData(
                                   tapHeaderToExpand: true,
