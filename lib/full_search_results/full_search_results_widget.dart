@@ -183,17 +183,30 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                       itemCount: header.length,
                                       itemBuilder: (context, headerIndex) {
                                         final headerItem = header[headerIndex];
-                                        return Row(
+                                        return Column(
                                           mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              headerItem.brand,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  headerItem.brand,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .bodyMedium,
+                                                ),
+                                                Text(
+                                                  headerItem.code,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
+                                              ],
                                             ),
                                             Text(
-                                              headerItem.code,
+                                              headerItem.name,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium,
@@ -244,7 +257,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                         return Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                              MainAxisAlignment.start,
                                           children: [
                                             Text(
                                               resultsRowItem.deliveryTime,
