@@ -208,13 +208,20 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                             headerItem.brand,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyLarge,
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Plus Jakarta Sans',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                           ),
                                                           Text(
                                                             headerItem.code,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyMedium,
+                                                                .bodyLarge,
                                                           ),
                                                         ],
                                                       ),
