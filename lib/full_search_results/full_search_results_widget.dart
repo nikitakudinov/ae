@@ -272,7 +272,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                     children: [
                                                       Text(
                                                         dateTimeFormat(
-                                                            'd/M H:mm',
+                                                            'relative',
                                                             functions.newCustomFunction3(
                                                                 resultsRowItem
                                                                     .deliveryTimeMax)),
