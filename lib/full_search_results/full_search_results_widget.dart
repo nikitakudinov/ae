@@ -272,10 +272,19 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                     children: [
                                                       Text(
                                                         dateTimeFormat(
-                                                            'relative',
-                                                            functions.newCustomFunction3(
-                                                                resultsRowItem
-                                                                    .deliveryTimeMax)),
+                                                          'relative',
+                                                          functions
+                                                              .newCustomFunction3(
+                                                                  resultsRowItem
+                                                                      .deliveryTimeMax),
+                                                          locale: FFLocalizations
+                                                                      .of(
+                                                                          context)
+                                                                  .languageShortCode ??
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .languageCode,
+                                                        ),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
