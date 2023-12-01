@@ -276,7 +276,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                 resultsRowItem
                                                                     .deliveryTimeMax
                                                             ? dateTimeFormat(
-                                                                'dMMM',
+                                                                'd MMM',
                                                                 functions.newCustomFunction3(
                                                                     resultsRowItem
                                                                         .deliveryTime),
@@ -324,7 +324,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodySmall,
                                                       ),
                                                     ],
                                                   ),
