@@ -272,6 +272,23 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                     children: [
                                                       Text(
                                                         dateTimeFormat(
+                                                          'Мсц д,',
+                                                          functions
+                                                              .newCustomFunction3(
+                                                                  resultsRowItem
+                                                                      .deliveryTime),
+                                                          locale:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .languageCode,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
+                                                      ),
+                                                      Text(
+                                                        dateTimeFormat(
                                                           'Hm',
                                                           functions
                                                               .newCustomFunction3(
