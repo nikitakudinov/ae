@@ -163,7 +163,6 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                         return Container(
                           height: 200.0,
                           child: Container(
-                            width: double.infinity,
                             color: Colors.white,
                             child: ExpandableNotifier(
                               child: ExpandablePanel(
