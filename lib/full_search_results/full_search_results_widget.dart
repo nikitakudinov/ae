@@ -307,33 +307,6 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                 .bodyMedium,
                                                       ),
                                                       Text(
-                                                        '${dateTimeFormat(
-                                                          'd',
-                                                          functions
-                                                              .newCustomFunction3(
-                                                                  resultsRowItem
-                                                                      .deliveryTime),
-                                                          locale:
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .languageCode,
-                                                        )}-${dateTimeFormat(
-                                                          'dMMM',
-                                                          functions
-                                                              .newCustomFunction3(
-                                                                  resultsRowItem
-                                                                      .deliveryTimeMax),
-                                                          locale:
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .languageCode,
-                                                        )}',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium,
-                                                      ),
-                                                      Text(
                                                         dateTimeFormat(
                                                           'Hm',
                                                           functions
