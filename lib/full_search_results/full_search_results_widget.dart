@@ -226,12 +226,20 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                         ].divide(SizedBox(
                                                             width: 20.0)),
                                                       ),
-                                                      Text(
-                                                        headerItem.name,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium,
+                                                      Container(
+                                                        width:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .width *
+                                                                1.0,
+                                                        decoration:
+                                                            BoxDecoration(),
+                                                        child: Text(
+                                                          headerItem.name,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
                                                       ),
                                                     ],
                                                   );
