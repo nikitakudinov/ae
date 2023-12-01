@@ -249,6 +249,9 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                 return Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
                                                     Column(
                                                       mainAxisSize:
