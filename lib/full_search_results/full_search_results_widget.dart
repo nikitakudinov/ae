@@ -271,8 +271,8 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                         MainAxisSize.max,
                                                     children: [
                                                       Text(
-                                                        dateTimeFormat(
-                                                          'B,d',
+                                                        '${dateTimeFormat(
+                                                          'd',
                                                           functions
                                                               .newCustomFunction3(
                                                                   resultsRowItem
@@ -281,7 +281,17 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .languageCode,
-                                                        ),
+                                                        )}-${dateTimeFormat(
+                                                          'dMMM',
+                                                          functions
+                                                              .newCustomFunction3(
+                                                                  resultsRowItem
+                                                                      .deliveryTimeMax),
+                                                          locale:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .languageCode,
+                                                        )}',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -315,8 +325,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                           MainAxisSize.max,
                                                       children: [
                                                         Text(
-                                                          resultsRowItem.stock
-                                                              .toString(),
+                                                          '${resultsRowItem.amount.toString()}${resultsRowItem.unit}',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium,
