@@ -600,7 +600,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                           builder: (context) {
                             final cross0 = FFAppState()
                                 .sr
-                                .where((e) => e.cross == 'null')
+                                .where((e) => e.cross == null || e.cross == '')
                                 .toList();
                             return ListView.builder(
                               padding: EdgeInsets.zero,
