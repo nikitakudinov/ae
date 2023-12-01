@@ -269,6 +269,9 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                   Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
                                                     children: [
                                                       Text(
                                                         resultsRowItem
