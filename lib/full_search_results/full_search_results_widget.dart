@@ -224,32 +224,36 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                             );
                                           },
                                         ),
-                                        collapsed: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          height: 40.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                          ),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 8.0, 0.0, 0.0),
-                                            child: Text(
-                                              'Lorem ipsum dolor sit amet, consectetur adipiscing...',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Plus Jakarta Sans',
-                                                        color:
-                                                            Color(0x8A000000),
-                                                      ),
-                                            ),
-                                          ),
+                                        collapsed: Builder(
+                                          builder: (context) {
+                                            final lowerPrice = FFAppState()
+                                                .sr
+                                                .where((e) =>
+                                                    '\"${e.brand}\"' ==
+                                                    brandsListViewItem)
+                                                .toList()
+                                                .sortedList((e) => e.price)
+                                                .take(5)
+                                                .toList();
+                                            return ListView.builder(
+                                              padding: EdgeInsets.zero,
+                                              shrinkWrap: true,
+                                              scrollDirection: Axis.vertical,
+                                              itemCount: lowerPrice.length,
+                                              itemBuilder:
+                                                  (context, lowerPriceIndex) {
+                                                final lowerPriceItem =
+                                                    lowerPrice[lowerPriceIndex];
+                                                return Text(
+                                                  lowerPriceItem.price
+                                                      .toString(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                );
+                                              },
+                                            );
+                                          },
                                         ),
                                         expanded: Builder(
                                           builder: (context) {
