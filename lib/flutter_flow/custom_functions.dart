@@ -69,12 +69,15 @@ List<String>? newCustomFunction2(List<dynamic>? jsonArray) {
 }
 
 DateTime? newCustomFunction3(String? date) {
-  // string to date and translate date to russian
-  if (date == null) return null;
-  final formatter = DateFormat('yyyy-MM-dd');
-  final parsedDate = formatter.parse(date);
-  final russianDate = timeago.format(parsedDate, locale: 'ru');
-  return parsedDate;
+  // string to date
+  if (date == null) {
+    return null;
+  }
+  try {
+    return DateFormat('yyyy-MM-dd').parse(date);
+  } catch (e) {
+    return null;
+  }
 }
 
 DateTime? newCustomFunction4(DateTime? date) {
