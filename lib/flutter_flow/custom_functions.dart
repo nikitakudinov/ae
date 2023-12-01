@@ -67,3 +67,13 @@ List<String>? newCustomFunction2(List<dynamic>? jsonArray) {
 
   return result;
 }
+
+DateTime? newCustomFunction3(String? date) {
+  // convert string to date
+  if (date == null) return null;
+  try {
+    return DateFormat('yyyy-MM-dd').parse(date);
+  } catch (e) {
+    return null;
+  }
+}

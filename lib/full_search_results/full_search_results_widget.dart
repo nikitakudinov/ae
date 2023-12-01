@@ -271,8 +271,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                         MainAxisSize.max,
                                                     children: [
                                                       Text(
-                                                        resultsRowItem
-                                                            .deliveryTime,
+                                                        'Hello World',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
