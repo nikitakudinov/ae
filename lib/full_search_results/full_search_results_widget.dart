@@ -272,7 +272,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                     children: [
                                                       Text(
                                                         dateTimeFormat(
-                                                          'Мсц д,',
+                                                          'B,d',
                                                           functions
                                                               .newCustomFunction3(
                                                                   resultsRowItem
