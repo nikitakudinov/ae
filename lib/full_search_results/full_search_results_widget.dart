@@ -312,7 +312,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                             ),
                                             Builder(
                                               builder: (context) {
-                                                final lowerPrice = FFAppState()
+                                                final fastestDelivery = FFAppState()
                                                     .sr
                                                     .where((e) =>
                                                         '\"${e.brand}\"' ==
@@ -329,12 +329,13 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                   shrinkWrap: true,
                                                   scrollDirection:
                                                       Axis.vertical,
-                                                  itemCount: lowerPrice.length,
+                                                  itemCount:
+                                                      fastestDelivery.length,
                                                   itemBuilder: (context,
-                                                      lowerPriceIndex) {
-                                                    final lowerPriceItem =
-                                                        lowerPrice[
-                                                            lowerPriceIndex];
+                                                      fastestDeliveryIndex) {
+                                                    final fastestDeliveryItem =
+                                                        fastestDelivery[
+                                                            fastestDeliveryIndex];
                                                     return Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -359,7 +360,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                               MainAxisSize.max,
                                                           children: [
                                                             Text(
-                                                              lowerPriceItem
+                                                              fastestDeliveryItem
                                                                   .price
                                                                   .toString(),
                                                               style: FlutterFlowTheme
@@ -376,7 +377,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                               dateTimeFormat(
                                                                 'relative',
                                                                 functions.newCustomFunction3(
-                                                                    lowerPriceItem
+                                                                    fastestDeliveryItem
                                                                         .deliveryTime),
                                                                 locale: FFLocalizations.of(
                                                                         context)
