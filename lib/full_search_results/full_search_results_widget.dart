@@ -140,8 +140,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                       EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.circular(5.0),
+                      borderRadius: BorderRadius.circular(0.0),
                     ),
                     child: Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -162,7 +161,11 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
                                 child: Container(
-                                  decoration: BoxDecoration(),
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(5.0),
+                                  ),
                                   child: Container(
                                     color: Colors.white,
                                     child: ExpandableNotifier(
