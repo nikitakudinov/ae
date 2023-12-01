@@ -273,9 +273,10 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                       Text(
                                                         valueOrDefault<String>(
                                                           functions
-                                                              .newCustomFunction3(
-                                                                  resultsRowItem
-                                                                      .deliveryTime)
+                                                              .newCustomFunction4(
+                                                                  functions.newCustomFunction3(
+                                                                      resultsRowItem
+                                                                          .deliveryTime))
                                                               ?.toString(),
                                                           '0',
                                                         ),
