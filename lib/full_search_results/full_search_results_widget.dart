@@ -240,13 +240,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                 '',
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Plus Jakarta Sans',
-                                                          color:
-                                                              Color(0x8A000000),
-                                                        ),
+                                                        .labelSmall,
                                               ),
                                             ],
                                           ),
