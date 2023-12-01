@@ -271,6 +271,42 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                         MainAxisSize.max,
                                                     children: [
                                                       Text(
+                                                        resultsRowItem
+                                                                    .deliveryTime ==
+                                                                resultsRowItem
+                                                                    .deliveryTimeMax
+                                                            ? dateTimeFormat(
+                                                                'dMMM',
+                                                                functions.newCustomFunction3(
+                                                                    resultsRowItem
+                                                                        .deliveryTime),
+                                                                locale: FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode,
+                                                              )
+                                                            : '${dateTimeFormat(
+                                                                'd',
+                                                                functions.newCustomFunction3(
+                                                                    resultsRowItem
+                                                                        .deliveryTime),
+                                                                locale: FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode,
+                                                              )}-${dateTimeFormat(
+                                                                'dMMM',
+                                                                functions.newCustomFunction3(
+                                                                    resultsRowItem
+                                                                        .deliveryTimeMax),
+                                                                locale: FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode,
+                                                              )}',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
+                                                      ),
+                                                      Text(
                                                         '${dateTimeFormat(
                                                           'd',
                                                           functions
@@ -338,7 +374,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                         MainAxisSize.max,
                                                     children: [
                                                       Text(
-                                                        resultsRowItem.price,
+                                                        '${resultsRowItem.price}',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
