@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -160,46 +161,88 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                         final brandsListViewItem =
                             brandsListView[brandsListViewIndex];
                         return Container(
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                          ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                brandsListViewItem,
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                          height: 200.0,
+                          child: Container(
+                            width: double.infinity,
+                            color: Colors.white,
+                            child: ExpandableNotifier(
+                              child: ExpandablePanel(
+                                header: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      brandsListViewItem,
+                                      style: FlutterFlowTheme.of(context)
+                                          .labelLarge,
+                                    ),
+                                    Text(
+                                      'Hello World',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    ),
+                                  ].divide(SizedBox(width: 10.0)),
+                                ),
+                                collapsed: Container(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  height: 40.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 8.0, 0.0, 0.0),
+                                    child: Text(
+                                      'Lorem ipsum dolor sit amet, consectetur adipiscing...',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Plus Jakarta Sans',
+                                            color: Color(0x8A000000),
+                                          ),
+                                    ),
+                                  ),
+                                ),
+                                expanded: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Plus Jakarta Sans',
+                                            color: Color(0x8A000000),
+                                          ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 4.0, 0.0, 0.0),
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.network(
+                                          'https://picsum.photos/seed/951/600',
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 200.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                theme: ExpandableThemeData(
+                                  tapHeaderToExpand: true,
+                                  tapBodyToExpand: false,
+                                  tapBodyToCollapse: false,
+                                  headerAlignment:
+                                      ExpandablePanelHeaderAlignment.center,
+                                  hasIcon: true,
+                                ),
                               ),
-                              Builder(
-                                builder: (context) {
-                                  final asss = FFAppState()
-                                      .sr
-                                      .map((e) => e)
-                                      .toList()
-                                      .where((e) =>
-                                          '\"${e.brand}\"' ==
-                                          brandsListViewItem)
-                                      .toList();
-                                  return ListView.builder(
-                                    padding: EdgeInsets.zero,
-                                    primary: false,
-                                    shrinkWrap: true,
-                                    scrollDirection: Axis.vertical,
-                                    itemCount: asss.length,
-                                    itemBuilder: (context, asssIndex) {
-                                      final asssItem = asss[asssIndex];
-                                      return Text(
-                                        asssItem.code,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                      );
-                                    },
-                                  );
-                                },
-                              ),
-                            ],
+                            ),
                           ),
                         );
                       },
