@@ -271,11 +271,14 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                         MainAxisSize.max,
                                                     children: [
                                                       Text(
-                                                        dateTimeFormat(
-                                                            'MMMEd',
-                                                            functions.newCustomFunction3(
-                                                                resultsRowItem
-                                                                    .deliveryTime)),
+                                                        valueOrDefault<String>(
+                                                          functions
+                                                              .newCustomFunction3(
+                                                                  resultsRowItem
+                                                                      .deliveryTime)
+                                                              ?.toString(),
+                                                          '0',
+                                                        ),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
