@@ -195,7 +195,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyLarge,
                                                       ),
                                                       Text(
                                                         headerItem.code,
@@ -261,28 +261,51 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                               final resultsRowItem =
                                                   resultsRow[resultsRowIndex];
                                               return Row(
-                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisSize: MainAxisSize.min,
                                                 mainAxisAlignment:
-                                                    MainAxisAlignment.start,
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
                                                 children: [
-                                                  Text(
-                                                    resultsRowItem.deliveryTime,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Text(
+                                                        resultsRowItem
+                                                            .deliveryTime,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
+                                                      ),
+                                                    ],
                                                   ),
-                                                  Text(
-                                                    resultsRowItem.stock
-                                                        .toString(),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Text(
+                                                        resultsRowItem.stock
+                                                            .toString(),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
+                                                      ),
+                                                    ],
                                                   ),
-                                                  Text(
-                                                    resultsRowItem.price,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Text(
+                                                        resultsRowItem.price,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
+                                                      ),
+                                                    ],
                                                   ),
                                                 ],
                                               );
