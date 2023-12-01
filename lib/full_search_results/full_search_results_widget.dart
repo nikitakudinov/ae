@@ -133,171 +133,182 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                   FFAppState().sr.length.toString(),
                   style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
-                Builder(
-                  builder: (context) {
-                    final brands = FFAppState().brands.toList();
-                    return Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: List.generate(brands.length, (brandsIndex) {
-                        final brandsItem = brands[brandsIndex];
-                        return Text(
-                          brandsItem,
-                          style: FlutterFlowTheme.of(context).bodyMedium,
-                        );
-                      }).divide(SizedBox(width: 10.0)),
-                    );
-                  },
-                ),
-                Builder(
-                  builder: (context) {
-                    final brandsListView = FFAppState().brands.toList();
-                    return ListView.builder(
-                      padding: EdgeInsets.zero,
-                      primary: false,
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      itemCount: brandsListView.length,
-                      itemBuilder: (context, brandsListViewIndex) {
-                        final brandsListViewItem =
-                            brandsListView[brandsListViewIndex];
-                        return Container(
-                          decoration: BoxDecoration(),
-                          child: Container(
-                            color: Colors.white,
-                            child: ExpandableNotifier(
-                              child: ExpandablePanel(
-                                header: Builder(
-                                  builder: (context) {
-                                    final header = FFAppState()
-                                        .sr
-                                        .where((e) =>
-                                            '\"${e.brand}\"' ==
-                                            brandsListViewItem)
-                                        .toList()
-                                        .take(1)
-                                        .toList();
-                                    return ListView.builder(
-                                      padding: EdgeInsets.zero,
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.vertical,
-                                      itemCount: header.length,
-                                      itemBuilder: (context, headerIndex) {
-                                        final headerItem = header[headerIndex];
-                                        return Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(
-                                                  headerItem.brand,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          10.0, 10.0, 10.0, 10.0),
+                      child: Builder(
+                        builder: (context) {
+                          final brandsListView = FFAppState().brands.toList();
+                          return ListView.builder(
+                            padding: EdgeInsets.zero,
+                            primary: false,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: brandsListView.length,
+                            itemBuilder: (context, brandsListViewIndex) {
+                              final brandsListViewItem =
+                                  brandsListView[brandsListViewIndex];
+                              return Container(
+                                decoration: BoxDecoration(),
+                                child: Container(
+                                  color: Colors.white,
+                                  child: ExpandableNotifier(
+                                    child: ExpandablePanel(
+                                      header: Builder(
+                                        builder: (context) {
+                                          final header = FFAppState()
+                                              .sr
+                                              .where((e) =>
+                                                  '\"${e.brand}\"' ==
+                                                  brandsListViewItem)
+                                              .toList()
+                                              .take(1)
+                                              .toList();
+                                          return ListView.builder(
+                                            padding: EdgeInsets.zero,
+                                            shrinkWrap: true,
+                                            scrollDirection: Axis.vertical,
+                                            itemCount: header.length,
+                                            itemBuilder:
+                                                (context, headerIndex) {
+                                              final headerItem =
+                                                  header[headerIndex];
+                                              return Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Text(
+                                                        headerItem.brand,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
+                                                      ),
+                                                      Text(
+                                                        headerItem.code,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Text(
+                                                    headerItem.name,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          );
+                                        },
+                                      ),
+                                      collapsed: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        height: 40.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 0.0),
+                                          child: Text(
+                                            'Lorem ipsum dolor sit amet, consectetur adipiscing...',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily:
+                                                      'Plus Jakarta Sans',
+                                                  color: Color(0x8A000000),
                                                 ),
-                                                Text(
-                                                  headerItem.code,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                ),
-                                              ],
-                                            ),
-                                            Text(
-                                              headerItem.name,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    );
-                                  },
-                                ),
-                                collapsed: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 40.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 8.0, 0.0, 0.0),
-                                    child: Text(
-                                      'Lorem ipsum dolor sit amet, consectetur adipiscing...',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Plus Jakarta Sans',
-                                            color: Color(0x8A000000),
                                           ),
+                                        ),
+                                      ),
+                                      expanded: Builder(
+                                        builder: (context) {
+                                          final resultsRow = FFAppState()
+                                              .sr
+                                              .where((e) =>
+                                                  '\"${e.brand}\"' ==
+                                                  brandsListViewItem)
+                                              .toList();
+                                          return ListView.builder(
+                                            padding: EdgeInsets.zero,
+                                            shrinkWrap: true,
+                                            scrollDirection: Axis.vertical,
+                                            itemCount: resultsRow.length,
+                                            itemBuilder:
+                                                (context, resultsRowIndex) {
+                                              final resultsRowItem =
+                                                  resultsRow[resultsRowIndex];
+                                              return Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    resultsRowItem.deliveryTime,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
+                                                  Text(
+                                                    resultsRowItem.stock
+                                                        .toString(),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
+                                                  Text(
+                                                    resultsRowItem.price,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          );
+                                        },
+                                      ),
+                                      theme: ExpandableThemeData(
+                                        tapHeaderToExpand: true,
+                                        tapBodyToExpand: false,
+                                        tapBodyToCollapse: false,
+                                        headerAlignment:
+                                            ExpandablePanelHeaderAlignment
+                                                .center,
+                                        hasIcon: true,
+                                      ),
                                     ),
                                   ),
                                 ),
-                                expanded: Builder(
-                                  builder: (context) {
-                                    final resultsRow = FFAppState()
-                                        .sr
-                                        .where((e) =>
-                                            '\"${e.brand}\"' ==
-                                            brandsListViewItem)
-                                        .toList();
-                                    return ListView.builder(
-                                      padding: EdgeInsets.zero,
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.vertical,
-                                      itemCount: resultsRow.length,
-                                      itemBuilder: (context, resultsRowIndex) {
-                                        final resultsRowItem =
-                                            resultsRow[resultsRowIndex];
-                                        return Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              resultsRowItem.deliveryTime,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
-                                            ),
-                                            Text(
-                                              resultsRowItem.stock.toString(),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
-                                            ),
-                                            Text(
-                                              resultsRowItem.price,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    );
-                                  },
-                                ),
-                                theme: ExpandableThemeData(
-                                  tapHeaderToExpand: true,
-                                  tapBodyToExpand: false,
-                                  tapBodyToCollapse: false,
-                                  headerAlignment:
-                                      ExpandablePanelHeaderAlignment.center,
-                                  hasIcon: true,
-                                ),
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    );
-                  },
+                              );
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
