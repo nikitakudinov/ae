@@ -450,101 +450,108 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                   final resultsRowItem =
                                                       resultsRow[
                                                           resultsRowIndex];
-                                                  return Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Text(
-                                                            resultsRowItem
-                                                                        .deliveryTime ==
-                                                                    resultsRowItem
-                                                                        .deliveryTimeMax
-                                                                ? dateTimeFormat(
-                                                                    'd MMM',
-                                                                    functions.newCustomFunction3(
-                                                                        resultsRowItem
-                                                                            .deliveryTime),
-                                                                    locale: FFLocalizations.of(
-                                                                            context)
-                                                                        .languageCode,
-                                                                  )
-                                                                : '${dateTimeFormat(
-                                                                    'd',
-                                                                    functions.newCustomFunction3(
-                                                                        resultsRowItem
-                                                                            .deliveryTime),
-                                                                    locale: FFLocalizations.of(
-                                                                            context)
-                                                                        .languageCode,
-                                                                  )}-${dateTimeFormat(
-                                                                    'dMMM',
-                                                                    functions.newCustomFunction3(
-                                                                        resultsRowItem
-                                                                            .deliveryTimeMax),
-                                                                    locale: FFLocalizations.of(
-                                                                            context)
-                                                                        .languageCode,
-                                                                  )}',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                          Text(
-                                                            dateTimeFormat(
-                                                              'Hm',
-                                                              functions.newCustomFunction3(
-                                                                  resultsRowItem
-                                                                      .deliveryTimeMax),
-                                                              locale: FFLocalizations.of(
-                                                                          context)
-                                                                      .languageShortCode ??
-                                                                  FFLocalizations.of(
-                                                                          context)
-                                                                      .languageCode,
+                                                  return Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 5.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Text(
+                                                              resultsRowItem
+                                                                          .deliveryTime ==
+                                                                      resultsRowItem
+                                                                          .deliveryTimeMax
+                                                                  ? dateTimeFormat(
+                                                                      'd MMM',
+                                                                      functions.newCustomFunction3(
+                                                                          resultsRowItem
+                                                                              .deliveryTime),
+                                                                      locale: FFLocalizations.of(
+                                                                              context)
+                                                                          .languageCode,
+                                                                    )
+                                                                  : '${dateTimeFormat(
+                                                                      'd',
+                                                                      functions.newCustomFunction3(
+                                                                          resultsRowItem
+                                                                              .deliveryTime),
+                                                                      locale: FFLocalizations.of(
+                                                                              context)
+                                                                          .languageCode,
+                                                                    )}-${dateTimeFormat(
+                                                                      'dMMM',
+                                                                      functions.newCustomFunction3(
+                                                                          resultsRowItem
+                                                                              .deliveryTimeMax),
+                                                                      locale: FFLocalizations.of(
+                                                                              context)
+                                                                          .languageCode,
+                                                                    )}',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium,
                                                             ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodySmall,
+                                                            Text(
+                                                              dateTimeFormat(
+                                                                'Hm',
+                                                                functions.newCustomFunction3(
+                                                                    resultsRowItem
+                                                                        .deliveryTimeMax),
+                                                                locale: FFLocalizations.of(
+                                                                            context)
+                                                                        .languageShortCode ??
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .languageCode,
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodySmall,
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Expanded(
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Text(
+                                                                '${resultsRowItem.amount.toString()}${resultsRowItem.unit}',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium,
+                                                              ),
+                                                            ],
                                                           ),
-                                                        ],
-                                                      ),
-                                                      Expanded(
-                                                        child: Column(
+                                                        ),
+                                                        Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
                                                           children: [
                                                             Text(
-                                                              '${resultsRowItem.amount.toString()}${resultsRowItem.unit}',
+                                                              '${resultsRowItem.price.toString()}',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium,
                                                             ),
                                                           ],
                                                         ),
-                                                      ),
-                                                      Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Text(
-                                                            '${resultsRowItem.price.toString()}',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ],
+                                                      ],
+                                                    ),
                                                   );
                                                 },
                                               );
