@@ -223,7 +223,8 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                     .of(context)
                                                                 .bodyLarge,
                                                           ),
-                                                        ],
+                                                        ].divide(SizedBox(
+                                                            width: 20.0)),
                                                       ),
                                                       Text(
                                                         headerItem.name,
