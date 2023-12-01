@@ -166,365 +166,380 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                         .secondaryBackground,
                                     borderRadius: BorderRadius.circular(5.0),
                                   ),
-                                  child: Container(
-                                    color: Colors.white,
-                                    child: ExpandableNotifier(
-                                      child: ExpandablePanel(
-                                        header: Builder(
-                                          builder: (context) {
-                                            final header = FFAppState()
-                                                .sr
-                                                .where((e) =>
-                                                    '\"${e.brand}\"' ==
-                                                    brandsListViewItem)
-                                                .toList()
-                                                .take(1)
-                                                .toList();
-                                            return ListView.builder(
-                                              padding: EdgeInsets.zero,
-                                              primary: false,
-                                              shrinkWrap: true,
-                                              scrollDirection: Axis.vertical,
-                                              itemCount: header.length,
-                                              itemBuilder:
-                                                  (context, headerIndex) {
-                                                final headerItem =
-                                                    header[headerIndex];
-                                                return Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Text(
-                                                          headerItem.brand,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyLarge,
-                                                        ),
-                                                        Text(
-                                                          headerItem.code,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Text(
-                                                      headerItem.name,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
-                                                    ),
-                                                  ],
-                                                );
-                                              },
-                                            );
-                                          },
-                                        ),
-                                        collapsed: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Builder(
-                                              builder: (context) {
-                                                final lowerPrice = FFAppState()
-                                                    .sr
-                                                    .where((e) =>
-                                                        '\"${e.brand}\"' ==
-                                                        brandsListViewItem)
-                                                    .toList()
-                                                    .sortedList((e) => e.price)
-                                                    .take(5)
-                                                    .toList()
-                                                    .take(1)
-                                                    .toList();
-                                                return ListView.builder(
-                                                  padding: EdgeInsets.zero,
-                                                  shrinkWrap: true,
-                                                  scrollDirection:
-                                                      Axis.vertical,
-                                                  itemCount: lowerPrice.length,
-                                                  itemBuilder: (context,
-                                                      lowerPriceIndex) {
-                                                    final lowerPriceItem =
-                                                        lowerPrice[
-                                                            lowerPriceIndex];
-                                                    return Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Text(
-                                                              'Подешевле',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Text(
-                                                              lowerPriceItem
-                                                                  .price
-                                                                  .toString(),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Text(
-                                                              dateTimeFormat(
-                                                                'relative',
-                                                                functions.newCustomFunction3(
-                                                                    lowerPriceItem
-                                                                        .deliveryTime),
-                                                                locale: FFLocalizations.of(
-                                                                        context)
-                                                                    .languageCode,
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ],
-                                                    );
-                                                  },
-                                                );
-                                              },
-                                            ),
-                                            Builder(
-                                              builder: (context) {
-                                                final fastestDelivery = FFAppState()
-                                                    .sr
-                                                    .where((e) =>
-                                                        '\"${e.brand}\"' ==
-                                                        brandsListViewItem)
-                                                    .toList()
-                                                    .sortedList(
-                                                        (e) => e.deliveryTime)
-                                                    .take(5)
-                                                    .toList()
-                                                    .take(1)
-                                                    .toList();
-                                                return ListView.builder(
-                                                  padding: EdgeInsets.zero,
-                                                  shrinkWrap: true,
-                                                  scrollDirection:
-                                                      Axis.vertical,
-                                                  itemCount:
-                                                      fastestDelivery.length,
-                                                  itemBuilder: (context,
-                                                      fastestDeliveryIndex) {
-                                                    final fastestDeliveryItem =
-                                                        fastestDelivery[
-                                                            fastestDeliveryIndex];
-                                                    return Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Text(
-                                                              'Побыстрей',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Text(
-                                                              fastestDeliveryItem
-                                                                  .price
-                                                                  .toString(),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Text(
-                                                              dateTimeFormat(
-                                                                'relative',
-                                                                functions.newCustomFunction3(
-                                                                    fastestDeliveryItem
-                                                                        .deliveryTime),
-                                                                locale: FFLocalizations.of(
-                                                                        context)
-                                                                    .languageCode,
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ],
-                                                    );
-                                                  },
-                                                );
-                                              },
-                                            ),
-                                          ],
-                                        ),
-                                        expanded: Builder(
-                                          builder: (context) {
-                                            final resultsRow = FFAppState()
-                                                .sr
-                                                .where((e) =>
-                                                    '\"${e.brand}\"' ==
-                                                    brandsListViewItem)
-                                                .toList();
-                                            return ListView.builder(
-                                              padding: EdgeInsets.zero,
-                                              shrinkWrap: true,
-                                              scrollDirection: Axis.vertical,
-                                              itemCount: resultsRow.length,
-                                              itemBuilder:
-                                                  (context, resultsRowIndex) {
-                                                final resultsRowItem =
-                                                    resultsRow[resultsRowIndex];
-                                                return Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Text(
-                                                          resultsRowItem
-                                                                      .deliveryTime ==
-                                                                  resultsRowItem
-                                                                      .deliveryTimeMax
-                                                              ? dateTimeFormat(
-                                                                  'd MMM',
-                                                                  functions.newCustomFunction3(
-                                                                      resultsRowItem
-                                                                          .deliveryTime),
-                                                                  locale: FFLocalizations.of(
-                                                                          context)
-                                                                      .languageCode,
-                                                                )
-                                                              : '${dateTimeFormat(
-                                                                  'd',
-                                                                  functions.newCustomFunction3(
-                                                                      resultsRowItem
-                                                                          .deliveryTime),
-                                                                  locale: FFLocalizations.of(
-                                                                          context)
-                                                                      .languageCode,
-                                                                )}-${dateTimeFormat(
-                                                                  'dMMM',
-                                                                  functions.newCustomFunction3(
-                                                                      resultsRowItem
-                                                                          .deliveryTimeMax),
-                                                                  locale: FFLocalizations.of(
-                                                                          context)
-                                                                      .languageCode,
-                                                                )}',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
-                                                        ),
-                                                        Text(
-                                                          dateTimeFormat(
-                                                            'Hm',
-                                                            functions.newCustomFunction3(
-                                                                resultsRowItem
-                                                                    .deliveryTimeMax),
-                                                            locale: FFLocalizations.of(
-                                                                        context)
-                                                                    .languageShortCode ??
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .languageCode,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodySmall,
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Expanded(
-                                                      child: Column(
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 10.0, 10.0, 10.0),
+                                    child: Container(
+                                      color: Colors.white,
+                                      child: ExpandableNotifier(
+                                        child: ExpandablePanel(
+                                          header: Builder(
+                                            builder: (context) {
+                                              final header = FFAppState()
+                                                  .sr
+                                                  .where((e) =>
+                                                      '\"${e.brand}\"' ==
+                                                      brandsListViewItem)
+                                                  .toList()
+                                                  .take(1)
+                                                  .toList();
+                                              return ListView.builder(
+                                                padding: EdgeInsets.zero,
+                                                primary: false,
+                                                shrinkWrap: true,
+                                                scrollDirection: Axis.vertical,
+                                                itemCount: header.length,
+                                                itemBuilder:
+                                                    (context, headerIndex) {
+                                                  final headerItem =
+                                                      header[headerIndex];
+                                                  return Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
                                                         children: [
                                                           Text(
-                                                            '${resultsRowItem.amount.toString()}${resultsRowItem.unit}',
+                                                            headerItem.brand,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyLarge,
+                                                          ),
+                                                          Text(
+                                                            headerItem.code,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium,
                                                           ),
                                                         ],
                                                       ),
-                                                    ),
-                                                    Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Text(
-                                                          '${resultsRowItem.price.toString()}',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
+                                                      Text(
+                                                        headerItem.name,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
+                                                      ),
+                                                    ],
+                                                  );
+                                                },
+                                              );
+                                            },
+                                          ),
+                                          collapsed: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Builder(
+                                                builder: (context) {
+                                                  final lowerPrice = FFAppState()
+                                                      .sr
+                                                      .where((e) =>
+                                                          '\"${e.brand}\"' ==
+                                                          brandsListViewItem)
+                                                      .toList()
+                                                      .sortedList(
+                                                          (e) => e.price)
+                                                      .take(5)
+                                                      .toList()
+                                                      .take(1)
+                                                      .toList();
+                                                  return ListView.builder(
+                                                    padding: EdgeInsets.zero,
+                                                    shrinkWrap: true,
+                                                    scrollDirection:
+                                                        Axis.vertical,
+                                                    itemCount:
+                                                        lowerPrice.length,
+                                                    itemBuilder: (context,
+                                                        lowerPriceIndex) {
+                                                      final lowerPriceItem =
+                                                          lowerPrice[
+                                                              lowerPriceIndex];
+                                                      return Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Text(
+                                                                'Подешевле',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium,
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Text(
+                                                                lowerPriceItem
+                                                                    .price
+                                                                    .toString(),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium,
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Text(
+                                                                dateTimeFormat(
+                                                                  'relative',
+                                                                  functions.newCustomFunction3(
+                                                                      lowerPriceItem
+                                                                          .deliveryTime),
+                                                                  locale: FFLocalizations.of(
+                                                                          context)
+                                                                      .languageCode,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium,
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ],
+                                                      );
+                                                    },
+                                                  );
+                                                },
+                                              ),
+                                              Builder(
+                                                builder: (context) {
+                                                  final fastestDelivery =
+                                                      FFAppState()
+                                                          .sr
+                                                          .where((e) =>
+                                                              '\"${e.brand}\"' ==
+                                                              brandsListViewItem)
+                                                          .toList()
+                                                          .sortedList((e) =>
+                                                              e.deliveryTime)
+                                                          .take(5)
+                                                          .toList()
+                                                          .take(1)
+                                                          .toList();
+                                                  return ListView.builder(
+                                                    padding: EdgeInsets.zero,
+                                                    shrinkWrap: true,
+                                                    scrollDirection:
+                                                        Axis.vertical,
+                                                    itemCount:
+                                                        fastestDelivery.length,
+                                                    itemBuilder: (context,
+                                                        fastestDeliveryIndex) {
+                                                      final fastestDeliveryItem =
+                                                          fastestDelivery[
+                                                              fastestDeliveryIndex];
+                                                      return Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Text(
+                                                                'Побыстрей',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium,
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Text(
+                                                                fastestDeliveryItem
+                                                                    .price
+                                                                    .toString(),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium,
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Text(
+                                                                dateTimeFormat(
+                                                                  'relative',
+                                                                  functions.newCustomFunction3(
+                                                                      fastestDeliveryItem
+                                                                          .deliveryTime),
+                                                                  locale: FFLocalizations.of(
+                                                                          context)
+                                                                      .languageCode,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium,
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ],
+                                                      );
+                                                    },
+                                                  );
+                                                },
+                                              ),
+                                            ],
+                                          ),
+                                          expanded: Builder(
+                                            builder: (context) {
+                                              final resultsRow = FFAppState()
+                                                  .sr
+                                                  .where((e) =>
+                                                      '\"${e.brand}\"' ==
+                                                      brandsListViewItem)
+                                                  .toList();
+                                              return ListView.builder(
+                                                padding: EdgeInsets.zero,
+                                                shrinkWrap: true,
+                                                scrollDirection: Axis.vertical,
+                                                itemCount: resultsRow.length,
+                                                itemBuilder:
+                                                    (context, resultsRowIndex) {
+                                                  final resultsRowItem =
+                                                      resultsRow[
+                                                          resultsRowIndex];
+                                                  return Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Text(
+                                                            resultsRowItem
+                                                                        .deliveryTime ==
+                                                                    resultsRowItem
+                                                                        .deliveryTimeMax
+                                                                ? dateTimeFormat(
+                                                                    'd MMM',
+                                                                    functions.newCustomFunction3(
+                                                                        resultsRowItem
+                                                                            .deliveryTime),
+                                                                    locale: FFLocalizations.of(
+                                                                            context)
+                                                                        .languageCode,
+                                                                  )
+                                                                : '${dateTimeFormat(
+                                                                    'd',
+                                                                    functions.newCustomFunction3(
+                                                                        resultsRowItem
+                                                                            .deliveryTime),
+                                                                    locale: FFLocalizations.of(
+                                                                            context)
+                                                                        .languageCode,
+                                                                  )}-${dateTimeFormat(
+                                                                    'dMMM',
+                                                                    functions.newCustomFunction3(
+                                                                        resultsRowItem
+                                                                            .deliveryTimeMax),
+                                                                    locale: FFLocalizations.of(
+                                                                            context)
+                                                                        .languageCode,
+                                                                  )}',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium,
+                                                          ),
+                                                          Text(
+                                                            dateTimeFormat(
+                                                              'Hm',
+                                                              functions.newCustomFunction3(
+                                                                  resultsRowItem
+                                                                      .deliveryTimeMax),
+                                                              locale: FFLocalizations.of(
+                                                                          context)
+                                                                      .languageShortCode ??
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .languageCode,
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodySmall,
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Expanded(
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Text(
+                                                              '${resultsRowItem.amount.toString()}${resultsRowItem.unit}',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium,
+                                                            ),
+                                                          ],
                                                         ),
-                                                      ],
-                                                    ),
-                                                  ],
-                                                );
-                                              },
-                                            );
-                                          },
-                                        ),
-                                        theme: ExpandableThemeData(
-                                          tapHeaderToExpand: true,
-                                          tapBodyToExpand: false,
-                                          tapBodyToCollapse: false,
-                                          headerAlignment:
-                                              ExpandablePanelHeaderAlignment
-                                                  .center,
-                                          hasIcon: true,
+                                                      ),
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Text(
+                                                            '${resultsRowItem.price.toString()}',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium,
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  );
+                                                },
+                                              );
+                                            },
+                                          ),
+                                          theme: ExpandableThemeData(
+                                            tapHeaderToExpand: true,
+                                            tapBodyToExpand: false,
+                                            tapBodyToCollapse: false,
+                                            headerAlignment:
+                                                ExpandablePanelHeaderAlignment
+                                                    .center,
+                                            hasIcon: true,
+                                          ),
                                         ),
                                       ),
                                     ),
