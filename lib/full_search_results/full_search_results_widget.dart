@@ -44,7 +44,9 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
       _model.apiResultf7s = await SupabaseGroup.srCall.call();
       if ((_model.apiResultf7s?.succeeded ?? true)) {
         _model.dtsr = await actions.dtSR(
-          (_model.apiResultf7s?.jsonBody ?? ''),
+          functions
+              .newCustomFunction4((_model.apiResultf7s?.jsonBody ?? ''))
+              ?.toList(),
         );
         setState(() {
           FFAppState().sr = _model.dtsr!.toList().cast<SearchResultStruct>();
@@ -350,7 +352,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                         MainAxisSize.max,
                                                     children: [
                                                       Text(
-                                                        '${resultsRowItem.price}',
+                                                        '${resultsRowItem.price.toString()}',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)

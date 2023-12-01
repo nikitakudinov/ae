@@ -13,7 +13,6 @@ class SearchResultStruct extends BaseStruct {
     String? code,
     String? name,
     int? packing,
-    String? price,
     String? currency,
     int? stock,
     int? amount,
@@ -26,13 +25,13 @@ class SearchResultStruct extends BaseStruct {
     String? warehouseName,
     String? warehouseKey,
     int? ttl,
+    double? price,
   })  : _offerKey = offerKey,
         _cross = cross,
         _brand = brand,
         _code = code,
         _name = name,
         _packing = packing,
-        _price = price,
         _currency = currency,
         _stock = stock,
         _amount = amount,
@@ -44,7 +43,8 @@ class SearchResultStruct extends BaseStruct {
         _dealer = dealer,
         _warehouseName = warehouseName,
         _warehouseKey = warehouseKey,
-        _ttl = ttl;
+        _ttl = ttl,
+        _price = price;
 
   // "offer_key" field.
   String? _offerKey;
@@ -82,12 +82,6 @@ class SearchResultStruct extends BaseStruct {
   set packing(int? val) => _packing = val;
   void incrementPacking(int amount) => _packing = packing + amount;
   bool hasPacking() => _packing != null;
-
-  // "price" field.
-  String? _price;
-  String get price => _price ?? '';
-  set price(String? val) => _price = val;
-  bool hasPrice() => _price != null;
 
   // "currency" field.
   String? _currency;
@@ -166,6 +160,13 @@ class SearchResultStruct extends BaseStruct {
   void incrementTtl(int amount) => _ttl = ttl + amount;
   bool hasTtl() => _ttl != null;
 
+  // "price" field.
+  double? _price;
+  double get price => _price ?? 0.0;
+  set price(double? val) => _price = val;
+  void incrementPrice(double amount) => _price = price + amount;
+  bool hasPrice() => _price != null;
+
   static SearchResultStruct fromMap(Map<String, dynamic> data) =>
       SearchResultStruct(
         offerKey: data['offer_key'] as String?,
@@ -174,7 +175,6 @@ class SearchResultStruct extends BaseStruct {
         code: data['code'] as String?,
         name: data['name'] as String?,
         packing: castToType<int>(data['packing']),
-        price: data['price'] as String?,
         currency: data['currency'] as String?,
         stock: castToType<int>(data['stock']),
         amount: castToType<int>(data['amount']),
@@ -187,6 +187,7 @@ class SearchResultStruct extends BaseStruct {
         warehouseName: data['warehouse_name'] as String?,
         warehouseKey: data['warehouse_key'] as String?,
         ttl: castToType<int>(data['ttl']),
+        price: castToType<double>(data['price']),
       );
 
   static SearchResultStruct? maybeFromMap(dynamic data) =>
@@ -199,7 +200,6 @@ class SearchResultStruct extends BaseStruct {
         'code': _code,
         'name': _name,
         'packing': _packing,
-        'price': _price,
         'currency': _currency,
         'stock': _stock,
         'amount': _amount,
@@ -212,6 +212,7 @@ class SearchResultStruct extends BaseStruct {
         'warehouse_name': _warehouseName,
         'warehouse_key': _warehouseKey,
         'ttl': _ttl,
+        'price': _price,
       }.withoutNulls;
 
   @override
@@ -239,10 +240,6 @@ class SearchResultStruct extends BaseStruct {
         'packing': serializeParam(
           _packing,
           ParamType.int,
-        ),
-        'price': serializeParam(
-          _price,
-          ParamType.String,
         ),
         'currency': serializeParam(
           _currency,
@@ -292,6 +289,10 @@ class SearchResultStruct extends BaseStruct {
           _ttl,
           ParamType.int,
         ),
+        'price': serializeParam(
+          _price,
+          ParamType.double,
+        ),
       }.withoutNulls;
 
   static SearchResultStruct fromSerializableMap(Map<String, dynamic> data) =>
@@ -324,11 +325,6 @@ class SearchResultStruct extends BaseStruct {
         packing: deserializeParam(
           data['packing'],
           ParamType.int,
-          false,
-        ),
-        price: deserializeParam(
-          data['price'],
-          ParamType.String,
           false,
         ),
         currency: deserializeParam(
@@ -391,6 +387,11 @@ class SearchResultStruct extends BaseStruct {
           ParamType.int,
           false,
         ),
+        price: deserializeParam(
+          data['price'],
+          ParamType.double,
+          false,
+        ),
       );
 
   @override
@@ -405,7 +406,6 @@ class SearchResultStruct extends BaseStruct {
         code == other.code &&
         name == other.name &&
         packing == other.packing &&
-        price == other.price &&
         currency == other.currency &&
         stock == other.stock &&
         amount == other.amount &&
@@ -417,7 +417,8 @@ class SearchResultStruct extends BaseStruct {
         dealer == other.dealer &&
         warehouseName == other.warehouseName &&
         warehouseKey == other.warehouseKey &&
-        ttl == other.ttl;
+        ttl == other.ttl &&
+        price == other.price;
   }
 
   @override
@@ -428,7 +429,6 @@ class SearchResultStruct extends BaseStruct {
         code,
         name,
         packing,
-        price,
         currency,
         stock,
         amount,
@@ -440,7 +440,8 @@ class SearchResultStruct extends BaseStruct {
         dealer,
         warehouseName,
         warehouseKey,
-        ttl
+        ttl,
+        price
       ]);
 }
 
@@ -451,7 +452,6 @@ SearchResultStruct createSearchResultStruct({
   String? code,
   String? name,
   int? packing,
-  String? price,
   String? currency,
   int? stock,
   int? amount,
@@ -464,6 +464,7 @@ SearchResultStruct createSearchResultStruct({
   String? warehouseName,
   String? warehouseKey,
   int? ttl,
+  double? price,
 }) =>
     SearchResultStruct(
       offerKey: offerKey,
@@ -472,7 +473,6 @@ SearchResultStruct createSearchResultStruct({
       code: code,
       name: name,
       packing: packing,
-      price: price,
       currency: currency,
       stock: stock,
       amount: amount,
@@ -485,4 +485,5 @@ SearchResultStruct createSearchResultStruct({
       warehouseName: warehouseName,
       warehouseKey: warehouseKey,
       ttl: ttl,
+      price: price,
     );

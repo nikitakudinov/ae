@@ -79,3 +79,25 @@ DateTime? newCustomFunction3(String? date) {
     return null;
   }
 }
+
+List<dynamic>? newCustomFunction4(List<dynamic>? jsonArray) {
+  // convert values of price field to double format
+  if (jsonArray == null) return null;
+
+  final List<dynamic> result = [];
+
+  for (final item in jsonArray) {
+    if (item is Map<String, dynamic>) {
+      final price = item['price'];
+      if (price is String) {
+        final doublePrice = double.tryParse(price.replaceAll(',', ''));
+        if (doublePrice != null) {
+          item['price'] = doublePrice;
+        }
+      }
+    }
+    result.add(item);
+  }
+
+  return result;
+}
