@@ -272,7 +272,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                     children: [
                                                       Text(
                                                         dateTimeFormat(
-                                                          'relative',
+                                                          'yMMMd',
                                                           functions
                                                               .newCustomFunction3(
                                                                   resultsRowItem

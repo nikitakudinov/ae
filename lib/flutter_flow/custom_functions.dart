@@ -74,17 +74,8 @@ DateTime? newCustomFunction3(String? date) {
     return null;
   }
   try {
-    return DateFormat('yyyy-MM-dd').parse(date);
+    return DateFormat('yyyy-MM-dd h:m').parse(date);
   } catch (e) {
     return null;
   }
-}
-
-DateTime? newCustomFunction4(DateTime? date) {
-  // translate date to russian lang
-  if (date == null) return null;
-  final russianLocale = Locale('ru');
-  final formatter = DateFormat.yMMMMd(russianLocale);
-  final formattedDate = formatter.format(date);
-  return DateTime.parse(formattedDate);
 }
