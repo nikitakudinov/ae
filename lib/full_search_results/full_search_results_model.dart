@@ -21,6 +21,8 @@ class FullSearchResultsModel extends FlutterFlowModel<FullSearchResultsWidget> {
   ApiCallResponse? apiResultf7s;
   // Stores action output result for [Custom Action - dtSR] action in fullSearchResults widget.
   List<SearchResultStruct>? dtsr;
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController2;
 
   /// Initialization and disposal methods.
 
@@ -28,6 +30,7 @@ class FullSearchResultsModel extends FlutterFlowModel<FullSearchResultsWidget> {
 
   void dispose() {
     unfocusNode.dispose();
+    expandableController2.dispose();
   }
 
   /// Action blocks are added here.
