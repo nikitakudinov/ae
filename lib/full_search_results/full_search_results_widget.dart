@@ -161,7 +161,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                         final brandsListViewItem =
                             brandsListView[brandsListViewIndex];
                         return Container(
-                          height: 200.0,
+                          decoration: BoxDecoration(),
                           child: Container(
                             color: Colors.white,
                             child: ExpandableNotifier(
