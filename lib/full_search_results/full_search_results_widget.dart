@@ -234,6 +234,8 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                 .toList()
                                                 .sortedList((e) => e.price)
                                                 .take(5)
+                                                .toList()
+                                                .take(1)
                                                 .toList();
                                             return ListView.builder(
                                               padding: EdgeInsets.zero,
