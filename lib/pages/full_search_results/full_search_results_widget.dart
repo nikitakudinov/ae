@@ -1078,10 +1078,18 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                           .start,
                                                                   children: [
                                                                     Text(
-                                                                      'Мин. цена',
+                                                                      'МИН. ЦЕНА',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .labelSmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Roboto Condensed',
+                                                                            fontSize:
+                                                                                10.0,
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                          ),
                                                                     ),
                                                                   ],
                                                                 ),
@@ -1236,10 +1244,18 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                           .start,
                                                                   children: [
                                                                     Text(
-                                                                      'Мин. срок',
+                                                                      'МИН. СРОК',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .labelSmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Roboto Condensed',
+                                                                            fontSize:
+                                                                                10.0,
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                          ),
                                                                     ),
                                                                   ],
                                                                 ),
@@ -1256,7 +1272,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                           .toString(),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .labelMedium,
                                                                     ),
                                                                   ],
                                                                 ),
@@ -1277,7 +1293,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .labelSmall,
                                                                     ),
                                                                   ],
                                                                 ),
