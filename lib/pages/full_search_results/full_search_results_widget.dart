@@ -1079,6 +1079,9 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                   mainAxisSize:
                                                                       MainAxisSize
                                                                           .max,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
                                                                   children: [
                                                                     Text(
                                                                       'Мин. цена',
@@ -1101,7 +1104,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                           .toString(),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .labelMedium,
                                                                     ),
                                                                   ],
                                                                 ),
@@ -1113,16 +1116,41 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                           .max,
                                                                   children: [
                                                                     Text(
-                                                                      dateTimeFormat(
-                                                                        'relative',
-                                                                        functions
-                                                                            .newCustomFunction3(fastestDeliveryItem.deliveryTime),
-                                                                        locale: FFLocalizations.of(context).languageShortCode ??
-                                                                            FFLocalizations.of(context).languageCode,
-                                                                      ),
+                                                                      () {
+                                                                        if (dateTimeFormat(
+                                                                              'yMd',
+                                                                              functions.newCustomFunction3(fastestDeliveryItem.deliveryTime),
+                                                                              locale: FFLocalizations.of(context).languageCode,
+                                                                            ) ==
+                                                                            dateTimeFormat(
+                                                                              'yMd',
+                                                                              getCurrentTimestamp,
+                                                                              locale: FFLocalizations.of(context).languageCode,
+                                                                            )) {
+                                                                          return 'Сегодня';
+                                                                        } else if (dateTimeFormat(
+                                                                              'yMd',
+                                                                              functions.newCustomFunction3(fastestDeliveryItem.deliveryTime),
+                                                                              locale: FFLocalizations.of(context).languageCode,
+                                                                            ) ==
+                                                                            dateTimeFormat(
+                                                                              'yMd',
+                                                                              functions.tomorrowdate(),
+                                                                              locale: FFLocalizations.of(context).languageCode,
+                                                                            )) {
+                                                                          return 'Завтра';
+                                                                        } else {
+                                                                          return dateTimeFormat(
+                                                                            'relative',
+                                                                            functions.newCustomFunction3(fastestDeliveryItem.deliveryTime),
+                                                                            locale:
+                                                                                FFLocalizations.of(context).languageShortCode ?? FFLocalizations.of(context).languageCode,
+                                                                          );
+                                                                        }
+                                                                      }(),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .labelSmall,
                                                                     ),
                                                                   ],
                                                                 ),
@@ -1209,17 +1237,15 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                   mainAxisSize:
                                                                       MainAxisSize
                                                                           .max,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
                                                                   children: [
-                                                                    Align(
-                                                                      alignment: AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
-                                                                      child:
-                                                                          Text(
-                                                                        'Мин. срок',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
-                                                                      ),
+                                                                    Text(
+                                                                      'Мин. срок',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium,
                                                                     ),
                                                                   ],
                                                                 ),
