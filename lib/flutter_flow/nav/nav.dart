@@ -57,6 +57,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             brand: params.getParam('brand', ParamType.String),
             code: params.getParam('code', ParamType.String),
           ),
+        ),
+        FFRoute(
+          name: 'startPage',
+          path: '/startPage',
+          builder: (context, params) => StartPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
