@@ -354,7 +354,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    15.0, 0.0, 15.0, 0.0),
+                                    15.0, 15.0, 15.0, 0.0),
                                 child: Builder(
                                   builder: (context) {
                                     final cross01 = FFAppState()
@@ -380,16 +380,33 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              'На складе АвтоЕвро',
+                                              'В наличии',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Plus Jakarta Sans',
+                                                        color:
+                                                            Color(0xFF06A502),
+                                                      ),
                                             ),
-                                            Text(
-                                              cross01Item.price.toString(),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
+                                            Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  cross01Item.warehouseName,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .bodyMedium,
+                                                ),
+                                                Text(
+                                                  cross01Item.price.toString(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
+                                              ],
                                             ),
                                             Text(
                                               dateTimeFormat(
