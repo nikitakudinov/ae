@@ -362,7 +362,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                         .where((e) =>
                                             (e.cross == null ||
                                                 e.cross == '') &&
-                                            (e.cross == '1'))
+                                            (e.stock == 1))
                                         .toList()
                                         .sortedList((e) => e.deliveryTime)
                                         .toList();
