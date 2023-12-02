@@ -38,12 +38,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => StartPageWidget(),
+      errorBuilder: (context, state) => FullSearchResultsWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => StartPageWidget(),
+          builder: (context, _) => FullSearchResultsWidget(),
         ),
         FFRoute(
           name: 'HomePage',

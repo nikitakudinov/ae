@@ -69,21 +69,25 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        FlutterFlowIconButton(
-                          borderRadius: 20.0,
-                          borderWidth: 1.0,
-                          buttonSize: 40.0,
-                          icon: Icon(
-                            Icons.close,
-                            color: Color(0xFFDC272B),
-                            size: 24.0,
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 5.0, 0.0, 0.0),
+                          child: FlutterFlowIconButton(
+                            borderRadius: 20.0,
+                            borderWidth: 1.0,
+                            buttonSize: 40.0,
+                            icon: Icon(
+                              Icons.close,
+                              color: Color(0xFFDC272B),
+                              size: 24.0,
+                            ),
+                            onPressed: () async {
+                              if (scaffoldKey.currentState!.isDrawerOpen ||
+                                  scaffoldKey.currentState!.isEndDrawerOpen) {
+                                Navigator.pop(context);
+                              }
+                            },
                           ),
-                          onPressed: () async {
-                            if (scaffoldKey.currentState!.isDrawerOpen ||
-                                scaffoldKey.currentState!.isEndDrawerOpen) {
-                              Navigator.pop(context);
-                            }
-                          },
                         ),
                         Container(
                           height: 30.0,
