@@ -683,25 +683,43 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                         .max,
                                                                 children: [
                                                                   Text(
-                                                                    cross0Item.deliveryTime ==
-                                                                            cross0Item.deliveryTimeMax
-                                                                        ? dateTimeFormat(
-                                                                            'd MMM',
+                                                                    () {
+                                                                      if (dateTimeFormat(
+                                                                            'yMd',
                                                                             functions.newCustomFunction3(cross0Item.deliveryTime),
                                                                             locale:
                                                                                 FFLocalizations.of(context).languageCode,
-                                                                          )
-                                                                        : '${dateTimeFormat(
-                                                                            'd',
+                                                                          ) ==
+                                                                          dateTimeFormat(
+                                                                            'yMd',
+                                                                            getCurrentTimestamp,
+                                                                            locale:
+                                                                                FFLocalizations.of(context).languageCode,
+                                                                          )) {
+                                                                        return 'Сегодня';
+                                                                      } else if (dateTimeFormat(
+                                                                            'yMd',
                                                                             functions.newCustomFunction3(cross0Item.deliveryTime),
                                                                             locale:
                                                                                 FFLocalizations.of(context).languageCode,
-                                                                          )}-${dateTimeFormat(
-                                                                            'dMMM',
-                                                                            functions.newCustomFunction3(cross0Item.deliveryTimeMax),
+                                                                          ) ==
+                                                                          dateTimeFormat(
+                                                                            'yMd',
+                                                                            functions.tomorrowdate(),
                                                                             locale:
                                                                                 FFLocalizations.of(context).languageCode,
-                                                                          )}',
+                                                                          )) {
+                                                                        return 'Завтра';
+                                                                      } else {
+                                                                        return dateTimeFormat(
+                                                                          'relative',
+                                                                          functions
+                                                                              .newCustomFunction3(cross0Item.deliveryTime),
+                                                                          locale:
+                                                                              FFLocalizations.of(context).languageShortCode ?? FFLocalizations.of(context).languageCode,
+                                                                        );
+                                                                      }
+                                                                    }(),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyMedium,
