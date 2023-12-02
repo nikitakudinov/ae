@@ -1259,7 +1259,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                       .start,
                                                               children: [
                                                                 Expanded(
-                                                                  flex: 2,
+                                                                  flex: 3,
                                                                   child: Row(
                                                                     mainAxisSize:
                                                                         MainAxisSize
