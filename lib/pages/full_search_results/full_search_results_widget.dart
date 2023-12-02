@@ -379,113 +379,137 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                         final cross01Item =
                                             cross01[cross01Index];
                                         return Row(
-                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisSize: MainAxisSize.min,
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Column(
+                                            Row(
                                               mainAxisSize: MainAxisSize.max,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
                                               children: [
-                                                Text(
-                                                  'В наличии',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Plus Jakarta Sans',
-                                                        color:
-                                                            Color(0xFF06A502),
+                                                Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      'В наличии',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Plus Jakarta Sans',
+                                                                color: Color(
+                                                                    0xFF06A502),
+                                                              ),
+                                                    ),
+                                                    Text(
+                                                      cross01Item.warehouseName,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium,
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                            Expanded(
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Text(
+                                                        '${cross01Item.price.toString()}',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelLarge,
                                                       ),
-                                                ),
-                                                Text(
-                                                  cross01Item.warehouseName,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium,
-                                                ),
-                                              ],
+                                                      Text(
+                                                        '${cross01Item.amount.toString()} ${cross01Item.unit}',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelSmall,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
                                             ),
-                                            Column(
+                                            Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Text(
-                                                  '${cross01Item.price.toString()}',
+                                                  () {
+                                                    if (dateTimeFormat(
+                                                          'yMd',
+                                                          functions
+                                                              .newCustomFunction3(
+                                                                  cross01Item
+                                                                      .deliveryTime),
+                                                          locale:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .languageCode,
+                                                        ) ==
+                                                        dateTimeFormat(
+                                                          'yMd',
+                                                          getCurrentTimestamp,
+                                                          locale:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .languageCode,
+                                                        )) {
+                                                      return 'Сегодня';
+                                                    } else if (dateTimeFormat(
+                                                          'yMd',
+                                                          functions
+                                                              .newCustomFunction3(
+                                                                  cross01Item
+                                                                      .deliveryTime),
+                                                          locale:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .languageCode,
+                                                        ) ==
+                                                        dateTimeFormat(
+                                                          'yMd',
+                                                          functions
+                                                              .tomorrowdate(),
+                                                          locale:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .languageCode,
+                                                        )) {
+                                                      return 'Завтра';
+                                                    } else {
+                                                      return dateTimeFormat(
+                                                        'relative',
+                                                        functions
+                                                            .newCustomFunction3(
+                                                                cross01Item
+                                                                    .deliveryTime),
+                                                        locale: FFLocalizations
+                                                                    .of(context)
+                                                                .languageShortCode ??
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      );
+                                                    }
+                                                  }(),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .labelLarge,
-                                                ),
-                                                Text(
-                                                  '${cross01Item.amount.toString()} ${cross01Item.unit}',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelSmall,
+                                                      .bodyMedium,
                                                 ),
                                               ],
-                                            ),
-                                            Text(
-                                              () {
-                                                if (dateTimeFormat(
-                                                      'yMd',
-                                                      functions
-                                                          .newCustomFunction3(
-                                                              cross01Item
-                                                                  .deliveryTime),
-                                                      locale:
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .languageCode,
-                                                    ) ==
-                                                    dateTimeFormat(
-                                                      'yMd',
-                                                      getCurrentTimestamp,
-                                                      locale:
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .languageCode,
-                                                    )) {
-                                                  return 'Сегодня';
-                                                } else if (dateTimeFormat(
-                                                      'yMd',
-                                                      functions
-                                                          .newCustomFunction3(
-                                                              cross01Item
-                                                                  .deliveryTime),
-                                                      locale:
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .languageCode,
-                                                    ) ==
-                                                    dateTimeFormat(
-                                                      'yMd',
-                                                      functions.tomorrowdate(),
-                                                      locale:
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .languageCode,
-                                                    )) {
-                                                  return 'Завтра';
-                                                } else {
-                                                  return dateTimeFormat(
-                                                    'relative',
-                                                    functions
-                                                        .newCustomFunction3(
-                                                            cross01Item
-                                                                .deliveryTime),
-                                                    locale: FFLocalizations.of(
-                                                                context)
-                                                            .languageShortCode ??
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .languageCode,
-                                                  );
-                                                }
-                                              }(),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
                                             ),
                                             FlutterFlowIconButton(
                                               borderRadius: 20.0,
