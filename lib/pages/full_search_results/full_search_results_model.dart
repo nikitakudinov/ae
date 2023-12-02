@@ -25,6 +25,9 @@ class FullSearchResultsModel extends FlutterFlowModel<FullSearchResultsWidget> {
   // State field(s) for Expandable widget.
   late ExpandableController expandableController1;
 
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController2;
+
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}
@@ -32,6 +35,7 @@ class FullSearchResultsModel extends FlutterFlowModel<FullSearchResultsWidget> {
   void dispose() {
     unfocusNode.dispose();
     expandableController1.dispose();
+    expandableController2.dispose();
   }
 
   /// Action blocks are added here.
