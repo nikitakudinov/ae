@@ -12,6 +12,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'full_search_results_model.dart';
 export 'full_search_results_model.dart';
@@ -651,107 +652,44 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                   MainAxisAlignment
                                                                       .spaceBetween,
                                                               children: [
-                                                                Expanded(
-                                                                  flex: 2,
-                                                                  child: Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      FlutterFlowIconButton(
-                                                                        borderRadius:
-                                                                            20.0,
-                                                                        borderWidth:
-                                                                            1.0,
-                                                                        buttonSize:
-                                                                            40.0,
-                                                                        icon:
-                                                                            Icon(
-                                                                          Icons
-                                                                              .bar_chart,
-                                                                          color:
-                                                                              Color(0xFF1928A5),
-                                                                          size:
-                                                                              15.0,
-                                                                        ),
-                                                                        onPressed:
-                                                                            () {
-                                                                          print(
-                                                                              'IconButton pressed ...');
-                                                                        },
-                                                                      ),
-                                                                      Container(
-                                                                        width:
-                                                                            1.0,
-                                                                        height:
-                                                                            15.0,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              Color(0x3E40464A),
-                                                                        ),
-                                                                      ),
-                                                                      FlutterFlowIconButton(
-                                                                        borderColor:
-                                                                            Colors.transparent,
-                                                                        borderRadius:
-                                                                            20.0,
-                                                                        borderWidth:
-                                                                            1.0,
-                                                                        buttonSize:
-                                                                            40.0,
-                                                                        icon:
-                                                                            Icon(
-                                                                          Icons
-                                                                              .currency_exchange_outlined,
-                                                                          color:
-                                                                              Color(0xFFDC272B),
-                                                                          size:
-                                                                              15.0,
-                                                                        ),
-                                                                        onPressed:
-                                                                            () {
-                                                                          print(
-                                                                              'IconButton pressed ...');
-                                                                        },
-                                                                      ),
-                                                                      Container(
-                                                                        width:
-                                                                            1.0,
-                                                                        height:
-                                                                            15.0,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              Color(0x3E40464A),
-                                                                        ),
-                                                                      ),
-                                                                      if (cross0Item
-                                                                              .dealer ==
-                                                                          1)
-                                                                        FlutterFlowIconButton(
-                                                                          borderColor:
-                                                                              Colors.transparent,
-                                                                          borderRadius:
-                                                                              20.0,
-                                                                          borderWidth:
-                                                                              1.0,
-                                                                          buttonSize:
-                                                                              40.0,
-                                                                          icon:
-                                                                              FaIcon(
-                                                                            FontAwesomeIcons.shieldAlt,
-                                                                            color:
-                                                                                Color(0xFF40464A),
-                                                                            size:
-                                                                                15.0,
-                                                                          ),
-                                                                          onPressed:
-                                                                              () {
-                                                                            print('IconButton pressed ...');
-                                                                          },
-                                                                        ),
-                                                                    ],
+                                                                Container(
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                  ),
+                                                                  child:
+                                                                      LinearPercentIndicator(
+                                                                    percent:
+                                                                        cross0Item
+                                                                            .rejects,
+                                                                    width:
+                                                                        100.0,
+                                                                    lineHeight:
+                                                                        20.0,
+                                                                    animation:
+                                                                        true,
+                                                                    animateFromLastPercent:
+                                                                        true,
+                                                                    progressColor:
+                                                                        Color(
+                                                                            0xFFDC272B),
+                                                                    backgroundColor:
+                                                                        Color(
+                                                                            0xFF1928A5),
+                                                                    center:
+                                                                        Text(
+                                                                      cross0Item
+                                                                          .rejects
+                                                                          .toString(),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium,
+                                                                    ),
+                                                                    padding:
+                                                                        EdgeInsets
+                                                                            .zero,
                                                                   ),
                                                                 ),
                                                                 Expanded(
