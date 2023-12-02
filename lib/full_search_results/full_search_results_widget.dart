@@ -201,8 +201,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Text(
-                                                  searchebleItemHeaderItem
-                                                      .brand,
+                                                  '${searchebleItemHeaderItem.brand}',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .titleLarge,
@@ -224,7 +223,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                 searchebleItemHeaderItem.name,
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .labelLarge,
                                               ),
                                             ),
                                           ],
