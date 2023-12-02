@@ -383,42 +383,49 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.start,
                                           children: [
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      'В наличии',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Plus Jakarta Sans',
-                                                                color: Color(
-                                                                    0xFF06A502),
-                                                              ),
-                                                    ),
-                                                    Text(
-                                                      cross01Item.warehouseName,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium,
-                                                    ),
-                                                  ],
-                                                ),
-                                              ],
+                                            Expanded(
+                                              flex: 2,
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        'В наличии',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Plus Jakarta Sans',
+                                                                  color: Color(
+                                                                      0xFF06A502),
+                                                                ),
+                                                      ),
+                                                      Text(
+                                                        cross01Item
+                                                            .warehouseName,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                             Expanded(
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
                                                 children: [
                                                   Column(
                                                     mainAxisSize:
@@ -445,6 +452,8 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                             ),
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 Text(
                                                   () {
@@ -511,20 +520,23 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                 ),
                                               ],
                                             ),
-                                            FlutterFlowIconButton(
-                                              borderRadius: 20.0,
-                                              borderWidth: 1.0,
-                                              buttonSize: 40.0,
-                                              icon: Icon(
-                                                Icons.add_shopping_cart,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                size: 24.0,
+                                            Expanded(
+                                              child: FlutterFlowIconButton(
+                                                borderRadius: 20.0,
+                                                borderWidth: 1.0,
+                                                buttonSize: 40.0,
+                                                icon: Icon(
+                                                  Icons.add_shopping_cart,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  size: 24.0,
+                                                ),
+                                                onPressed: () {
+                                                  print(
+                                                      'IconButton pressed ...');
+                                                },
                                               ),
-                                              onPressed: () {
-                                                print('IconButton pressed ...');
-                                              },
                                             ),
                                           ],
                                         );
