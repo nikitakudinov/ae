@@ -616,6 +616,9 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                       .where((e) =>
                                                           e.cross == null ||
                                                           e.cross == '')
+                                                      .toList()
+                                                      .sortedList(
+                                                          (e) => e.deliveryTime)
                                                       .toList();
                                                   return ListView.builder(
                                                     padding: EdgeInsets.zero,
