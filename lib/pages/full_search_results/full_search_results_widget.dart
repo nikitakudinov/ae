@@ -1068,7 +1068,6 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                     .spaceBetween,
                                                             children: [
                                                               Expanded(
-                                                                flex: 3,
                                                                 child: Column(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -1078,7 +1077,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                           .start,
                                                                   children: [
                                                                     Text(
-                                                                      'МИН. ЦЕНА',
+                                                                      'МИН. СРОК',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .labelSmall
@@ -1089,6 +1088,81 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                                 12.0,
                                                                             fontWeight:
                                                                                 FontWeight.bold,
+                                                                          ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                              Expanded(
+                                                                flex: 2,
+                                                                child: Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .center,
+                                                                  children: [
+                                                                    Text(
+                                                                      fastestDeliveryItem
+                                                                          .rejects
+                                                                          .toString(),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodySmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Asap Condensed',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondaryText,
+                                                                            fontSize:
+                                                                                10.0,
+                                                                            fontWeight:
+                                                                                FontWeight.w600,
+                                                                          ),
+                                                                    ),
+                                                                    Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .center,
+                                                                      children: [
+                                                                        LinearPercentIndicator(
+                                                                          percent:
+                                                                              functions.doubleToPerc(fastestDeliveryItem.rejects)!,
+                                                                          width:
+                                                                              50.0,
+                                                                          lineHeight:
+                                                                              5.0,
+                                                                          animation:
+                                                                              true,
+                                                                          animateFromLastPercent:
+                                                                              true,
+                                                                          progressColor:
+                                                                              Color(0xFFDC6365),
+                                                                          backgroundColor:
+                                                                              Color(0xFF6067BB),
+                                                                          padding:
+                                                                              EdgeInsets.zero,
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                    Text(
+                                                                      'ОТКАЗЫ',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodySmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Asap Condensed',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondaryText,
+                                                                            fontSize:
+                                                                                8.0,
+                                                                            fontWeight:
+                                                                                FontWeight.w600,
                                                                           ),
                                                                     ),
                                                                   ],
@@ -1243,7 +1317,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                           .start,
                                                                   children: [
                                                                     Text(
-                                                                      'МИН. СРОК',
+                                                                      'МИН. ЦЕНА',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .labelSmall
@@ -1282,7 +1356,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondaryText,
                                                                             fontSize:
-                                                                                8.0,
+                                                                                10.0,
                                                                             fontWeight:
                                                                                 FontWeight.w600,
                                                                           ),
