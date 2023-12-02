@@ -531,7 +531,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                     Icons.add_shopping_cart,
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .secondaryText,
+                                                        .primaryText,
                                                     size: 24.0,
                                                   ),
                                                   onPressed: () {
@@ -553,68 +553,6 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                           expanded: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    15.0, 0.0, 15.0, 0.0),
-                                child: Builder(
-                                  builder: (context) {
-                                    final searchebleItemHeader = FFAppState()
-                                        .sr
-                                        .where((e) =>
-                                            e.cross == null || e.cross == '')
-                                        .toList()
-                                        .take(1)
-                                        .toList();
-                                    return ListView.builder(
-                                      padding: EdgeInsets.zero,
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.vertical,
-                                      itemCount: searchebleItemHeader.length,
-                                      itemBuilder:
-                                          (context, searchebleItemHeaderIndex) {
-                                        final searchebleItemHeaderItem =
-                                            searchebleItemHeader[
-                                                searchebleItemHeaderIndex];
-                                        return Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(
-                                                  searchebleItemHeaderItem
-                                                      .brand,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium,
-                                                ),
-                                                Text(
-                                                  searchebleItemHeaderItem.code,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelLarge,
-                                                ),
-                                              ].divide(SizedBox(width: 15.0)),
-                                            ),
-                                            Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  1.0,
-                                              decoration: BoxDecoration(),
-                                              child: Text(
-                                                searchebleItemHeaderItem.name,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    );
-                                  },
-                                ),
-                              ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     15.0, 0.0, 15.0, 0.0),
@@ -797,6 +735,403 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                     );
                                   },
                                 ),
+                              ),
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        15.0, 0.0, 15.0, 0.0),
+                                    child: Builder(
+                                      builder: (context) {
+                                        final searchebleItemHeader =
+                                            FFAppState()
+                                                .sr
+                                                .where((e) =>
+                                                    e.cross == null ||
+                                                    e.cross == '')
+                                                .toList()
+                                                .take(1)
+                                                .toList();
+                                        return ListView.builder(
+                                          padding: EdgeInsets.zero,
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.vertical,
+                                          itemCount:
+                                              searchebleItemHeader.length,
+                                          itemBuilder: (context,
+                                              searchebleItemHeaderIndex) {
+                                            final searchebleItemHeaderItem =
+                                                searchebleItemHeader[
+                                                    searchebleItemHeaderIndex];
+                                            return Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Text(
+                                                      '${searchebleItemHeaderItem.brand}',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleLarge,
+                                                    ),
+                                                    Text(
+                                                      searchebleItemHeaderItem
+                                                          .code,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelLarge,
+                                                    ),
+                                                  ].divide(
+                                                      SizedBox(width: 15.0)),
+                                                ),
+                                                Container(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          1.0,
+                                                  decoration: BoxDecoration(),
+                                                  child: Text(
+                                                    searchebleItemHeaderItem
+                                                        .name,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .labelLarge,
+                                                  ),
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        15.0, 0.0, 15.0, 0.0),
+                                    child: Builder(
+                                      builder: (context) {
+                                        final cross01 = FFAppState()
+                                            .sr
+                                            .where((e) =>
+                                                e.cross == null ||
+                                                e.cross == '')
+                                            .toList()
+                                            .sortedList((e) => e.price)
+                                            .toList()
+                                            .take(1)
+                                            .toList();
+                                        return ListView.builder(
+                                          padding: EdgeInsets.zero,
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.vertical,
+                                          itemCount: cross01.length,
+                                          itemBuilder: (context, cross01Index) {
+                                            final cross01Item =
+                                                cross01[cross01Index];
+                                            return Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                  'Мин. цена',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
+                                                Text(
+                                                  cross01Item.price.toString(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
+                                                Text(
+                                                  dateTimeFormat(
+                                                    'relative',
+                                                    functions
+                                                        .newCustomFunction3(
+                                                            cross01Item
+                                                                .deliveryTime),
+                                                    locale: FFLocalizations.of(
+                                                            context)
+                                                        .languageCode,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        15.0, 0.0, 15.0, 0.0),
+                                    child: Builder(
+                                      builder: (context) {
+                                        final cross01 = FFAppState()
+                                            .sr
+                                            .where((e) =>
+                                                e.cross == null ||
+                                                e.cross == '')
+                                            .toList()
+                                            .sortedList((e) => e.deliveryTime)
+                                            .toList()
+                                            .take(1)
+                                            .toList();
+                                        return ListView.builder(
+                                          padding: EdgeInsets.zero,
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.vertical,
+                                          itemCount: cross01.length,
+                                          itemBuilder: (context, cross01Index) {
+                                            final cross01Item =
+                                                cross01[cross01Index];
+                                            return Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                  'Мин. срок',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
+                                                Text(
+                                                  cross01Item.price.toString(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
+                                                Text(
+                                                  dateTimeFormat(
+                                                    'relative',
+                                                    functions
+                                                        .newCustomFunction3(
+                                                            cross01Item
+                                                                .deliveryTime),
+                                                    locale: FFLocalizations.of(
+                                                            context)
+                                                        .languageCode,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        15.0, 15.0, 15.0, 0.0),
+                                    child: Builder(
+                                      builder: (context) {
+                                        final cross01 = FFAppState()
+                                            .sr
+                                            .where((e) =>
+                                                (e.cross == null ||
+                                                    e.cross == '') &&
+                                                (e.stock == 1))
+                                            .toList()
+                                            .sortedList((e) => e.deliveryTime)
+                                            .toList();
+                                        return ListView.builder(
+                                          padding: EdgeInsets.zero,
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.vertical,
+                                          itemCount: cross01.length,
+                                          itemBuilder: (context, cross01Index) {
+                                            final cross01Item =
+                                                cross01[cross01Index];
+                                            return Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Expanded(
+                                                  flex: 2,
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Text(
+                                                            'В наличии',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Plus Jakarta Sans',
+                                                                  color: Color(
+                                                                      0xFF06A502),
+                                                                ),
+                                                          ),
+                                                          Text(
+                                                            cross01Item
+                                                                .warehouseName,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .labelMedium,
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                Expanded(
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Text(
+                                                            '${cross01Item.price.toString()}',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .labelLarge,
+                                                          ),
+                                                          Text(
+                                                            '${cross01Item.amount.toString()} ${cross01Item.unit}',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .labelSmall,
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                Expanded(
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Text(
+                                                        () {
+                                                          if (dateTimeFormat(
+                                                                'yMd',
+                                                                functions.newCustomFunction3(
+                                                                    cross01Item
+                                                                        .deliveryTime),
+                                                                locale: FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode,
+                                                              ) ==
+                                                              dateTimeFormat(
+                                                                'yMd',
+                                                                getCurrentTimestamp,
+                                                                locale: FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode,
+                                                              )) {
+                                                            return 'Сегодня';
+                                                          } else if (dateTimeFormat(
+                                                                'yMd',
+                                                                functions.newCustomFunction3(
+                                                                    cross01Item
+                                                                        .deliveryTime),
+                                                                locale: FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode,
+                                                              ) ==
+                                                              dateTimeFormat(
+                                                                'yMd',
+                                                                functions
+                                                                    .tomorrowdate(),
+                                                                locale: FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode,
+                                                              )) {
+                                                            return 'Завтра';
+                                                          } else {
+                                                            return dateTimeFormat(
+                                                              'relative',
+                                                              functions.newCustomFunction3(
+                                                                  cross01Item
+                                                                      .deliveryTime),
+                                                              locale: FFLocalizations.of(
+                                                                          context)
+                                                                      .languageShortCode ??
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .languageCode,
+                                                            );
+                                                          }
+                                                        }(),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelSmall,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                Expanded(
+                                                  child: Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            1.00, 0.00),
+                                                    child:
+                                                        FlutterFlowIconButton(
+                                                      borderColor:
+                                                          Colors.transparent,
+                                                      borderRadius: 20.0,
+                                                      borderWidth: 1.0,
+                                                      buttonSize: 40.0,
+                                                      icon: Icon(
+                                                        Icons.add_shopping_cart,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        size: 24.0,
+                                                      ),
+                                                      onPressed: () {
+                                                        print(
+                                                            'IconButton pressed ...');
+                                                      },
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
