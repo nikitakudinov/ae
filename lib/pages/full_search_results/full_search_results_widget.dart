@@ -631,239 +631,248 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                         (context, cross0Index) {
                                                       final cross0Item =
                                                           cross0[cross0Index];
-                                                      return Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    5.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceBetween,
-                                                          children: [
-                                                            Expanded(
-                                                              flex: 2,
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  FlutterFlowIconButton(
-                                                                    borderRadius:
-                                                                        20.0,
-                                                                    borderWidth:
-                                                                        1.0,
-                                                                    buttonSize:
-                                                                        40.0,
-                                                                    icon: Icon(
-                                                                      Icons
-                                                                          .bar_chart,
-                                                                      color: Color(
-                                                                          0xFF1928A5),
-                                                                      size:
-                                                                          15.0,
-                                                                    ),
-                                                                    onPressed:
+                                                      return Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        5.0),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .min,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Expanded(
+                                                                  flex: 2,
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      FlutterFlowIconButton(
+                                                                        borderRadius:
+                                                                            20.0,
+                                                                        borderWidth:
+                                                                            1.0,
+                                                                        buttonSize:
+                                                                            40.0,
+                                                                        icon:
+                                                                            Icon(
+                                                                          Icons
+                                                                              .bar_chart,
+                                                                          color:
+                                                                              Color(0xFF1928A5),
+                                                                          size:
+                                                                              15.0,
+                                                                        ),
+                                                                        onPressed:
+                                                                            () {
+                                                                          print(
+                                                                              'IconButton pressed ...');
+                                                                        },
+                                                                      ),
+                                                                      Container(
+                                                                        width:
+                                                                            1.0,
+                                                                        height:
+                                                                            15.0,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              Color(0x3E40464A),
+                                                                        ),
+                                                                      ),
+                                                                      FlutterFlowIconButton(
+                                                                        borderColor:
+                                                                            Colors.transparent,
+                                                                        borderRadius:
+                                                                            20.0,
+                                                                        borderWidth:
+                                                                            1.0,
+                                                                        buttonSize:
+                                                                            40.0,
+                                                                        icon:
+                                                                            Icon(
+                                                                          Icons
+                                                                              .currency_exchange_outlined,
+                                                                          color:
+                                                                              Color(0xFFDC272B),
+                                                                          size:
+                                                                              15.0,
+                                                                        ),
+                                                                        onPressed:
+                                                                            () {
+                                                                          print(
+                                                                              'IconButton pressed ...');
+                                                                        },
+                                                                      ),
+                                                                      Container(
+                                                                        width:
+                                                                            1.0,
+                                                                        height:
+                                                                            15.0,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              Color(0x3E40464A),
+                                                                        ),
+                                                                      ),
+                                                                      FlutterFlowIconButton(
+                                                                        borderColor:
+                                                                            Colors.transparent,
+                                                                        borderRadius:
+                                                                            20.0,
+                                                                        borderWidth:
+                                                                            1.0,
+                                                                        buttonSize:
+                                                                            40.0,
+                                                                        icon:
+                                                                            FaIcon(
+                                                                          FontAwesomeIcons
+                                                                              .shieldAlt,
+                                                                          color:
+                                                                              Color(0xFF40464A),
+                                                                          size:
+                                                                              15.0,
+                                                                        ),
+                                                                        onPressed:
+                                                                            () {
+                                                                          print(
+                                                                              'IconButton pressed ...');
+                                                                        },
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Expanded(
+                                                                  child: Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Text(
+                                                                        '${cross0Item.price.toString()}',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium,
+                                                                      ),
+                                                                      Text(
+                                                                        '${cross0Item.amount.toString()}${cross0Item.unit}',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium,
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Expanded(
+                                                                  child: Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Text(
                                                                         () {
-                                                                      print(
-                                                                          'IconButton pressed ...');
-                                                                    },
-                                                                  ),
-                                                                  Container(
-                                                                    width: 1.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: Color(
-                                                                          0xFF40464A),
-                                                                    ),
-                                                                  ),
-                                                                  FlutterFlowIconButton(
-                                                                    borderColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    borderRadius:
-                                                                        20.0,
-                                                                    borderWidth:
-                                                                        1.0,
-                                                                    buttonSize:
-                                                                        40.0,
-                                                                    icon: Icon(
-                                                                      Icons
-                                                                          .currency_exchange_outlined,
-                                                                      color: Color(
-                                                                          0xFFDC272B),
-                                                                      size:
-                                                                          15.0,
-                                                                    ),
-                                                                    onPressed:
-                                                                        () {
-                                                                      print(
-                                                                          'IconButton pressed ...');
-                                                                    },
-                                                                  ),
-                                                                  Container(
-                                                                    width: 1.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: Color(
-                                                                          0xFF40464A),
-                                                                    ),
-                                                                  ),
-                                                                  FlutterFlowIconButton(
-                                                                    borderColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    borderRadius:
-                                                                        20.0,
-                                                                    borderWidth:
-                                                                        1.0,
-                                                                    buttonSize:
-                                                                        40.0,
-                                                                    icon:
-                                                                        FaIcon(
-                                                                      FontAwesomeIcons
-                                                                          .shieldAlt,
-                                                                      color: Color(
-                                                                          0xFF40464A),
-                                                                      size:
-                                                                          15.0,
-                                                                    ),
-                                                                    onPressed:
-                                                                        () {
-                                                                      print(
-                                                                          'IconButton pressed ...');
-                                                                    },
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                            Expanded(
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  Text(
-                                                                    '${cross0Item.price.toString()}',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium,
-                                                                  ),
-                                                                  Text(
-                                                                    '${cross0Item.amount.toString()}${cross0Item.unit}',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium,
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                            Expanded(
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  Text(
-                                                                    () {
-                                                                      if (dateTimeFormat(
-                                                                            'yMd',
-                                                                            functions.newCustomFunction3(cross0Item.deliveryTime),
-                                                                            locale:
-                                                                                FFLocalizations.of(context).languageCode,
-                                                                          ) ==
-                                                                          dateTimeFormat(
-                                                                            'yMd',
-                                                                            getCurrentTimestamp,
-                                                                            locale:
-                                                                                FFLocalizations.of(context).languageCode,
-                                                                          )) {
-                                                                        return 'Сегодня';
-                                                                      } else if (dateTimeFormat(
-                                                                            'yMd',
-                                                                            functions.newCustomFunction3(cross0Item.deliveryTime),
-                                                                            locale:
-                                                                                FFLocalizations.of(context).languageCode,
-                                                                          ) ==
-                                                                          dateTimeFormat(
-                                                                            'yMd',
-                                                                            functions.tomorrowdate(),
-                                                                            locale:
-                                                                                FFLocalizations.of(context).languageCode,
-                                                                          )) {
-                                                                        return 'Завтра';
-                                                                      } else {
-                                                                        return dateTimeFormat(
-                                                                          'relative',
+                                                                          if (dateTimeFormat(
+                                                                                'yMd',
+                                                                                functions.newCustomFunction3(cross0Item.deliveryTime),
+                                                                                locale: FFLocalizations.of(context).languageCode,
+                                                                              ) ==
+                                                                              dateTimeFormat(
+                                                                                'yMd',
+                                                                                getCurrentTimestamp,
+                                                                                locale: FFLocalizations.of(context).languageCode,
+                                                                              )) {
+                                                                            return 'Сегодня';
+                                                                          } else if (dateTimeFormat(
+                                                                                'yMd',
+                                                                                functions.newCustomFunction3(cross0Item.deliveryTime),
+                                                                                locale: FFLocalizations.of(context).languageCode,
+                                                                              ) ==
+                                                                              dateTimeFormat(
+                                                                                'yMd',
+                                                                                functions.tomorrowdate(),
+                                                                                locale: FFLocalizations.of(context).languageCode,
+                                                                              )) {
+                                                                            return 'Завтра';
+                                                                          } else {
+                                                                            return dateTimeFormat(
+                                                                              'relative',
+                                                                              functions.newCustomFunction3(cross0Item.deliveryTime),
+                                                                              locale: FFLocalizations.of(context).languageShortCode ?? FFLocalizations.of(context).languageCode,
+                                                                            );
+                                                                          }
+                                                                        }(),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium,
+                                                                      ),
+                                                                      Text(
+                                                                        dateTimeFormat(
+                                                                          'Hm',
                                                                           functions
-                                                                              .newCustomFunction3(cross0Item.deliveryTime),
+                                                                              .newCustomFunction3(cross0Item.deliveryTimeMax),
                                                                           locale:
                                                                               FFLocalizations.of(context).languageShortCode ?? FFLocalizations.of(context).languageCode,
-                                                                        );
-                                                                      }
-                                                                    }(),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium,
+                                                                        ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodySmall,
+                                                                      ),
+                                                                    ],
                                                                   ),
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      'Hm',
-                                                                      functions.newCustomFunction3(
-                                                                          cross0Item
-                                                                              .deliveryTimeMax),
-                                                                      locale: FFLocalizations.of(context)
-                                                                              .languageShortCode ??
-                                                                          FFLocalizations.of(context)
-                                                                              .languageCode,
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodySmall,
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                            Expanded(
-                                                              child: Align(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        1.00,
-                                                                        0.00),
-                                                                child:
-                                                                    FlutterFlowIconButton(
-                                                                  borderColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  borderRadius:
-                                                                      20.0,
-                                                                  borderWidth:
-                                                                      1.0,
-                                                                  buttonSize:
-                                                                      40.0,
-                                                                  icon: Icon(
-                                                                    Icons
-                                                                        .add_shopping_cart,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                    size: 24.0,
-                                                                  ),
-                                                                  onPressed:
-                                                                      () {
-                                                                    print(
-                                                                        'IconButton pressed ...');
-                                                                  },
                                                                 ),
-                                                              ),
+                                                                Expanded(
+                                                                  child: Align(
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            1.00,
+                                                                            0.00),
+                                                                    child:
+                                                                        FlutterFlowIconButton(
+                                                                      borderColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      borderRadius:
+                                                                          20.0,
+                                                                      borderWidth:
+                                                                          1.0,
+                                                                      buttonSize:
+                                                                          40.0,
+                                                                      icon:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .add_shopping_cart,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                        size:
+                                                                            24.0,
+                                                                      ),
+                                                                      onPressed:
+                                                                          () {
+                                                                        print(
+                                                                            'IconButton pressed ...');
+                                                                      },
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
                                                             ),
-                                                          ],
-                                                        ),
+                                                          ),
+                                                          Container(
+                                                            height: 1.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: Color(
+                                                                  0x37FFFFFF),
+                                                            ),
+                                                          ),
+                                                        ],
                                                       );
                                                     },
                                                   );
