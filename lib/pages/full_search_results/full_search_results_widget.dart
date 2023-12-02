@@ -585,6 +585,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryText,
+                                                  fontSize: 14.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
                                           ),
@@ -1749,6 +1750,8 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryText,
+                                                                  fontSize:
+                                                                      14.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .bold,
