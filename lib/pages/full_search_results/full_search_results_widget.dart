@@ -531,7 +531,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                     Icons.add_shopping_cart,
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryText,
+                                                        .secondaryText,
                                                     size: 24.0,
                                                   ),
                                                   onPressed: () {
