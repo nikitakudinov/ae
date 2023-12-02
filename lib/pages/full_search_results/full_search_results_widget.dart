@@ -1268,37 +1268,69 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                           .max,
                                                                   crossAxisAlignment:
                                                                       CrossAxisAlignment
-                                                                          .start,
+                                                                          .center,
                                                                   children: [
-                                                                    CircularPercentIndicator(
-                                                                      percent: functions
-                                                                          .doubleToPerc(
-                                                                              lowerPriceItem.rejects)!,
-                                                                      radius:
-                                                                          12.5,
-                                                                      lineWidth:
-                                                                          3.0,
-                                                                      animation:
-                                                                          true,
-                                                                      animateFromLastPercent:
-                                                                          true,
-                                                                      progressColor:
-                                                                          Color(
-                                                                              0xFFDC6365),
-                                                                      backgroundColor:
-                                                                          Color(
-                                                                              0xFF6067BB),
-                                                                      center:
-                                                                          Text(
-                                                                        '${lowerPriceItem.rejects.toString()}%',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .headlineSmall
-                                                                            .override(
-                                                                              fontFamily: 'Roboto Condensed',
-                                                                              color: FlutterFlowTheme.of(context).primaryText,
-                                                                              fontSize: 9.0,
-                                                                            ),
-                                                                      ),
+                                                                    Text(
+                                                                      lowerPriceItem
+                                                                          .rejects
+                                                                          .toString(),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodySmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Asap Condensed',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondaryText,
+                                                                            fontSize:
+                                                                                8.0,
+                                                                            fontWeight:
+                                                                                FontWeight.w600,
+                                                                          ),
+                                                                    ),
+                                                                    Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .center,
+                                                                      children: [
+                                                                        LinearPercentIndicator(
+                                                                          percent:
+                                                                              functions.doubleToPerc(lowerPriceItem.rejects)!,
+                                                                          width:
+                                                                              50.0,
+                                                                          lineHeight:
+                                                                              5.0,
+                                                                          animation:
+                                                                              true,
+                                                                          animateFromLastPercent:
+                                                                              true,
+                                                                          progressColor:
+                                                                              Color(0xFFDC6365),
+                                                                          backgroundColor:
+                                                                              Color(0xFF6067BB),
+                                                                          padding:
+                                                                              EdgeInsets.zero,
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                    Text(
+                                                                      'ОТКАЗЫ',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodySmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Asap Condensed',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondaryText,
+                                                                            fontSize:
+                                                                                8.0,
+                                                                            fontWeight:
+                                                                                FontWeight.w600,
+                                                                          ),
                                                                     ),
                                                                   ],
                                                                 ),
