@@ -53,48 +53,85 @@ class _StartPageWidgetState extends State<StartPageWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         drawer: Drawer(
           elevation: 16.0,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    FlutterFlowIconButton(
-                      borderRadius: 20.0,
-                      borderWidth: 1.0,
-                      buttonSize: 40.0,
-                      icon: Icon(
-                        Icons.close,
-                        color: Color(0xFFDC272B),
-                        size: 24.0,
-                      ),
-                      onPressed: () async {
-                        if (scaffoldKey.currentState!.isDrawerOpen ||
-                            scaffoldKey.currentState!.isEndDrawerOpen) {
-                          Navigator.pop(context);
-                        }
-                      },
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        FlutterFlowIconButton(
+                          borderRadius: 20.0,
+                          borderWidth: 1.0,
+                          buttonSize: 40.0,
+                          icon: Icon(
+                            Icons.close,
+                            color: Color(0xFFDC272B),
+                            size: 24.0,
+                          ),
+                          onPressed: () async {
+                            if (scaffoldKey.currentState!.isDrawerOpen ||
+                                scaffoldKey.currentState!.isEndDrawerOpen) {
+                              Navigator.pop(context);
+                            }
+                          },
+                        ),
+                        Container(
+                          height: 30.0,
+                          decoration: BoxDecoration(),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(0.0),
+                            child: Image.network(
+                              'https://supabase.proplayclub.ru/storage/v1/object/public/playground/autoeuro-logo-s.png',
+                              height: 30.0,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-                Expanded(
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [],
                   ),
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [],
-                ),
-              ],
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 10.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 5.0, 0.0),
+                          child: Icon(
+                            Icons.location_on_rounded,
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            size: 24.0,
+                          ),
+                        ),
+                        Expanded(
+                          child: Text(
+                            'Выберите способ получения',
+                            style: FlutterFlowTheme.of(context).labelLarge,
+                          ),
+                        ),
+                        Icon(
+                          Icons.arrow_forward_ios_outlined,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 12.0,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
