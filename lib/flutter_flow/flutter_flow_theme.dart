@@ -3,31 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:shared_preferences/shared_preferences.dart';
-
-const kThemeModeKey = '__theme_mode__';
-SharedPreferences? _prefs;
-
 abstract class FlutterFlowTheme {
-  static Future initialize() async =>
-      _prefs = await SharedPreferences.getInstance();
-  static ThemeMode get themeMode {
-    final darkMode = _prefs?.getBool(kThemeModeKey);
-    return darkMode == null
-        ? ThemeMode.system
-        : darkMode
-            ? ThemeMode.dark
-            : ThemeMode.light;
-  }
-
-  static void saveThemeMode(ThemeMode mode) => mode == ThemeMode.system
-      ? _prefs?.remove(kThemeModeKey)
-      : _prefs?.setBool(kThemeModeKey, mode == ThemeMode.dark);
-
   static FlutterFlowTheme of(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark
-        ? DarkModeTheme()
-        : LightModeTheme();
+    return LightModeTheme();
   }
 
   @Deprecated('Use primary instead')
@@ -125,8 +103,8 @@ class LightModeTheme extends FlutterFlowTheme {
   @Deprecated('Use tertiary instead')
   Color get tertiaryColor => tertiary;
 
-  late Color primary = const Color(0xFF6F61EF);
-  late Color secondary = const Color(0xFF39D2C0);
+  late Color primary = const Color(0xFFFFFFFF);
+  late Color secondary = const Color(0xFFDC272B);
   late Color tertiary = const Color(0xFFEE8B60);
   late Color alternate = const Color(0xFFE5E7EB);
   late Color primaryText = const Color(0xFF15161E);
@@ -181,136 +159,110 @@ class ThemeTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Outfit';
+  String get displayLargeFamily => 'Roboto Condensed';
   TextStyle get displayLarge => GoogleFonts.getFont(
-        'Outfit',
+        'Roboto Condensed',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 57.0,
       );
-  String get displayMediumFamily => 'Outfit';
+  String get displayMediumFamily => 'Roboto Condensed';
   TextStyle get displayMedium => GoogleFonts.getFont(
-        'Outfit',
+        'Roboto Condensed',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 45.0,
       );
-  String get displaySmallFamily => 'Outfit';
+  String get displaySmallFamily => 'Roboto Condensed';
   TextStyle get displaySmall => GoogleFonts.getFont(
-        'Outfit',
+        'Roboto Condensed',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Outfit';
+  String get headlineLargeFamily => 'Roboto Condensed';
   TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Outfit',
+        'Roboto Condensed',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Outfit';
+  String get headlineMediumFamily => 'Roboto Condensed';
   TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Outfit',
+        'Roboto Condensed',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
-  String get headlineSmallFamily => 'Outfit';
+  String get headlineSmallFamily => 'Roboto Condensed';
   TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Outfit',
+        'Roboto Condensed',
         color: theme.primaryText,
         fontWeight: FontWeight.bold,
         fontSize: 22.0,
       );
-  String get titleLargeFamily => 'Outfit';
+  String get titleLargeFamily => 'Roboto Condensed';
   TextStyle get titleLarge => GoogleFonts.getFont(
-        'Outfit',
+        'Roboto Condensed',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Plus Jakarta Sans';
+  String get titleMediumFamily => 'Asap Condensed';
   TextStyle get titleMedium => GoogleFonts.getFont(
-        'Plus Jakarta Sans',
-        color: theme.info,
+        'Asap Condensed',
+        color: theme.secondaryText,
         fontWeight: FontWeight.w500,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Plus Jakarta Sans';
+  String get titleSmallFamily => 'Asap Condensed';
   TextStyle get titleSmall => GoogleFonts.getFont(
-        'Plus Jakarta Sans',
-        color: theme.info,
+        'Asap Condensed',
+        color: theme.secondaryText,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Outfit';
+  String get labelLargeFamily => 'Roboto Condensed';
   TextStyle get labelLarge => GoogleFonts.getFont(
-        'Outfit',
+        'Roboto Condensed',
         color: theme.secondaryText,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Outfit';
+  String get labelMediumFamily => 'Roboto Condensed';
   TextStyle get labelMedium => GoogleFonts.getFont(
-        'Outfit',
+        'Roboto Condensed',
         color: theme.secondaryText,
         fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Outfit';
+  String get labelSmallFamily => 'Roboto Condensed';
   TextStyle get labelSmall => GoogleFonts.getFont(
-        'Outfit',
+        'Roboto Condensed',
         color: theme.secondaryText,
         fontWeight: FontWeight.w500,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Plus Jakarta Sans';
+  String get bodyLargeFamily => 'Asap Condensed';
   TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Plus Jakarta Sans',
+        'Asap Condensed',
         color: theme.primaryText,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Plus Jakarta Sans';
+  String get bodyMediumFamily => 'Asap Condensed';
   TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Plus Jakarta Sans',
+        'Asap Condensed',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Plus Jakarta Sans';
+  String get bodySmallFamily => 'Asap Condensed';
   TextStyle get bodySmall => GoogleFonts.getFont(
-        'Plus Jakarta Sans',
+        'Asap Condensed',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-}
-
-class DarkModeTheme extends FlutterFlowTheme {
-  @Deprecated('Use primary instead')
-  Color get primaryColor => primary;
-  @Deprecated('Use secondary instead')
-  Color get secondaryColor => secondary;
-  @Deprecated('Use tertiary instead')
-  Color get tertiaryColor => tertiary;
-
-  late Color primary = const Color(0xFF6F61EF);
-  late Color secondary = const Color(0xFF39D2C0);
-  late Color tertiary = const Color(0xFFEE8B60);
-  late Color alternate = const Color(0xFF313442);
-  late Color primaryText = const Color(0xFFFFFFFF);
-  late Color secondaryText = const Color(0xFFA9ADC6);
-  late Color primaryBackground = const Color(0xFF15161E);
-  late Color secondaryBackground = const Color(0xFF1B1D27);
-  late Color accent1 = const Color(0x4D9489F5);
-  late Color accent2 = const Color(0x4C39D2C0);
-  late Color accent3 = const Color(0x4CEE8B60);
-  late Color accent4 = const Color(0x981D2428);
-  late Color success = const Color(0xFF048178);
-  late Color warning = const Color(0xFFFCDC0C);
-  late Color error = const Color(0xFFFF5963);
-  late Color info = const Color(0xFFFFFFFF);
 }
 
 extension TextStyleHelper on TextStyle {

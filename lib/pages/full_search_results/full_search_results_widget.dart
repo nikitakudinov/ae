@@ -428,7 +428,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Plus Jakarta Sans',
+                                                                      'Asap Condensed',
                                                                   color: Color(
                                                                       0xFF06A502),
                                                                 ),
@@ -600,7 +600,8 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .labelLarge
                                                         .override(
-                                                          fontFamily: 'Outfit',
+                                                          fontFamily:
+                                                              'Roboto Condensed',
                                                           color:
                                                               Color(0xFF9489F5),
                                                         ),
@@ -689,7 +690,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                           Text(
                                                                             'ВЕРОЯТНОСТЬ ОТКАЗА',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Plus Jakarta Sans',
+                                                                                  fontFamily: 'Asap Condensed',
                                                                                   color: FlutterFlowTheme.of(context).secondaryText,
                                                                                   fontSize: 8.0,
                                                                                   fontWeight: FontWeight.w600,
@@ -943,7 +944,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                 .titleSmall
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Plus Jakarta Sans',
+                                                                      'Asap Condensed',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
