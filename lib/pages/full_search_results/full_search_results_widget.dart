@@ -968,7 +968,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                               Row(
                                                                 mainAxisSize:
                                                                     MainAxisSize
-                                                                        .max,
+                                                                        .min,
                                                                 children: [
                                                                   Text(
                                                                     headerItem
@@ -977,12 +977,14 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                             context)
                                                                         .titleLarge,
                                                                   ),
-                                                                  Text(
-                                                                    headerItem
-                                                                        .code,
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelMedium,
+                                                                  Expanded(
+                                                                    child: Text(
+                                                                      headerItem
+                                                                          .code,
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium,
+                                                                    ),
                                                                   ),
                                                                 ].divide(SizedBox(
                                                                     width:
