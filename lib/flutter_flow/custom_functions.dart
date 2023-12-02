@@ -110,3 +110,10 @@ DateTime? stringDateToTommorow(String? datestring) {
   final newDate = date.add(Duration(days: 1));
   return newDate;
 }
+
+DateTime? tomorrowdate() {
+  // return tommorow date
+  final now = DateTime.now();
+  final tomorrow = DateTime(now.year, now.month, now.day + 1);
+  return tomorrow;
+}
