@@ -57,7 +57,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
           title: Container(
-            height: 40.0,
+            height: 25.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
@@ -65,7 +65,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
               borderRadius: BorderRadius.circular(0.0),
               child: Image.network(
                 'https://supabase.proplayclub.ru/storage/v1/object/public/playground/autoeuro-logo-s.png',
-                height: 40.0,
+                height: 25.0,
                 fit: BoxFit.cover,
               ),
             ),
