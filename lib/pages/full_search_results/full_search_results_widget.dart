@@ -514,7 +514,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                     }(),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .labelSmall,
                                                   ),
                                                 ],
                                               ),
