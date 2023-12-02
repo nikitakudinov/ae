@@ -1234,7 +1234,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                     .spaceBetween,
                                                             children: [
                                                               Expanded(
-                                                                flex: 3,
+                                                                flex: 2,
                                                                 child: Column(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -1261,7 +1261,6 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                 ),
                                                               ),
                                                               Expanded(
-                                                                flex: 3,
                                                                 child: Column(
                                                                   mainAxisSize:
                                                                       MainAxisSize
