@@ -379,10 +379,15 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text(
-                                              'В наличии',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
+                                            Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  'В наличии',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily:
@@ -390,23 +395,20 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                         color:
                                                             Color(0xFF06A502),
                                                       ),
-                                            ),
-                                            Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
+                                                ),
                                                 Text(
                                                   cross01Item.warehouseName,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
-                                                ),
-                                                Text(
-                                                  cross01Item.price.toString(),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
+                                                      .labelMedium,
                                                 ),
                                               ],
+                                            ),
+                                            Text(
+                                              cross01Item.price.toString(),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
                                             ),
                                             Text(
                                               dateTimeFormat(
