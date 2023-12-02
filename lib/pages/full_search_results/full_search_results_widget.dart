@@ -581,7 +581,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 15.0, 0.0, 15.0),
+                                        0.0, 10.0, 0.0, 10.0),
                                     child: Container(
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
@@ -599,15 +599,14 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                             child: ExpandablePanel(
                                               header: Text(
                                                 'Все предложения',
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .labelLarge
-                                                    .override(
-                                                      fontFamily: 'Outfit',
-                                                      color: Color(0xFF9489F5),
-                                                      decoration: TextDecoration
-                                                          .underline,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelLarge
+                                                        .override(
+                                                          fontFamily: 'Outfit',
+                                                          color:
+                                                              Color(0xFF9489F5),
+                                                        ),
                                               ),
                                               collapsed: Container(),
                                               expanded: Builder(
