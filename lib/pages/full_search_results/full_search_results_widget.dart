@@ -1522,40 +1522,28 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                         .circular(
                                                                             3.0),
                                                               ),
-                                                              child: Visibility(
-                                                                visible: FFAppState()
-                                                                        .sr
-                                                                        .where((e) =>
-                                                                            ('\"${e.brand}\"' ==
-                                                                                brandsListViewItem) &&
-                                                                            (e.stock ==
-                                                                                1))
-                                                                        .toList()
-                                                                        .length !=
-                                                                    null,
-                                                                child: Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          10.0,
-                                                                          10.0,
-                                                                          0.0),
-                                                                  child: Text(
-                                                                    'В НАЛИЧИИ',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelSmall
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Roboto Condensed',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryText,
-                                                                          fontSize:
-                                                                              12.0,
-                                                                          fontWeight:
-                                                                              FontWeight.bold,
-                                                                        ),
-                                                                  ),
+                                                              child: Padding(
+                                                                padding: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        10.0,
+                                                                        10.0,
+                                                                        0.0),
+                                                                child: Text(
+                                                                  'В НАЛИЧИИ',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Roboto Condensed',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryText,
+                                                                        fontSize:
+                                                                            12.0,
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
+                                                                      ),
                                                                 ),
                                                               ),
                                                             ),
