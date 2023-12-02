@@ -421,14 +421,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                               ],
                                             ),
                                             Text(
-                                              dateTimeFormat(
-                                                'relative',
-                                                functions.newCustomFunction3(
-                                                    cross01Item.deliveryTime),
-                                                locale:
-                                                    FFLocalizations.of(context)
-                                                        .languageCode,
-                                              ),
+                                              'Hello World',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium,
