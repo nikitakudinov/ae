@@ -77,7 +77,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
       }
     });
 
-    _model.expandableController2 = ExpandableController(initialExpanded: false);
+    _model.expandableController2 = ExpandableController(initialExpanded: true);
   }
 
   @override
