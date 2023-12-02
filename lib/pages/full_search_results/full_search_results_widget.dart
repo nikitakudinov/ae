@@ -447,11 +447,25 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                               .languageCode,
                                                     )) {
                                                   return 'Сегодня';
-                                                } else if (functions
-                                                        .newCustomFunction3(
-                                                            cross01Item
-                                                                .deliveryTime) ==
-                                                    functions.tomorrowdate()) {
+                                                } else if (dateTimeFormat(
+                                                      'yMd',
+                                                      functions
+                                                          .newCustomFunction3(
+                                                              cross01Item
+                                                                  .deliveryTime),
+                                                      locale:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                    ) ==
+                                                    dateTimeFormat(
+                                                      'yMd',
+                                                      functions.tomorrowdate(),
+                                                      locale:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                    )) {
                                                   return 'Завтра';
                                                 } else {
                                                   return dateTimeFormat(
