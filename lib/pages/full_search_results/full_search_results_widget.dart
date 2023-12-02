@@ -449,8 +449,8 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                 .deliveryTime) ==
                                                     functions
                                                         .curentDatePlusOneDay(
-                                                            getCurrentTimestamp
-                                                                .toString())) {
+                                                            cross01Item
+                                                                .deliveryTime)) {
                                                   return 'Завтра';
                                                 } else {
                                                   return dateTimeFormat(
