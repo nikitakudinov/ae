@@ -138,6 +138,10 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                   FFAppState().sr.length.toString(),
                   style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
+                Text(
+                  'Hello World',
+                  style: FlutterFlowTheme.of(context).bodyMedium,
+                ),
                 Container(
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
