@@ -58,9 +58,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
           automaticallyImplyLeading: false,
           title: Container(
             height: 25.0,
-            decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).secondaryBackground,
-            ),
+            decoration: BoxDecoration(),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(0.0),
               child: Image.network(
