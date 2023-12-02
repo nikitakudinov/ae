@@ -620,6 +620,68 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                     15.0, 0.0, 15.0, 0.0),
                                 child: Builder(
                                   builder: (context) {
+                                    final searchebleItemHeader = FFAppState()
+                                        .sr
+                                        .where((e) =>
+                                            e.cross == null || e.cross == '')
+                                        .toList()
+                                        .take(1)
+                                        .toList();
+                                    return ListView.builder(
+                                      padding: EdgeInsets.zero,
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      itemCount: searchebleItemHeader.length,
+                                      itemBuilder:
+                                          (context, searchebleItemHeaderIndex) {
+                                        final searchebleItemHeaderItem =
+                                            searchebleItemHeader[
+                                                searchebleItemHeaderIndex];
+                                        return Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  searchebleItemHeaderItem
+                                                      .brand,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .labelMedium,
+                                                ),
+                                                Text(
+                                                  searchebleItemHeaderItem.code,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .labelLarge,
+                                                ),
+                                              ].divide(SizedBox(width: 15.0)),
+                                            ),
+                                            Container(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  1.0,
+                                              decoration: BoxDecoration(),
+                                              child: Text(
+                                                searchebleItemHeaderItem.name,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  },
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    15.0, 0.0, 15.0, 0.0),
+                                child: Builder(
+                                  builder: (context) {
                                     final cross0 = FFAppState()
                                         .sr
                                         .where((e) =>
