@@ -384,7 +384,6 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                               MainAxisAlignment.start,
                                           children: [
                                             Expanded(
-                                              flex: 2,
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
