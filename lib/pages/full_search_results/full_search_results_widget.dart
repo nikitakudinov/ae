@@ -1494,9 +1494,8 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                       Container(
                                                         decoration:
                                                             BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primary,
+                                                          color:
+                                                              Color(0xFFDADADA),
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
