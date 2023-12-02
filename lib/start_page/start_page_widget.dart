@@ -54,7 +54,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).alternate,
+          backgroundColor: Colors.white,
           automaticallyImplyLeading: false,
           title: Container(
             height: 25.0,
