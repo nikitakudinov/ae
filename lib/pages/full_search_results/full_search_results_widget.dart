@@ -199,6 +199,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                 .toList();
                                         return ListView.builder(
                                           padding: EdgeInsets.zero,
+                                          primary: false,
                                           shrinkWrap: true,
                                           scrollDirection: Axis.vertical,
                                           itemCount:
@@ -271,6 +272,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                             .toList();
                                         return ListView.builder(
                                           padding: EdgeInsets.zero,
+                                          primary: false,
                                           shrinkWrap: true,
                                           scrollDirection: Axis.vertical,
                                           itemCount: cross01.length,
@@ -334,6 +336,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                             .toList();
                                         return ListView.builder(
                                           padding: EdgeInsets.zero,
+                                          primary: false,
                                           shrinkWrap: true,
                                           scrollDirection: Axis.vertical,
                                           itemCount: cross01.length,
@@ -396,6 +399,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                             .toList();
                                         return ListView.builder(
                                           padding: EdgeInsets.zero,
+                                          primary: false,
                                           shrinkWrap: true,
                                           scrollDirection: Axis.vertical,
                                           itemCount: cross01.length,
@@ -607,6 +611,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                     .toList();
                                                 return ListView.builder(
                                                   padding: EdgeInsets.zero,
+                                                  primary: false,
                                                   shrinkWrap: true,
                                                   scrollDirection:
                                                       Axis.vertical,
