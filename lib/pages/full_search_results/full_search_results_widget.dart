@@ -726,30 +726,31 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                               Color(0x3E40464A),
                                                                         ),
                                                                       ),
-                                                                      FlutterFlowIconButton(
-                                                                        borderColor:
-                                                                            Colors.transparent,
-                                                                        borderRadius:
-                                                                            20.0,
-                                                                        borderWidth:
-                                                                            1.0,
-                                                                        buttonSize:
-                                                                            40.0,
-                                                                        icon:
-                                                                            FaIcon(
-                                                                          FontAwesomeIcons
-                                                                              .shieldAlt,
-                                                                          color:
-                                                                              Color(0xFF40464A),
-                                                                          size:
-                                                                              15.0,
+                                                                      if (cross0Item
+                                                                              .dealer ==
+                                                                          1)
+                                                                        FlutterFlowIconButton(
+                                                                          borderColor:
+                                                                              Colors.transparent,
+                                                                          borderRadius:
+                                                                              20.0,
+                                                                          borderWidth:
+                                                                              1.0,
+                                                                          buttonSize:
+                                                                              40.0,
+                                                                          icon:
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.shieldAlt,
+                                                                            color:
+                                                                                Color(0xFF40464A),
+                                                                            size:
+                                                                                15.0,
+                                                                          ),
+                                                                          onPressed:
+                                                                              () {
+                                                                            print('IconButton pressed ...');
+                                                                          },
                                                                         ),
-                                                                        onPressed:
-                                                                            () {
-                                                                          print(
-                                                                              'IconButton pressed ...');
-                                                                        },
-                                                                      ),
                                                                     ],
                                                                   ),
                                                                 ),
