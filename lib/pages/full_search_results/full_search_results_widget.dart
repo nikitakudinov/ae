@@ -865,6 +865,11 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                             ),
                                                           ),
                                                           Container(
+                                                            width: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .width *
+                                                                1.0,
                                                             height: 1.0,
                                                             decoration:
                                                                 BoxDecoration(
