@@ -713,12 +713,12 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                       Text(
                                                                         '${cross0Item.price.toString()}',
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
+                                                                            .labelLarge,
                                                                       ),
                                                                       Text(
                                                                         '${cross0Item.amount.toString()}${cross0Item.unit}',
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
+                                                                            .labelMedium,
                                                                       ),
                                                                     ],
                                                                   ),
@@ -762,7 +762,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                           }
                                                                         }(),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
+                                                                            .labelSmall,
                                                                       ),
                                                                       Text(
                                                                         dateTimeFormat(
@@ -773,7 +773,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                               FFLocalizations.of(context).languageShortCode ?? FFLocalizations.of(context).languageCode,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodySmall,
+                                                                            .labelSmall,
                                                                       ),
                                                                     ],
                                                                   ),
@@ -800,7 +800,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                         Icons
                                                                             .add_shopping_cart,
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .primaryText,
+                                                                            .secondaryText,
                                                                         size:
                                                                             24.0,
                                                                       ),
