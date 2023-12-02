@@ -659,35 +659,49 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                             context)
                                                                         .secondaryBackground,
                                                                   ),
-                                                                  child:
-                                                                      LinearPercentIndicator(
-                                                                    percent: functions
-                                                                        .doubleToPerc(
-                                                                            cross0Item.rejects)!,
-                                                                    width:
-                                                                        100.0,
-                                                                    lineHeight:
-                                                                        20.0,
-                                                                    animation:
-                                                                        true,
-                                                                    animateFromLastPercent:
-                                                                        true,
-                                                                    progressColor:
-                                                                        Color(
-                                                                            0xFFDC272B),
-                                                                    backgroundColor:
-                                                                        Color(
-                                                                            0xFF1928A5),
-                                                                    center:
-                                                                        Text(
-                                                                      'ОТКАЗЫ',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium,
-                                                                    ),
-                                                                    padding:
-                                                                        EdgeInsets
-                                                                            .zero,
+                                                                  child: Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Text(
+                                                                        '${cross0Item.rejects.toString()} %',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .labelSmall,
+                                                                      ),
+                                                                      Opacity(
+                                                                        opacity:
+                                                                            0.7,
+                                                                        child:
+                                                                            LinearPercentIndicator(
+                                                                          percent:
+                                                                              functions.doubleToPerc(cross0Item.rejects)!,
+                                                                          width:
+                                                                              100.0,
+                                                                          lineHeight:
+                                                                              5.0,
+                                                                          animation:
+                                                                              true,
+                                                                          animateFromLastPercent:
+                                                                              true,
+                                                                          progressColor:
+                                                                              Color(0xFFDC272B),
+                                                                          backgroundColor:
+                                                                              Color(0xFF1928A5),
+                                                                          padding:
+                                                                              EdgeInsets.zero,
+                                                                        ),
+                                                                      ),
+                                                                      Text(
+                                                                        'ВЕРОЯТНОСТЬ ОТКАЗА',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodySmall
+                                                                            .override(
+                                                                              fontFamily: 'Plus Jakarta Sans',
+                                                                              fontSize: 8.0,
+                                                                            ),
+                                                                      ),
+                                                                    ],
                                                                   ),
                                                                 ),
                                                                 Expanded(
