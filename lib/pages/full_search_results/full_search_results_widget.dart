@@ -1497,7 +1497,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                               (e.stock == 1))
                                                           .toList()
                                                           .length !=
-                                                      null)
+                                                      0)
                                                     Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
