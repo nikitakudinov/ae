@@ -293,6 +293,65 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                   },
                                 ),
                               ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    15.0, 0.0, 15.0, 0.0),
+                                child: Builder(
+                                  builder: (context) {
+                                    final cross01 = FFAppState()
+                                        .sr
+                                        .where((e) =>
+                                            e.cross == null || e.cross == '')
+                                        .toList()
+                                        .sortedList((e) => e.deliveryTime)
+                                        .toList()
+                                        .take(1)
+                                        .toList();
+                                    return ListView.builder(
+                                      padding: EdgeInsets.zero,
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      itemCount: cross01.length,
+                                      itemBuilder: (context, cross01Index) {
+                                        final cross01Item =
+                                            cross01[cross01Index];
+                                        return Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              'Мин. срок',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                            Text(
+                                              cross01Item.price.toString(),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                            Text(
+                                              dateTimeFormat(
+                                                'relative',
+                                                functions.newCustomFunction3(
+                                                    cross01Item.deliveryTime),
+                                                locale:
+                                                    FFLocalizations.of(context)
+                                                        .languageCode,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  },
+                                ),
+                              ),
                             ],
                           ),
                           expanded: Column(
