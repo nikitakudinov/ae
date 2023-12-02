@@ -1234,7 +1234,6 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                     .spaceBetween,
                                                             children: [
                                                               Expanded(
-                                                                flex: 2,
                                                                 child: Column(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -1261,6 +1260,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                 ),
                                                               ),
                                                               Expanded(
+                                                                flex: 2,
                                                                 child: Column(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -1339,6 +1339,9 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                   mainAxisSize:
                                                                       MainAxisSize
                                                                           .max,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .center,
                                                                   children: [
                                                                     Text(
                                                                       lowerPriceItem
