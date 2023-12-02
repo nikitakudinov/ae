@@ -56,43 +56,46 @@ class _StartPageWidgetState extends State<StartPageWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         drawer: Drawer(
           elevation: 16.0,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  FlutterFlowIconButton(
-                    borderRadius: 20.0,
-                    borderWidth: 1.0,
-                    buttonSize: 40.0,
-                    icon: Icon(
-                      Icons.close,
-                      color: Color(0xFFDC272B),
-                      size: 24.0,
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    FlutterFlowIconButton(
+                      borderRadius: 20.0,
+                      borderWidth: 1.0,
+                      buttonSize: 40.0,
+                      icon: Icon(
+                        Icons.close,
+                        color: Color(0xFFDC272B),
+                        size: 24.0,
+                      ),
+                      onPressed: () async {
+                        if (scaffoldKey.currentState!.isDrawerOpen ||
+                            scaffoldKey.currentState!.isEndDrawerOpen) {
+                          Navigator.pop(context);
+                        }
+                      },
                     ),
-                    onPressed: () async {
-                      if (scaffoldKey.currentState!.isDrawerOpen ||
-                          scaffoldKey.currentState!.isEndDrawerOpen) {
-                        Navigator.pop(context);
-                      }
-                    },
+                  ],
+                ),
+                Expanded(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [],
                   ),
-                ],
-              ),
-              Expanded(
-                child: Row(
+                ),
+                Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [],
                 ),
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [],
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         appBar: AppBar(
