@@ -1086,7 +1086,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                             fontFamily:
                                                                                 'Roboto Condensed',
                                                                             fontSize:
-                                                                                10.0,
+                                                                                12.0,
                                                                             fontWeight:
                                                                                 FontWeight.bold,
                                                                           ),
@@ -1252,10 +1252,53 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                             fontFamily:
                                                                                 'Roboto Condensed',
                                                                             fontSize:
-                                                                                10.0,
+                                                                                12.0,
                                                                             fontWeight:
                                                                                 FontWeight.bold,
                                                                           ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                              Expanded(
+                                                                flex: 3,
+                                                                child: Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    CircularPercentIndicator(
+                                                                      percent: functions
+                                                                          .doubleToPerc(
+                                                                              lowerPriceItem.rejects)!,
+                                                                      radius:
+                                                                          12.5,
+                                                                      lineWidth:
+                                                                          3.0,
+                                                                      animation:
+                                                                          true,
+                                                                      animateFromLastPercent:
+                                                                          true,
+                                                                      progressColor:
+                                                                          Color(
+                                                                              0xFFDC6365),
+                                                                      backgroundColor:
+                                                                          Color(
+                                                                              0xFF6067BB),
+                                                                      center:
+                                                                          Text(
+                                                                        '${lowerPriceItem.rejects.toString()}%',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .headlineSmall
+                                                                            .override(
+                                                                              fontFamily: 'Roboto Condensed',
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                              fontSize: 9.0,
+                                                                            ),
+                                                                      ),
                                                                     ),
                                                                   ],
                                                                 ),
