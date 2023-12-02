@@ -404,11 +404,22 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                 ),
                                               ],
                                             ),
-                                            Text(
-                                              cross01Item.price.toString(),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                            Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  '${cross01Item.price.toString()}',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .labelLarge,
+                                                ),
+                                                Text(
+                                                  '${cross01Item.amount.toString()} ${cross01Item.unit}',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .labelSmall,
+                                                ),
+                                              ],
                                             ),
                                             Text(
                                               dateTimeFormat(
@@ -421,7 +432,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodySmall,
                                             ),
                                           ],
                                         );
