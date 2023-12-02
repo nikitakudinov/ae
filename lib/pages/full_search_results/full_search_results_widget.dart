@@ -164,7 +164,13 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                 Text(
                                   'Искомый артикул',
                                   style: FlutterFlowTheme.of(context)
-                                      .headlineSmall,
+                                      .headlineSmall
+                                      .override(
+                                        fontFamily: 'Roboto Condensed',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                 ),
                               ],
                             ),
@@ -610,7 +616,11 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                         fontFamily:
                                                             'Roboto Condensed',
                                                         color:
-                                                            Color(0xFF9489F5),
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        fontWeight:
+                                                            FontWeight.bold,
                                                       ),
                                                 ),
                                                 collapsed: Container(),
