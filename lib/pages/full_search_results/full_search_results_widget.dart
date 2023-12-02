@@ -643,58 +643,17 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                               MainAxisAlignment
                                                                   .spaceBetween,
                                                           children: [
-                                                            Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Text(
-                                                                  cross0Item.deliveryTime ==
-                                                                          cross0Item
-                                                                              .deliveryTimeMax
-                                                                      ? dateTimeFormat(
-                                                                          'd MMM',
-                                                                          functions
-                                                                              .newCustomFunction3(cross0Item.deliveryTime),
-                                                                          locale:
-                                                                              FFLocalizations.of(context).languageCode,
-                                                                        )
-                                                                      : '${dateTimeFormat(
-                                                                          'd',
-                                                                          functions
-                                                                              .newCustomFunction3(cross0Item.deliveryTime),
-                                                                          locale:
-                                                                              FFLocalizations.of(context).languageCode,
-                                                                        )}-${dateTimeFormat(
-                                                                          'dMMM',
-                                                                          functions
-                                                                              .newCustomFunction3(cross0Item.deliveryTimeMax),
-                                                                          locale:
-                                                                              FFLocalizations.of(context).languageCode,
-                                                                        )}',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium,
-                                                                ),
-                                                                Text(
-                                                                  dateTimeFormat(
-                                                                    'Hm',
-                                                                    functions.newCustomFunction3(
-                                                                        cross0Item
-                                                                            .deliveryTimeMax),
-                                                                    locale: FFLocalizations.of(context)
-                                                                            .languageShortCode ??
-                                                                        FFLocalizations.of(context)
-                                                                            .languageCode,
-                                                                  ),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmall,
-                                                                ),
-                                                              ],
+                                                            Expanded(
+                                                              flex: 2,
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [],
+                                                              ),
                                                             ),
                                                             Expanded(
                                                               child: Column(
@@ -702,6 +661,12 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                     MainAxisSize
                                                                         .max,
                                                                 children: [
+                                                                  Text(
+                                                                    '${cross0Item.price.toString()}',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium,
+                                                                  ),
                                                                   Text(
                                                                     '${cross0Item.amount.toString()}${cross0Item.unit}',
                                                                     style: FlutterFlowTheme.of(
@@ -711,18 +676,53 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                 ],
                                                               ),
                                                             ),
-                                                            Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Text(
-                                                                  '${cross0Item.price.toString()}',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium,
-                                                                ),
-                                                              ],
+                                                            Expanded(
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Text(
+                                                                    cross0Item.deliveryTime ==
+                                                                            cross0Item.deliveryTimeMax
+                                                                        ? dateTimeFormat(
+                                                                            'd MMM',
+                                                                            functions.newCustomFunction3(cross0Item.deliveryTime),
+                                                                            locale:
+                                                                                FFLocalizations.of(context).languageCode,
+                                                                          )
+                                                                        : '${dateTimeFormat(
+                                                                            'd',
+                                                                            functions.newCustomFunction3(cross0Item.deliveryTime),
+                                                                            locale:
+                                                                                FFLocalizations.of(context).languageCode,
+                                                                          )}-${dateTimeFormat(
+                                                                            'dMMM',
+                                                                            functions.newCustomFunction3(cross0Item.deliveryTimeMax),
+                                                                            locale:
+                                                                                FFLocalizations.of(context).languageCode,
+                                                                          )}',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium,
+                                                                  ),
+                                                                  Text(
+                                                                    dateTimeFormat(
+                                                                      'Hm',
+                                                                      functions.newCustomFunction3(
+                                                                          cross0Item
+                                                                              .deliveryTimeMax),
+                                                                      locale: FFLocalizations.of(context)
+                                                                              .languageShortCode ??
+                                                                          FFLocalizations.of(context)
+                                                                              .languageCode,
+                                                                    ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmall,
+                                                                  ),
+                                                                ],
+                                                              ),
                                                             ),
                                                             Expanded(
                                                               child: Align(
