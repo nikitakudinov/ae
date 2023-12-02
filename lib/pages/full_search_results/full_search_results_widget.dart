@@ -1009,6 +1009,34 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                   ),
                                                   Builder(
                                                     builder: (context) {
+                                                      final name = FFAppState()
+                                                          .sr
+                                                          .where((e) =>
+                                                              '\"${e.brand}\"' ==
+                                                              brandsListViewItem)
+                                                          .toList()
+                                                          .take(1)
+                                                          .toList();
+                                                      return Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: List.generate(
+                                                            name.length,
+                                                            (nameIndex) {
+                                                          final nameItem =
+                                                              name[nameIndex];
+                                                          return Text(
+                                                            nameItem.name,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium,
+                                                          );
+                                                        }),
+                                                      );
+                                                    },
+                                                  ),
+                                                  Builder(
+                                                    builder: (context) {
                                                       final fastestDelivery =
                                                           FFAppState()
                                                               .sr
@@ -1188,34 +1216,6 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                             ],
                                                           );
                                                         },
-                                                      );
-                                                    },
-                                                  ),
-                                                  Builder(
-                                                    builder: (context) {
-                                                      final name = FFAppState()
-                                                          .sr
-                                                          .where((e) =>
-                                                              '\"${e.brand}\"' ==
-                                                              brandsListViewItem)
-                                                          .toList()
-                                                          .take(1)
-                                                          .toList();
-                                                      return Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: List.generate(
-                                                            name.length,
-                                                            (nameIndex) {
-                                                          final nameItem =
-                                                              name[nameIndex];
-                                                          return Text(
-                                                            nameItem.name,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          );
-                                                        }),
                                                       );
                                                     },
                                                   ),
