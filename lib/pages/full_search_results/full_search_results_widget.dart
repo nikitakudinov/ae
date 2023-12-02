@@ -112,18 +112,22 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
+          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           automaticallyImplyLeading: true,
           title: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Text(
-                'Page Title',
-                style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'Outfit',
-                      color: Colors.white,
-                      fontSize: 22.0,
-                    ),
+              Container(
+                height: 25.0,
+                decoration: BoxDecoration(),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(0.0),
+                  child: Image.network(
+                    'https://supabase.proplayclub.ru/storage/v1/object/public/playground/autoeuro-logo-s.png',
+                    height: 25.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ],
           ),
@@ -137,14 +141,6 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                Text(
-                  FFAppState().sr.length.toString(),
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Text(
-                  'Hello World',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
                 Container(
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
