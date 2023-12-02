@@ -661,9 +661,9 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                   ),
                                                                   child:
                                                                       LinearPercentIndicator(
-                                                                    percent:
-                                                                        cross0Item
-                                                                            .rejects,
+                                                                    percent: functions
+                                                                        .doubleToPerc(
+                                                                            cross0Item.rejects)!,
                                                                     width:
                                                                         100.0,
                                                                     lineHeight:
@@ -680,9 +680,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                             0xFF1928A5),
                                                                     center:
                                                                         Text(
-                                                                      cross0Item
-                                                                          .rejects
-                                                                          .toString(),
+                                                                      'ОТКАЗЫ',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium,

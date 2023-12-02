@@ -117,3 +117,11 @@ DateTime? tomorrowdate() {
   final tomorrow = DateTime(now.year, now.month, now.day + 1);
   return tomorrow;
 }
+
+double? doubleToPerc(double? value) {
+  // value / 100
+  if (value == null) {
+    return null;
+  }
+  return value / 100;
+}
