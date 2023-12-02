@@ -881,13 +881,13 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                           child: ExpandableNotifier(
                             controller: _model.expandableController3,
                             child: ExpandablePanel(
-                              header: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    15.0, 0.0, 0.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Text(
+                              header: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 0.0, 0.0, 0.0),
+                                    child: Text(
                                       'Аналоги / Кроссы',
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
@@ -898,8 +898,8 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                             fontWeight: FontWeight.bold,
                                           ),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                               collapsed: Container(
                                 decoration: BoxDecoration(),
