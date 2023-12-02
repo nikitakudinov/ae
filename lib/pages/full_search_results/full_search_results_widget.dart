@@ -1888,6 +1888,23 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                       ),
                                                     ),
                                                   ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 3.0,
+                                                                0.0, 3.0),
+                                                    child: Container(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          1.0,
+                                                      height: 1.0,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            Color(0xFFAAAAAA),
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ],
                                               ),
                                             ),
