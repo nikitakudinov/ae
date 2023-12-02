@@ -882,32 +882,42 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(0.0),
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
+                Container(
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).accent4,
+                    borderRadius: BorderRadius.circular(0.0),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            15.0, 15.0, 15.0, 15.0),
+                        child: Container(
                           width: double.infinity,
                           color: Colors.white,
                           child: ExpandableNotifier(
                             controller: _model.expandableController3,
                             child: ExpandablePanel(
-                              header: Text(
-                                'Искомый артикул',
-                                style: FlutterFlowTheme.of(context)
-                                    .headlineSmall
-                                    .override(
-                                      fontFamily: 'Roboto Condensed',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      fontWeight: FontWeight.bold,
+                              header: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    15.0, 0.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      'Искомый артикул',
+                                      style: FlutterFlowTheme.of(context)
+                                          .headlineSmall
+                                          .override(
+                                            fontFamily: 'Roboto Condensed',
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                     ),
+                                  ],
+                                ),
                               ),
                               collapsed: Container(
                                 decoration: BoxDecoration(
@@ -938,9 +948,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                     0.0, 0.0, 0.0, 10.0),
                                             child: Container(
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: Color(0x6CFFFFFF),
                                                 borderRadius:
                                                     BorderRadius.circular(5.0),
                                               ),
@@ -1406,8 +1414,8 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                             ),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ],
