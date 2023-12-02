@@ -443,72 +443,73 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                 ],
                                               ),
                                             ),
-                                            Expanded(
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Text(
-                                                    () {
-                                                      if (dateTimeFormat(
-                                                            'yMd',
-                                                            functions
-                                                                .newCustomFunction3(
-                                                                    cross01Item
-                                                                        .deliveryTime),
-                                                            locale: FFLocalizations
-                                                                    .of(context)
-                                                                .languageCode,
-                                                          ) ==
-                                                          dateTimeFormat(
-                                                            'yMd',
-                                                            getCurrentTimestamp,
-                                                            locale: FFLocalizations
-                                                                    .of(context)
-                                                                .languageCode,
-                                                          )) {
-                                                        return 'Сегодня';
-                                                      } else if (dateTimeFormat(
-                                                            'yMd',
-                                                            functions
-                                                                .newCustomFunction3(
-                                                                    cross01Item
-                                                                        .deliveryTime),
-                                                            locale: FFLocalizations
-                                                                    .of(context)
-                                                                .languageCode,
-                                                          ) ==
-                                                          dateTimeFormat(
-                                                            'yMd',
-                                                            functions
-                                                                .tomorrowdate(),
-                                                            locale: FFLocalizations
-                                                                    .of(context)
-                                                                .languageCode,
-                                                          )) {
-                                                        return 'Завтра';
-                                                      } else {
-                                                        return dateTimeFormat(
-                                                          'relative',
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  () {
+                                                    if (dateTimeFormat(
+                                                          'yMd',
                                                           functions
                                                               .newCustomFunction3(
                                                                   cross01Item
                                                                       .deliveryTime),
-                                                          locale: FFLocalizations
-                                                                      .of(
-                                                                          context)
-                                                                  .languageShortCode ??
+                                                          locale:
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .languageCode,
-                                                        );
-                                                      }
-                                                    }(),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
-                                                  ),
-                                                ],
-                                              ),
+                                                        ) ==
+                                                        dateTimeFormat(
+                                                          'yMd',
+                                                          getCurrentTimestamp,
+                                                          locale:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .languageCode,
+                                                        )) {
+                                                      return 'Сегодня';
+                                                    } else if (dateTimeFormat(
+                                                          'yMd',
+                                                          functions
+                                                              .newCustomFunction3(
+                                                                  cross01Item
+                                                                      .deliveryTime),
+                                                          locale:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .languageCode,
+                                                        ) ==
+                                                        dateTimeFormat(
+                                                          'yMd',
+                                                          functions
+                                                              .tomorrowdate(),
+                                                          locale:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .languageCode,
+                                                        )) {
+                                                      return 'Завтра';
+                                                    } else {
+                                                      return dateTimeFormat(
+                                                        'relative',
+                                                        functions
+                                                            .newCustomFunction3(
+                                                                cross01Item
+                                                                    .deliveryTime),
+                                                        locale: FFLocalizations
+                                                                    .of(context)
+                                                                .languageShortCode ??
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      );
+                                                    }
+                                                  }(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
+                                              ],
                                             ),
                                             FlutterFlowIconButton(
                                               borderRadius: 20.0,
