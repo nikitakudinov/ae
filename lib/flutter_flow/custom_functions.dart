@@ -102,11 +102,11 @@ List<dynamic>? newCustomFunction4(List<dynamic>? jsonArray) {
   return result;
 }
 
-DateTime? curentDatePlusOneDay(String? date) {
+DateTime? curentDatePlusOneDay(DateTime? date) {
   // curent Date Plus OneDay
   if (date == null) return null;
   final dateFormat = DateFormat('yyyy-MM-dd');
-  final parsedDate = dateFormat.parse(date);
+  final parsedDate = dateFormat.parse(date as String);
   final newDate = parsedDate.add(Duration(days: 1));
   return newDate;
 }

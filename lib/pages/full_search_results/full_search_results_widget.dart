@@ -447,10 +447,8 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                         .newCustomFunction3(
                                                             cross01Item
                                                                 .deliveryTime) ==
-                                                    functions
-                                                        .curentDatePlusOneDay(
-                                                            cross01Item
-                                                                .deliveryTime)) {
+                                                    functions.curentDatePlusOneDay(
+                                                        getCurrentTimestamp)) {
                                                   return 'Завтра';
                                                 } else {
                                                   return dateTimeFormat(
