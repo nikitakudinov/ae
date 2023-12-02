@@ -974,20 +974,14 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                         .brand,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .titleSmall
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Asap Condensed',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
-                                                                        ),
+                                                                        .titleMedium,
                                                                   ),
                                                                   Text(
                                                                     headerItem
                                                                         .code,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyLarge,
+                                                                        .labelMedium,
                                                                   ),
                                                                 ].divide(SizedBox(
                                                                     width:
@@ -1029,7 +1023,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                             nameItem.name,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyMedium,
+                                                                .labelMedium,
                                                           );
                                                         }),
                                                       );
