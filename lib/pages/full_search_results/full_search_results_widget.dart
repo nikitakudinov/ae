@@ -1226,13 +1226,11 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                 0.0, 0.0),
                                                     child: Builder(
                                                       builder: (context) {
-                                                        final cross01 = FFAppState()
+                                                        final cross02 = FFAppState()
                                                             .sr
                                                             .where((e) =>
-                                                                (e.cross ==
-                                                                        null ||
-                                                                    e.cross ==
-                                                                        '') &&
+                                                                ('\"${e.brand}\"' ==
+                                                                    brandsListViewItem) &&
                                                                 (e.stock == 1))
                                                             .toList()
                                                             .sortedList((e) =>
@@ -1246,12 +1244,12 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                           scrollDirection:
                                                               Axis.vertical,
                                                           itemCount:
-                                                              cross01.length,
+                                                              cross02.length,
                                                           itemBuilder: (context,
-                                                              cross01Index) {
-                                                            final cross01Item =
-                                                                cross01[
-                                                                    cross01Index];
+                                                              cross02Index) {
+                                                            final cross02Item =
+                                                                cross02[
+                                                                    cross02Index];
                                                             return Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -1281,7 +1279,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                                 ),
                                                                           ),
                                                                           Text(
-                                                                            cross01Item.warehouseName,
+                                                                            cross02Item.warehouseName,
                                                                             style:
                                                                                 FlutterFlowTheme.of(context).labelMedium,
                                                                           ),
@@ -1304,12 +1302,12 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                             MainAxisSize.max,
                                                                         children: [
                                                                           Text(
-                                                                            '${cross01Item.price.toString()}',
+                                                                            '${cross02Item.price.toString()}',
                                                                             style:
                                                                                 FlutterFlowTheme.of(context).labelLarge,
                                                                           ),
                                                                           Text(
-                                                                            '${cross01Item.amount.toString()} ${cross01Item.unit}',
+                                                                            '${cross02Item.amount.toString()} ${cross02Item.unit}',
                                                                             style:
                                                                                 FlutterFlowTheme.of(context).labelSmall,
                                                                           ),
@@ -1331,7 +1329,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                         () {
                                                                           if (dateTimeFormat(
                                                                                 'yMd',
-                                                                                functions.newCustomFunction3(cross01Item.deliveryTime),
+                                                                                functions.newCustomFunction3(cross02Item.deliveryTime),
                                                                                 locale: FFLocalizations.of(context).languageCode,
                                                                               ) ==
                                                                               dateTimeFormat(
@@ -1342,7 +1340,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                             return 'Сегодня';
                                                                           } else if (dateTimeFormat(
                                                                                 'yMd',
-                                                                                functions.newCustomFunction3(cross01Item.deliveryTime),
+                                                                                functions.newCustomFunction3(cross02Item.deliveryTime),
                                                                                 locale: FFLocalizations.of(context).languageCode,
                                                                               ) ==
                                                                               dateTimeFormat(
@@ -1354,7 +1352,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                           } else {
                                                                             return dateTimeFormat(
                                                                               'relative',
-                                                                              functions.newCustomFunction3(cross01Item.deliveryTime),
+                                                                              functions.newCustomFunction3(cross02Item.deliveryTime),
                                                                               locale: FFLocalizations.of(context).languageShortCode ?? FFLocalizations.of(context).languageCode,
                                                                             );
                                                                           }
