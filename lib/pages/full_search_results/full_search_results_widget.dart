@@ -1117,7 +1117,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                         'relative',
                                                                         functions
                                                                             .newCustomFunction3(fastestDeliveryItem.deliveryTime),
-                                                                        locale:
+                                                                        locale: FFLocalizations.of(context).languageShortCode ??
                                                                             FFLocalizations.of(context).languageCode,
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
@@ -1252,7 +1252,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                         'relative',
                                                                         functions
                                                                             .newCustomFunction3(lowerPriceItem.deliveryTime),
-                                                                        locale:
+                                                                        locale: FFLocalizations.of(context).languageShortCode ??
                                                                             FFLocalizations.of(context).languageCode,
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
