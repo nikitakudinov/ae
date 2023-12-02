@@ -581,30 +581,34 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                    ),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          10.0, 10.0, 10.0, 10.0),
-                      child: Container(
-                        width: double.infinity,
-                        color: Colors.white,
-                        child: ExpandableNotifier(
-                          controller: _model.expandableController2,
-                          child: ExpandablePanel(
-                            header: Column(
+                Container(
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                  ),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                    child: Container(
+                      width: double.infinity,
+                      color: Colors.white,
+                      child: ExpandableNotifier(
+                        controller: _model.expandableController2,
+                        child: ExpandablePanel(
+                          header: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                15.0, 15.0, 0.0, 0.0),
+                            child: Column(
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  'Искомый артикул',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleLarge,
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 15.0),
+                                  child: Text(
+                                    'Искомый артикул',
+                                    style:
+                                        FlutterFlowTheme.of(context).titleLarge,
+                                  ),
                                 ),
                                 Builder(
                                   builder: (context) {
@@ -666,132 +670,128 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                 ),
                               ],
                             ),
-                            collapsed: Container(),
-                            expanded: Builder(
-                              builder: (context) {
-                                final cross0 = FFAppState()
-                                    .sr
-                                    .where(
-                                        (e) => e.cross == null || e.cross == '')
-                                    .toList();
-                                return ListView.builder(
-                                  padding: EdgeInsets.zero,
-                                  shrinkWrap: true,
-                                  scrollDirection: Axis.vertical,
-                                  itemCount: cross0.length,
-                                  itemBuilder: (context, cross0Index) {
-                                    final cross0Item = cross0[cross0Index];
-                                    return Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 5.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                cross0Item.deliveryTime ==
-                                                        cross0Item
-                                                            .deliveryTimeMax
-                                                    ? dateTimeFormat(
-                                                        'd MMM',
-                                                        functions
-                                                            .newCustomFunction3(
-                                                                cross0Item
-                                                                    .deliveryTime),
-                                                        locale:
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .languageCode,
-                                                      )
-                                                    : '${dateTimeFormat(
-                                                        'd',
-                                                        functions
-                                                            .newCustomFunction3(
-                                                                cross0Item
-                                                                    .deliveryTime),
-                                                        locale:
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .languageCode,
-                                                      )}-${dateTimeFormat(
-                                                        'dMMM',
-                                                        functions
-                                                            .newCustomFunction3(
-                                                                cross0Item
-                                                                    .deliveryTimeMax),
-                                                        locale:
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .languageCode,
-                                                      )}',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                              Text(
-                                                dateTimeFormat(
-                                                  'Hm',
-                                                  functions.newCustomFunction3(
-                                                      cross0Item
-                                                          .deliveryTimeMax),
-                                                  locale: FFLocalizations.of(
-                                                              context)
-                                                          .languageShortCode ??
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .languageCode,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall,
-                                              ),
-                                            ],
-                                          ),
-                                          Expanded(
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(
-                                                  '${cross0Item.amount.toString()}${cross0Item.unit}',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
+                          ),
+                          collapsed: Container(),
+                          expanded: Builder(
+                            builder: (context) {
+                              final cross0 = FFAppState()
+                                  .sr
+                                  .where(
+                                      (e) => e.cross == null || e.cross == '')
+                                  .toList();
+                              return ListView.builder(
+                                padding: EdgeInsets.zero,
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                itemCount: cross0.length,
+                                itemBuilder: (context, cross0Index) {
+                                  final cross0Item = cross0[cross0Index];
+                                  return Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 5.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              cross0Item.deliveryTime ==
+                                                      cross0Item.deliveryTimeMax
+                                                  ? dateTimeFormat(
+                                                      'd MMM',
+                                                      functions
+                                                          .newCustomFunction3(
+                                                              cross0Item
+                                                                  .deliveryTime),
+                                                      locale:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                    )
+                                                  : '${dateTimeFormat(
+                                                      'd',
+                                                      functions
+                                                          .newCustomFunction3(
+                                                              cross0Item
+                                                                  .deliveryTime),
+                                                      locale:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                    )}-${dateTimeFormat(
+                                                      'dMMM',
+                                                      functions.newCustomFunction3(
+                                                          cross0Item
+                                                              .deliveryTimeMax),
+                                                      locale:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                    )}',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
                                                       .bodyMedium,
-                                                ),
-                                              ],
                                             ),
-                                          ),
-                                          Column(
+                                            Text(
+                                              dateTimeFormat(
+                                                'Hm',
+                                                functions.newCustomFunction3(
+                                                    cross0Item.deliveryTimeMax),
+                                                locale: FFLocalizations.of(
+                                                            context)
+                                                        .languageShortCode ??
+                                                    FFLocalizations.of(context)
+                                                        .languageCode,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall,
+                                            ),
+                                          ],
+                                        ),
+                                        Expanded(
+                                          child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Text(
-                                                '${cross0Item.price.toString()}',
+                                                '${cross0Item.amount.toString()}${cross0Item.unit}',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium,
                                               ),
                                             ],
                                           ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                );
-                              },
-                            ),
-                            theme: ExpandableThemeData(
-                              tapHeaderToExpand: true,
-                              tapBodyToExpand: false,
-                              tapBodyToCollapse: false,
-                              headerAlignment:
-                                  ExpandablePanelHeaderAlignment.center,
-                              hasIcon: true,
-                            ),
+                                        ),
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Text(
+                                              '${cross0Item.price.toString()}',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                          ),
+                          theme: ExpandableThemeData(
+                            tapHeaderToExpand: true,
+                            tapBodyToExpand: false,
+                            tapBodyToCollapse: false,
+                            headerAlignment:
+                                ExpandablePanelHeaderAlignment.center,
+                            hasIcon: true,
                           ),
                         ),
                       ),
