@@ -975,7 +975,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                         .brand,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .titleMedium,
+                                                                        .titleLarge,
                                                                   ),
                                                                   Text(
                                                                     headerItem
