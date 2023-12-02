@@ -820,7 +820,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                           decoration:
                                                               BoxDecoration(
                                                             color: Color(
-                                                                0x3E40464A),
+                                                                0x3EDCDCDC),
                                                           ),
                                                         ),
                                                       ],
@@ -1904,7 +1904,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                       height: 1.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0xFFAAAAAA),
+                                                            Color(0xFFCDCDCD),
                                                       ),
                                                     ),
                                                   ),
