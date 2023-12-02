@@ -421,7 +421,39 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                               ],
                                             ),
                                             Text(
-                                              'Hello World',
+                                              dateTimeFormat(
+                                                        'yMd',
+                                                        functions
+                                                            .newCustomFunction3(
+                                                                cross01Item
+                                                                    .deliveryTime),
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      ) ==
+                                                      dateTimeFormat(
+                                                        'yMd',
+                                                        getCurrentTimestamp,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      )
+                                                  ? 'Сегодня'
+                                                  : dateTimeFormat(
+                                                      'relative',
+                                                      functions
+                                                          .newCustomFunction3(
+                                                              cross01Item
+                                                                  .deliveryTime),
+                                                      locale: FFLocalizations
+                                                                  .of(context)
+                                                              .languageShortCode ??
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                    ),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium,
