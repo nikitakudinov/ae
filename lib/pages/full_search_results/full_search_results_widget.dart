@@ -1148,7 +1148,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                       ],
                                                                     ),
                                                                     Text(
-                                                                      'ОТКАЗЫ',
+                                                                      '% ОТКАЗОВ',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodySmall
@@ -1158,7 +1158,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondaryText,
                                                                             fontSize:
-                                                                                8.0,
+                                                                                6.0,
                                                                             fontWeight:
                                                                                 FontWeight.w600,
                                                                           ),
