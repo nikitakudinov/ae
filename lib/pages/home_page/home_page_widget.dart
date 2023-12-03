@@ -188,6 +188,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
+                                    setState(() {
+                                      FFAppState().addToSearchRequests(
+                                          SearchRequestStruct(
+                                        brand: serchResultsItem.brand,
+                                        code: serchResultsItem.code,
+                                        string: serchResultsItem.name,
+                                      ));
+                                    });
+
                                     context.pushNamed(
                                       'fullSearchResults',
                                       queryParameters: {
