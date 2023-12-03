@@ -55,12 +55,10 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
       if ((_model.apiResultf7s?.succeeded ?? true)) {
         _model.dtsr = await actions.dtSR(
           functions
-              .newCustomFunction4(functions
-                  .newCustomFunction5(AeGroup.fullsearchCall
-                      .data(
-                        (_model.apiResultf7s?.jsonBody ?? ''),
-                      )
-                      ?.toList())
+              .newCustomFunction4(AeGroup.fullsearchCall
+                  .data(
+                    (_model.apiResultf7s?.jsonBody ?? ''),
+                  )
                   ?.toList())
               ?.toList(),
         );

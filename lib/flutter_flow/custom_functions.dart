@@ -125,28 +125,3 @@ double? doubleToPerc(double? value) {
   }
   return value / 100;
 }
-
-List<dynamic>? newCustomFunction5(List<dynamic>? jsonArray) {
-  // convert values of packing field to int
-  if (jsonArray == null) return null;
-
-  final List<dynamic> result = [];
-
-  for (final item in jsonArray) {
-    if (item is Map<String, dynamic>) {
-      final Map<String, dynamic> newItem = {};
-      item.forEach((key, value) {
-        if (key == 'packing') {
-          newItem[key] = int.parse(value);
-        } else {
-          newItem[key] = value;
-        }
-      });
-      result.add(newItem);
-    } else {
-      result.add(item);
-    }
-  }
-
-  return result;
-}
