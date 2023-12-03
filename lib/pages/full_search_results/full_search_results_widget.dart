@@ -138,11 +138,11 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
               size: 24.0,
             ),
             onPressed: () async {
-              context.pushNamed('HomePage');
-
               setState(() {
                 FFAppState().sr = [];
               });
+
+              context.pushNamed('HomePage');
             },
           ),
           title: Row(
