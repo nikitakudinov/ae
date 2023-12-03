@@ -58,11 +58,14 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
 
   // State field(s) for ListView widget.
   ScrollController? listViewController4;
-  // State field(s) for ANALOGS-AND-CROSS widget.
-  late ExpandableController analogsAndCrossController;
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController2;
 
   // State field(s) for ListView widget.
   ScrollController? listViewController5;
+  // State field(s) for ANALOGS-AND-CROSS widget.
+  late ExpandableController analogsAndCrossController;
+
   // State field(s) for ListView widget.
   ScrollController? listViewController6;
   // State field(s) for ListView widget.
@@ -73,6 +76,8 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ScrollController? listViewController9;
   // State field(s) for ListView widget.
   ScrollController? listViewController10;
+  // State field(s) for ListView widget.
+  ScrollController? listViewController11;
 
   /// Initialization and disposal methods.
 
@@ -92,6 +97,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
     listViewController8 = ScrollController();
     listViewController9 = ScrollController();
     listViewController10 = ScrollController();
+    listViewController11 = ScrollController();
   }
 
   void dispose() {
@@ -110,13 +116,15 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
     listViewController3?.dispose();
     expandableController1.dispose();
     listViewController4?.dispose();
-    analogsAndCrossController.dispose();
+    expandableController2.dispose();
     listViewController5?.dispose();
+    analogsAndCrossController.dispose();
     listViewController6?.dispose();
     listViewController7?.dispose();
     listViewController8?.dispose();
     listViewController9?.dispose();
     listViewController10?.dispose();
+    listViewController11?.dispose();
   }
 
   /// Action blocks are added here.
