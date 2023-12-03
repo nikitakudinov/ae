@@ -140,6 +140,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
             onPressed: () async {
               setState(() {
                 FFAppState().sr = [];
+                FFAppState().brands = [];
               });
 
               context.pushNamed('HomePage');
