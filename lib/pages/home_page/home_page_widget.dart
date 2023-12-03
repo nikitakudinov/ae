@@ -197,8 +197,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       10.0, 15.0, 0.0, 0.0),
                                   child: Text(
                                     'НЕДАВНИЕ ЗАПРОСЫ',
-                                    style:
-                                        FlutterFlowTheme.of(context).labelSmall,
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .override(
+                                          fontFamily: 'Roboto Condensed',
+                                          fontWeight: FontWeight.w600,
+                                        ),
                                   ),
                                 ),
                                 Padding(
