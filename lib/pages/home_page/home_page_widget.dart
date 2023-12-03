@@ -247,110 +247,116 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             ),
                           ),
                         ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 10.0, 10.0, 10.0),
-                            child: Builder(
-                              builder: (context) {
-                                final serchResults = FFAppState()
-                                    .BrandCodeSearchResults
-                                    .toList();
-                                return ListView.builder(
-                                  padding: EdgeInsets.zero,
-                                  primary: false,
-                                  shrinkWrap: true,
-                                  scrollDirection: Axis.vertical,
-                                  itemCount: serchResults.length,
-                                  itemBuilder: (context, serchResultsIndex) {
-                                    final serchResultsItem =
-                                        serchResults[serchResultsIndex];
-                                    return InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        setState(() {
-                                          FFAppState().addToSearchRequests(
-                                              SearchRequestStruct(
-                                            brand: serchResultsItem.brand,
-                                            code: serchResultsItem.code,
-                                            name: serchResultsItem.name,
-                                            date: getCurrentTimestamp,
-                                          ));
-                                          FFAppState().SEARCHHISTORYvisibility =
-                                              false;
-                                        });
+                      if (FFAppState().searchRequests.take(5).toList().first !=
+                          null)
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 10.0, 0.0, 0.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 10.0, 10.0, 10.0),
+                              child: Builder(
+                                builder: (context) {
+                                  final serchResults = FFAppState()
+                                      .BrandCodeSearchResults
+                                      .toList();
+                                  return ListView.builder(
+                                    padding: EdgeInsets.zero,
+                                    primary: false,
+                                    shrinkWrap: true,
+                                    scrollDirection: Axis.vertical,
+                                    itemCount: serchResults.length,
+                                    itemBuilder: (context, serchResultsIndex) {
+                                      final serchResultsItem =
+                                          serchResults[serchResultsIndex];
+                                      return InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          setState(() {
+                                            FFAppState().addToSearchRequests(
+                                                SearchRequestStruct(
+                                              brand: serchResultsItem.brand,
+                                              code: serchResultsItem.code,
+                                              name: serchResultsItem.name,
+                                              date: getCurrentTimestamp,
+                                            ));
+                                            FFAppState()
+                                                    .SEARCHHISTORYvisibility =
+                                                false;
+                                          });
 
-                                        context.pushNamed(
-                                          'fullSearchResults',
-                                          queryParameters: {
-                                            'brand': serializeParam(
+                                          context.pushNamed(
+                                            'fullSearchResults',
+                                            queryParameters: {
+                                              'brand': serializeParam(
+                                                serchResultsItem.brand,
+                                                ParamType.String,
+                                              ),
+                                              'code': serializeParam(
+                                                serchResultsItem.code,
+                                                ParamType.String,
+                                              ),
+                                            }.withoutNulls,
+                                          );
+                                        },
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
                                               serchResultsItem.brand,
-                                              ParamType.String,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleMedium,
                                             ),
-                                            'code': serializeParam(
+                                            Text(
                                               serchResultsItem.code,
-                                              ParamType.String,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge,
                                             ),
-                                          }.withoutNulls,
-                                        );
-                                      },
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            serchResultsItem.brand,
-                                            style: FlutterFlowTheme.of(context)
-                                                .titleMedium,
-                                          ),
-                                          Text(
-                                            serchResultsItem.code,
-                                            style: FlutterFlowTheme.of(context)
-                                                .labelLarge,
-                                          ),
-                                          Text(
-                                            serchResultsItem.name
-                                                .maybeHandleOverflow(
-                                                    maxChars: 100),
-                                            style: FlutterFlowTheme.of(context)
-                                                .labelSmall,
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 5.0, 0.0, 5.0),
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  1.0,
-                                              height: 1.0,
-                                              decoration: BoxDecoration(
-                                                color: Color(0xFFDCDCDC),
+                                            Text(
+                                              serchResultsItem.name
+                                                  .maybeHandleOverflow(
+                                                      maxChars: 100),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelSmall,
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 5.0, 0.0, 5.0),
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 1.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFDCDCDC),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                );
-                              },
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                              ),
                             ),
                           ),
                         ),
-                      ),
                     ],
                   ),
                 ],
