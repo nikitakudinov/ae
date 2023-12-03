@@ -126,7 +126,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: FlutterFlowTheme.of(context).secondaryText,
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderRadius: 20.0,
@@ -134,7 +134,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
             buttonSize: 40.0,
             icon: Icon(
               Icons.arrow_back_ios_sharp,
-              color: FlutterFlowTheme.of(context).secondaryText,
+              color: FlutterFlowTheme.of(context).primaryBackground,
               size: 24.0,
             ),
             onPressed: () async {
@@ -159,7 +159,10 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                   widget.code,
                   '0',
                 ),
-                style: FlutterFlowTheme.of(context).titleMedium,
+                style: FlutterFlowTheme.of(context).titleMedium.override(
+                      fontFamily: 'Asap Condensed',
+                      color: FlutterFlowTheme.of(context).primaryBackground,
+                    ),
               ),
             ].divide(SizedBox(width: 15.0)),
           ),

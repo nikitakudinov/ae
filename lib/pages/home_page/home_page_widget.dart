@@ -61,10 +61,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
+          backgroundColor: FlutterFlowTheme.of(context).secondaryText,
           automaticallyImplyLeading: false,
           title: Text(
-            'Page Title',
+            'AUTOEURO',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Roboto Condensed',
                   color: Colors.white,
@@ -120,7 +120,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Артикул',
-                        labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                        labelStyle: FlutterFlowTheme.of(context).labelLarge,
                         hintStyle: FlutterFlowTheme.of(context).labelMedium,
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
@@ -150,6 +150,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           ),
                           borderRadius: BorderRadius.circular(5.0),
                         ),
+                        contentPadding:
+                            EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium,
                       validator:
