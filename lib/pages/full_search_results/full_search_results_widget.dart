@@ -141,6 +141,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
               setState(() {
                 FFAppState().sr = [];
                 FFAppState().brands = [];
+                FFAppState().BrandCodeSearchResults = [];
               });
 
               context.pushNamed('HomePage');
