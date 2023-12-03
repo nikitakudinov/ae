@@ -903,8 +903,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                               if (FFAppState()
                                       .sr
                                       .where((e) =>
-                                          ('\"${e.brand}\"' ==
-                                              brandsListViewItem) &&
+                                          (e.brand == widget.brand) &&
                                           (e.stock == 1))
                                       .toList()
                                       .length !=
