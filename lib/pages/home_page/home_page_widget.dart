@@ -367,102 +367,105 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ),
                     ),
                   ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          10.0, 10.0, 10.0, 10.0),
-                      child: Builder(
-                        builder: (context) {
-                          final serchResults =
-                              FFAppState().BrandCodeSearchResults.toList();
-                          return ListView.builder(
-                            padding: EdgeInsets.zero,
-                            primary: false,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            itemCount: serchResults.length,
-                            itemBuilder: (context, serchResultsIndex) {
-                              final serchResultsItem =
-                                  serchResults[serchResultsIndex];
-                              return InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  setState(() {
-                                    FFAppState().addToSearchRequests(
-                                        SearchRequestStruct(
+                if (FFAppState().SEARCHBRANDCODEvisibility)
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            10.0, 10.0, 10.0, 10.0),
+                        child: Builder(
+                          builder: (context) {
+                            final serchResults =
+                                FFAppState().BrandCodeSearchResults.toList();
+                            return ListView.builder(
+                              padding: EdgeInsets.zero,
+                              primary: false,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              itemCount: serchResults.length,
+                              itemBuilder: (context, serchResultsIndex) {
+                                final serchResultsItem =
+                                    serchResults[serchResultsIndex];
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    setState(() {
+                                      FFAppState().addToSearchRequests(
+                                          SearchRequestStruct(
+                                        brand: serchResultsItem.brand,
+                                        code: serchResultsItem.code,
+                                        name: serchResultsItem.name,
+                                        date: getCurrentTimestamp,
+                                      ));
+                                      FFAppState().SEARCHHISTORYvisibility =
+                                          false;
+                                    });
+                                    await action_blocks.loadFullSearchResults(
+                                      context,
                                       brand: serchResultsItem.brand,
                                       code: serchResultsItem.code,
-                                      name: serchResultsItem.name,
-                                      date: getCurrentTimestamp,
-                                    ));
-                                    FFAppState().SEARCHHISTORYvisibility =
-                                        false;
-                                  });
-                                  await action_blocks.loadFullSearchResults(
-                                    context,
-                                    brand: serchResultsItem.brand,
-                                    code: serchResultsItem.code,
-                                  );
-                                  setState(() {});
-                                },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      serchResultsItem.brand,
-                                      style: FlutterFlowTheme.of(context)
-                                          .titleMedium,
-                                    ),
-                                    Text(
-                                      serchResultsItem.code,
-                                      style: FlutterFlowTheme.of(context)
-                                          .labelLarge,
-                                    ),
-                                    Text(
-                                      serchResultsItem.name
-                                          .maybeHandleOverflow(maxChars: 100),
-                                      style: FlutterFlowTheme.of(context)
-                                          .labelSmall,
-                                    ),
-                                    if (serchResultsIndex !=
-                                        (FFAppState()
-                                                .BrandCodeSearchResults
-                                                .length -
-                                            1))
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 5.0),
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          height: 1.0,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFDCDCDC),
+                                    );
+                                    setState(() {});
+                                  },
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        serchResultsItem.brand,
+                                        style: FlutterFlowTheme.of(context)
+                                            .titleMedium,
+                                      ),
+                                      Text(
+                                        serchResultsItem.code,
+                                        style: FlutterFlowTheme.of(context)
+                                            .labelLarge,
+                                      ),
+                                      Text(
+                                        serchResultsItem.name
+                                            .maybeHandleOverflow(maxChars: 100),
+                                        style: FlutterFlowTheme.of(context)
+                                            .labelSmall,
+                                      ),
+                                      if (serchResultsIndex !=
+                                          (FFAppState()
+                                                  .BrandCodeSearchResults
+                                                  .length -
+                                              1))
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 5.0, 0.0, 5.0),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                1.0,
+                                            height: 1.0,
+                                            decoration: BoxDecoration(
+                                              color: Color(0xFFDCDCDC),
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                  ],
-                                ),
-                              );
-                            },
-                          );
-                        },
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                        ),
                       ),
                     ),
                   ),
-                ),
                 if (FFAppState().sr.length != 0)
                   SingleChildScrollView(
                     primary: false,

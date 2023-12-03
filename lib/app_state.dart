@@ -147,6 +147,12 @@ class FFAppState extends ChangeNotifier {
   set SEARCHHISTORYvisibility(bool _value) {
     _SEARCHHISTORYvisibility = _value;
   }
+
+  bool _SEARCHBRANDCODEvisibility = false;
+  bool get SEARCHBRANDCODEvisibility => _SEARCHBRANDCODEvisibility;
+  set SEARCHBRANDCODEvisibility(bool _value) {
+    _SEARCHBRANDCODEvisibility = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
