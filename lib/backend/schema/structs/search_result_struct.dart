@@ -25,7 +25,7 @@ class SearchResultStruct extends BaseStruct {
     String? warehouseKey,
     int? ttl,
     double? price,
-    String? packing,
+    int? packing,
   })  : _offerKey = offerKey,
         _cross = cross,
         _brand = brand,
@@ -161,9 +161,10 @@ class SearchResultStruct extends BaseStruct {
   bool hasPrice() => _price != null;
 
   // "packing" field.
-  String? _packing;
-  String get packing => _packing ?? '';
-  set packing(String? val) => _packing = val;
+  int? _packing;
+  int get packing => _packing ?? 0;
+  set packing(int? val) => _packing = val;
+  void incrementPacking(int amount) => _packing = packing + amount;
   bool hasPacking() => _packing != null;
 
   static SearchResultStruct fromMap(Map<String, dynamic> data) =>
@@ -186,7 +187,7 @@ class SearchResultStruct extends BaseStruct {
         warehouseKey: data['warehouse_key'] as String?,
         ttl: castToType<int>(data['ttl']),
         price: castToType<double>(data['price']),
-        packing: data['packing'] as String?,
+        packing: castToType<int>(data['packing']),
       );
 
   static SearchResultStruct? maybeFromMap(dynamic data) =>
@@ -290,7 +291,7 @@ class SearchResultStruct extends BaseStruct {
         ),
         'packing': serializeParam(
           _packing,
-          ParamType.String,
+          ParamType.int,
         ),
       }.withoutNulls;
 
@@ -388,7 +389,7 @@ class SearchResultStruct extends BaseStruct {
         ),
         packing: deserializeParam(
           data['packing'],
-          ParamType.String,
+          ParamType.int,
           false,
         ),
       );
@@ -463,7 +464,7 @@ SearchResultStruct createSearchResultStruct({
   String? warehouseKey,
   int? ttl,
   double? price,
-  String? packing,
+  int? packing,
 }) =>
     SearchResultStruct(
       offerKey: offerKey,
