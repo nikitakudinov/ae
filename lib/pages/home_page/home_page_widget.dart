@@ -1466,7 +1466,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                       Builder(
                                                                     builder:
                                                                         (context) {
-                                                                      final cross02 = FFAppState()
+                                                                      final cross03 = FFAppState()
                                                                           .sr
                                                                           .where((e) =>
                                                                               (e.cross == null || e.cross == '') &&
@@ -1487,12 +1487,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                         scrollDirection:
                                                                             Axis.vertical,
                                                                         itemCount:
-                                                                            cross02.length,
+                                                                            cross03.length,
                                                                         itemBuilder:
                                                                             (context,
-                                                                                cross02Index) {
-                                                                          final cross02Item =
-                                                                              cross02[cross02Index];
+                                                                                cross03Index) {
+                                                                          final cross03Item =
+                                                                              cross03[cross03Index];
                                                                           return Column(
                                                                             mainAxisSize:
                                                                                 MainAxisSize.max,
@@ -1511,7 +1511,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                                           crossAxisAlignment: CrossAxisAlignment.start,
                                                                                           children: [
                                                                                             Text(
-                                                                                              cross02Item.warehouseName,
+                                                                                              cross03Item.warehouseName,
                                                                                               style: FlutterFlowTheme.of(context).labelMedium,
                                                                                             ),
                                                                                           ],
@@ -1528,11 +1528,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                                           mainAxisSize: MainAxisSize.max,
                                                                                           children: [
                                                                                             Text(
-                                                                                              '${cross02Item.price.toString()}',
+                                                                                              '${cross03Item.price.toString()}',
                                                                                               style: FlutterFlowTheme.of(context).labelLarge,
                                                                                             ),
                                                                                             Text(
-                                                                                              '${cross02Item.amount.toString()} ${cross02Item.unit}',
+                                                                                              '${cross03Item.amount.toString()} ${cross03Item.unit}',
                                                                                               style: FlutterFlowTheme.of(context).labelSmall,
                                                                                             ),
                                                                                           ],
@@ -1549,7 +1549,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                                           () {
                                                                                             if (dateTimeFormat(
                                                                                                   'yMd',
-                                                                                                  functions.newCustomFunction3(cross02Item.deliveryTime),
+                                                                                                  functions.newCustomFunction3(cross03Item.deliveryTime),
                                                                                                   locale: FFLocalizations.of(context).languageCode,
                                                                                                 ) ==
                                                                                                 dateTimeFormat(
@@ -1560,7 +1560,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                                               return 'Сегодня';
                                                                                             } else if (dateTimeFormat(
                                                                                                   'yMd',
-                                                                                                  functions.newCustomFunction3(cross02Item.deliveryTime),
+                                                                                                  functions.newCustomFunction3(cross03Item.deliveryTime),
                                                                                                   locale: FFLocalizations.of(context).languageCode,
                                                                                                 ) ==
                                                                                                 dateTimeFormat(
@@ -1572,7 +1572,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                                             } else {
                                                                                               return dateTimeFormat(
                                                                                                 'relative',
-                                                                                                functions.newCustomFunction3(cross02Item.deliveryTime),
+                                                                                                functions.newCustomFunction3(cross03Item.deliveryTime),
                                                                                                 locale: FFLocalizations.of(context).languageShortCode ?? FFLocalizations.of(context).languageCode,
                                                                                               );
                                                                                             }
