@@ -142,7 +142,7 @@ class FFAppState extends ChangeNotifier {
     _searchRequests.insert(_index, _value);
   }
 
-  bool _SEARCHHISTORYvisibility = true;
+  bool _SEARCHHISTORYvisibility = false;
   bool get SEARCHHISTORYvisibility => _SEARCHHISTORYvisibility;
   set SEARCHHISTORYvisibility(bool _value) {
     _SEARCHHISTORYvisibility = _value;
