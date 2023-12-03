@@ -1028,8 +1028,6 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                     .toList()
                                                     .sortedList(
                                                         (e) => e.deliveryTime)
-                                                    .toList()
-                                                    .take(50)
                                                     .toList();
                                                 return ListView.builder(
                                                   padding: EdgeInsets.zero,
@@ -2238,8 +2236,6 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                     .where((e) =>
                                                                         '\"${e.brand}\"' ==
                                                                         brandsListViewItem)
-                                                                    .toList()
-                                                                    .take(50)
                                                                     .toList();
                                                                 return ListView
                                                                     .builder(
