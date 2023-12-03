@@ -170,9 +170,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       if (valueOrDefault<bool>(
-                        FFAppState().SEARCHHISTORYvisibility,
-                        false,
-                      ))
+                            FFAppState().SEARCHHISTORYvisibility,
+                            false,
+                          ) ||
+                          (FFAppState().searchRequests.length != 0))
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
@@ -247,8 +248,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             ),
                           ),
                         ),
-                      if (FFAppState().searchRequests.take(5).toList().first !=
-                          null)
+                      if (FFAppState().searchRequests.length != 0)
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
