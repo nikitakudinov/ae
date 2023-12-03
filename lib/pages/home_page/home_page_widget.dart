@@ -267,10 +267,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .labelSmall,
                                               ),
-                                              if (FFAppState()
-                                                      .searchRequests
-                                                      .length ==
-                                                  serchRequestHistoryIndex)
+                                              if (serchRequestHistoryIndex ==
+                                                  (FFAppState()
+                                                          .searchRequests
+                                                          .length -
+                                                      1))
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
