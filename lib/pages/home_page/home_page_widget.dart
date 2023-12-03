@@ -189,7 +189,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               borderRadius: BorderRadius.circular(5.0),
                             ),
                             child: Column(
-                              mainAxisSize: MainAxisSize.max,
+                              mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
@@ -225,51 +225,94 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           final serchRequestHistoryItem =
                                               serchRequestHistory[
                                                   serchRequestHistoryIndex];
-                                          return Column(
+                                          return Row(
                                             mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
                                             children: [
-                                              Text(
-                                                serchRequestHistoryItem.brand,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                                              Column(
+                                                mainAxisSize: MainAxisSize.min,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    serchRequestHistoryItem
+                                                        .brand,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .titleMedium,
-                                              ),
-                                              Text(
-                                                serchRequestHistoryItem.code,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelLarge,
-                                              ),
-                                              Text(
-                                                serchRequestHistoryItem.name
-                                                    .maybeHandleOverflow(
-                                                        maxChars: 100),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelSmall,
-                                              ),
-                                              if (serchRequestHistoryIndex !=
-                                                  (FFAppState()
-                                                          .searchRequests
-                                                          .length -
-                                                      1))
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 5.0, 0.0, 5.0),
-                                                  child: Container(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        1.0,
-                                                    height: 1.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0xFFDCDCDC),
-                                                    ),
                                                   ),
-                                                ),
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Text(
+                                                        serchRequestHistoryItem
+                                                            .code,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelLarge,
+                                                      ),
+                                                      Text(
+                                                        dateTimeFormat(
+                                                          'relative',
+                                                          serchRequestHistoryItem
+                                                              .date!,
+                                                          locale: FFLocalizations
+                                                                      .of(
+                                                                          context)
+                                                                  .languageShortCode ??
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .languageCode,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelLarge,
+                                                      ),
+                                                    ].divide(
+                                                        SizedBox(width: 50.0)),
+                                                  ),
+                                                  Text(
+                                                    serchRequestHistoryItem.name
+                                                        .maybeHandleOverflow(
+                                                            maxChars: 100),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .labelSmall,
+                                                  ),
+                                                  if (serchRequestHistoryIndex !=
+                                                      (FFAppState()
+                                                              .searchRequests
+                                                              .length -
+                                                          1))
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  5.0,
+                                                                  0.0,
+                                                                  5.0),
+                                                      child: Container(
+                                                        width:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .width *
+                                                                0.88,
+                                                        height: 1.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0xFFDCDCDC),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                ],
+                                              ),
                                             ],
                                           );
                                         },
