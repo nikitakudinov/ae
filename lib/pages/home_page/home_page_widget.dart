@@ -117,76 +117,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       color: Color(0xFFE4E4E4),
                       borderRadius: BorderRadius.circular(5.0),
                     ),
-                    child: TextFormField(
-                      controller: _model.textController,
-                      focusNode: _model.textFieldFocusNode,
-                      onChanged: (_) => EasyDebounce.debounce(
-                        '_model.textController',
-                        Duration(milliseconds: 2000),
-                        () async {
-                          _model.apiResultnpb = await AeGroup.brandsCall.call(
-                            code: _model.textController.text,
-                          );
-                          if ((_model.apiResultnpb?.succeeded ?? true)) {
-                            _model.data =
-                                await actions.jsonBrandCodeSearchResult(
-                              getJsonField(
-                                (_model.apiResultnpb?.jsonBody ?? ''),
-                                r'''$.DATA''',
-                                true,
-                              ),
-                            );
-                            setState(() {
-                              FFAppState().BrandCodeSearchResults = _model.data!
-                                  .toList()
-                                  .cast<BrandCodeSearchItemStruct>();
-                              FFAppState().SEARCHHISTORYvisibility = false;
-                              FFAppState().SEARCHBRANDCODEvisibility = true;
-                            });
-                          }
-
-                          setState(() {});
-                        },
-                      ),
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        labelText: 'Артикул',
-                        labelStyle: FlutterFlowTheme.of(context).labelLarge,
-                        hintStyle: FlutterFlowTheme.of(context).labelMedium,
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).primary,
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        errorBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).error,
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        focusedErrorBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).error,
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        contentPadding:
-                            EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
-                        suffixIcon: _model.textController!.text.isNotEmpty
-                            ? InkWell(
-                                onTap: () async {
-                                  _model.textController?.clear();
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(),
+                            child: TextFormField(
+                              controller: _model.textController,
+                              focusNode: _model.textFieldFocusNode,
+                              onChanged: (_) => EasyDebounce.debounce(
+                                '_model.textController',
+                                Duration(milliseconds: 2000),
+                                () async {
                                   _model.apiResultnpb =
                                       await AeGroup.brandsCall.call(
                                     code: _model.textController.text,
@@ -213,19 +156,75 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   }
 
                                   setState(() {});
-                                  setState(() {});
                                 },
-                                child: Icon(
-                                  Icons.clear,
-                                  color: FlutterFlowTheme.of(context).secondary,
-                                  size: 25.0,
+                              ),
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                labelText: 'Артикул',
+                                labelStyle:
+                                    FlutterFlowTheme.of(context).labelLarge,
+                                hintStyle:
+                                    FlutterFlowTheme.of(context).labelMedium,
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5.0),
                                 ),
-                              )
-                            : null,
-                      ),
-                      style: FlutterFlowTheme.of(context).bodyMedium,
-                      validator:
-                          _model.textControllerValidator.asValidator(context),
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                errorBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).error,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                focusedErrorBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).error,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                    15.0, 0.0, 0.0, 0.0),
+                              ),
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              validator: _model.textControllerValidator
+                                  .asValidator(context),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(),
+                          child: FlutterFlowIconButton(
+                            borderRadius: 20.0,
+                            borderWidth: 1.0,
+                            buttonSize: 40.0,
+                            icon: Icon(
+                              Icons.clear,
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              size: 24.0,
+                            ),
+                            onPressed: () async {
+                              setState(() {
+                                _model.textController?.clear();
+                              });
+                              setState(() {
+                                FFAppState().sr = [];
+                              });
+                            },
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
