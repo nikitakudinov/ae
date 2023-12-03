@@ -1804,38 +1804,64 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                     final headerItem =
                                                                         header[
                                                                             headerIndex];
-                                                                    return Column(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      crossAxisAlignment:
-                                                                          CrossAxisAlignment
-                                                                              .start,
-                                                                      children: [
-                                                                        Row(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.min,
-                                                                          children:
-                                                                              [
-                                                                            Text(
+                                                                    return InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        await action_blocks
+                                                                            .loadFullSearchResults(
+                                                                          context,
+                                                                          brand:
                                                                               headerItem.brand,
-                                                                              style: FlutterFlowTheme.of(context).titleLarge,
-                                                                            ),
-                                                                            Expanded(
-                                                                              child: Text(
-                                                                                headerItem.code,
-                                                                                style: FlutterFlowTheme.of(context).labelMedium,
+                                                                          code:
+                                                                              headerItem.code,
+                                                                        );
+                                                                        setState(
+                                                                            () {});
+                                                                      },
+                                                                      child:
+                                                                          Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.start,
+                                                                        children: [
+                                                                          Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.min,
+                                                                            children:
+                                                                                [
+                                                                              Text(
+                                                                                headerItem.brand,
+                                                                                style: FlutterFlowTheme.of(context).titleLarge,
                                                                               ),
-                                                                            ),
-                                                                          ].divide(SizedBox(width: 20.0)),
-                                                                        ),
-                                                                        Container(
-                                                                          width:
-                                                                              MediaQuery.sizeOf(context).width * 1.0,
-                                                                          decoration:
-                                                                              BoxDecoration(),
-                                                                        ),
-                                                                      ],
+                                                                              Expanded(
+                                                                                child: Text(
+                                                                                  headerItem.code,
+                                                                                  style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                ),
+                                                                              ),
+                                                                            ].divide(SizedBox(width: 20.0)),
+                                                                          ),
+                                                                          Container(
+                                                                            width:
+                                                                                MediaQuery.sizeOf(context).width * 1.0,
+                                                                            decoration:
+                                                                                BoxDecoration(),
+                                                                          ),
+                                                                        ],
+                                                                      ),
                                                                     );
                                                                   },
                                                                 );
