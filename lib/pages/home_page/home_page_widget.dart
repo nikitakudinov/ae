@@ -213,6 +213,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       final serchRequestHistory = FFAppState()
                                           .searchRequests
                                           .sortedList((e) => e.date!)
+                                          .toList()
+                                          .take(5)
                                           .toList();
                                       return ListView.builder(
                                         padding: EdgeInsets.zero,
