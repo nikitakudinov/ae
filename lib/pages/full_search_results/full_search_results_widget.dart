@@ -53,6 +53,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
             'A4GAcT7SOcnXN1kucA5bomb4Rj5SO2fV1e5bgkkDgHbY9hrszkUNTsEuZYBmJUwOEPb2iIb01uSVTJYQWkRv05qrVm4c',
       );
       if ((_model.apiResultf7s?.succeeded ?? true)) {
+        await Future.delayed(const Duration(milliseconds: 3000));
         _model.dtsr = await actions.dtSR(
           functions
               .newCustomFunction4(AeGroup.fullsearchCall
@@ -62,6 +63,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                   ?.toList())
               ?.toList(),
         );
+        await Future.delayed(const Duration(milliseconds: 3000));
         setState(() {
           FFAppState().sr = _model.dtsr!.toList().cast<SearchResultStruct>();
           FFAppState().brands = functions
