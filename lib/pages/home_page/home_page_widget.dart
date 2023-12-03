@@ -172,7 +172,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       if (valueOrDefault<bool>(
                             FFAppState().SEARCHHISTORYvisibility,
                             false,
-                          ) ||
+                          ) &&
                           (FFAppState().searchRequests.length != 0))
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -248,7 +248,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             ),
                           ),
                         ),
-                      if (FFAppState().searchRequests.length != 0)
+                      if (FFAppState().searchRequests.length == 0)
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
