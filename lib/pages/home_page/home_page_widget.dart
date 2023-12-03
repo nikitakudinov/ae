@@ -203,18 +203,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 15.0, 0.0, 0.0),
-                                  child: Text(
-                                    FFAppState()
-                                        .searchRequests
-                                        .length
-                                        .toString(),
-                                    style:
-                                        FlutterFlowTheme.of(context).labelSmall,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       10.0, 10.0, 10.0, 10.0),
                                   child: Builder(
                                     builder: (context) {
@@ -252,15 +240,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               ),
                                               Text(
                                                 serchRequestHistoryItem.name
-                                                    .maybeHandleOverflow(
-                                                        maxChars: 100),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelSmall,
-                                              ),
-                                              Text(
-                                                serchRequestHistoryIndex
-                                                    .toString()
                                                     .maybeHandleOverflow(
                                                         maxChars: 100),
                                                 style:
@@ -378,20 +357,25 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .labelSmall,
                                           ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 5.0, 0.0, 5.0),
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  1.0,
-                                              height: 1.0,
-                                              decoration: BoxDecoration(
-                                                color: Color(0xFFDCDCDC),
+                                          if (serchResultsIndex !=
+                                              (FFAppState()
+                                                      .BrandCodeSearchResults
+                                                      .length -
+                                                  1))
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 5.0, 0.0, 5.0),
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 1.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFDCDCDC),
+                                                ),
                                               ),
                                             ),
-                                          ),
                                         ],
                                       ),
                                     );
