@@ -2806,6 +2806,199 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                           ),
                                                                         ],
                                                                       ),
+                                                                      if (FFAppState()
+                                                                              .sr
+                                                                              .where((e) => (e.cross == null || e.cross == '') && (e.stock == 1))
+                                                                              .toList()
+                                                                              .sortedList((e) => e.deliveryTime)
+                                                                              .length >
+                                                                          3)
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              15.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Container(
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: Color(0xFFEAEAEA),
+                                                                              borderRadius: BorderRadius.only(
+                                                                                bottomLeft: Radius.circular(5.0),
+                                                                                bottomRight: Radius.circular(5.0),
+                                                                                topLeft: Radius.circular(0.0),
+                                                                                topRight: Radius.circular(0.0),
+                                                                              ),
+                                                                            ),
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                Expanded(
+                                                                                  child: Container(
+                                                                                    width: double.infinity,
+                                                                                    color: Color(0x00000000),
+                                                                                    child: ExpandableNotifier(
+                                                                                      child: ExpandablePanel(
+                                                                                        header: Padding(
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 10.0),
+                                                                                          child: Text(
+                                                                                            'В наличии еще на ${FFAppState().sr.where((e) => ('\"${e.brand}\"' == brandsListViewItem) && (e.stock == 1)).toList().sortedList((e) => e.deliveryTime).length.toString()} складах',
+                                                                                            style: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                                  fontFamily: 'Roboto Condensed',
+                                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                  fontSize: 12.0,
+                                                                                                  fontWeight: FontWeight.bold,
+                                                                                                ),
+                                                                                          ),
+                                                                                        ),
+                                                                                        collapsed: Container(),
+                                                                                        expanded: Padding(
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 10.0),
+                                                                                          child: Builder(
+                                                                                            builder: (context) {
+                                                                                              final cross04 = FFAppState().sr.where((e) => ('\"${e.brand}\"' == brandsListViewItem) && (e.stock == 1)).toList().sortedList((e) => e.deliveryTime).toList();
+                                                                                              return ListView.builder(
+                                                                                                padding: EdgeInsets.zero,
+                                                                                                primary: false,
+                                                                                                shrinkWrap: true,
+                                                                                                scrollDirection: Axis.vertical,
+                                                                                                itemCount: cross04.length,
+                                                                                                itemBuilder: (context, cross04Index) {
+                                                                                                  final cross04Item = cross04[cross04Index];
+                                                                                                  return Column(
+                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                    children: [
+                                                                                                      Row(
+                                                                                                        mainAxisSize: MainAxisSize.min,
+                                                                                                        mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                        children: [
+                                                                                                          Expanded(
+                                                                                                            flex: 3,
+                                                                                                            child: Row(
+                                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                                              children: [
+                                                                                                                Column(
+                                                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                  children: [
+                                                                                                                    Text(
+                                                                                                                      cross04Item.warehouseName,
+                                                                                                                      style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                                                    ),
+                                                                                                                  ],
+                                                                                                                ),
+                                                                                                              ],
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                          Expanded(
+                                                                                                            child: Row(
+                                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                                              mainAxisAlignment: MainAxisAlignment.center,
+                                                                                                              children: [
+                                                                                                                Column(
+                                                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                                                  children: [
+                                                                                                                    Text(
+                                                                                                                      '${cross04Item.price.toString()}',
+                                                                                                                      style: FlutterFlowTheme.of(context).labelLarge,
+                                                                                                                    ),
+                                                                                                                    Text(
+                                                                                                                      '${cross04Item.amount.toString()} ${cross04Item.unit}',
+                                                                                                                      style: FlutterFlowTheme.of(context).labelSmall,
+                                                                                                                    ),
+                                                                                                                  ],
+                                                                                                                ),
+                                                                                                              ],
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                          Expanded(
+                                                                                                            child: Row(
+                                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                                              mainAxisAlignment: MainAxisAlignment.center,
+                                                                                                              children: [
+                                                                                                                Text(
+                                                                                                                  () {
+                                                                                                                    if (dateTimeFormat(
+                                                                                                                          'yMd',
+                                                                                                                          functions.newCustomFunction3(cross04Item.deliveryTime),
+                                                                                                                          locale: FFLocalizations.of(context).languageCode,
+                                                                                                                        ) ==
+                                                                                                                        dateTimeFormat(
+                                                                                                                          'yMd',
+                                                                                                                          getCurrentTimestamp,
+                                                                                                                          locale: FFLocalizations.of(context).languageCode,
+                                                                                                                        )) {
+                                                                                                                      return 'Сегодня';
+                                                                                                                    } else if (dateTimeFormat(
+                                                                                                                          'yMd',
+                                                                                                                          functions.newCustomFunction3(cross04Item.deliveryTime),
+                                                                                                                          locale: FFLocalizations.of(context).languageCode,
+                                                                                                                        ) ==
+                                                                                                                        dateTimeFormat(
+                                                                                                                          'yMd',
+                                                                                                                          functions.tomorrowdate(),
+                                                                                                                          locale: FFLocalizations.of(context).languageCode,
+                                                                                                                        )) {
+                                                                                                                      return 'Завтра';
+                                                                                                                    } else {
+                                                                                                                      return dateTimeFormat(
+                                                                                                                        'relative',
+                                                                                                                        functions.newCustomFunction3(cross04Item.deliveryTime),
+                                                                                                                        locale: FFLocalizations.of(context).languageShortCode ?? FFLocalizations.of(context).languageCode,
+                                                                                                                      );
+                                                                                                                    }
+                                                                                                                  }(),
+                                                                                                                  style: FlutterFlowTheme.of(context).labelSmall,
+                                                                                                                ),
+                                                                                                              ],
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                          Expanded(
+                                                                                                            child: Align(
+                                                                                                              alignment: AlignmentDirectional(1.00, 0.00),
+                                                                                                              child: FlutterFlowIconButton(
+                                                                                                                borderColor: Colors.transparent,
+                                                                                                                borderRadius: 20.0,
+                                                                                                                borderWidth: 1.0,
+                                                                                                                buttonSize: 40.0,
+                                                                                                                icon: Icon(
+                                                                                                                  Icons.add_shopping_cart,
+                                                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                  size: 24.0,
+                                                                                                                ),
+                                                                                                                onPressed: () {
+                                                                                                                  print('IconButton pressed ...');
+                                                                                                                },
+                                                                                                              ),
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                        ],
+                                                                                                      ),
+                                                                                                    ],
+                                                                                                  );
+                                                                                                },
+                                                                                                controller: _model.listViewController11,
+                                                                                              );
+                                                                                            },
+                                                                                          ),
+                                                                                        ),
+                                                                                        theme: ExpandableThemeData(
+                                                                                          tapHeaderToExpand: true,
+                                                                                          tapBodyToExpand: false,
+                                                                                          tapBodyToCollapse: false,
+                                                                                          headerAlignment: ExpandablePanelHeaderAlignment.center,
+                                                                                          hasIcon: false,
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ),
+                                                                        ),
                                                                     ],
                                                                   ),
                                                                 ),
@@ -3023,7 +3216,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                                   ],
                                                                                 );
                                                                               },
-                                                                              controller: _model.listViewController11,
+                                                                              controller: _model.listViewController12,
                                                                             );
                                                                           },
                                                                         ),

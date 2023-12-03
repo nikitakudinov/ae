@@ -78,6 +78,8 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ScrollController? listViewController10;
   // State field(s) for ListView widget.
   ScrollController? listViewController11;
+  // State field(s) for ListView widget.
+  ScrollController? listViewController12;
 
   /// Initialization and disposal methods.
 
@@ -98,6 +100,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
     listViewController9 = ScrollController();
     listViewController10 = ScrollController();
     listViewController11 = ScrollController();
+    listViewController12 = ScrollController();
   }
 
   void dispose() {
@@ -125,6 +128,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
     listViewController9?.dispose();
     listViewController10?.dispose();
     listViewController11?.dispose();
+    listViewController12?.dispose();
   }
 
   /// Action blocks are added here.
