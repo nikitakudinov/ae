@@ -2257,7 +2257,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                       .toList()
                                                                       .sortedList(
                                                                           (e) =>
-                                                                              e.price)
+                                                                              e.deliveryTime)
                                                                       .toList();
                                                                   return ListView
                                                                       .builder(
