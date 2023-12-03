@@ -1476,13 +1476,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                     header:
                                                                         Padding(
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          15.0,
-                                                                          0.0,
+                                                                          10.0,
+                                                                          10.0,
                                                                           0.0,
                                                                           0.0),
                                                                       child:
                                                                           Text(
-                                                                        'Все склады',
+                                                                        'В наличии еще на ${FFAppState().sr.where((e) => (e.cross == null || e.cross == '') && (e.stock == 1)).toList().sortedList((e) => e.deliveryTime).length.toString()} складах',
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .labelSmall
                                                                             .override(
@@ -1657,15 +1657,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                           ExpandablePanelHeaderAlignment
                                                                               .center,
                                                                       hasIcon:
-                                                                          true,
-                                                                      expandIcon:
-                                                                          FontAwesomeIcons
-                                                                              .plus,
-                                                                      collapseIcon:
-                                                                          FontAwesomeIcons
-                                                                              .minus,
-                                                                      iconSize:
-                                                                          15.0,
+                                                                          false,
                                                                     ),
                                                                   ),
                                                                 ),
