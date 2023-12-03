@@ -1479,7 +1479,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                           10.0,
                                                                           10.0,
                                                                           0.0,
-                                                                          0.0),
+                                                                          10.0),
                                                                       child:
                                                                           Text(
                                                                         'В наличии еще на ${FFAppState().sr.where((e) => (e.cross == null || e.cross == '') && (e.stock == 1)).toList().sortedList((e) => e.deliveryTime).length.toString()} складах',
