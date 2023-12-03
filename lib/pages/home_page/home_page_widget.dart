@@ -2678,7 +2678,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                             child:
                                                                                 Builder(
                                                                               builder: (context) {
-                                                                                final cross02 = FFAppState().sr.where((e) => ('\"${e.brand}\"' == brandsListViewItem) && (e.stock == 1)).toList().sortedList((e) => e.deliveryTime).toList();
+                                                                                final cross02 = FFAppState().sr.where((e) => ('\"${e.brand}\"' == brandsListViewItem) && (e.stock == 1)).toList().sortedList((e) => e.deliveryTime).toList().take(3).toList();
                                                                                 return ListView.builder(
                                                                                   padding: EdgeInsets.zero,
                                                                                   primary: false,
