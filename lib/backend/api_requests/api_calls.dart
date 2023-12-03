@@ -69,6 +69,11 @@ class FullsearchCall {
         r'''$.DATA''',
         true,
       );
+  dynamic dATAbrand(dynamic response) => getJsonField(
+        response,
+        r'''$.DATA[:].brand''',
+        true,
+      );
 }
 
 /// End AE Group Code
