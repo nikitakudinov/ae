@@ -177,8 +177,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      if (_model.textController.text == null ||
-                          _model.textController.text == '')
+                      if ((_model.textController.text == null ||
+                              _model.textController.text == '') ||
+                          (FFAppState().searchRequests.length == 0))
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
