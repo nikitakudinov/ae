@@ -181,6 +181,45 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         ),
                         contentPadding:
                             EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+                        suffixIcon: _model.textController!.text.isNotEmpty
+                            ? InkWell(
+                                onTap: () async {
+                                  _model.textController?.clear();
+                                  _model.apiResultnpb =
+                                      await AeGroup.brandsCall.call(
+                                    code: _model.textController.text,
+                                  );
+                                  if ((_model.apiResultnpb?.succeeded ??
+                                      true)) {
+                                    _model.data =
+                                        await actions.jsonBrandCodeSearchResult(
+                                      getJsonField(
+                                        (_model.apiResultnpb?.jsonBody ?? ''),
+                                        r'''$.DATA''',
+                                        true,
+                                      ),
+                                    );
+                                    setState(() {
+                                      FFAppState().BrandCodeSearchResults =
+                                          _model.data!.toList().cast<
+                                              BrandCodeSearchItemStruct>();
+                                      FFAppState().SEARCHHISTORYvisibility =
+                                          false;
+                                      FFAppState().SEARCHBRANDCODEvisibility =
+                                          true;
+                                    });
+                                  }
+
+                                  setState(() {});
+                                  setState(() {});
+                                },
+                                child: Icon(
+                                  Icons.clear,
+                                  color: FlutterFlowTheme.of(context).secondary,
+                                  size: 25.0,
+                                ),
+                              )
+                            : null,
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium,
                       validator:
