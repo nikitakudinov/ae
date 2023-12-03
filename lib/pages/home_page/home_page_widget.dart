@@ -169,80 +169,82 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 10.0, 10.0, 10.0),
-                            child: Builder(
-                              builder: (context) {
-                                final serchRequestHistory = FFAppState()
-                                    .searchRequests
-                                    .sortedList((e) => e.date!)
-                                    .toList();
-                                return ListView.builder(
-                                  padding: EdgeInsets.zero,
-                                  primary: false,
-                                  shrinkWrap: true,
-                                  scrollDirection: Axis.vertical,
-                                  itemCount: serchRequestHistory.length,
-                                  itemBuilder:
-                                      (context, serchRequestHistoryIndex) {
-                                    final serchRequestHistoryItem =
-                                        serchRequestHistory[
-                                            serchRequestHistoryIndex];
-                                    return Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          serchRequestHistoryItem.brand,
-                                          style: FlutterFlowTheme.of(context)
-                                              .titleMedium,
-                                        ),
-                                        Text(
-                                          serchRequestHistoryItem.code,
-                                          style: FlutterFlowTheme.of(context)
-                                              .labelLarge,
-                                        ),
-                                        Text(
-                                          serchRequestHistoryItem.name
-                                              .maybeHandleOverflow(
-                                                  maxChars: 100),
-                                          style: FlutterFlowTheme.of(context)
-                                              .labelSmall,
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 5.0, 0.0, 5.0),
-                                          child: Container(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                1.0,
-                                            height: 1.0,
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFFDCDCDC),
+                      if (_model.textController.text == null ||
+                          _model.textController.text == '')
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 10.0, 0.0, 0.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 10.0, 10.0, 10.0),
+                              child: Builder(
+                                builder: (context) {
+                                  final serchRequestHistory = FFAppState()
+                                      .searchRequests
+                                      .sortedList((e) => e.date!)
+                                      .toList();
+                                  return ListView.builder(
+                                    padding: EdgeInsets.zero,
+                                    primary: false,
+                                    shrinkWrap: true,
+                                    scrollDirection: Axis.vertical,
+                                    itemCount: serchRequestHistory.length,
+                                    itemBuilder:
+                                        (context, serchRequestHistoryIndex) {
+                                      final serchRequestHistoryItem =
+                                          serchRequestHistory[
+                                              serchRequestHistoryIndex];
+                                      return Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            serchRequestHistoryItem.brand,
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleMedium,
+                                          ),
+                                          Text(
+                                            serchRequestHistoryItem.code,
+                                            style: FlutterFlowTheme.of(context)
+                                                .labelLarge,
+                                          ),
+                                          Text(
+                                            serchRequestHistoryItem.name
+                                                .maybeHandleOverflow(
+                                                    maxChars: 100),
+                                            style: FlutterFlowTheme.of(context)
+                                                .labelSmall,
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 5.0, 0.0, 5.0),
+                                            child: Container(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  1.0,
+                                              height: 1.0,
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFFDCDCDC),
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      ],
-                                    );
-                                  },
-                                );
-                              },
+                                        ],
+                                      );
+                                    },
+                                  );
+                                },
+                              ),
                             ),
                           ),
                         ),
-                      ),
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
