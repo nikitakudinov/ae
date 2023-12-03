@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/actions/actions.dart' as action_blocks;
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
@@ -407,20 +408,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     FFAppState().SEARCHHISTORYvisibility =
                                         false;
                                   });
-
-                                  context.pushNamed(
-                                    'fullSearchResults',
-                                    queryParameters: {
-                                      'brand': serializeParam(
-                                        serchResultsItem.brand,
-                                        ParamType.String,
-                                      ),
-                                      'code': serializeParam(
-                                        serchResultsItem.code,
-                                        ParamType.String,
-                                      ),
-                                    }.withoutNulls,
+                                  await action_blocks.loadFullSearchResults(
+                                    context,
+                                    brand: serchResultsItem.brand,
+                                    code: serchResultsItem.code,
                                   );
+                                  setState(() {});
                                 },
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
