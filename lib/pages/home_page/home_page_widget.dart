@@ -139,6 +139,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   .toList()
                                   .cast<BrandCodeSearchItemStruct>();
                               FFAppState().SEARCHHISTORYvisibility = false;
+                              FFAppState().SEARCHBRANDCODEvisibility = true;
                             });
                           }
 
