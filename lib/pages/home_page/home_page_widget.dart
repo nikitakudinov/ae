@@ -408,6 +408,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       ));
                                       FFAppState().SEARCHHISTORYvisibility =
                                           false;
+                                      FFAppState().SEARCHBRANDCODEvisibility =
+                                          false;
                                     });
                                     await action_blocks.loadFullSearchResults(
                                       context,
