@@ -230,20 +230,24 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .labelSmall,
                                           ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 5.0, 0.0, 5.0),
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  1.0,
-                                              height: 1.0,
-                                              decoration: BoxDecoration(
-                                                color: Color(0xFFDCDCDC),
+                                          if (FFAppState()
+                                                  .searchRequests
+                                                  .length ==
+                                              serchRequestHistoryIndex)
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 5.0, 0.0, 5.0),
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 1.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFDCDCDC),
+                                                ),
                                               ),
                                             ),
-                                          ),
                                         ],
                                       );
                                     },
