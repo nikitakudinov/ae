@@ -1648,6 +1648,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                             .center,
                                                                     hasIcon:
                                                                         true,
+                                                                    expandIcon:
+                                                                        FontAwesomeIcons
+                                                                            .plus,
+                                                                    collapseIcon:
+                                                                        FontAwesomeIcons
+                                                                            .minus,
+                                                                    iconSize:
+                                                                        15.0,
                                                                   ),
                                                                 ),
                                                               ),
