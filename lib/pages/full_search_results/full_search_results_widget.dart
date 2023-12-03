@@ -393,6 +393,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                               ),
                                             ),
                                             Expanded(
+                                              flex: 2,
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -626,6 +627,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                               ),
                                             ),
                                             Expanded(
+                                              flex: 2,
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
