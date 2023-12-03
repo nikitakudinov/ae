@@ -2810,7 +2810,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                               .where((e) => (e.cross == null || e.cross == '') && (e.stock == 1))
                                                                               .toList()
                                                                               .sortedList((e) => e.deliveryTime)
-                                                                              .length >
+                                                                              .length <
                                                                           3)
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
