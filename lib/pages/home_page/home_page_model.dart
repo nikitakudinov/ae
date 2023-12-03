@@ -22,6 +22,8 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // State field(s) for Column widget.
+  ScrollController? columnController1;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
@@ -30,31 +32,91 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ApiCallResponse? apiResultnpb;
   // Stores action output result for [Custom Action - jsonBrandCodeSearchResult] action in TextField widget.
   List<BrandCodeSearchItemStruct>? data;
+  // State field(s) for ListView widget.
+  ScrollController? listViewController1;
   // Stores action output result for [Backend Call - API (FULLSEARCH)] action in Column widget.
   ApiCallResponse? apiResultf7sa;
   // Stores action output result for [Custom Action - dtSR] action in Column widget.
   List<SearchResultStruct>? dtsr1;
+  // State field(s) for ListView widget.
+  ScrollController? listViewController2;
+  // State field(s) for Column widget.
+  ScrollController? columnController2;
   // State field(s) for SEARCHED-ARTICUL widget.
   late ExpandableController searchedArticulController;
 
+  // State field(s) for BRAND-CODE-NAME widget.
+  ScrollController? brandCodeName;
+  // State field(s) for MIN-PRICE widget.
+  ScrollController? minPrice;
+  // State field(s) for MIN-DATE widget.
+  ScrollController? minDate;
+  // State field(s) for ListView widget.
+  ScrollController? listViewController3;
   // State field(s) for Expandable widget.
   late ExpandableController expandableController1;
 
+  // State field(s) for ListView widget.
+  ScrollController? listViewController4;
   // State field(s) for ANALOGS-AND-CROSS widget.
   late ExpandableController analogsAndCrossController;
 
+  // State field(s) for ListView widget.
+  ScrollController? listViewController5;
+  // State field(s) for ListView widget.
+  ScrollController? listViewController6;
+  // State field(s) for ListView widget.
+  ScrollController? listViewController7;
+  // State field(s) for ListView widget.
+  ScrollController? listViewController8;
+  // State field(s) for ListView widget.
+  ScrollController? listViewController9;
+  // State field(s) for ListView widget.
+  ScrollController? listViewController10;
+
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    columnController1 = ScrollController();
+    listViewController1 = ScrollController();
+    listViewController2 = ScrollController();
+    columnController2 = ScrollController();
+    brandCodeName = ScrollController();
+    minPrice = ScrollController();
+    minDate = ScrollController();
+    listViewController3 = ScrollController();
+    listViewController4 = ScrollController();
+    listViewController5 = ScrollController();
+    listViewController6 = ScrollController();
+    listViewController7 = ScrollController();
+    listViewController8 = ScrollController();
+    listViewController9 = ScrollController();
+    listViewController10 = ScrollController();
+  }
 
   void dispose() {
     unfocusNode.dispose();
+    columnController1?.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
 
+    listViewController1?.dispose();
+    listViewController2?.dispose();
+    columnController2?.dispose();
     searchedArticulController.dispose();
+    brandCodeName?.dispose();
+    minPrice?.dispose();
+    minDate?.dispose();
+    listViewController3?.dispose();
     expandableController1.dispose();
+    listViewController4?.dispose();
     analogsAndCrossController.dispose();
+    listViewController5?.dispose();
+    listViewController6?.dispose();
+    listViewController7?.dispose();
+    listViewController8?.dispose();
+    listViewController9?.dispose();
+    listViewController10?.dispose();
   }
 
   /// Action blocks are added here.

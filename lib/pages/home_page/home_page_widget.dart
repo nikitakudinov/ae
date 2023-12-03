@@ -104,6 +104,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         body: SafeArea(
           top: true,
           child: SingleChildScrollView(
+            controller: _model.columnController1,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -399,6 +400,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       ),
                                     );
                                   },
+                                  controller: _model.listViewController1,
                                 );
                               },
                             ),
@@ -502,6 +504,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   ),
                                 );
                               },
+                              controller: _model.listViewController2,
                             );
                           },
                         ),
@@ -514,6 +517,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                     child: SingleChildScrollView(
                       primary: false,
+                      controller: _model.columnController2,
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -629,6 +633,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                     ],
                                                   );
                                                 },
+                                                controller:
+                                                    _model.brandCodeName,
                                               );
                                             },
                                           ),
@@ -887,6 +893,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                     ],
                                                   );
                                                 },
+                                                controller: _model.minPrice,
                                               );
                                             },
                                           ),
@@ -1145,6 +1152,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                     ],
                                                   );
                                                 },
+                                                controller: _model.minDate,
                                               );
                                             },
                                           ),
@@ -1384,6 +1392,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                 ],
                                                               );
                                                             },
+                                                            controller: _model
+                                                                .listViewController3,
                                                           );
                                                         },
                                                       ),
@@ -1645,6 +1655,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                 ],
                                                               );
                                                             },
+                                                            controller: _model
+                                                                .listViewController4,
                                                           );
                                                         },
                                                       ),
@@ -1829,6 +1841,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                         );
                                                                         setState(
                                                                             () {});
+                                                                        await _model
+                                                                            .columnController1
+                                                                            ?.animateTo(
+                                                                          0,
+                                                                          duration:
+                                                                              Duration(milliseconds: 100),
+                                                                          curve:
+                                                                              Curves.ease,
+                                                                        );
                                                                       },
                                                                       child:
                                                                           Column(
@@ -1864,6 +1885,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                       ),
                                                                     );
                                                                   },
+                                                                  controller: _model
+                                                                      .listViewController6,
                                                                 );
                                                               },
                                                             ),
@@ -2097,6 +2120,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                       ],
                                                                     );
                                                                   },
+                                                                  controller: _model
+                                                                      .listViewController7,
                                                                 );
                                                               },
                                                             ),
@@ -2295,6 +2320,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                       ],
                                                                     );
                                                                   },
+                                                                  controller: _model
+                                                                      .listViewController8,
                                                                 );
                                                               },
                                                             ),
@@ -2498,6 +2525,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                                       ],
                                                                                     );
                                                                                   },
+                                                                                  controller: _model.listViewController9,
                                                                                 );
                                                                               },
                                                                             ),
@@ -2721,6 +2749,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                                   ],
                                                                                 );
                                                                               },
+                                                                              controller: _model.listViewController10,
                                                                             );
                                                                           },
                                                                         ),
@@ -2783,6 +2812,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       ),
                                                     );
                                                   },
+                                                  controller: _model
+                                                      .listViewController5,
                                                 );
                                               },
                                             ),
