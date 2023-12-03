@@ -127,23 +127,41 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-          automaticallyImplyLeading: true,
-          title: Column(
+          automaticallyImplyLeading: false,
+          leading: FlutterFlowIconButton(
+            borderRadius: 20.0,
+            borderWidth: 1.0,
+            buttonSize: 40.0,
+            icon: Icon(
+              Icons.arrow_back_ios_sharp,
+              color: FlutterFlowTheme.of(context).secondaryText,
+              size: 24.0,
+            ),
+            onPressed: () async {
+              context.safePop();
+              setState(() {
+                FFAppState().sr = [];
+              });
+            },
+          ),
+          title: Row(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Container(
-                height: 25.0,
-                decoration: BoxDecoration(),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(0.0),
-                  child: Image.network(
-                    'https://supabase.proplayclub.ru/storage/v1/object/public/playground/autoeuro-logo-s.png',
-                    height: 25.0,
-                    fit: BoxFit.cover,
-                  ),
+              Text(
+                valueOrDefault<String>(
+                  widget.brand,
+                  '0',
                 ),
+                style: FlutterFlowTheme.of(context).titleLarge,
               ),
-            ],
+              Text(
+                valueOrDefault<String>(
+                  widget.code,
+                  '0',
+                ),
+                style: FlutterFlowTheme.of(context).titleMedium,
+              ),
+            ].divide(SizedBox(width: 15.0)),
           ),
           actions: [],
           centerTitle: false,
