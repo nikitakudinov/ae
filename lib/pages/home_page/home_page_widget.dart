@@ -1912,12 +1912,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                     final nameItem =
                                                                         name[
                                                                             nameIndex];
-                                                                    return Text(
-                                                                      nameItem
-                                                                          .name,
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .labelMedium,
+                                                                    return Container(
+                                                                      width: MediaQuery.sizeOf(context)
+                                                                              .width *
+                                                                          0.8,
+                                                                      decoration:
+                                                                          BoxDecoration(),
+                                                                      child:
+                                                                          Text(
+                                                                        nameItem
+                                                                            .name,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .labelMedium,
+                                                                      ),
                                                                     );
                                                                   }),
                                                                 );
