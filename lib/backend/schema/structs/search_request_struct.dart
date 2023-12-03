@@ -9,10 +9,12 @@ class SearchRequestStruct extends BaseStruct {
   SearchRequestStruct({
     String? brand,
     String? code,
-    String? string,
+    String? name,
+    DateTime? date,
   })  : _brand = brand,
         _code = code,
-        _string = string;
+        _name = name,
+        _date = date;
 
   // "brand" field.
   String? _brand;
@@ -26,17 +28,24 @@ class SearchRequestStruct extends BaseStruct {
   set code(String? val) => _code = val;
   bool hasCode() => _code != null;
 
-  // "string" field.
-  String? _string;
-  String get string => _string ?? '';
-  set string(String? val) => _string = val;
-  bool hasString() => _string != null;
+  // "name" field.
+  String? _name;
+  String get name => _name ?? '';
+  set name(String? val) => _name = val;
+  bool hasName() => _name != null;
+
+  // "date" field.
+  DateTime? _date;
+  DateTime? get date => _date;
+  set date(DateTime? val) => _date = val;
+  bool hasDate() => _date != null;
 
   static SearchRequestStruct fromMap(Map<String, dynamic> data) =>
       SearchRequestStruct(
         brand: data['brand'] as String?,
         code: data['code'] as String?,
-        string: data['string'] as String?,
+        name: data['name'] as String?,
+        date: data['date'] as DateTime?,
       );
 
   static SearchRequestStruct? maybeFromMap(dynamic data) =>
@@ -45,7 +54,8 @@ class SearchRequestStruct extends BaseStruct {
   Map<String, dynamic> toMap() => {
         'brand': _brand,
         'code': _code,
-        'string': _string,
+        'name': _name,
+        'date': _date,
       }.withoutNulls;
 
   @override
@@ -58,9 +68,13 @@ class SearchRequestStruct extends BaseStruct {
           _code,
           ParamType.String,
         ),
-        'string': serializeParam(
-          _string,
+        'name': serializeParam(
+          _name,
           ParamType.String,
+        ),
+        'date': serializeParam(
+          _date,
+          ParamType.DateTime,
         ),
       }.withoutNulls;
 
@@ -76,9 +90,14 @@ class SearchRequestStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
-        string: deserializeParam(
-          data['string'],
+        name: deserializeParam(
+          data['name'],
           ParamType.String,
+          false,
+        ),
+        date: deserializeParam(
+          data['date'],
+          ParamType.DateTime,
           false,
         ),
       );
@@ -91,20 +110,23 @@ class SearchRequestStruct extends BaseStruct {
     return other is SearchRequestStruct &&
         brand == other.brand &&
         code == other.code &&
-        string == other.string;
+        name == other.name &&
+        date == other.date;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([brand, code, string]);
+  int get hashCode => const ListEquality().hash([brand, code, name, date]);
 }
 
 SearchRequestStruct createSearchRequestStruct({
   String? brand,
   String? code,
-  String? string,
+  String? name,
+  DateTime? date,
 }) =>
     SearchRequestStruct(
       brand: brand,
       code: code,
-      string: string,
+      name: name,
+      date: date,
     );

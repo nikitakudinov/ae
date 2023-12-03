@@ -141,6 +141,12 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInSearchRequests(int _index, SearchRequestStruct _value) {
     _searchRequests.insert(_index, _value);
   }
+
+  bool _SEARCHHISTORYvisibility = true;
+  bool get SEARCHHISTORYvisibility => _SEARCHHISTORYvisibility;
+  set SEARCHHISTORYvisibility(bool _value) {
+    _SEARCHHISTORYvisibility = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
