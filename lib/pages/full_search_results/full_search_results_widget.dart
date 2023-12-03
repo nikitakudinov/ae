@@ -138,7 +138,8 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
               size: 24.0,
             ),
             onPressed: () async {
-              context.safePop();
+              context.pushNamed('HomePage');
+
               setState(() {
                 FFAppState().sr = [];
               });
