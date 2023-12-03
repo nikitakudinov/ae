@@ -102,13 +102,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Container(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
+                  child: Container(
                     decoration: BoxDecoration(
                       color: Color(0xFFE4E4E4),
                       borderRadius: BorderRadius.circular(5.0),
@@ -184,300 +185,292 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           _model.textControllerValidator.asValidator(context),
                     ),
                   ),
-                  if ((_model.textController.text == null ||
-                          _model.textController.text == '') &&
-                      (FFAppState().searchRequests.length != 0))
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 15.0, 0.0, 0.0),
-                              child: Text(
-                                'НЕДАВНИЕ ЗАПРОСЫ',
-                                style: FlutterFlowTheme.of(context)
-                                    .labelSmall
-                                    .override(
-                                      fontFamily: 'Roboto Condensed',
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 10.0, 10.0, 10.0),
-                              child: Builder(
-                                builder: (context) {
-                                  final serchRequestHistory = FFAppState()
-                                      .searchRequests
-                                      .sortedList((e) => e.date!)
-                                      .toList()
-                                      .take(5)
-                                      .toList();
-                                  return ListView.builder(
-                                    padding: EdgeInsets.zero,
-                                    primary: false,
-                                    shrinkWrap: true,
-                                    scrollDirection: Axis.vertical,
-                                    itemCount: serchRequestHistory.length,
-                                    itemBuilder:
-                                        (context, serchRequestHistoryIndex) {
-                                      final serchRequestHistoryItem =
-                                          serchRequestHistory[
-                                              serchRequestHistoryIndex];
-                                      return InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          _model.apiResultf7sa =
-                                              await AeGroup.fullsearchCall.call(
-                                            brand:
-                                                serchRequestHistoryItem.brand,
-                                            code: serchRequestHistoryItem.code,
-                                            withCrosses: 1,
-                                            withOffers: 1,
-                                            deliveryKey:
-                                                'A4GAcT7SOcnXN1kucA5bomb4Rj5SO2fV1e5bgkkDgHbY9hrszkUNTsEuZYBmJUwOEPb2iIb01uSVTJYQWkRv05qrVm4c',
-                                          );
-                                          if ((_model
-                                                  .apiResultf7sa?.succeeded ??
-                                              true)) {
-                                            _model.dtsr1 = await actions.dtSR(
-                                              functions
-                                                  .newCustomFunction4(
-                                                      AeGroup.fullsearchCall
-                                                          .data(
-                                                            (_model.apiResultf7sa
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )
-                                                          ?.toList())
-                                                  ?.toList(),
-                                            );
-                                            setState(() {
-                                              FFAppState().sr = _model.dtsr1!
-                                                  .toList()
-                                                  .cast<SearchResultStruct>();
-                                              FFAppState().brands = functions
-                                                  .newCustomFunction2(
-                                                      AeGroup.fullsearchCall
-                                                          .dATAbrand(
-                                                            (_model.apiResultf7sa
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )
-                                                          ?.toList())!
-                                                  .toList()
-                                                  .cast<String>();
-                                            });
-                                          } else {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (alertDialogContext) {
-                                                return AlertDialog(
-                                                  title: Text(
-                                                      'Запрос не отправлен'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                );
-                                              },
-                                            );
-                                          }
-
-                                          setState(() {});
-                                        },
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              serchRequestHistoryItem.brand,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium,
-                                            ),
-                                            Text(
-                                              serchRequestHistoryItem.code,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelLarge,
-                                            ),
-                                            Text(
-                                              dateTimeFormat(
-                                                'relative',
-                                                serchRequestHistoryItem.date!,
-                                                locale: FFLocalizations.of(
-                                                            context)
-                                                        .languageShortCode ??
-                                                    FFLocalizations.of(context)
-                                                        .languageCode,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelLarge,
-                                            ),
-                                            Text(
-                                              serchRequestHistoryItem.name
-                                                  .maybeHandleOverflow(
-                                                      maxChars: 100),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelSmall,
-                                            ),
-                                            if (serchRequestHistoryIndex !=
-                                                (FFAppState()
-                                                        .searchRequests
-                                                        .length -
-                                                    1))
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 5.0, 0.0, 5.0),
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  height: 1.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xFFDCDCDC),
-                                                  ),
-                                                ),
-                                              ),
-                                          ],
-                                        ),
-                                      );
-                                    },
-                                  );
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                ),
+                if ((_model.textController.text == null ||
+                        _model.textController.text == '') &&
+                    (FFAppState().searchRequests.length != 0))
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
                     child: Container(
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         borderRadius: BorderRadius.circular(5.0),
                       ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            10.0, 10.0, 10.0, 10.0),
-                        child: Builder(
-                          builder: (context) {
-                            final serchResults =
-                                FFAppState().BrandCodeSearchResults.toList();
-                            return ListView.builder(
-                              padding: EdgeInsets.zero,
-                              primary: false,
-                              shrinkWrap: true,
-                              scrollDirection: Axis.vertical,
-                              itemCount: serchResults.length,
-                              itemBuilder: (context, serchResultsIndex) {
-                                final serchResultsItem =
-                                    serchResults[serchResultsIndex];
-                                return InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    setState(() {
-                                      FFAppState().addToSearchRequests(
-                                          SearchRequestStruct(
-                                        brand: serchResultsItem.brand,
-                                        code: serchResultsItem.code,
-                                        name: serchResultsItem.name,
-                                        date: getCurrentTimestamp,
-                                      ));
-                                      FFAppState().SEARCHHISTORYvisibility =
-                                          false;
-                                    });
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10.0, 15.0, 0.0, 0.0),
+                            child: Text(
+                              'НЕДАВНИЕ ЗАПРОСЫ',
+                              style: FlutterFlowTheme.of(context)
+                                  .labelSmall
+                                  .override(
+                                    fontFamily: 'Roboto Condensed',
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10.0, 10.0, 10.0, 10.0),
+                            child: Builder(
+                              builder: (context) {
+                                final serchRequestHistory = FFAppState()
+                                    .searchRequests
+                                    .sortedList((e) => e.date!)
+                                    .toList()
+                                    .take(5)
+                                    .toList();
+                                return ListView.builder(
+                                  padding: EdgeInsets.zero,
+                                  primary: false,
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: serchRequestHistory.length,
+                                  itemBuilder:
+                                      (context, serchRequestHistoryIndex) {
+                                    final serchRequestHistoryItem =
+                                        serchRequestHistory[
+                                            serchRequestHistoryIndex];
+                                    return InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        _model.apiResultf7sa =
+                                            await AeGroup.fullsearchCall.call(
+                                          brand: serchRequestHistoryItem.brand,
+                                          code: serchRequestHistoryItem.code,
+                                          withCrosses: 1,
+                                          withOffers: 1,
+                                          deliveryKey:
+                                              'A4GAcT7SOcnXN1kucA5bomb4Rj5SO2fV1e5bgkkDgHbY9hrszkUNTsEuZYBmJUwOEPb2iIb01uSVTJYQWkRv05qrVm4c',
+                                        );
+                                        if ((_model.apiResultf7sa?.succeeded ??
+                                            true)) {
+                                          _model.dtsr1 = await actions.dtSR(
+                                            functions
+                                                .newCustomFunction4(
+                                                    AeGroup.fullsearchCall
+                                                        .data(
+                                                          (_model.apiResultf7sa
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )
+                                                        ?.toList())
+                                                ?.toList(),
+                                          );
+                                          setState(() {
+                                            FFAppState().sr = _model.dtsr1!
+                                                .toList()
+                                                .cast<SearchResultStruct>();
+                                            FFAppState().brands = functions
+                                                .newCustomFunction2(
+                                                    AeGroup.fullsearchCall
+                                                        .dATAbrand(
+                                                          (_model.apiResultf7sa
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )
+                                                        ?.toList())!
+                                                .toList()
+                                                .cast<String>();
+                                          });
+                                        } else {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return AlertDialog(
+                                                title:
+                                                    Text('Запрос не отправлен'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          );
+                                        }
 
-                                    context.pushNamed(
-                                      'fullSearchResults',
-                                      queryParameters: {
-                                        'brand': serializeParam(
-                                          serchResultsItem.brand,
-                                          ParamType.String,
-                                        ),
-                                        'code': serializeParam(
-                                          serchResultsItem.code,
-                                          ParamType.String,
-                                        ),
-                                      }.withoutNulls,
+                                        setState(() {});
+                                      },
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            serchRequestHistoryItem.brand,
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleMedium,
+                                          ),
+                                          Text(
+                                            serchRequestHistoryItem.code,
+                                            style: FlutterFlowTheme.of(context)
+                                                .labelLarge,
+                                          ),
+                                          Text(
+                                            dateTimeFormat(
+                                              'relative',
+                                              serchRequestHistoryItem.date!,
+                                              locale: FFLocalizations.of(
+                                                          context)
+                                                      .languageShortCode ??
+                                                  FFLocalizations.of(context)
+                                                      .languageCode,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .labelLarge,
+                                          ),
+                                          Text(
+                                            serchRequestHistoryItem.name
+                                                .maybeHandleOverflow(
+                                                    maxChars: 100),
+                                            style: FlutterFlowTheme.of(context)
+                                                .labelSmall,
+                                          ),
+                                          if (serchRequestHistoryIndex !=
+                                              (FFAppState()
+                                                      .searchRequests
+                                                      .length -
+                                                  1))
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 5.0, 0.0, 5.0),
+                                              child: Container(
+                                                width: double.infinity,
+                                                height: 1.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFDCDCDC),
+                                                ),
+                                              ),
+                                            ),
+                                        ],
+                                      ),
                                     );
                                   },
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        serchResultsItem.brand,
-                                        style: FlutterFlowTheme.of(context)
-                                            .titleMedium,
-                                      ),
-                                      Text(
-                                        serchResultsItem.code,
-                                        style: FlutterFlowTheme.of(context)
-                                            .labelLarge,
-                                      ),
-                                      Text(
-                                        serchResultsItem.name
-                                            .maybeHandleOverflow(maxChars: 100),
-                                        style: FlutterFlowTheme.of(context)
-                                            .labelSmall,
-                                      ),
-                                      if (serchResultsIndex !=
-                                          (FFAppState()
-                                                  .BrandCodeSearchResults
-                                                  .length -
-                                              1))
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 5.0, 0.0, 5.0),
-                                          child: Container(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                1.0,
-                                            height: 1.0,
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFFDCDCDC),
-                                            ),
-                                          ),
-                                        ),
-                                    ],
-                                  ),
                                 );
                               },
-                            );
-                          },
-                        ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          10.0, 10.0, 10.0, 10.0),
+                      child: Builder(
+                        builder: (context) {
+                          final serchResults =
+                              FFAppState().BrandCodeSearchResults.toList();
+                          return ListView.builder(
+                            padding: EdgeInsets.zero,
+                            primary: false,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: serchResults.length,
+                            itemBuilder: (context, serchResultsIndex) {
+                              final serchResultsItem =
+                                  serchResults[serchResultsIndex];
+                              return InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  setState(() {
+                                    FFAppState().addToSearchRequests(
+                                        SearchRequestStruct(
+                                      brand: serchResultsItem.brand,
+                                      code: serchResultsItem.code,
+                                      name: serchResultsItem.name,
+                                      date: getCurrentTimestamp,
+                                    ));
+                                    FFAppState().SEARCHHISTORYvisibility =
+                                        false;
+                                  });
+
+                                  context.pushNamed(
+                                    'fullSearchResults',
+                                    queryParameters: {
+                                      'brand': serializeParam(
+                                        serchResultsItem.brand,
+                                        ParamType.String,
+                                      ),
+                                      'code': serializeParam(
+                                        serchResultsItem.code,
+                                        ParamType.String,
+                                      ),
+                                    }.withoutNulls,
+                                  );
+                                },
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      serchResultsItem.brand,
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleMedium,
+                                    ),
+                                    Text(
+                                      serchResultsItem.code,
+                                      style: FlutterFlowTheme.of(context)
+                                          .labelLarge,
+                                    ),
+                                    Text(
+                                      serchResultsItem.name
+                                          .maybeHandleOverflow(maxChars: 100),
+                                      style: FlutterFlowTheme.of(context)
+                                          .labelSmall,
+                                    ),
+                                    if (serchResultsIndex !=
+                                        (FFAppState()
+                                                .BrandCodeSearchResults
+                                                .length -
+                                            1))
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 5.0, 0.0, 5.0),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 1.0,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFFDCDCDC),
+                                          ),
+                                        ),
+                                      ),
+                                  ],
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+                if (FFAppState().sr.length != 0)
                   SingleChildScrollView(
                     primary: false,
                     child: Column(
@@ -2750,8 +2743,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ],
                     ),
                   ),
-                ],
-              ),
+              ],
             ),
           ),
         ),
