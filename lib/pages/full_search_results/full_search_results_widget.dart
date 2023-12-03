@@ -80,9 +80,11 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
       }
     });
 
-    _model.expandableController1 = ExpandableController(initialExpanded: true);
-    _model.expandableController2 = ExpandableController(initialExpanded: false);
-    _model.expandableController3 = ExpandableController(initialExpanded: false);
+    _model.searchedArticulController =
+        ExpandableController(initialExpanded: true);
+    _model.expandableController1 = ExpandableController(initialExpanded: false);
+    _model.analogsAndCrossController =
+        ExpandableController(initialExpanded: false);
   }
 
   @override
@@ -153,7 +155,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                       width: double.infinity,
                       color: Colors.white,
                       child: ExpandableNotifier(
-                        controller: _model.expandableController1,
+                        controller: _model.searchedArticulController,
                         child: ExpandablePanel(
                           header: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -247,7 +249,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                     15.0, 0.0, 15.0, 0.0),
                                 child: Builder(
                                   builder: (context) {
-                                    final cross01 = FFAppState()
+                                    final lowerPrice = FFAppState()
                                         .sr
                                         .where((e) =>
                                             e.cross == null || e.cross == '')
@@ -261,39 +263,210 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                       primary: false,
                                       shrinkWrap: true,
                                       scrollDirection: Axis.vertical,
-                                      itemCount: cross01.length,
-                                      itemBuilder: (context, cross01Index) {
-                                        final cross01Item =
-                                            cross01[cross01Index];
+                                      itemCount: lowerPrice.length,
+                                      itemBuilder: (context, lowerPriceIndex) {
+                                        final lowerPriceItem =
+                                            lowerPrice[lowerPriceIndex];
                                         return Row(
-                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisSize: MainAxisSize.min,
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text(
-                                              'Мин. цена',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
-                                            ),
-                                            Text(
-                                              cross01Item.price.toString(),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
-                                            ),
-                                            Text(
-                                              dateTimeFormat(
-                                                'relative',
-                                                functions.newCustomFunction3(
-                                                    cross01Item.deliveryTime),
-                                                locale:
-                                                    FFLocalizations.of(context)
-                                                        .languageCode,
+                                            Expanded(
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    'МИН. ЦЕНА',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .labelSmall
+                                                        .override(
+                                                          fontFamily:
+                                                              'Roboto Condensed',
+                                                          fontSize: 12.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                  ),
+                                                ],
                                               ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                            ),
+                                            Expanded(
+                                              flex: 2,
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    lowerPriceItem.rejects
+                                                        .toString(),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily:
+                                                              'Asap Condensed',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText,
+                                                          fontSize: 10.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                                  ),
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      LinearPercentIndicator(
+                                                        percent: functions
+                                                            .doubleToPerc(
+                                                                lowerPriceItem
+                                                                    .rejects)!,
+                                                        width: 50.0,
+                                                        lineHeight: 5.0,
+                                                        animation: true,
+                                                        animateFromLastPercent:
+                                                            true,
+                                                        progressColor:
+                                                            Color(0xFFDC6365),
+                                                        backgroundColor:
+                                                            Color(0xFF6067BB),
+                                                        padding:
+                                                            EdgeInsets.zero,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Text(
+                                                    '% ОТКАЗОВ',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily:
+                                                              'Asap Condensed',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText,
+                                                          fontSize: 8.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    lowerPriceItem.price
+                                                        .toString(),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .labelMedium,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
+                                                    () {
+                                                      if (dateTimeFormat(
+                                                            'yMd',
+                                                            functions.newCustomFunction3(
+                                                                lowerPriceItem
+                                                                    .deliveryTime),
+                                                            locale: FFLocalizations
+                                                                    .of(context)
+                                                                .languageCode,
+                                                          ) ==
+                                                          dateTimeFormat(
+                                                            'yMd',
+                                                            getCurrentTimestamp,
+                                                            locale: FFLocalizations
+                                                                    .of(context)
+                                                                .languageCode,
+                                                          )) {
+                                                        return 'Сегодня';
+                                                      } else if (dateTimeFormat(
+                                                            'yMd',
+                                                            functions.newCustomFunction3(
+                                                                lowerPriceItem
+                                                                    .deliveryTime),
+                                                            locale: FFLocalizations
+                                                                    .of(context)
+                                                                .languageCode,
+                                                          ) ==
+                                                          dateTimeFormat(
+                                                            'yMd',
+                                                            functions
+                                                                .tomorrowdate(),
+                                                            locale: FFLocalizations
+                                                                    .of(context)
+                                                                .languageCode,
+                                                          )) {
+                                                        return 'Завтра';
+                                                      } else {
+                                                        return dateTimeFormat(
+                                                          'relative',
+                                                          functions
+                                                              .newCustomFunction3(
+                                                                  lowerPriceItem
+                                                                      .deliveryTime),
+                                                          locale: FFLocalizations
+                                                                      .of(
+                                                                          context)
+                                                                  .languageShortCode ??
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .languageCode,
+                                                        );
+                                                      }
+                                                    }(),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .labelSmall,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: Align(
+                                                alignment: AlignmentDirectional(
+                                                    1.00, 0.00),
+                                                child: FlutterFlowIconButton(
+                                                  borderColor:
+                                                      Colors.transparent,
+                                                  borderRadius: 20.0,
+                                                  borderWidth: 1.0,
+                                                  buttonSize: 40.0,
+                                                  icon: Icon(
+                                                    Icons.add_shopping_cart,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryText,
+                                                    size: 24.0,
+                                                  ),
+                                                  onPressed: () {
+                                                    print(
+                                                        'IconButton pressed ...');
+                                                  },
+                                                ),
+                                              ),
                                             ),
                                           ],
                                         );
@@ -573,7 +746,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                       color: Colors.white,
                                       child: ExpandableNotifier(
                                         controller:
-                                            _model.expandableController2,
+                                            _model.expandableController1,
                                         child: ExpandablePanel(
                                           header: Text(
                                             'Все предложения',
@@ -879,7 +1052,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                           width: double.infinity,
                           color: Color(0x00000000),
                           child: ExpandableNotifier(
-                            controller: _model.expandableController3,
+                            controller: _model.analogsAndCrossController,
                             child: ExpandablePanel(
                               header: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -1161,7 +1334,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondaryText,
                                                                             fontSize:
-                                                                                6.0,
+                                                                                8.0,
                                                                             fontWeight:
                                                                                 FontWeight.w600,
                                                                           ),
@@ -1396,7 +1569,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                       ],
                                                                     ),
                                                                     Text(
-                                                                      'ОТКАЗЫ',
+                                                                      '% ОТКАЗОВ',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodySmall
@@ -1765,24 +1938,31 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                     ),
                                                   ExpandableNotifier(
                                                     child: ExpandablePanel(
-                                                      header: Text(
-                                                        'Все предложения',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelLarge
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto Condensed',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                ),
+                                                      header: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    5.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          'Все предложения',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .labelLarge
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto Condensed',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                                fontSize: 14.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                              ),
+                                                        ),
                                                       ),
                                                       collapsed: Container(),
                                                       expanded: Builder(
