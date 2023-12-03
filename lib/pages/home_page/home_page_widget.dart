@@ -267,7 +267,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .labelSmall,
                                               ),
-                                              if (serchRequestHistoryIndex ==
+                                              if (serchRequestHistoryIndex !=
                                                   (FFAppState()
                                                           .searchRequests
                                                           .length -
