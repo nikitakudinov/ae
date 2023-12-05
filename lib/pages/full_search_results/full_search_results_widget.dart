@@ -1246,7 +1246,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                             _model.expandableController2,
                                         child: ExpandablePanel(
                                           header: Text(
-                                            'Все предложения',
+                                            'Все предложения (${FFAppState().sr.where((e) => (e.cross == null || e.cross == '') && (e.stock != 1)).toList().length.toString()})',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelLarge
                                                 .override(
