@@ -1269,8 +1269,9 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                 final cross0 = FFAppState()
                                                     .sr
                                                     .where((e) =>
-                                                        e.cross == null ||
-                                                        e.cross == '')
+                                                        (e.cross == null ||
+                                                            e.cross == '') &&
+                                                        (e.stock != 1))
                                                     .toList()
                                                     .sortedList(
                                                         (e) => e.deliveryTime)
