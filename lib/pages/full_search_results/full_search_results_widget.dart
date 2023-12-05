@@ -1688,11 +1688,15 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                             (nameIndex) {
                                                           final nameItem =
                                                               name[nameIndex];
-                                                          return Text(
-                                                            nameItem.name,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .labelMedium,
+                                                          return Container(
+                                                            decoration:
+                                                                BoxDecoration(),
+                                                            child: Text(
+                                                              nameItem.name,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .labelMedium,
+                                                            ),
                                                           );
                                                         }),
                                                       );
