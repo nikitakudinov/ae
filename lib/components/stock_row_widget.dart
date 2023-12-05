@@ -98,7 +98,15 @@ class _StockRowWidgetState extends State<StockRowWidget> {
                   ),
                 ),
                 Container(
-                  height: 40.0,
+                  height: (FFAppState()
+                              .sr
+                              .where((e) =>
+                                  ('\"${e.brand}\"' == widget.parameter1) &&
+                                  (e.stock == 1))
+                              .toList()
+                              .length *
+                          40)
+                      .toDouble(),
                   decoration: BoxDecoration(),
                   child: Builder(
                     builder: (context) {
