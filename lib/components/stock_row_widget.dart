@@ -120,6 +120,8 @@ class _StockRowWidgetState extends State<StockRowWidget> {
                               (e.stock == 1))
                           .toList()
                           .sortedList((e) => e.deliveryTime)
+                          .toList()
+                          .take(3)
                           .toList();
                       return ListView.builder(
                         padding: EdgeInsets.zero,
@@ -274,7 +276,7 @@ class _StockRowWidgetState extends State<StockRowWidget> {
                         child: ExpandablePanel(
                           header: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 0.0, 0.0, 10.0),
+                                0.0, 0.0, 0.0, 10.0),
                             child: Text(
                               'В наличии еще на ${FFAppState().sr.where((e) => (e.cross == null || e.cross == '') && (e.stock == 1)).toList().length.toString()} складах Авто Евро',
                               style: FlutterFlowTheme.of(context)
@@ -289,192 +291,161 @@ class _StockRowWidgetState extends State<StockRowWidget> {
                             ),
                           ),
                           collapsed: Container(),
-                          expanded: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 0.0, 10.0, 10.0),
-                            child: Builder(
-                              builder: (context) {
-                                final cross02 = FFAppState()
-                                    .sr
-                                    .where((e) =>
-                                        ('\"${e.brand}\"' ==
-                                            widget.parameter1) &&
-                                        (e.stock == 1))
-                                    .toList()
-                                    .sortedList((e) => e.deliveryTime)
-                                    .toList();
-                                return ListView.builder(
-                                  padding: EdgeInsets.zero,
-                                  primary: false,
-                                  shrinkWrap: true,
-                                  scrollDirection: Axis.vertical,
-                                  itemCount: cross02.length,
-                                  itemBuilder: (context, cross02Index) {
-                                    final cross02Item = cross02[cross02Index];
-                                    return Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        if (cross02Index > 3)
-                                          Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Expanded(
-                                                flex: 3,
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Text(
-                                                          cross02Item
-                                                              .warehouseName,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .labelMedium,
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Expanded(
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Text(
-                                                          '${cross02Item.price.toString()}',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .labelLarge,
-                                                        ),
-                                                        Text(
-                                                          '${cross02Item.amount.toString()} ${cross02Item.unit}',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .labelSmall,
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Expanded(
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      () {
-                                                        if (dateTimeFormat(
-                                                              'yMd',
-                                                              functions.newCustomFunction3(
-                                                                  cross02Item
-                                                                      .deliveryTime),
-                                                              locale: FFLocalizations
-                                                                      .of(context)
-                                                                  .languageCode,
-                                                            ) ==
-                                                            dateTimeFormat(
-                                                              'yMd',
-                                                              getCurrentTimestamp,
-                                                              locale: FFLocalizations
-                                                                      .of(context)
-                                                                  .languageCode,
-                                                            )) {
-                                                          return 'Сегодня';
-                                                        } else if (dateTimeFormat(
-                                                              'yMd',
-                                                              functions.newCustomFunction3(
-                                                                  cross02Item
-                                                                      .deliveryTime),
-                                                              locale: FFLocalizations
-                                                                      .of(context)
-                                                                  .languageCode,
-                                                            ) ==
-                                                            dateTimeFormat(
-                                                              'yMd',
-                                                              functions
-                                                                  .tomorrowdate(),
-                                                              locale: FFLocalizations
-                                                                      .of(context)
-                                                                  .languageCode,
-                                                            )) {
-                                                          return 'Завтра';
-                                                        } else {
-                                                          return dateTimeFormat(
-                                                            'relative',
-                                                            functions
-                                                                .newCustomFunction3(
-                                                                    cross02Item
-                                                                        .deliveryTime),
-                                                            locale: FFLocalizations.of(
-                                                                        context)
-                                                                    .languageShortCode ??
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .languageCode,
-                                                          );
-                                                        }
-                                                      }(),
-                                                      style:
-                                                          FlutterFlowTheme.of(
+                          expanded: Builder(
+                            builder: (context) {
+                              final cross02 = FFAppState()
+                                  .sr
+                                  .where((e) =>
+                                      ('\"${e.brand}\"' == widget.parameter1) &&
+                                      (e.stock == 1))
+                                  .toList()
+                                  .sortedList((e) => e.deliveryTime)
+                                  .toList();
+                              return ListView.builder(
+                                padding: EdgeInsets.zero,
+                                primary: false,
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                itemCount: cross02.length,
+                                itemBuilder: (context, cross02Index) {
+                                  final cross02Item = cross02[cross02Index];
+                                  return Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                        flex: 3,
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              cross02Item.warehouseName,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Text(
+                                              '${cross02Item.price.toString()}',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge,
+                                            ),
+                                            Text(
+                                              '${cross02Item.amount.toString()} ${cross02Item.unit}',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelSmall,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              () {
+                                                if (dateTimeFormat(
+                                                      'yMd',
+                                                      functions
+                                                          .newCustomFunction3(
+                                                              cross02Item
+                                                                  .deliveryTime),
+                                                      locale:
+                                                          FFLocalizations.of(
                                                                   context)
-                                                              .labelSmall,
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Expanded(
-                                                child: Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          1.00, 0.00),
-                                                  child: FlutterFlowIconButton(
-                                                    borderColor:
-                                                        Colors.transparent,
-                                                    borderRadius: 20.0,
-                                                    borderWidth: 1.0,
-                                                    buttonSize: 40.0,
-                                                    icon: Icon(
-                                                      Icons.add_shopping_cart,
-                                                      color:
-                                                          FlutterFlowTheme.of(
+                                                              .languageCode,
+                                                    ) ==
+                                                    dateTimeFormat(
+                                                      'yMd',
+                                                      getCurrentTimestamp,
+                                                      locale:
+                                                          FFLocalizations.of(
                                                                   context)
-                                                              .secondaryText,
-                                                      size: 24.0,
-                                                    ),
-                                                    onPressed: () {
-                                                      print(
-                                                          'IconButton pressed ...');
-                                                    },
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
+                                                              .languageCode,
+                                                    )) {
+                                                  return 'Сегодня';
+                                                } else if (dateTimeFormat(
+                                                      'yMd',
+                                                      functions
+                                                          .newCustomFunction3(
+                                                              cross02Item
+                                                                  .deliveryTime),
+                                                      locale:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                    ) ==
+                                                    dateTimeFormat(
+                                                      'yMd',
+                                                      functions.tomorrowdate(),
+                                                      locale:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                    )) {
+                                                  return 'Завтра';
+                                                } else {
+                                                  return dateTimeFormat(
+                                                    'relative',
+                                                    functions
+                                                        .newCustomFunction3(
+                                                            cross02Item
+                                                                .deliveryTime),
+                                                    locale: FFLocalizations.of(
+                                                                context)
+                                                            .languageShortCode ??
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .languageCode,
+                                                  );
+                                                }
+                                              }(),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelSmall,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(1.00, 0.00),
+                                          child: FlutterFlowIconButton(
+                                            borderColor: Colors.transparent,
+                                            borderRadius: 20.0,
+                                            borderWidth: 1.0,
+                                            buttonSize: 40.0,
+                                            icon: Icon(
+                                              Icons.add_shopping_cart,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              size: 24.0,
+                                            ),
+                                            onPressed: () {
+                                              print('IconButton pressed ...');
+                                            },
                                           ),
-                                      ],
-                                    );
-                                  },
-                                );
-                              },
-                            ),
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
                           ),
                           theme: ExpandableThemeData(
                             tapHeaderToExpand: true,
