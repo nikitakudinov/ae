@@ -30,6 +30,9 @@ class FullSearchResultsModel extends FlutterFlowModel<FullSearchResultsWidget> {
   // State field(s) for Expandable widget.
   late ExpandableController expandableController1;
 
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController2;
+
   // State field(s) for ANALOGS-AND-CROSS widget.
   late ExpandableController analogsAndCrossController;
 
@@ -41,6 +44,7 @@ class FullSearchResultsModel extends FlutterFlowModel<FullSearchResultsWidget> {
     unfocusNode.dispose();
     searchedArticulController.dispose();
     expandableController1.dispose();
+    expandableController2.dispose();
     analogsAndCrossController.dispose();
   }
 
