@@ -1,5 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
+import '/components/cross_item_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -50,18 +51,8 @@ class FullSearchResultsModel extends FlutterFlowModel<FullSearchResultsWidget> {
   // State field(s) for ANALOGS-AND-CROSS widget.
   late ExpandableController analogsAndCrossController;
 
-  // State field(s) for ListView widget.
-  ScrollController? listViewController4;
-  // State field(s) for ListView widget.
-  ScrollController? listViewController5;
-  // State field(s) for ListView widget.
-  ScrollController? listViewController6;
-  // State field(s) for ListView widget.
-  ScrollController? listViewController7;
-  // State field(s) for ListView widget.
-  ScrollController? listViewController8;
-  // State field(s) for ListView widget.
-  ScrollController? listViewController9;
+  // Model for crossItem component.
+  late CrossItemModel crossItemModel;
 
   /// Initialization and disposal methods.
 
@@ -73,12 +64,7 @@ class FullSearchResultsModel extends FlutterFlowModel<FullSearchResultsWidget> {
     listViewController1 = ScrollController();
     listViewController2 = ScrollController();
     listViewController3 = ScrollController();
-    listViewController4 = ScrollController();
-    listViewController5 = ScrollController();
-    listViewController6 = ScrollController();
-    listViewController7 = ScrollController();
-    listViewController8 = ScrollController();
-    listViewController9 = ScrollController();
+    crossItemModel = createModel(context, () => CrossItemModel());
   }
 
   void dispose() {
@@ -94,12 +80,7 @@ class FullSearchResultsModel extends FlutterFlowModel<FullSearchResultsWidget> {
     expandableController2.dispose();
     listViewController3?.dispose();
     analogsAndCrossController.dispose();
-    listViewController4?.dispose();
-    listViewController5?.dispose();
-    listViewController6?.dispose();
-    listViewController7?.dispose();
-    listViewController8?.dispose();
-    listViewController9?.dispose();
+    crossItemModel.dispose();
   }
 
   /// Action blocks are added here.
