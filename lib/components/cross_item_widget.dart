@@ -85,7 +85,6 @@ class _CrossItemWidgetState extends State<CrossItemWidget> {
                               return ListView.builder(
                                 padding: EdgeInsets.zero,
                                 primary: false,
-                                shrinkWrap: true,
                                 scrollDirection: Axis.vertical,
                                 itemCount: header.length,
                                 itemBuilder: (context, headerIndex) {
@@ -169,14 +168,13 @@ class _CrossItemWidgetState extends State<CrossItemWidget> {
                                       '\"${e.brand}\"' == brandsListViewItem)
                                   .toList()
                                   .sortedList((e) => e.price)
-                                  .take(5)
+                                  .take(1)
                                   .toList()
                                   .take(1)
                                   .toList();
                               return ListView.builder(
                                 padding: EdgeInsets.zero,
                                 primary: false,
-                                shrinkWrap: true,
                                 scrollDirection: Axis.vertical,
                                 itemCount: lowerPrice.length,
                                 itemBuilder: (context, lowerPriceIndex) {
@@ -401,14 +399,13 @@ class _CrossItemWidgetState extends State<CrossItemWidget> {
                                       '\"${e.brand}\"' == brandsListViewItem)
                                   .toList()
                                   .sortedList((e) => e.deliveryTime)
-                                  .take(5)
+                                  .take(1)
                                   .toList()
                                   .take(1)
                                   .toList();
                               return ListView.builder(
                                 padding: EdgeInsets.zero,
                                 primary: false,
-                                shrinkWrap: true,
                                 scrollDirection: Axis.vertical,
                                 itemCount: fastestDelivery.length,
                                 itemBuilder: (context, fastestDeliveryIndex) {
