@@ -44,29 +44,18 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.apiResultf7s = await AeGroup.fullsearchCall.call(
-        brand: widget.brand,
-        code: widget.code,
-        withCrosses: 1,
-        withOffers: 1,
-        deliveryKey:
-            'A4GAcT7SOcnXN1kucA5bomb4Rj5SO2fV1e5bgkkDgHbY9hrszkUNTsEuZYBmJUwOEPb2iIb01uSVTJYQWkRv05qrVm4c',
-      );
+      _model.apiResultf7s = await SupabaseGroup.srCall.call();
       if ((_model.apiResultf7s?.succeeded ?? true)) {
         _model.dtsr = await actions.dtSR(
           functions
-              .newCustomFunction4(AeGroup.fullsearchCall
-                  .data(
-                    (_model.apiResultf7s?.jsonBody ?? ''),
-                  )
-                  ?.toList())
+              .newCustomFunction4((_model.apiResultf7s?.jsonBody ?? ''))
               ?.toList(),
         );
         setState(() {
           FFAppState().sr = _model.dtsr!.toList().cast<SearchResultStruct>();
           FFAppState().brands = functions
-              .newCustomFunction2(AeGroup.fullsearchCall
-                  .dATAbrand(
+              .newCustomFunction2(SupabaseGroup.srCall
+                  .brand(
                     (_model.apiResultf7s?.jsonBody ?? ''),
                   )
                   ?.toList())!
