@@ -1034,7 +1034,12 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                               ),
                                                     ),
                                                   ),
-                                                  collapsed: Container(),
+                                                  collapsed: Text(
+                                                    'Hello World',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
                                                   expanded: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
