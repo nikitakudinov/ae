@@ -1689,6 +1689,11 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                           final nameItem =
                                                               name[nameIndex];
                                                           return Container(
+                                                            width: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .width *
+                                                                0.8,
                                                             decoration:
                                                                 BoxDecoration(),
                                                             child: Text(
