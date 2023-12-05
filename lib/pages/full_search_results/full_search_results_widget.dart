@@ -116,8 +116,12 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            print('FloatingActionButton pressed ...');
+          onPressed: () async {
+            await _model.columnController?.animateTo(
+              0,
+              duration: Duration(milliseconds: 100),
+              curve: Curves.ease,
+            );
           },
           backgroundColor: Color(0xFFA5A5A5),
           elevation: 8.0,
@@ -177,6 +181,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
         body: SafeArea(
           top: true,
           child: SingleChildScrollView(
+            controller: _model.columnController,
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -277,6 +282,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                           ],
                                         );
                                       },
+                                      controller: _model.brandCodeName,
                                     );
                                   },
                                 ),
@@ -509,6 +515,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                           ],
                                         );
                                       },
+                                      controller: _model.minPrice,
                                     );
                                   },
                                 ),
@@ -740,6 +747,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                           ],
                                         );
                                       },
+                                      controller: _model.minDate,
                                     );
                                   },
                                 ),
@@ -990,6 +998,8 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                     ],
                                                   );
                                                 },
+                                                controller:
+                                                    _model.listViewController1,
                                               );
                                             },
                                           ),
@@ -1218,6 +1228,8 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                               ],
                                                             );
                                                           },
+                                                          controller: _model
+                                                              .listViewController2,
                                                         );
                                                       },
                                                     ),
@@ -1509,6 +1521,8 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                       ],
                                                     );
                                                   },
+                                                  controller: _model
+                                                      .listViewController3,
                                                 );
                                               },
                                             ),
@@ -1684,6 +1698,8 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                             ],
                                                           );
                                                         },
+                                                        controller: _model
+                                                            .listViewController5,
                                                       );
                                                     },
                                                   ),
@@ -1970,6 +1986,8 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                             ],
                                                           );
                                                         },
+                                                        controller: _model
+                                                            .listViewController6,
                                                       );
                                                     },
                                                   ),
@@ -2218,6 +2236,8 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                             ],
                                                           );
                                                         },
+                                                        controller: _model
+                                                            .listViewController7,
                                                       );
                                                     },
                                                   ),
@@ -2457,6 +2477,8 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                             ],
                                                                           );
                                                                         },
+                                                                        controller:
+                                                                            _model.listViewController8,
                                                                       );
                                                                     },
                                                                   ),
@@ -2706,6 +2728,9 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                                         ],
                                                                       );
                                                                     },
+                                                                    controller:
+                                                                        _model
+                                                                            .listViewController9,
                                                                   );
                                                                 },
                                                               ),
@@ -2766,6 +2791,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                             ),
                                           );
                                         },
+                                        controller: _model.listViewController4,
                                       );
                                     },
                                   ),
