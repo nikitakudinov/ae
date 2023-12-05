@@ -994,6 +994,14 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                           Container(
                                             decoration: BoxDecoration(
                                               color: Color(0xFFF1F1F1),
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(5.0),
+                                                bottomRight:
+                                                    Radius.circular(5.0),
+                                                topLeft: Radius.circular(0.0),
+                                                topRight: Radius.circular(0.0),
+                                              ),
                                             ),
                                             child: Container(
                                               width: double.infinity,
@@ -1006,7 +1014,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                     padding:
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                                0.0, 10.0),
                                                     child: Text(
                                                       'В наличии еще на ${FFAppState().sr.where((e) => (e.cross == null || e.cross == '') && (e.stock == 1)).toList().length.toString()} складах Авто Евро',
                                                       style:
