@@ -639,7 +639,7 @@ class _CrossItemWidgetState extends State<CrossItemWidget> {
                                                   (e.stock == 1))
                                               .toList()
                                               .length *
-                                          30 +
+                                          50 +
                                       50)
                                   .toDouble(),
                               decoration: BoxDecoration(
