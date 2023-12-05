@@ -249,16 +249,17 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                 ),
                                               ].divide(SizedBox(width: 15.0)),
                                             ),
-                                            Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  1.0,
-                                              decoration: BoxDecoration(),
-                                              child: Text(
-                                                searchebleItemHeaderItem.name,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelLarge,
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  -1.00, 0.00),
+                                              child: Container(
+                                                decoration: BoxDecoration(),
+                                                child: Text(
+                                                  searchebleItemHeaderItem.name,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .labelLarge,
+                                                ),
                                               ),
                                             ),
                                           ],
