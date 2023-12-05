@@ -631,6 +631,17 @@ class _CrossItemWidgetState extends State<CrossItemWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 15.0, 0.0, 0.0),
                             child: Container(
+                              height: (FFAppState()
+                                              .sr
+                                              .where((e) =>
+                                                  ('\"${e.brand}\"' ==
+                                                      brandsListViewItem) &&
+                                                  (e.stock == 1))
+                                              .toList()
+                                              .length *
+                                          30 +
+                                      50)
+                                  .toDouble(),
                               decoration: BoxDecoration(
                                 color: Color(0xFFF1F1F1),
                                 borderRadius: BorderRadius.circular(5.0),
