@@ -992,13 +992,11 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                             3)
                                           Container(
                                             decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
+                                              color: Color(0xFFF1F1F1),
                                             ),
                                             child: Container(
                                               width: double.infinity,
-                                              color: Colors.white,
+                                              color: Color(0x00000000),
                                               child: ExpandableNotifier(
                                                 controller: _model
                                                     .expandableController1,
@@ -1006,8 +1004,8 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                   header: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 10.0,
-                                                                10.0, 0.0),
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
                                                     child: Text(
                                                       'В наличии еще на ${FFAppState().sr.where((e) => (e.cross == null || e.cross == '') && (e.stock == 1)).toList().length.toString()} складах Авто Евро',
                                                       style:
@@ -1214,7 +1212,7 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
                                                     headerAlignment:
                                                         ExpandablePanelHeaderAlignment
                                                             .center,
-                                                    hasIcon: true,
+                                                    hasIcon: false,
                                                   ),
                                                 ),
                                               ),
