@@ -66,7 +66,7 @@ class _StockRowWidgetState extends State<StockRowWidget> {
                               (e.stock == 1))
                           .toList()
                           .length *
-                      50 +
+                      40 +
                   50)
               .toDouble(),
           decoration: BoxDecoration(
@@ -74,7 +74,7 @@ class _StockRowWidgetState extends State<StockRowWidget> {
             borderRadius: BorderRadius.circular(5.0),
           ),
           child: Column(
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Align(
                 alignment: AlignmentDirectional(-1.00, 0.00),
@@ -101,21 +101,10 @@ class _StockRowWidgetState extends State<StockRowWidget> {
                 ),
               ),
               Column(
-                mainAxisSize: MainAxisSize.max,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Container(
-                    height: (35 *
-                                FFAppState()
-                                    .sr
-                                    .where((e) =>
-                                        ('\"${e.brand}\"' ==
-                                            widget.parameter1) &&
-                                        (e.stock == 1))
-                                    .toList()
-                                    .sortedList((e) => e.deliveryTime)
-                                    .length +
-                            40)
-                        .toDouble(),
+                    height: 40.0,
                     decoration: BoxDecoration(),
                     child: Padding(
                       padding:
