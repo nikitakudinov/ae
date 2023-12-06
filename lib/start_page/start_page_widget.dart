@@ -294,7 +294,8 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                             stockItems[
                                                                 stockItemsIndex];
                                                         return Text(
-                                                          'Hello World',
+                                                          stockItemsItem
+                                                              .warehouseName,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium,
