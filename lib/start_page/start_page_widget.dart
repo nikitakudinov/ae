@@ -288,7 +288,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                             codeItems[
                                                                 codeItemsIndex];
                                                         return Text(
-                                                          codeItemsItem.code,
+                                                          'БАЗОВЫЙ ЗАПРОС${codeItemsItem.code} ${codeItemsItem.name}',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium,
@@ -347,8 +347,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                 codeItems[
                                                                     codeItemsIndex];
                                                             return Text(
-                                                              codeItemsItem
-                                                                  .code,
+                                                              'БАЗОВЫЙ ЗАПРОС${codesItem} ${codeItemsItem.name}',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
