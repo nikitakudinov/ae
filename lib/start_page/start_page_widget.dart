@@ -168,7 +168,8 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                             children: [
                               Text(
                                 brandsItem,
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style:
+                                    FlutterFlowTheme.of(context).headlineSmall,
                               ),
                               Container(
                                 decoration: BoxDecoration(
@@ -191,11 +192,52 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
-                                              Text(
-                                                codesItem,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                              Container(
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                                child: Builder(
+                                                  builder: (context) {
+                                                    final codeItems = FFAppState()
+                                                        .sr
+                                                        .where((e) =>
+                                                            ('\"${e.code}\"' ==
+                                                                codesItem) &&
+                                                            ('\"${e.brand}\"' ==
+                                                                brandsItem))
+                                                        .toList()
+                                                        .take(1)
+                                                        .toList();
+                                                    return ListView.builder(
+                                                      padding: EdgeInsets.zero,
+                                                      primary: false,
+                                                      shrinkWrap: true,
+                                                      scrollDirection:
+                                                          Axis.vertical,
+                                                      itemCount:
+                                                          codeItems.length,
+                                                      itemBuilder: (context,
+                                                          codeItemsIndex) {
+                                                        final codeItemsItem =
+                                                            codeItems[
+                                                                codeItemsIndex];
+                                                        return Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.00, 0.00),
+                                                          child: Text(
+                                                            codeItemsItem.code,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .titleLarge,
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                ),
                                               ),
                                               Container(
                                                 decoration: BoxDecoration(
