@@ -266,6 +266,52 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                 ),
                                                 child: Builder(
                                                   builder: (context) {
+                                                    final stockItems = FFAppState()
+                                                        .sr
+                                                        .where((e) =>
+                                                            ('\"${e.code}\"' ==
+                                                                codesItem) &&
+                                                            ('\"${e.brand}\"' ==
+                                                                brandsItem) &&
+                                                            (e.stock == 1))
+                                                        .toList()
+                                                        .sortedList((e) =>
+                                                            e.deliveryTime)
+                                                        .toList()
+                                                        .take(3)
+                                                        .toList();
+                                                    return ListView.builder(
+                                                      padding: EdgeInsets.zero,
+                                                      primary: false,
+                                                      shrinkWrap: true,
+                                                      scrollDirection:
+                                                          Axis.vertical,
+                                                      itemCount:
+                                                          stockItems.length,
+                                                      itemBuilder: (context,
+                                                          stockItemsIndex) {
+                                                        final stockItemsItem =
+                                                            stockItems[
+                                                                stockItemsIndex];
+                                                        return Text(
+                                                          'Hello World',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                ),
+                                              ),
+                                              Container(
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                                child: Builder(
+                                                  builder: (context) {
                                                     final codeItems = FFAppState()
                                                         .sr
                                                         .where((e) =>
