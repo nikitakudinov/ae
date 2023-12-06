@@ -359,14 +359,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                 'Наличие${codesItem} ${codeItemsItem.brand}',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Asap Condensed',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .accent3,
-                                                                    ),
+                                                                    .titleSmall,
                                                               );
                                                             },
                                                           );
