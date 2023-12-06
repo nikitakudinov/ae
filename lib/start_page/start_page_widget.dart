@@ -213,15 +213,14 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                         .toList()
                                                         .take(1)
                                                         .toList();
-                                                    return Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.min,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: List.generate(
+                                                    return ListView.builder(
+                                                      padding: EdgeInsets.zero,
+                                                      scrollDirection:
+                                                          Axis.vertical,
+                                                      itemCount:
                                                           codeItems.length,
-                                                          (codeItemsIndex) {
+                                                      itemBuilder: (context,
+                                                          codeItemsIndex) {
                                                         final codeItemsItem =
                                                             codeItems[
                                                                 codeItemsIndex];
@@ -257,7 +256,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                             ),
                                                           ],
                                                         );
-                                                      }),
+                                                      },
                                                     );
                                                   },
                                                 ),
