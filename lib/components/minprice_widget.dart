@@ -60,7 +60,9 @@ class _MinpriceWidgetState extends State<MinpriceWidget> {
                   ('\"${e.code}\"' == widget.brand) &&
                   ('\"${e.brand}\"' == widget.code))
               .toList()
-              .take(5)
+              .sortedList((e) => e.price)
+              .toList()
+              .take(1)
               .toList();
           return ListView.builder(
             padding: EdgeInsets.zero,
