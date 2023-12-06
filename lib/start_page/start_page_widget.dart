@@ -208,8 +208,10 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                     final codeItems = FFAppState()
                                                         .sr
                                                         .where((e) =>
-                                                            '\"${e.code}\"' ==
-                                                            codesItem)
+                                                            ('\"${e.code}\"' ==
+                                                                codesItem) &&
+                                                            ('\"${e.brand}\"' ==
+                                                                brandsItem))
                                                         .toList()
                                                         .take(5)
                                                         .toList();
