@@ -80,20 +80,13 @@ class _MinpriceWidgetState extends State<MinpriceWidget> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'МИН. ЦЕНА',
-                          style:
-                              FlutterFlowTheme.of(context).labelSmall.override(
-                                    fontFamily: 'Roboto Condensed',
-                                    fontSize: 12.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                        ),
-                      ],
+                    child: Text(
+                      'МИН. ЦЕНА',
+                      style: FlutterFlowTheme.of(context).labelSmall.override(
+                            fontFamily: 'Roboto Condensed',
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.bold,
+                          ),
                     ),
                   ),
                   Expanded(
@@ -163,53 +156,44 @@ class _MinpriceWidgetState extends State<MinpriceWidget> {
                     ),
                   ),
                   Expanded(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          () {
-                            if (dateTimeFormat(
-                                  'yMd',
-                                  functions.newCustomFunction3(
-                                      codeItemsItem.deliveryTime),
-                                  locale:
-                                      FFLocalizations.of(context).languageCode,
-                                ) ==
-                                dateTimeFormat(
-                                  'yMd',
-                                  getCurrentTimestamp,
-                                  locale:
-                                      FFLocalizations.of(context).languageCode,
-                                )) {
-                              return 'Сегодня';
-                            } else if (dateTimeFormat(
-                                  'yMd',
-                                  functions.newCustomFunction3(
-                                      codeItemsItem.deliveryTime),
-                                  locale:
-                                      FFLocalizations.of(context).languageCode,
-                                ) ==
-                                dateTimeFormat(
-                                  'yMd',
-                                  functions.tomorrowdate(),
-                                  locale:
-                                      FFLocalizations.of(context).languageCode,
-                                )) {
-                              return 'Завтра';
-                            } else {
-                              return dateTimeFormat(
-                                'relative',
-                                functions.newCustomFunction3(
-                                    codeItemsItem.deliveryTime),
-                                locale: FFLocalizations.of(context)
-                                        .languageShortCode ??
+                    child: Text(
+                      () {
+                        if (dateTimeFormat(
+                              'yMd',
+                              functions.newCustomFunction3(
+                                  codeItemsItem.deliveryTime),
+                              locale: FFLocalizations.of(context).languageCode,
+                            ) ==
+                            dateTimeFormat(
+                              'yMd',
+                              getCurrentTimestamp,
+                              locale: FFLocalizations.of(context).languageCode,
+                            )) {
+                          return 'Сегодня';
+                        } else if (dateTimeFormat(
+                              'yMd',
+                              functions.newCustomFunction3(
+                                  codeItemsItem.deliveryTime),
+                              locale: FFLocalizations.of(context).languageCode,
+                            ) ==
+                            dateTimeFormat(
+                              'yMd',
+                              functions.tomorrowdate(),
+                              locale: FFLocalizations.of(context).languageCode,
+                            )) {
+                          return 'Завтра';
+                        } else {
+                          return dateTimeFormat(
+                            'relative',
+                            functions
+                                .newCustomFunction3(codeItemsItem.deliveryTime),
+                            locale:
+                                FFLocalizations.of(context).languageShortCode ??
                                     FFLocalizations.of(context).languageCode,
-                              );
-                            }
-                          }(),
-                          style: FlutterFlowTheme.of(context).labelSmall,
-                        ),
-                      ],
+                          );
+                        }
+                      }(),
+                      style: FlutterFlowTheme.of(context).labelSmall,
                     ),
                   ),
                   Expanded(
