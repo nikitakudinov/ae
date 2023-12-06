@@ -196,6 +196,10 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                             children: [
                                               Container(
                                                 height: 50.0,
+                                                constraints: BoxConstraints(
+                                                  minHeight: 50.0,
+                                                  maxHeight: 80.0,
+                                                ),
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
