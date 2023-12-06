@@ -52,6 +52,7 @@ class _MinpriceWidgetState extends State<MinpriceWidget> {
     context.watch<FFAppState>();
 
     return Container(
+      height: 45.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
       ),
