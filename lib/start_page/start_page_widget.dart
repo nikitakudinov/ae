@@ -167,7 +167,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                   .secondaryBackground,
                             ),
                             child: Column(
-                              mainAxisSize: MainAxisSize.max,
+                              mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
@@ -194,7 +194,6 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Container(
-                                                height: 50.0,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
@@ -214,6 +213,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                         .toList();
                                                     return ListView.builder(
                                                       padding: EdgeInsets.zero,
+                                                      shrinkWrap: true,
                                                       scrollDirection:
                                                           Axis.vertical,
                                                       itemCount:
