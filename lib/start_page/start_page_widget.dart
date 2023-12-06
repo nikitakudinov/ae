@@ -196,7 +196,6 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Container(
-                                                height: 50.0,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
