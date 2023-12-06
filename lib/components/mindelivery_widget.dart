@@ -52,6 +52,7 @@ class _MindeliveryWidgetState extends State<MindeliveryWidget> {
     context.watch<FFAppState>();
 
     return Container(
+      height: 35.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
       ),
