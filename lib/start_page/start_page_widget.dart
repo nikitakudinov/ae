@@ -191,6 +191,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Container(
+                                              height: 50.0,
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
@@ -228,16 +229,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                 .start,
                                                         children: [
                                                           Text(
-                                                            FFAppState()
-                                                                .sr
-                                                                .where((e) =>
-                                                                    ('\"${e.code}\"' ==
-                                                                        codesItem) &&
-                                                                    ('\"${e.brand}\"' ==
-                                                                        brandsItem))
-                                                                .toList()[
-                                                                    codeItemsIndex]
-                                                                .code,
+                                                            codeItemsItem.code,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .titleLarge,
