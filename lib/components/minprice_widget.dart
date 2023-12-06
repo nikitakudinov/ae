@@ -1,4 +1,3 @@
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -52,34 +51,6 @@ class _MinpriceWidgetState extends State<MinpriceWidget> {
       height: 20.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
-      ),
-      child: Builder(
-        builder: (context) {
-          final codeItems = FFAppState()
-              .sr
-              .where((e) =>
-                  ('\"${e.code}\"' == widget.brand) &&
-                  ('\"${e.brand}\"' == widget.code) &&
-                  (e.stock == 1))
-              .toList()
-              .sortedList((e) => e.price)
-              .toList()
-              .take(1)
-              .toList();
-          return ListView.builder(
-            padding: EdgeInsets.zero,
-            primary: false,
-            scrollDirection: Axis.vertical,
-            itemCount: codeItems.length,
-            itemBuilder: (context, codeItemsIndex) {
-              final codeItemsItem = codeItems[codeItemsIndex];
-              return Text(
-                'МИН. ЦЕНА${codeItemsItem.price.toString()} ${codeItemsItem.brand}',
-                style: FlutterFlowTheme.of(context).titleSmall,
-              );
-            },
-          );
-        },
       ),
     );
   }
