@@ -71,6 +71,7 @@ class _MINcostWidgetState extends State<MINcostWidget> {
           return ListView.builder(
             padding: EdgeInsets.zero,
             primary: false,
+            shrinkWrap: true,
             scrollDirection: Axis.vertical,
             itemCount: mINcostItem.length,
             itemBuilder: (context, mINcostItemIndex) {
