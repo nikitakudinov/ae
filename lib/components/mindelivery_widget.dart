@@ -57,7 +57,7 @@ class _MindeliveryWidgetState extends State<MindeliveryWidget> {
       ),
       child: Builder(
         builder: (context) {
-          final codeItems = FFAppState()
+          final minDelivery = FFAppState()
               .sr
               .where((e) =>
                   ('\"${e.code}\"' == widget.brand) &&
@@ -72,9 +72,9 @@ class _MindeliveryWidgetState extends State<MindeliveryWidget> {
             primary: false,
             shrinkWrap: true,
             scrollDirection: Axis.vertical,
-            itemCount: codeItems.length,
-            itemBuilder: (context, codeItemsIndex) {
-              final codeItemsItem = codeItems[codeItemsIndex];
+            itemCount: minDelivery.length,
+            itemBuilder: (context, minDeliveryIndex) {
+              final minDeliveryItem = minDelivery[minDeliveryIndex];
               return Row(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -96,7 +96,7 @@ class _MindeliveryWidgetState extends State<MindeliveryWidget> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          codeItemsItem.rejects.toString(),
+                          minDeliveryItem.rejects.toString(),
                           style: FlutterFlowTheme.of(context)
                               .bodySmall
                               .override(
@@ -113,7 +113,7 @@ class _MindeliveryWidgetState extends State<MindeliveryWidget> {
                           children: [
                             LinearPercentIndicator(
                               percent: functions
-                                  .doubleToPerc(codeItemsItem.rejects)!,
+                                  .doubleToPerc(minDeliveryItem.rejects)!,
                               width: 50.0,
                               lineHeight: 5.0,
                               animation: true,
@@ -145,11 +145,11 @@ class _MindeliveryWidgetState extends State<MindeliveryWidget> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          codeItemsItem.price.toString(),
+                          minDeliveryItem.price.toString(),
                           style: FlutterFlowTheme.of(context).labelMedium,
                         ),
                         Text(
-                          '${codeItemsItem.amount.toString()} ${codeItemsItem.unit}',
+                          '${minDeliveryItem.amount.toString()} ${minDeliveryItem.unit}',
                           style: FlutterFlowTheme.of(context).labelSmall,
                         ),
                       ],
@@ -161,7 +161,7 @@ class _MindeliveryWidgetState extends State<MindeliveryWidget> {
                         if (dateTimeFormat(
                               'yMd',
                               functions.newCustomFunction3(
-                                  codeItemsItem.deliveryTime),
+                                  minDeliveryItem.deliveryTime),
                               locale: FFLocalizations.of(context).languageCode,
                             ) ==
                             dateTimeFormat(
@@ -173,7 +173,7 @@ class _MindeliveryWidgetState extends State<MindeliveryWidget> {
                         } else if (dateTimeFormat(
                               'yMd',
                               functions.newCustomFunction3(
-                                  codeItemsItem.deliveryTime),
+                                  minDeliveryItem.deliveryTime),
                               locale: FFLocalizations.of(context).languageCode,
                             ) ==
                             dateTimeFormat(
@@ -185,8 +185,8 @@ class _MindeliveryWidgetState extends State<MindeliveryWidget> {
                         } else {
                           return dateTimeFormat(
                             'relative',
-                            functions
-                                .newCustomFunction3(codeItemsItem.deliveryTime),
+                            functions.newCustomFunction3(
+                                minDeliveryItem.deliveryTime),
                             locale:
                                 FFLocalizations.of(context).languageShortCode ??
                                     FFLocalizations.of(context).languageCode,
