@@ -300,6 +300,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                               ),
                                             ),
                                             Container(
+                                              height: 35.0,
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
@@ -323,7 +324,6 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                   return ListView.builder(
                                                     padding: EdgeInsets.zero,
                                                     primary: false,
-                                                    shrinkWrap: true,
                                                     scrollDirection:
                                                         Axis.vertical,
                                                     itemCount: codeItems.length,
@@ -553,6 +553,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                               ),
                                             ),
                                             Container(
+                                              height: 35.0,
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
@@ -576,7 +577,6 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                   return ListView.builder(
                                                     padding: EdgeInsets.zero,
                                                     primary: false,
-                                                    shrinkWrap: true,
                                                     scrollDirection:
                                                         Axis.vertical,
                                                     itemCount: codeItems.length,
