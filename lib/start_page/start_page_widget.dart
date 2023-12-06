@@ -247,7 +247,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                       0.00),
                                                               child: Text(
                                                                 codeItemsItem
-                                                                    .code,
+                                                                    .name,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .titleLarge,
