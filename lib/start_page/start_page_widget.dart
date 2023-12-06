@@ -143,113 +143,112 @@ class _StartPageWidgetState extends State<StartPageWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Builder(
-                builder: (context) {
-                  final brands = FFAppState().brands.toList();
-                  return ListView.builder(
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    itemCount: brands.length,
-                    itemBuilder: (context, brandsIndex) {
-                      final brandsItem = brands[brandsIndex];
-                      return Container(
-                        width: 100.0,
-                        height: 100.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              brandsItem,
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Builder(
+                  builder: (context) {
+                    final brands = FFAppState().brands.toList();
+                    return ListView.builder(
+                      padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: brands.length,
+                      itemBuilder: (context, brandsIndex) {
+                        final brandsItem = brands[brandsIndex];
+                        return Container(
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                brandsItem,
+                                style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
-                              child: Builder(
-                                builder: (context) {
-                                  final codes = FFAppState().codes.toList();
-                                  return ListView.builder(
-                                    padding: EdgeInsets.zero,
-                                    shrinkWrap: true,
-                                    scrollDirection: Axis.vertical,
-                                    itemCount: codes.length,
-                                    itemBuilder: (context, codesIndex) {
-                                      final codesItem = codes[codesIndex];
-                                      return Container(
-                                        decoration: BoxDecoration(),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Text(
-                                              codesItem,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
-                                            ),
-                                            Container(
-                                              decoration: BoxDecoration(
-                                                color:
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                                child: Builder(
+                                  builder: (context) {
+                                    final codes = FFAppState().codes.toList();
+                                    return ListView.builder(
+                                      padding: EdgeInsets.zero,
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      itemCount: codes.length,
+                                      itemBuilder: (context, codesIndex) {
+                                        final codesItem = codes[codesIndex];
+                                        return Container(
+                                          decoration: BoxDecoration(),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Text(
+                                                codesItem,
+                                                style:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                        .bodyMedium,
                                               ),
-                                              child: Builder(
-                                                builder: (context) {
-                                                  final codeItems = FFAppState()
-                                                      .sr
-                                                      .where((e) =>
-                                                          (e.brand ==
-                                                              brandsItem) &&
-                                                          (e.code == codesItem))
-                                                      .toList();
-                                                  return ListView.builder(
-                                                    padding: EdgeInsets.zero,
-                                                    shrinkWrap: true,
-                                                    scrollDirection:
-                                                        Axis.vertical,
-                                                    itemCount: codeItems.length,
-                                                    itemBuilder: (context,
-                                                        codeItemsIndex) {
-                                                      final codeItemsItem =
-                                                          codeItems[
-                                                              codeItemsIndex];
-                                                      return Text(
-                                                        codeItemsItem.code,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium,
-                                                      );
-                                                    },
-                                                  );
-                                                },
+                                              Container(
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                                child: Builder(
+                                                  builder: (context) {
+                                                    final codeItems = FFAppState()
+                                                        .sr
+                                                        .where((e) =>
+                                                            '\"${e.code}\"' ==
+                                                            codesItem)
+                                                        .toList();
+                                                    return ListView.builder(
+                                                      padding: EdgeInsets.zero,
+                                                      shrinkWrap: true,
+                                                      scrollDirection:
+                                                          Axis.vertical,
+                                                      itemCount:
+                                                          codeItems.length,
+                                                      itemBuilder: (context,
+                                                          codeItemsIndex) {
+                                                        final codeItemsItem =
+                                                            codeItems[
+                                                                codeItemsIndex];
+                                                        return Text(
+                                                          codeItemsItem.code,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                ),
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    },
-                                  );
-                                },
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                  },
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                  );
-                },
-              ),
-            ],
+                            ],
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
