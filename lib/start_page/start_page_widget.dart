@@ -212,7 +212,10 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                               MinitemWidget(
                                                 key: Key(
                                                     'Keyyk8_${codesIndex}_of_${codes.length}'),
+                                                brand: brandsItem,
+                                                code: codesItem,
                                                 mintitle: 'МИН. СРОК',
+                                                test: 'delivery_time',
                                               ),
                                               Container(
                                                 decoration: BoxDecoration(
