@@ -223,16 +223,37 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                         final codeItemsItem =
                                                             codeItems[
                                                                 codeItemsIndex];
-                                                        return Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.00, 0.00),
-                                                          child: Text(
-                                                            codeItemsItem.code,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleLarge,
-                                                          ),
+                                                        return Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      0.00,
+                                                                      0.00),
+                                                              child: Text(
+                                                                codeItemsItem
+                                                                    .code,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleLarge,
+                                                              ),
+                                                            ),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      0.00,
+                                                                      0.00),
+                                                              child: Text(
+                                                                codeItemsItem
+                                                                    .code,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleLarge,
+                                                              ),
+                                                            ),
+                                                          ],
                                                         );
                                                       },
                                                     );
