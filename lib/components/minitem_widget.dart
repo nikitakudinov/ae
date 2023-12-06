@@ -16,10 +16,14 @@ class MinitemWidget extends StatefulWidget {
     Key? key,
     this.brand,
     this.code,
+    this.mintitle,
+    this.test,
   }) : super(key: key);
 
   final String? brand;
   final String? code;
+  final String? mintitle;
+  final String? test;
 
   @override
   _MinitemWidgetState createState() => _MinitemWidgetState();
@@ -63,7 +67,7 @@ class _MinitemWidgetState extends State<MinitemWidget> {
                   ('\"${e.code}\"' == widget.brand) &&
                   ('\"${e.brand}\"' == widget.code))
               .toList()
-              .sortedList((e) => e.price)
+              .sortedList((e) => widget.test!)
               .toList()
               .take(1)
               .toList();
@@ -81,7 +85,10 @@ class _MinitemWidgetState extends State<MinitemWidget> {
                 children: [
                   Expanded(
                     child: Text(
-                      'МИН. ЦЕНА',
+                      valueOrDefault<String>(
+                        widget.mintitle,
+                        '0',
+                      ),
                       style: FlutterFlowTheme.of(context).labelSmall.override(
                             fontFamily: 'Roboto Condensed',
                             fontSize: 12.0,

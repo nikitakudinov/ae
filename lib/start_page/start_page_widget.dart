@@ -206,6 +206,13 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                     'Keydge_${codesIndex}_of_${codes.length}'),
                                                 brand: codesItem,
                                                 code: brandsItem,
+                                                mintitle: 'МИН.ЦЕНА',
+                                                test: 'price',
+                                              ),
+                                              MinitemWidget(
+                                                key: Key(
+                                                    'Keyyk8_${codesIndex}_of_${codes.length}'),
+                                                mintitle: 'МИН. СРОК',
                                               ),
                                               Container(
                                                 decoration: BoxDecoration(
@@ -248,10 +255,6 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                     );
                                                   },
                                                 ),
-                                              ),
-                                              MinitemWidget(
-                                                key: Key(
-                                                    'Keyyk8_${codesIndex}_of_${codes.length}'),
                                               ),
                                             ],
                                           ),
