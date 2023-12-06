@@ -1,7 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
-import '/components/codeitemheader_widget.dart';
-import '/components/minitem_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -195,28 +193,6 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              CodeitemheaderWidget(
-                                                key: Key(
-                                                    'Key5pl_${codesIndex}_of_${codes.length}'),
-                                                brand: codesItem,
-                                                code: brandsItem,
-                                              ),
-                                              MinitemWidget(
-                                                key: Key(
-                                                    'Keydge_${codesIndex}_of_${codes.length}'),
-                                                brand: codesItem,
-                                                code: brandsItem,
-                                                mintitle: 'МИН.ЦЕНА',
-                                                test: 'price',
-                                              ),
-                                              MinitemWidget(
-                                                key: Key(
-                                                    'Keyyk8_${codesIndex}_of_${codes.length}'),
-                                                brand: brandsItem,
-                                                code: codesItem,
-                                                mintitle: 'МИН. СРОК',
-                                                test: 'delivery_time',
-                                              ),
                                               Container(
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
