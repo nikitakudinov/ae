@@ -165,6 +165,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                           ),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 brandsItem,
@@ -190,7 +191,9 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                         return Container(
                                           decoration: BoxDecoration(),
                                           child: Column(
-                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisSize: MainAxisSize.min,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             children: [
                                               Container(
                                                 decoration: BoxDecoration(
@@ -213,6 +216,9 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                     return Column(
                                                       mainAxisSize:
                                                           MainAxisSize.min,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
                                                       children: List.generate(
                                                           codeItems.length,
                                                           (codeItemsIndex) {
@@ -221,33 +227,24 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                 codeItemsIndex];
                                                         return Column(
                                                           mainAxisSize:
-                                                              MainAxisSize.max,
+                                                              MainAxisSize.min,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
                                                           children: [
-                                                            Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
-                                                              child: Text(
-                                                                codeItemsItem
-                                                                    .code,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleLarge,
-                                                              ),
+                                                            Text(
+                                                              codeItemsItem
+                                                                  .code,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .titleLarge,
                                                             ),
-                                                            Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
-                                                              child: Text(
-                                                                codeItemsItem
-                                                                    .name,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleLarge,
-                                                              ),
+                                                            Text(
+                                                              codeItemsItem
+                                                                  .name,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .titleLarge,
                                                             ),
                                                           ],
                                                         );
