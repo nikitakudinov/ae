@@ -1,3 +1,4 @@
+import '/backend/schema/structs/index.dart';
 import '/components/c_o_d_eitem_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -9,7 +10,16 @@ import 'b_r_a_n_ditem_model.dart';
 export 'b_r_a_n_ditem_model.dart';
 
 class BRANDitemWidget extends StatefulWidget {
-  const BRANDitemWidget({Key? key}) : super(key: key);
+  const BRANDitemWidget({
+    Key? key,
+    this.brand,
+    required this.code,
+    required this.stock,
+  }) : super(key: key);
+
+  final String? brand;
+  final String? code;
+  final int? stock;
 
   @override
   _BRANDitemWidgetState createState() => _BRANDitemWidgetState();
@@ -53,16 +63,47 @@ class _BRANDitemWidgetState extends State<BRANDitemWidget> {
           child: Align(
             alignment: AlignmentDirectional(-1.00, 0.00),
             child: Text(
-              'STARTVOLT',
+              valueOrDefault<String>(
+                widget.brand,
+                '0',
+              ),
               style: FlutterFlowTheme.of(context).titleLarge,
             ),
           ),
         ),
-        Expanded(
-          child: wrapWithModel(
-            model: _model.cODEitemModel,
-            updateCallback: () => setState(() {}),
-            child: CODEitemWidget(),
+        Container(
+          height: MediaQuery.sizeOf(context).height * 1.0,
+          decoration: BoxDecoration(
+            color: FlutterFlowTheme.of(context).secondaryBackground,
+          ),
+          child: Builder(
+            builder: (context) {
+              final cODESlist = FFAppState()
+                  .sr
+                  .where((e) =>
+                      (e.brand == widget.brand) &&
+                      (widget.code != null && widget.code != ''))
+                  .toList();
+              return ListView.builder(
+                padding: EdgeInsets.zero,
+                scrollDirection: Axis.vertical,
+                itemCount: cODESlist.length,
+                itemBuilder: (context, cODESlistIndex) {
+                  final cODESlistItem = cODESlist[cODESlistIndex];
+                  return Container(
+                    height: 200.0,
+                    decoration: BoxDecoration(),
+                    child: CODEitemWidget(
+                      key: Key(
+                          'Keyj24_${cODESlistIndex}_of_${cODESlist.length}'),
+                      brand: cODESlistItem.brand,
+                      code: cODESlistItem.code,
+                      stock: cODESlistItem.stock,
+                    ),
+                  );
+                },
+              );
+            },
           ),
         ),
       ],

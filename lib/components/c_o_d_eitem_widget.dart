@@ -69,6 +69,7 @@ class _CODEitemWidgetState extends State<CODEitemWidget> {
         ),
         Container(
           width: MediaQuery.sizeOf(context).width * 1.0,
+          height: 60.0,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
           ),
