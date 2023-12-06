@@ -152,6 +152,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                     final brands = FFAppState().brands.toList();
                     return ListView.builder(
                       padding: EdgeInsets.zero,
+                      primary: false,
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
                       itemCount: brands.length,
