@@ -309,96 +309,110 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                         );
                                                       },
                                                     ),
-                                                    Container(
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                      ),
-                                                      child: Container(
-                                                        width: double.infinity,
-                                                        color: Colors.white,
-                                                        child:
-                                                            ExpandableNotifier(
+                                                    if (FFAppState()
+                                                            .sr
+                                                            .where((e) =>
+                                                                ('\"${e.code}\"' == codesItem) &&
+                                                                ('\"${e.brand}\"' ==
+                                                                    brandsItem) &&
+                                                                (e.stock == 1))
+                                                            .toList()
+                                                            .sortedList((e) =>
+                                                                e.deliveryTime)
+                                                            .length !=
+                                                        0)
+                                                      Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                        ),
+                                                        child: Container(
+                                                          width:
+                                                              double.infinity,
+                                                          color: Colors.white,
                                                           child:
-                                                              ExpandablePanel(
-                                                            header: Text(
-                                                              'Еще на (${FFAppState().sr.where((e) => ('\"${e.code}\"' == codesItem) && ('\"${e.brand}\"' == brandsItem) && (e.stock == 1)).toList().sortedList((e) => e.deliveryTime).length.toString()}) складах',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .labelMedium,
-                                                            ),
-                                                            collapsed:
-                                                                Container(),
-                                                            expanded: Builder(
-                                                              builder:
-                                                                  (context) {
-                                                                final stockItems = FFAppState()
-                                                                    .sr
-                                                                    .where((e) =>
-                                                                        ('\"${e.code}\"' == codesItem) &&
-                                                                        ('\"${e.brand}\"' ==
-                                                                            brandsItem) &&
-                                                                        (e.stock ==
-                                                                            1))
-                                                                    .toList()
-                                                                    .sortedList(
-                                                                        (e) => e
-                                                                            .deliveryTime)
-                                                                    .toList();
-                                                                return ListView
-                                                                    .builder(
-                                                                  padding:
-                                                                      EdgeInsets
-                                                                          .zero,
-                                                                  primary:
-                                                                      false,
-                                                                  shrinkWrap:
-                                                                      true,
-                                                                  scrollDirection:
-                                                                      Axis.vertical,
-                                                                  itemCount:
-                                                                      stockItems
-                                                                          .length,
-                                                                  itemBuilder:
-                                                                      (context,
-                                                                          stockItemsIndex) {
-                                                                    final stockItemsItem =
-                                                                        stockItems[
-                                                                            stockItemsIndex];
-                                                                    return Visibility(
-                                                                      visible:
-                                                                          stockItemsIndex >
-                                                                              3,
-                                                                      child:
-                                                                          Text(
-                                                                        stockItemsItem
-                                                                            .warehouseName,
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
-                                                                      ),
-                                                                    );
-                                                                  },
-                                                                );
-                                                              },
-                                                            ),
-                                                            theme:
-                                                                ExpandableThemeData(
-                                                              tapHeaderToExpand:
-                                                                  true,
-                                                              tapBodyToExpand:
-                                                                  false,
-                                                              tapBodyToCollapse:
-                                                                  false,
-                                                              headerAlignment:
-                                                                  ExpandablePanelHeaderAlignment
-                                                                      .center,
-                                                              hasIcon: true,
+                                                              ExpandableNotifier(
+                                                            child:
+                                                                ExpandablePanel(
+                                                              header: Text(
+                                                                'Еще на (${FFAppState().sr.where((e) => ('\"${e.code}\"' == codesItem) && ('\"${e.brand}\"' == brandsItem) && (e.stock == 1)).toList().sortedList((e) => e.deliveryTime).length.toString()}) складах',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium,
+                                                              ),
+                                                              collapsed:
+                                                                  Container(),
+                                                              expanded: Builder(
+                                                                builder:
+                                                                    (context) {
+                                                                  final stockItems = FFAppState()
+                                                                      .sr
+                                                                      .where((e) =>
+                                                                          ('\"${e.code}\"' == codesItem) &&
+                                                                          ('\"${e.brand}\"' ==
+                                                                              brandsItem) &&
+                                                                          (e.stock ==
+                                                                              1))
+                                                                      .toList()
+                                                                      .sortedList(
+                                                                          (e) =>
+                                                                              e.deliveryTime)
+                                                                      .toList();
+                                                                  return ListView
+                                                                      .builder(
+                                                                    padding:
+                                                                        EdgeInsets
+                                                                            .zero,
+                                                                    primary:
+                                                                        false,
+                                                                    shrinkWrap:
+                                                                        true,
+                                                                    scrollDirection:
+                                                                        Axis.vertical,
+                                                                    itemCount:
+                                                                        stockItems
+                                                                            .length,
+                                                                    itemBuilder:
+                                                                        (context,
+                                                                            stockItemsIndex) {
+                                                                      final stockItemsItem =
+                                                                          stockItems[
+                                                                              stockItemsIndex];
+                                                                      return Visibility(
+                                                                        visible:
+                                                                            stockItemsIndex >
+                                                                                3,
+                                                                        child:
+                                                                            Text(
+                                                                          stockItemsItem
+                                                                              .warehouseName,
+                                                                          style:
+                                                                              FlutterFlowTheme.of(context).bodyMedium,
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  );
+                                                                },
+                                                              ),
+                                                              theme:
+                                                                  ExpandableThemeData(
+                                                                tapHeaderToExpand:
+                                                                    true,
+                                                                tapBodyToExpand:
+                                                                    false,
+                                                                tapBodyToCollapse:
+                                                                    false,
+                                                                headerAlignment:
+                                                                    ExpandablePanelHeaderAlignment
+                                                                        .center,
+                                                                hasIcon: true,
+                                                              ),
                                                             ),
                                                           ),
                                                         ),
                                                       ),
-                                                    ),
                                                   ],
                                                 ),
                                               ),
