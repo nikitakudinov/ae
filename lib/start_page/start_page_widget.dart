@@ -180,6 +180,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                     final codes = FFAppState().codes.toList();
                                     return ListView.builder(
                                       padding: EdgeInsets.zero,
+                                      primary: false,
                                       shrinkWrap: true,
                                       scrollDirection: Axis.vertical,
                                       itemCount: codes.length,
@@ -209,9 +210,12 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                         .where((e) =>
                                                             '\"${e.code}\"' ==
                                                             codesItem)
+                                                        .toList()
+                                                        .take(5)
                                                         .toList();
                                                     return ListView.builder(
                                                       padding: EdgeInsets.zero,
+                                                      primary: false,
                                                       shrinkWrap: true,
                                                       scrollDirection:
                                                           Axis.vertical,
