@@ -177,11 +177,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                               ),
                               child: Builder(
                                 builder: (context) {
-                                  final codes = FFAppState()
-                                      .sr
-                                      .where(
-                                          (e) => '\"${e.brand}\"' == brandsItem)
-                                      .toList();
+                                  final codes = FFAppState().codes.toList();
                                   return ListView.builder(
                                     padding: EdgeInsets.zero,
                                     shrinkWrap: true,
@@ -189,10 +185,57 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                     itemCount: codes.length,
                                     itemBuilder: (context, codesIndex) {
                                       final codesItem = codes[codesIndex];
-                                      return Text(
-                                        codesItem.code,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                      return Container(
+                                        decoration: BoxDecoration(),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Text(
+                                              codesItem,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                              ),
+                                              child: Builder(
+                                                builder: (context) {
+                                                  final codeItems = FFAppState()
+                                                      .sr
+                                                      .where((e) =>
+                                                          (e.brand ==
+                                                              brandsItem) &&
+                                                          (e.code == codesItem))
+                                                      .toList();
+                                                  return ListView.builder(
+                                                    padding: EdgeInsets.zero,
+                                                    shrinkWrap: true,
+                                                    scrollDirection:
+                                                        Axis.vertical,
+                                                    itemCount: codeItems.length,
+                                                    itemBuilder: (context,
+                                                        codeItemsIndex) {
+                                                      final codeItemsItem =
+                                                          codeItems[
+                                                              codeItemsIndex];
+                                                      return Text(
+                                                        codeItemsItem.code,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
+                                                      );
+                                                    },
+                                                  );
+                                                },
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       );
                                     },
                                   );
