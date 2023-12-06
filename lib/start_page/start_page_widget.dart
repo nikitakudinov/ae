@@ -347,7 +347,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                               expanded: Builder(
                                                                 builder:
                                                                     (context) {
-                                                                  final stockItems = FFAppState()
+                                                                  final stockItemsfull = FFAppState()
                                                                       .sr
                                                                       .where((e) =>
                                                                           ('\"${e.code}\"' == codesItem) &&
@@ -372,21 +372,21 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                     scrollDirection:
                                                                         Axis.vertical,
                                                                     itemCount:
-                                                                        stockItems
+                                                                        stockItemsfull
                                                                             .length,
                                                                     itemBuilder:
                                                                         (context,
-                                                                            stockItemsIndex) {
-                                                                      final stockItemsItem =
-                                                                          stockItems[
-                                                                              stockItemsIndex];
+                                                                            stockItemsfullIndex) {
+                                                                      final stockItemsfullItem =
+                                                                          stockItemsfull[
+                                                                              stockItemsfullIndex];
                                                                       return Visibility(
                                                                         visible:
-                                                                            stockItemsIndex >
+                                                                            stockItemsfullIndex >
                                                                                 3,
                                                                         child:
                                                                             Text(
-                                                                          stockItemsItem
+                                                                          stockItemsfullItem
                                                                               .warehouseName,
                                                                           style:
                                                                               FlutterFlowTheme.of(context).bodyMedium,
