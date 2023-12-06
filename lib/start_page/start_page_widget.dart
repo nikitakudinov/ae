@@ -1,13 +1,11 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
-import '/components/b_r_a_n_ditem_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -82,8 +80,6 @@ class _StartPageWidgetState extends State<StartPageWidget> {
         );
       }
     });
-
-    _model.expandableController = ExpandableController(initialExpanded: true);
   }
 
   @override
@@ -150,62 +146,65 @@ class _StartPageWidgetState extends State<StartPageWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Expanded(
-                child: Container(
-                  width: double.infinity,
-                  color: Colors.white,
-                  child: ExpandableNotifier(
-                    controller: _model.expandableController,
-                    child: ExpandablePanel(
-                      header: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
-                        child: Text(
-                          'Аналоги / Кроссы',
-                          style: FlutterFlowTheme.of(context)
-                              .headlineSmall
-                              .override(
-                                fontFamily: 'Roboto Condensed',
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                              ),
+              Builder(
+                builder: (context) {
+                  final brands = FFAppState().brands.toList();
+                  return ListView.builder(
+                    padding: EdgeInsets.zero,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    itemCount: brands.length,
+                    itemBuilder: (context, brandsIndex) {
+                      final brandsItem = brands[brandsIndex];
+                      return Container(
+                        width: 100.0,
+                        height: 100.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
                         ),
-                      ),
-                      collapsed: Container(),
-                      expanded: Builder(
-                        builder: (context) {
-                          final bRANDSlist = FFAppState().brands.toList();
-                          return ListView.builder(
-                            padding: EdgeInsets.zero,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            itemCount: bRANDSlist.length,
-                            itemBuilder: (context, bRANDSlistIndex) {
-                              final bRANDSlistItem =
-                                  bRANDSlist[bRANDSlistIndex];
-                              return Container(
-                                height: 200.0,
-                                child: BRANDitemWidget(
-                                  key: Key(
-                                      'Keykpb_${bRANDSlistIndex}_of_${bRANDSlist.length}'),
-                                  brand: bRANDSlistItem,
-                                  stock: 0,
-                                ),
-                              );
-                            },
-                          );
-                        },
-                      ),
-                      theme: ExpandableThemeData(
-                        tapHeaderToExpand: true,
-                        tapBodyToExpand: false,
-                        tapBodyToCollapse: false,
-                        headerAlignment: ExpandablePanelHeaderAlignment.center,
-                        hasIcon: true,
-                      ),
-                    ),
-                  ),
-                ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              brandsItem,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                              child: Builder(
+                                builder: (context) {
+                                  final codes = FFAppState()
+                                      .sr
+                                      .where(
+                                          (e) => '\"${e.brand}\"' == brandsItem)
+                                      .toList();
+                                  return ListView.builder(
+                                    padding: EdgeInsets.zero,
+                                    shrinkWrap: true,
+                                    scrollDirection: Axis.vertical,
+                                    itemCount: codes.length,
+                                    itemBuilder: (context, codesIndex) {
+                                      final codesItem = codes[codesIndex];
+                                      return Text(
+                                        codesItem.code,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                      );
+                                    },
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                },
               ),
             ],
           ),
