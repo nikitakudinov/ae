@@ -13,12 +13,10 @@ class BRANDitemWidget extends StatefulWidget {
   const BRANDitemWidget({
     Key? key,
     this.brand,
-    required this.code,
-    required this.stock,
+    this.stock,
   }) : super(key: key);
 
   final String? brand;
-  final String? code;
   final int? stock;
 
   @override
@@ -80,9 +78,7 @@ class _BRANDitemWidgetState extends State<BRANDitemWidget> {
             builder: (context) {
               final cODESlist = FFAppState()
                   .sr
-                  .where((e) =>
-                      (e.brand == widget.brand) &&
-                      (widget.code != null && widget.code != ''))
+                  .where((e) => e.brand == widget.brand)
                   .toList();
               return ListView.builder(
                 padding: EdgeInsets.zero,

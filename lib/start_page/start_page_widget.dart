@@ -162,8 +162,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                       collapsed: Container(),
                       expanded: Builder(
                         builder: (context) {
-                          final bRANDSlist =
-                              FFAppState().BrandCodeSearchResults.toList();
+                          final bRANDSlist = FFAppState().brands.toList();
                           return ListView.builder(
                             padding: EdgeInsets.zero,
                             shrinkWrap: true,
@@ -177,8 +176,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                 child: BRANDitemWidget(
                                   key: Key(
                                       'Keykpb_${bRANDSlistIndex}_of_${bRANDSlist.length}'),
-                                  brand: bRANDSlistItem.brand,
-                                  code: bRANDSlistItem.code,
+                                  brand: bRANDSlistItem,
                                   stock: 0,
                                 ),
                               );
