@@ -201,6 +201,65 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                 ),
                                                 child: Builder(
                                                   builder: (context) {
+                                                    final cODEitemTITLE = FFAppState()
+                                                        .sr
+                                                        .where((e) =>
+                                                            ('\"${e.code}\"' ==
+                                                                codesItem) &&
+                                                            ('\"${e.brand}\"' ==
+                                                                brandsItem))
+                                                        .toList()
+                                                        .take(1)
+                                                        .toList();
+                                                    return ListView.builder(
+                                                      padding: EdgeInsets.zero,
+                                                      primary: false,
+                                                      shrinkWrap: true,
+                                                      scrollDirection:
+                                                          Axis.vertical,
+                                                      itemCount:
+                                                          cODEitemTITLE.length,
+                                                      itemBuilder: (context,
+                                                          cODEitemTITLEIndex) {
+                                                        final cODEitemTITLEItem =
+                                                            cODEitemTITLE[
+                                                                cODEitemTITLEIndex];
+                                                        return Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Text(
+                                                              cODEitemTITLEItem
+                                                                  .code,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium,
+                                                            ),
+                                                            Text(
+                                                              cODEitemTITLEItem
+                                                                  .name,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium,
+                                                            ),
+                                                          ],
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                ),
+                                              ),
+                                              Container(
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                                child: Builder(
+                                                  builder: (context) {
                                                     final codeItems = FFAppState()
                                                         .sr
                                                         .where((e) =>
