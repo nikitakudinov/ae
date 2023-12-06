@@ -71,7 +71,6 @@ class _MinpriceWidgetState extends State<MinpriceWidget> {
           return ListView.builder(
             padding: EdgeInsets.zero,
             primary: false,
-            shrinkWrap: true,
             scrollDirection: Axis.vertical,
             itemCount: codeItems.length,
             itemBuilder: (context, codeItemsIndex) {
