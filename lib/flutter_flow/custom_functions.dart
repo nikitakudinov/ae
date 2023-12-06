@@ -51,7 +51,7 @@ List<dynamic>? newCustomFunction(List<dynamic>? jsonArray) {
   return newList;
 }
 
-List<String>? newCustomFunction2(List<dynamic>? jsonArray) {
+List<String>? newCustomFunction2(List<String>? jsonArray) {
   // delite dupblicates from jsonArray
   if (jsonArray == null) return null;
 

@@ -55,10 +55,11 @@ class _FullSearchResultsWidgetState extends State<FullSearchResultsWidget> {
         setState(() {
           FFAppState().sr = _model.dtsr!.toList().cast<SearchResultStruct>();
           FFAppState().brands = functions
-              .newCustomFunction2(SupabaseGroup.srCall
-                  .brand(
-                    (_model.apiResultf7s?.jsonBody ?? ''),
-                  )
+              .newCustomFunction2((SupabaseGroup.srCall.brand(
+                (_model.apiResultf7s?.jsonBody ?? ''),
+              ) as List)
+                  .map<String>((s) => s.toString())
+                  .toList()
                   ?.toList())!
               .toList()
               .cast<String>();

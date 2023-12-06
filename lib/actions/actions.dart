@@ -36,10 +36,13 @@ Future loadFullSearchResults(
     FFAppState().update(() {
       FFAppState().sr = dtFULLSEARCH!.toList().cast<SearchResultStruct>();
       FFAppState().brands = functions
-          .newCustomFunction2(AeGroup.fullsearchCall
-              .dATAbrand(
-                (jsonFULLSEARCH?.jsonBody ?? ''),
-              )
+          .newCustomFunction2((AeGroup.fullsearchCall.dATAbrand(
+            (jsonFULLSEARCH?.jsonBody ?? ''),
+          ) as List)
+              .map<String>((s) => s.toString())
+              .toList()
+              ?.map((e) => e.toString())
+              .toList()
               ?.toList())!
           .toList()
           .cast<String>();

@@ -117,6 +117,11 @@ class SrCall {
         r'''$[:].brand''',
         true,
       );
+  dynamic code(dynamic response) => getJsonField(
+        response,
+        r'''$[:].code''',
+        true,
+      );
 }
 
 /// End SUPABASE Group Code

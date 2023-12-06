@@ -153,6 +153,35 @@ class FFAppState extends ChangeNotifier {
   set SEARCHBRANDCODEvisibility(bool _value) {
     _SEARCHBRANDCODEvisibility = _value;
   }
+
+  List<String> _codes = [];
+  List<String> get codes => _codes;
+  set codes(List<String> _value) {
+    _codes = _value;
+  }
+
+  void addToCodes(String _value) {
+    _codes.add(_value);
+  }
+
+  void removeFromCodes(String _value) {
+    _codes.remove(_value);
+  }
+
+  void removeAtIndexFromCodes(int _index) {
+    _codes.removeAt(_index);
+  }
+
+  void updateCodesAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _codes[_index] = updateFn(_codes[_index]);
+  }
+
+  void insertAtIndexInCodes(int _index, String _value) {
+    _codes.insert(_index, _value);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

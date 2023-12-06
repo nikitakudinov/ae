@@ -44,11 +44,23 @@ class _StartPageWidgetState extends State<StartPageWidget> {
         );
         setState(() {
           FFAppState().sr = _model.dtsr!.toList().cast<SearchResultStruct>();
+          FFAppState().codes = functions
+              .newCustomFunction2((SupabaseGroup.srCall.code(
+                (_model.apiResultf7s1?.jsonBody ?? ''),
+              ) as List)
+                  .map<String>((s) => s.toString())
+                  .toList()
+                  ?.map((e) => e.toString())
+                  .toList()
+                  ?.toList())!
+              .toList()
+              .cast<String>();
           FFAppState().brands = functions
-              .newCustomFunction2(SupabaseGroup.srCall
-                  .brand(
-                    (_model.apiResultf7s1?.jsonBody ?? ''),
-                  )
+              .newCustomFunction2((SupabaseGroup.srCall.brand(
+                (_model.apiResultf7s1?.jsonBody ?? ''),
+              ) as List)
+                  .map<String>((s) => s.toString())
+                  .toList()
                   ?.toList())!
               .toList()
               .cast<String>();

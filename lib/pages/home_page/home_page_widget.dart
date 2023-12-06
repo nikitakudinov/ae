@@ -312,14 +312,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 .toList()
                                                 .cast<SearchResultStruct>();
                                             FFAppState().brands = functions
-                                                .newCustomFunction2(
-                                                    AeGroup.fullsearchCall
+                                                .newCustomFunction2((AeGroup
+                                                        .fullsearchCall
                                                         .dATAbrand(
-                                                          (_model.apiResultf7sa
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )
-                                                        ?.toList())!
+                                                  (_model.apiResultf7sa
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ) as List)
+                                                    .map<String>(
+                                                        (s) => s.toString())
+                                                    .toList()
+                                                    ?.map((e) => e.toString())
+                                                    .toList()
+                                                    ?.toList())!
                                                 .toList()
                                                 .cast<String>();
                                           });
