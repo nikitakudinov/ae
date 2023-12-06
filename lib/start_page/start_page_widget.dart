@@ -1,6 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
-import '/components/c_o_d_eitem_widget.dart';
+import '/components/b_r_a_n_ditem_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -174,9 +174,12 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                   bRANDSlist[bRANDSlistIndex];
                               return Container(
                                 height: 200.0,
-                                child: CODEitemWidget(
+                                child: BRANDitemWidget(
                                   key: Key(
-                                      'Key24w_${bRANDSlistIndex}_of_${bRANDSlist.length}'),
+                                      'Keykpb_${bRANDSlistIndex}_of_${bRANDSlist.length}'),
+                                  brand: bRANDSlistItem.brand,
+                                  code: bRANDSlistItem.code,
+                                  stock: 0,
                                 ),
                               );
                             },
