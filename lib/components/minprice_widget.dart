@@ -52,7 +52,6 @@ class _MinpriceWidgetState extends State<MinpriceWidget> {
     context.watch<FFAppState>();
 
     return Container(
-      height: 45.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
       ),
@@ -71,6 +70,7 @@ class _MinpriceWidgetState extends State<MinpriceWidget> {
           return ListView.builder(
             padding: EdgeInsets.zero,
             primary: false,
+            shrinkWrap: true,
             scrollDirection: Axis.vertical,
             itemCount: codeItems.length,
             itemBuilder: (context, codeItemsIndex) {
