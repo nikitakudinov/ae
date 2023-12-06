@@ -211,6 +211,8 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                               MindeliveryWidget(
                                                 key: Key(
                                                     'Key44e_${codesIndex}_of_${codes.length}'),
+                                                brand: brandsItem,
+                                                code: codesItem,
                                               ),
                                               Container(
                                                 decoration: BoxDecoration(

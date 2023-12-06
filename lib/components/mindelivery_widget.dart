@@ -52,7 +52,6 @@ class _MindeliveryWidgetState extends State<MindeliveryWidget> {
     context.watch<FFAppState>();
 
     return Container(
-      height: 35.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
       ),
@@ -82,7 +81,7 @@ class _MindeliveryWidgetState extends State<MindeliveryWidget> {
                 children: [
                   Expanded(
                     child: Text(
-                      'МИН. ЦЕНА',
+                      'МИН. СРОК',
                       style: FlutterFlowTheme.of(context).labelSmall.override(
                             fontFamily: 'Roboto Condensed',
                             fontSize: 12.0,
