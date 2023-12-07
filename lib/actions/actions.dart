@@ -41,9 +41,16 @@ Future loadFullSearchResults(
           ) as List)
               .map<String>((s) => s.toString())
               .toList()
-              ?.map((e) => e.toString())
-              .toList()
               ?.toList())!
+          .toList()
+          .cast<String>();
+      FFAppState().codes = (AeGroup.fullsearchCall.dATAcode(
+        (jsonFULLSEARCH?.jsonBody ?? ''),
+      ) as List)
+          .map<String>((s) => s.toString())
+          .toList()!
+          .map((e) => e.toString())
+          .toList()
           .toList()
           .cast<String>();
     });

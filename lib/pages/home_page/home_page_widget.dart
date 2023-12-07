@@ -322,8 +322,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                     .map<String>(
                                                         (s) => s.toString())
                                                     .toList()
-                                                    ?.map((e) => e.toString())
-                                                    .toList()
                                                     ?.toList())!
                                                 .toList()
                                                 .cast<String>();

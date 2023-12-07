@@ -394,9 +394,6 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                               .map<String>((s) =>
                                                                   s.toString())
                                                               .toList()
-                                                              ?.map((e) =>
-                                                                  e.toString())
-                                                              .toList()
                                                               ?.toList())!
                                                           .toList()
                                                           .cast<String>();
