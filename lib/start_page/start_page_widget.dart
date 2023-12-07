@@ -182,7 +182,11 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                       '0',
                                     ),
                                     style: FlutterFlowTheme.of(context)
-                                        .headlineLarge,
+                                        .headlineLarge
+                                        .override(
+                                          fontFamily: 'Roboto Condensed',
+                                          color: Color(0xFF454D61),
+                                        ),
                                   ),
                                 ),
                                 Builder(
