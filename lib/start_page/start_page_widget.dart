@@ -401,7 +401,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                             mainAxisSize:
                                                                                 MainAxisSize.min,
                                                                             mainAxisAlignment:
-                                                                                MainAxisAlignment.center,
+                                                                                MainAxisAlignment.start,
                                                                             crossAxisAlignment:
                                                                                 CrossAxisAlignment.start,
                                                                             children: [
@@ -426,7 +426,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                             mainAxisSize:
                                                                                 MainAxisSize.min,
                                                                             mainAxisAlignment:
-                                                                                MainAxisAlignment.center,
+                                                                                MainAxisAlignment.start,
                                                                             crossAxisAlignment:
                                                                                 CrossAxisAlignment.center,
                                                                             children: [
@@ -473,7 +473,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                             mainAxisSize:
                                                                                 MainAxisSize.min,
                                                                             mainAxisAlignment:
-                                                                                MainAxisAlignment.center,
+                                                                                MainAxisAlignment.start,
                                                                             crossAxisAlignment:
                                                                                 CrossAxisAlignment.center,
                                                                             children: [
@@ -494,7 +494,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                             mainAxisSize:
                                                                                 MainAxisSize.min,
                                                                             mainAxisAlignment:
-                                                                                MainAxisAlignment.center,
+                                                                                MainAxisAlignment.start,
                                                                             children: [
                                                                               Text(
                                                                                 () {
