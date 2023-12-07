@@ -2283,7 +2283,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                     decoration:
                                                                         BoxDecoration(
                                                                       color: Color(
-                                                                          0xFFF1F1F1),
+                                                                          0xFFFAFAFA),
                                                                       borderRadius:
                                                                           BorderRadius.circular(
                                                                               5.0),
