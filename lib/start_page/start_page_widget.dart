@@ -1078,7 +1078,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                             final stockItemsfullItem =
                                                                                 stockItemsfull[stockItemsfullIndex];
                                                                             return Visibility(
-                                                                              visible: stockItemsfullIndex > 3,
+                                                                              visible: stockItemsfullIndex > 2,
                                                                               child: Text(
                                                                                 stockItemsfullItem.warehouseName,
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium,
