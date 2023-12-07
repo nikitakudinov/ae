@@ -529,7 +529,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                             .start,
                                                                     children: [
                                                                       Text(
-                                                                        'МИН. ЦЕНА',
+                                                                        'МИН.  ЦЕНА',
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .labelSmall
                                                                             .override(
