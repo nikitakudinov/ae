@@ -532,24 +532,29 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                               .center,
                                                                       children: [
                                                                         Container(
-                                                                          width:
-                                                                              30.0,
                                                                           decoration:
                                                                               BoxDecoration(),
+                                                                        ),
+                                                                        Expanded(
                                                                           child:
-                                                                              FlutterFlowIconButton(
-                                                                            borderColor:
-                                                                                Colors.transparent,
-                                                                            icon:
-                                                                                Icon(
-                                                                              Icons.add_shopping_cart,
-                                                                              color: FlutterFlowTheme.of(context).secondaryText,
-                                                                              size: 20.0,
+                                                                              Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(1.00, 0.00),
+                                                                            child:
+                                                                                FlutterFlowIconButton(
+                                                                              borderColor: Colors.transparent,
+                                                                              borderRadius: 20.0,
+                                                                              borderWidth: 1.0,
+                                                                              buttonSize: 40.0,
+                                                                              icon: Icon(
+                                                                                Icons.add_shopping_cart,
+                                                                                color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                size: 24.0,
+                                                                              ),
+                                                                              onPressed: () {
+                                                                                print('IconButton pressed ...');
+                                                                              },
                                                                             ),
-                                                                            onPressed:
-                                                                                () {
-                                                                              print('IconButton pressed ...');
-                                                                            },
                                                                           ),
                                                                         ),
                                                                       ],
