@@ -84,7 +84,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
       }
     });
 
-    _model.expandableController1 = ExpandableController(initialExpanded: false);
+    _model.expandableController1 = ExpandableController(initialExpanded: true);
     _model.expandableController2 = ExpandableController(initialExpanded: false);
     _model.expandableController3 = ExpandableController(initialExpanded: false);
   }
@@ -1010,6 +1010,9 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                         mainAxisAlignment:
                                                             MainAxisAlignment
                                                                 .center,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .end,
                                                         children: [
                                                           FlutterFlowIconButton(
                                                             borderColor: Colors
