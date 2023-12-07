@@ -729,6 +729,8 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                   codesItem) &&
                                                               ('\"${e.brand}\"' ==
                                                                   brandsItem))
+                                                          .toList()
+                                                          .take(1)
                                                           .toList();
                                                       return ListView.builder(
                                                         padding:
