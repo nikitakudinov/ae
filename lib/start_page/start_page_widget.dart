@@ -394,6 +394,8 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                               .spaceBetween,
                                                                       children: [
                                                                         Expanded(
+                                                                          flex:
+                                                                              2,
                                                                           child:
                                                                               Column(
                                                                             mainAxisSize:
