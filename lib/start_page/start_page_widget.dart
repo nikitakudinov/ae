@@ -1386,49 +1386,50 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                       ),
                                                     ),
                                                   ),
-                                                Container(
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
+                                                if (codesItem != codesItem)
+                                                  Container(
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Builder(
+                                                      builder: (context) {
+                                                        final codeItems = FFAppState()
+                                                            .sr
+                                                            .where((e) =>
+                                                                ('\"${e.code}\"' ==
+                                                                    codesItem) &&
+                                                                ('\"${e.brand}\"' ==
+                                                                    brandsItem))
+                                                            .toList()
+                                                            .take(1)
+                                                            .toList();
+                                                        return ListView.builder(
+                                                          padding:
+                                                              EdgeInsets.zero,
+                                                          primary: false,
+                                                          shrinkWrap: true,
+                                                          scrollDirection:
+                                                              Axis.vertical,
+                                                          itemCount:
+                                                              codeItems.length,
+                                                          itemBuilder: (context,
+                                                              codeItemsIndex) {
+                                                            final codeItemsItem =
+                                                                codeItems[
+                                                                    codeItemsIndex];
+                                                            return Text(
+                                                              'БАЗОВЫЙ ЗАПРОС${codeItemsItem.code} ${codeItemsItem.brand}',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium,
+                                                            );
+                                                          },
+                                                        );
+                                                      },
+                                                    ),
                                                   ),
-                                                  child: Builder(
-                                                    builder: (context) {
-                                                      final codeItems = FFAppState()
-                                                          .sr
-                                                          .where((e) =>
-                                                              ('\"${e.code}\"' ==
-                                                                  codesItem) &&
-                                                              ('\"${e.brand}\"' ==
-                                                                  brandsItem))
-                                                          .toList()
-                                                          .take(1)
-                                                          .toList();
-                                                      return ListView.builder(
-                                                        padding:
-                                                            EdgeInsets.zero,
-                                                        primary: false,
-                                                        shrinkWrap: true,
-                                                        scrollDirection:
-                                                            Axis.vertical,
-                                                        itemCount:
-                                                            codeItems.length,
-                                                        itemBuilder: (context,
-                                                            codeItemsIndex) {
-                                                          final codeItemsItem =
-                                                              codeItems[
-                                                                  codeItemsIndex];
-                                                          return Text(
-                                                            'БАЗОВЫЙ ЗАПРОС${codeItemsItem.code} ${codeItemsItem.brand}',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          );
-                                                        },
-                                                      );
-                                                    },
-                                                  ),
-                                                ),
                                               ],
                                             ),
                                           ),
