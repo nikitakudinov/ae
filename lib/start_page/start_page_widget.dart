@@ -171,11 +171,6 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                               mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  brandsItem,
-                                  style: FlutterFlowTheme.of(context)
-                                      .headlineSmall,
-                                ),
                                 Builder(
                                   builder: (context) {
                                     final codes = FFAppState().codes.toList();
@@ -262,7 +257,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                     children: [
                                                                       Text(
                                                                         cODEitemTITLEItem
-                                                                            .code,
+                                                                            .brand,
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .titleMedium,
                                                                       ),
