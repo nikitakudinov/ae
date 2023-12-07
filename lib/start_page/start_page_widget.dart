@@ -984,24 +984,26 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                         ),
                                                                         Expanded(
                                                                           child:
-                                                                              Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.00, 0.00),
-                                                                            child:
-                                                                                FlutterFlowIconButton(
-                                                                              borderColor: Colors.transparent,
-                                                                              borderRadius: 20.0,
-                                                                              borderWidth: 1.0,
-                                                                              buttonSize: 40.0,
-                                                                              icon: Icon(
-                                                                                Icons.add_shopping_cart,
-                                                                                color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                size: 24.0,
+                                                                              Column(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
+                                                                            children: [
+                                                                              FlutterFlowIconButton(
+                                                                                borderRadius: 20.0,
+                                                                                borderWidth: 1.0,
+                                                                                buttonSize: 30.0,
+                                                                                icon: Icon(
+                                                                                  Icons.add_shopping_cart_outlined,
+                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  size: 24.0,
+                                                                                ),
+                                                                                onPressed: () {
+                                                                                  print('IconButton pressed ...');
+                                                                                },
                                                                               ),
-                                                                              onPressed: () {
-                                                                                print('IconButton pressed ...');
-                                                                              },
-                                                                            ),
+                                                                            ],
                                                                           ),
                                                                         ),
                                                                       ],
