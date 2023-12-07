@@ -1379,6 +1379,13 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                   FontAwesomeIcons
                                                                       .minus,
                                                               iconSize: 15.0,
+                                                              iconPadding:
+                                                                  EdgeInsets
+                                                                      .fromLTRB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          15.0,
+                                                                          0.0),
                                                             ),
                                                           ),
                                                         ),
