@@ -125,3 +125,11 @@ double? doubleToPerc(double? value) {
   }
   return value / 100;
 }
+
+String? quotesRemover(String? value) {
+  // remove quotes from string
+  if (value == null) {
+    return null;
+  }
+  return value.replaceAll('"', '');
+}
