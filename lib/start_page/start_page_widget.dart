@@ -175,7 +175,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
+                                      5.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     valueOrDefault<String>(
                                       functions.quotesRemover(brandsItem),
