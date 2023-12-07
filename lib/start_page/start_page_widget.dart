@@ -33,13 +33,14 @@ class _StartPageWidgetState extends State<StartPageWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final animationsMap = {
-    'imageOnPageLoadAnimation': AnimationInfo(
+    'iconOnPageLoadAnimation': AnimationInfo(
+      loop: true,
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         RotateEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
-          duration: 600.ms,
+          duration: 450.ms,
           begin: 0.0,
           end: 1.0,
         ),
@@ -171,18 +172,6 @@ class _StartPageWidgetState extends State<StartPageWidget>
           top: true,
           child: Stack(
             children: [
-              Align(
-                alignment: AlignmentDirectional(0.00, 0.00),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(0.0),
-                  child: Image.asset(
-                    'assets/images/Double_Ring-1s-200px.gif',
-                    width: 80.0,
-                    height: 80.0,
-                    fit: BoxFit.cover,
-                  ),
-                ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation']!),
-              ),
               if (FFAppState().sr.length > 0)
                 SingleChildScrollView(
                   child: Column(
@@ -2924,6 +2913,14 @@ class _StartPageWidgetState extends State<StartPageWidget>
                     ],
                   ),
                 ),
+              Align(
+                alignment: AlignmentDirectional(0.00, 0.00),
+                child: FaIcon(
+                  FontAwesomeIcons.redoAlt,
+                  color: Color(0x7C606A85),
+                  size: 80.0,
+                ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation']!),
+              ),
             ],
           ),
         ),
