@@ -155,9 +155,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                  ),
+                  decoration: BoxDecoration(),
                   child: Container(
                     width: double.infinity,
                     color: Colors.white,
