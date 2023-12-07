@@ -1117,7 +1117,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                                               style: FlutterFlowTheme.of(context).labelMedium,
                                                                                             ),
                                                                                             Text(
-                                                                                              '${stockItemsfullItem.amount.toString()} ${stockItemsItem.unit}',
+                                                                                              '${stockItemsfullItem.amount.toString()} ${stockItemsfullItem.unit}',
                                                                                               style: FlutterFlowTheme.of(context).labelSmall,
                                                                                             ),
                                                                                           ],
@@ -1143,7 +1143,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                                                   return 'Сегодня';
                                                                                                 } else if (dateTimeFormat(
                                                                                                       'yMd',
-                                                                                                      functions.newCustomFunction3(stockItemsItem.deliveryTime),
+                                                                                                      functions.newCustomFunction3(stockItemsfullItem.deliveryTime),
                                                                                                       locale: FFLocalizations.of(context).languageCode,
                                                                                                     ) ==
                                                                                                     dateTimeFormat(
