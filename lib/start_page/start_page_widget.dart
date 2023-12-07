@@ -914,55 +914,6 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                           ),
                                                                         ),
                                                                         Expanded(
-                                                                          flex:
-                                                                              2,
-                                                                          child:
-                                                                              Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.min,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.start,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.center,
-                                                                            children: [
-                                                                              Text(
-                                                                                stockItemsItem.rejects.toString(),
-                                                                                style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                      fontFamily: 'Asap Condensed',
-                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                      fontSize: 10.0,
-                                                                                      fontWeight: FontWeight.w600,
-                                                                                    ),
-                                                                              ),
-                                                                              Row(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                mainAxisAlignment: MainAxisAlignment.center,
-                                                                                children: [
-                                                                                  LinearPercentIndicator(
-                                                                                    percent: functions.doubleToPerc(stockItemsItem.rejects)!,
-                                                                                    width: 50.0,
-                                                                                    lineHeight: 5.0,
-                                                                                    animation: true,
-                                                                                    animateFromLastPercent: true,
-                                                                                    progressColor: Color(0xFFDC6365),
-                                                                                    backgroundColor: Color(0xFF6067BB),
-                                                                                    padding: EdgeInsets.zero,
-                                                                                  ),
-                                                                                ],
-                                                                              ),
-                                                                              Text(
-                                                                                '% ОТКАЗОВ',
-                                                                                style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                      fontFamily: 'Asap Condensed',
-                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                      fontSize: 8.0,
-                                                                                      fontWeight: FontWeight.w600,
-                                                                                    ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                        Expanded(
                                                                           child:
                                                                               Column(
                                                                             mainAxisSize:
@@ -1187,7 +1138,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                         0.0,
                                                                         0.0),
                                                             child: Text(
-                                                              'Все предложения',
+                                                              'Все предложения (${FFAppState().sr.where((e) => ('\"${e.code}\"' == codesItem) && ('\"${e.brand}\"' == brandsItem) && (e.stock != 1)).toList().sortedList((e) => e.deliveryTime).length.toString()})',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .titleSmall,
