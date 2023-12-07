@@ -273,7 +273,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                     10.0, 10.0, 10.0, 10.0),
                                 child: Builder(
                                   builder: (context) {
-                                    final minprice = FFAppState()
+                                    final codeitems = FFAppState()
                                         .sr
                                         .where((e) =>
                                             e.cross == null || e.cross == '')
@@ -287,10 +287,10 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                       primary: false,
                                       shrinkWrap: true,
                                       scrollDirection: Axis.vertical,
-                                      itemCount: minprice.length,
-                                      itemBuilder: (context, minpriceIndex) {
-                                        final minpriceItem =
-                                            minprice[minpriceIndex];
+                                      itemCount: codeitems.length,
+                                      itemBuilder: (context, codeitemsIndex) {
+                                        final codeitemsItem =
+                                            codeitems[codeitemsIndex];
                                         return Container(
                                           height: 30.0,
                                           decoration: BoxDecoration(),
@@ -341,7 +341,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                       CrossAxisAlignment.center,
                                                   children: [
                                                     Text(
-                                                      minpriceItem.rejects
+                                                      codeitemsItem.rejects
                                                           .toString(),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -369,7 +369,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                         LinearPercentIndicator(
                                                           percent: functions
                                                               .doubleToPerc(
-                                                                  minpriceItem
+                                                                  codeitemsItem
                                                                       .rejects)!,
                                                           width: 50.0,
                                                           lineHeight: 5.0,
@@ -414,7 +414,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                       CrossAxisAlignment.center,
                                                   children: [
                                                     Text(
-                                                      minpriceItem.price
+                                                      codeitemsItem.price
                                                           .toString(),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -422,7 +422,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                               .labelMedium,
                                                     ),
                                                     Text(
-                                                      '${minpriceItem.amount.toString()} ${minpriceItem.unit}',
+                                                      '${codeitemsItem.amount.toString()} ${codeitemsItem.unit}',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -441,7 +441,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                         if (dateTimeFormat(
                                                               'yMd',
                                                               functions.newCustomFunction3(
-                                                                  minpriceItem
+                                                                  codeitemsItem
                                                                       .deliveryTime),
                                                               locale: FFLocalizations
                                                                       .of(context)
@@ -458,7 +458,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                         } else if (dateTimeFormat(
                                                               'yMd',
                                                               functions.newCustomFunction3(
-                                                                  minpriceItem
+                                                                  codeitemsItem
                                                                       .deliveryTime),
                                                               locale: FFLocalizations
                                                                       .of(context)
@@ -476,10 +476,9 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                         } else {
                                                           return dateTimeFormat(
                                                             'relative',
-                                                            functions
-                                                                .newCustomFunction3(
-                                                                    minpriceItem
-                                                                        .deliveryTime),
+                                                            functions.newCustomFunction3(
+                                                                codeitemsItem
+                                                                    .deliveryTime),
                                                             locale: FFLocalizations.of(
                                                                         context)
                                                                     .languageShortCode ??
