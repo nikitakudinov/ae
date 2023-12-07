@@ -4,9 +4,11 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/actions/actions.dart' as action_blocks;
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'start_page_widget.dart' show StartPageWidget;
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -24,6 +26,18 @@ class StartPageModel extends FlutterFlowModel<StartPageWidget> {
   ApiCallResponse? apiResultf7s1;
   // Stores action output result for [Custom Action - dtSR] action in startPage widget.
   List<SearchResultStruct>? dtsr;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController;
+  String? Function(BuildContext, String?)? textControllerValidator;
+  // Stores action output result for [Backend Call - API (BRANDS)] action in TextField widget.
+  ApiCallResponse? apiResultnpb;
+  // Stores action output result for [Custom Action - jsonBrandCodeSearchResult] action in TextField widget.
+  List<BrandCodeSearchItemStruct>? data;
+  // Stores action output result for [Backend Call - API (FULLSEARCH)] action in Column widget.
+  ApiCallResponse? apiResultf7sa;
+  // Stores action output result for [Custom Action - dtSR] action in Column widget.
+  List<SearchResultStruct>? dtsr1;
   // State field(s) for Expandable widget.
   late ExpandableController expandableController1;
 
@@ -42,6 +56,9 @@ class StartPageModel extends FlutterFlowModel<StartPageWidget> {
 
   void dispose() {
     unfocusNode.dispose();
+    textFieldFocusNode?.dispose();
+    textController?.dispose();
+
     expandableController1.dispose();
     expandableController2.dispose();
     expandableController3.dispose();
