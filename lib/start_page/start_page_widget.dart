@@ -172,7 +172,10 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  brandsItem,
+                                  valueOrDefault<String>(
+                                    functions.quotesRemover(brandsItem),
+                                    '0',
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .headlineLarge,
                                 ),
