@@ -60,8 +60,8 @@ Future loadFullSearchResults(
             .data(
               (jsonFULLSEARCH?.jsonBody ?? ''),
             )
-            .length ==
-        0) {
+            .first ==
+        null) {
       await showDialog(
         context: context,
         builder: (alertDialogContext) {
