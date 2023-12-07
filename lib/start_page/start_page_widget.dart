@@ -539,21 +539,12 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                           decoration:
                                                                               BoxDecoration(),
                                                                           child:
-                                                                              FlutterFlowIconButton(
-                                                                            borderColor:
-                                                                                Colors.transparent,
-                                                                            buttonSize:
-                                                                                30.0,
-                                                                            icon:
-                                                                                Icon(
-                                                                              Icons.add_shopping_cart,
-                                                                              color: FlutterFlowTheme.of(context).secondaryText,
-                                                                              size: 24.0,
-                                                                            ),
-                                                                            onPressed:
-                                                                                () {
-                                                                              print('IconButton pressed ...');
-                                                                            },
+                                                                              Icon(
+                                                                            Icons.add_shopping_cart_rounded,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondaryText,
+                                                                            size:
+                                                                                24.0,
                                                                           ),
                                                                         ),
                                                                       ],
