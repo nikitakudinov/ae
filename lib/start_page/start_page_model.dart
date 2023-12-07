@@ -27,6 +27,9 @@ class StartPageModel extends FlutterFlowModel<StartPageWidget> {
   // State field(s) for Expandable widget.
   late ExpandableController expandableController1;
 
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController2;
+
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}
@@ -34,6 +37,7 @@ class StartPageModel extends FlutterFlowModel<StartPageWidget> {
   void dispose() {
     unfocusNode.dispose();
     expandableController1.dispose();
+    expandableController2.dispose();
   }
 
   /// Action blocks are added here.
