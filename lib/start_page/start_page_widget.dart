@@ -1315,8 +1315,10 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                     FFAppState()
                                                         .sr
                                                         .where((e) =>
-                                                            e.cross == null ||
-                                                            e.cross == '')
+                                                            (e.cross == null ||
+                                                                e.cross ==
+                                                                    '') &&
+                                                            (e.stock == 0))
                                                         .toList()
                                                         .sortedList((e) =>
                                                             e.deliveryTime)
