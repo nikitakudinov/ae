@@ -205,6 +205,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 15.0),
                                                   child: Container(
+                                                    height: 60.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -259,7 +260,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                         cODEitemTITLEItem
                                                                             .brand,
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .titleMedium,
+                                                                            .titleLarge,
                                                                       ),
                                                                     ],
                                                                   ),
