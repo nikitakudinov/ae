@@ -534,17 +534,22 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                         Container(
                                                                           width:
                                                                               30.0,
-                                                                          height:
-                                                                              30.0,
                                                                           decoration:
                                                                               BoxDecoration(),
                                                                           child:
-                                                                              Icon(
-                                                                            Icons.add_shopping_cart_rounded,
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondaryText,
-                                                                            size:
-                                                                                24.0,
+                                                                              FlutterFlowIconButton(
+                                                                            borderColor:
+                                                                                Colors.transparent,
+                                                                            icon:
+                                                                                Icon(
+                                                                              Icons.add_shopping_cart,
+                                                                              color: FlutterFlowTheme.of(context).secondaryText,
+                                                                              size: 20.0,
+                                                                            ),
+                                                                            onPressed:
+                                                                                () {
+                                                                              print('IconButton pressed ...');
+                                                                            },
                                                                           ),
                                                                         ),
                                                                       ],
