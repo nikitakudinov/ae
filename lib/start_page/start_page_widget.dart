@@ -2677,17 +2677,13 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                           15.0),
                                                               child: Container(
                                                                 decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                ),
+                                                                    BoxDecoration(),
                                                                 child:
                                                                     Container(
                                                                   width: double
                                                                       .infinity,
-                                                                  color: Colors
-                                                                      .white,
+                                                                  color: Color(
+                                                                      0x00000000),
                                                                   child:
                                                                       ExpandableNotifier(
                                                                     child:
@@ -2711,10 +2707,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                       expanded:
                                                                           Container(
                                                                         decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryBackground,
-                                                                        ),
+                                                                            BoxDecoration(),
                                                                         child:
                                                                             Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -2878,7 +2871,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                                           width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                           height: 1.0,
                                                                                           decoration: BoxDecoration(
-                                                                                            color: Color(0x3EDCDCDC),
+                                                                                            color: Color(0x3EBEBEBE),
                                                                                           ),
                                                                                         ),
                                                                                     ],
