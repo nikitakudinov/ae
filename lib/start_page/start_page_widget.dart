@@ -842,8 +842,9 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                           final stockitems = FFAppState()
                                               .sr
                                               .where((e) =>
-                                                  e.cross == null ||
-                                                  e.cross == '')
+                                                  (e.cross == null ||
+                                                      e.cross == '') &&
+                                                  (e.stock == 1))
                                               .toList()
                                               .sortedList((e) => e.deliveryTime)
                                               .toList()
