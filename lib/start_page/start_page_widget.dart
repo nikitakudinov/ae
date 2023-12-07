@@ -279,8 +279,18 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                   ),
                                                   child: Column(
                                                     mainAxisSize:
-                                                        MainAxisSize.max,
+                                                        MainAxisSize.min,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
                                                     children: [
+                                                      Text(
+                                                        'Наличие',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
+                                                      ),
                                                       Builder(
                                                         builder: (context) {
                                                           final stockItems = FFAppState()
