@@ -1202,14 +1202,15 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                 final codeItems = FFAppState()
                                                                     .sr
                                                                     .where((e) =>
-                                                                        ('\"${e.code}\"' ==
-                                                                            codesItem) &&
+                                                                        ('\"${e.code}\"' == codesItem) &&
                                                                         ('\"${e.brand}\"' ==
-                                                                            brandsItem))
+                                                                            brandsItem) &&
+                                                                        (e.stock !=
+                                                                            1))
                                                                     .toList()
                                                                     .sortedList(
-                                                                        (e) =>
-                                                                            'delivery_time')
+                                                                        (e) => e
+                                                                            .deliveryTime)
                                                                     .toList();
                                                                 return ListView
                                                                     .builder(
