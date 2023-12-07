@@ -10,6 +10,7 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
@@ -303,362 +304,6 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                                if (FFAppState()
-                                                        .sr
-                                                        .where((e) =>
-                                                            ('\"${e.code}\"' ==
-                                                                codesItem) &&
-                                                            ('\"${e.brand}\"' ==
-                                                                brandsItem) &&
-                                                            (e.stock == 1))
-                                                        .toList()
-                                                        .sortedList((e) =>
-                                                            e.deliveryTime)
-                                                        .length !=
-                                                    0)
-                                                  Container(
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0xFFE4E4E4),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              5.0),
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  10.0),
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Text(
-                                                            'Наличие',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleMedium,
-                                                          ),
-                                                          Builder(
-                                                            builder: (context) {
-                                                              final stockItems = FFAppState()
-                                                                  .sr
-                                                                  .where((e) =>
-                                                                      ('\"${e.code}\"' == codesItem) &&
-                                                                      ('\"${e.brand}\"' ==
-                                                                          brandsItem) &&
-                                                                      (e.stock ==
-                                                                          1))
-                                                                  .toList()
-                                                                  .sortedList(
-                                                                      (e) => e
-                                                                          .deliveryTime)
-                                                                  .toList()
-                                                                  .take(3)
-                                                                  .toList();
-                                                              return ListView
-                                                                  .builder(
-                                                                padding:
-                                                                    EdgeInsets
-                                                                        .zero,
-                                                                primary: false,
-                                                                shrinkWrap:
-                                                                    true,
-                                                                scrollDirection:
-                                                                    Axis.vertical,
-                                                                itemCount:
-                                                                    stockItems
-                                                                        .length,
-                                                                itemBuilder:
-                                                                    (context,
-                                                                        stockItemsIndex) {
-                                                                  final stockItemsItem =
-                                                                      stockItems[
-                                                                          stockItemsIndex];
-                                                                  return Container(
-                                                                    height:
-                                                                        30.0,
-                                                                    decoration:
-                                                                        BoxDecoration(),
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .min,
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .spaceBetween,
-                                                                      children: [
-                                                                        Expanded(
-                                                                          flex:
-                                                                              3,
-                                                                          child:
-                                                                              Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.min,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.start,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.start,
-                                                                            children: [
-                                                                              Expanded(
-                                                                                child: Text(
-                                                                                  stockItemsItem.warehouseName,
-                                                                                  style: FlutterFlowTheme.of(context).labelSmall.override(
-                                                                                        fontFamily: 'Roboto Condensed',
-                                                                                        fontSize: 12.0,
-                                                                                        fontWeight: FontWeight.bold,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                        Expanded(
-                                                                          flex:
-                                                                              2,
-                                                                          child:
-                                                                              Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.min,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.start,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.center,
-                                                                            children: [
-                                                                              Text(
-                                                                                stockItemsItem.rejects.toString(),
-                                                                                style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                      fontFamily: 'Asap Condensed',
-                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                      fontSize: 10.0,
-                                                                                      fontWeight: FontWeight.w600,
-                                                                                    ),
-                                                                              ),
-                                                                              Row(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                mainAxisAlignment: MainAxisAlignment.center,
-                                                                                children: [
-                                                                                  LinearPercentIndicator(
-                                                                                    percent: functions.doubleToPerc(stockItemsItem.rejects)!,
-                                                                                    width: 50.0,
-                                                                                    lineHeight: 5.0,
-                                                                                    animation: true,
-                                                                                    animateFromLastPercent: true,
-                                                                                    progressColor: Color(0xFFDC6365),
-                                                                                    backgroundColor: Color(0xFF6067BB),
-                                                                                    padding: EdgeInsets.zero,
-                                                                                  ),
-                                                                                ],
-                                                                              ),
-                                                                              Text(
-                                                                                '% ОТКАЗОВ',
-                                                                                style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                      fontFamily: 'Asap Condensed',
-                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                      fontSize: 8.0,
-                                                                                      fontWeight: FontWeight.w600,
-                                                                                    ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                        Expanded(
-                                                                          child:
-                                                                              Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.min,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.start,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.center,
-                                                                            children: [
-                                                                              Text(
-                                                                                stockItemsItem.price.toString(),
-                                                                                style: FlutterFlowTheme.of(context).labelMedium,
-                                                                              ),
-                                                                              Text(
-                                                                                '${stockItemsItem.amount.toString()} ${stockItemsItem.unit}',
-                                                                                style: FlutterFlowTheme.of(context).labelSmall,
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                        Expanded(
-                                                                          child:
-                                                                              Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.min,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.start,
-                                                                            children: [
-                                                                              Text(
-                                                                                () {
-                                                                                  if (dateTimeFormat(
-                                                                                        'yMd',
-                                                                                        functions.newCustomFunction3(stockItemsItem.deliveryTime),
-                                                                                        locale: FFLocalizations.of(context).languageCode,
-                                                                                      ) ==
-                                                                                      dateTimeFormat(
-                                                                                        'yMd',
-                                                                                        getCurrentTimestamp,
-                                                                                        locale: FFLocalizations.of(context).languageCode,
-                                                                                      )) {
-                                                                                    return 'Сегодня';
-                                                                                  } else if (dateTimeFormat(
-                                                                                        'yMd',
-                                                                                        functions.newCustomFunction3(stockItemsItem.deliveryTime),
-                                                                                        locale: FFLocalizations.of(context).languageCode,
-                                                                                      ) ==
-                                                                                      dateTimeFormat(
-                                                                                        'yMd',
-                                                                                        functions.tomorrowdate(),
-                                                                                        locale: FFLocalizations.of(context).languageCode,
-                                                                                      )) {
-                                                                                    return 'Завтра';
-                                                                                  } else {
-                                                                                    return dateTimeFormat(
-                                                                                      'relative',
-                                                                                      functions.newCustomFunction3(stockItemsItem.deliveryTime),
-                                                                                      locale: FFLocalizations.of(context).languageShortCode ?? FFLocalizations.of(context).languageCode,
-                                                                                    );
-                                                                                  }
-                                                                                }(),
-                                                                                style: FlutterFlowTheme.of(context).labelSmall,
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                        Expanded(
-                                                                          child:
-                                                                              Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(1.00, 0.00),
-                                                                            child:
-                                                                                FlutterFlowIconButton(
-                                                                              borderColor: Colors.transparent,
-                                                                              borderRadius: 20.0,
-                                                                              borderWidth: 1.0,
-                                                                              buttonSize: 40.0,
-                                                                              icon: Icon(
-                                                                                Icons.add_shopping_cart,
-                                                                                color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                size: 24.0,
-                                                                              ),
-                                                                              onPressed: () {
-                                                                                print('IconButton pressed ...');
-                                                                              },
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  );
-                                                                },
-                                                              );
-                                                            },
-                                                          ),
-                                                          if (FFAppState()
-                                                                  .sr
-                                                                  .where((e) =>
-                                                                      ('\"${e.code}\"' == codesItem) &&
-                                                                      ('\"${e.brand}\"' ==
-                                                                          brandsItem) &&
-                                                                      (e.stock ==
-                                                                          1))
-                                                                  .toList()
-                                                                  .sortedList(
-                                                                      (e) => e
-                                                                          .deliveryTime)
-                                                                  .length !=
-                                                              0)
-                                                            Container(
-                                                              decoration:
-                                                                  BoxDecoration(),
-                                                              child: Container(
-                                                                width: double
-                                                                    .infinity,
-                                                                color: Color(
-                                                                    0x00000000),
-                                                                child:
-                                                                    ExpandableNotifier(
-                                                                  child:
-                                                                      ExpandablePanel(
-                                                                    header:
-                                                                        Text(
-                                                                      'Еще на (${FFAppState().sr.where((e) => ('\"${e.code}\"' == codesItem) && ('\"${e.brand}\"' == brandsItem) && (e.stock == 1)).toList().sortedList((e) => e.deliveryTime).length.toString()}) складах',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .labelMedium,
-                                                                    ),
-                                                                    collapsed:
-                                                                        Container(),
-                                                                    expanded:
-                                                                        Builder(
-                                                                      builder:
-                                                                          (context) {
-                                                                        final stockItemsfull = FFAppState()
-                                                                            .sr
-                                                                            .where((e) =>
-                                                                                ('\"${e.code}\"' == codesItem) &&
-                                                                                ('\"${e.brand}\"' == brandsItem) &&
-                                                                                (e.stock == 1))
-                                                                            .toList()
-                                                                            .sortedList((e) => e.deliveryTime)
-                                                                            .toList();
-                                                                        return ListView
-                                                                            .builder(
-                                                                          padding:
-                                                                              EdgeInsets.zero,
-                                                                          primary:
-                                                                              false,
-                                                                          shrinkWrap:
-                                                                              true,
-                                                                          scrollDirection:
-                                                                              Axis.vertical,
-                                                                          itemCount:
-                                                                              stockItemsfull.length,
-                                                                          itemBuilder:
-                                                                              (context, stockItemsfullIndex) {
-                                                                            final stockItemsfullItem =
-                                                                                stockItemsfull[stockItemsfullIndex];
-                                                                            return Visibility(
-                                                                              visible: stockItemsfullIndex > 3,
-                                                                              child: Text(
-                                                                                stockItemsfullItem.warehouseName,
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                              ),
-                                                                            );
-                                                                          },
-                                                                        );
-                                                                      },
-                                                                    ),
-                                                                    theme:
-                                                                        ExpandableThemeData(
-                                                                      tapHeaderToExpand:
-                                                                          true,
-                                                                      tapBodyToExpand:
-                                                                          false,
-                                                                      tapBodyToCollapse:
-                                                                          false,
-                                                                      headerAlignment:
-                                                                          ExpandablePanelHeaderAlignment
-                                                                              .center,
-                                                                      hasIcon:
-                                                                          false,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ),
                                                 Container(
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
@@ -1147,6 +792,623 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                           },
                                                         );
                                                       },
+                                                    ),
+                                                  ),
+                                                ),
+                                                if (FFAppState()
+                                                        .sr
+                                                        .where((e) =>
+                                                            ('\"${e.code}\"' ==
+                                                                codesItem) &&
+                                                            ('\"${e.brand}\"' ==
+                                                                brandsItem) &&
+                                                            (e.stock == 1))
+                                                        .toList()
+                                                        .sortedList((e) =>
+                                                            e.deliveryTime)
+                                                        .length !=
+                                                    0)
+                                                  Container(
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xFFE4E4E4),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              5.0),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  10.0,
+                                                                  10.0,
+                                                                  10.0),
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.min,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Text(
+                                                            'Наличие',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .titleMedium,
+                                                          ),
+                                                          Builder(
+                                                            builder: (context) {
+                                                              final stockItems = FFAppState()
+                                                                  .sr
+                                                                  .where((e) =>
+                                                                      ('\"${e.code}\"' == codesItem) &&
+                                                                      ('\"${e.brand}\"' ==
+                                                                          brandsItem) &&
+                                                                      (e.stock ==
+                                                                          1))
+                                                                  .toList()
+                                                                  .sortedList(
+                                                                      (e) => e
+                                                                          .deliveryTime)
+                                                                  .toList()
+                                                                  .take(3)
+                                                                  .toList();
+                                                              return ListView
+                                                                  .builder(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .zero,
+                                                                primary: false,
+                                                                shrinkWrap:
+                                                                    true,
+                                                                scrollDirection:
+                                                                    Axis.vertical,
+                                                                itemCount:
+                                                                    stockItems
+                                                                        .length,
+                                                                itemBuilder:
+                                                                    (context,
+                                                                        stockItemsIndex) {
+                                                                  final stockItemsItem =
+                                                                      stockItems[
+                                                                          stockItemsIndex];
+                                                                  return Container(
+                                                                    height:
+                                                                        30.0,
+                                                                    decoration:
+                                                                        BoxDecoration(),
+                                                                    child: Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .min,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .spaceBetween,
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
+                                                                      children: [
+                                                                        Expanded(
+                                                                          flex:
+                                                                              3,
+                                                                          child:
+                                                                              Column(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.min,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.start,
+                                                                            crossAxisAlignment:
+                                                                                CrossAxisAlignment.start,
+                                                                            children: [
+                                                                              Expanded(
+                                                                                child: Text(
+                                                                                  stockItemsItem.warehouseName,
+                                                                                  style: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                        fontFamily: 'Roboto Condensed',
+                                                                                        fontSize: 12.0,
+                                                                                        fontWeight: FontWeight.bold,
+                                                                                      ),
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                        Expanded(
+                                                                          flex:
+                                                                              2,
+                                                                          child:
+                                                                              Column(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.min,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.start,
+                                                                            crossAxisAlignment:
+                                                                                CrossAxisAlignment.center,
+                                                                            children: [
+                                                                              Text(
+                                                                                stockItemsItem.rejects.toString(),
+                                                                                style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                      fontFamily: 'Asap Condensed',
+                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                      fontSize: 10.0,
+                                                                                      fontWeight: FontWeight.w600,
+                                                                                    ),
+                                                                              ),
+                                                                              Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                                                children: [
+                                                                                  LinearPercentIndicator(
+                                                                                    percent: functions.doubleToPerc(stockItemsItem.rejects)!,
+                                                                                    width: 50.0,
+                                                                                    lineHeight: 5.0,
+                                                                                    animation: true,
+                                                                                    animateFromLastPercent: true,
+                                                                                    progressColor: Color(0xFFDC6365),
+                                                                                    backgroundColor: Color(0xFF6067BB),
+                                                                                    padding: EdgeInsets.zero,
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                              Text(
+                                                                                '% ОТКАЗОВ',
+                                                                                style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                      fontFamily: 'Asap Condensed',
+                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                      fontSize: 8.0,
+                                                                                      fontWeight: FontWeight.w600,
+                                                                                    ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                        Expanded(
+                                                                          child:
+                                                                              Column(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.min,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.start,
+                                                                            crossAxisAlignment:
+                                                                                CrossAxisAlignment.center,
+                                                                            children: [
+                                                                              Text(
+                                                                                stockItemsItem.price.toString(),
+                                                                                style: FlutterFlowTheme.of(context).labelMedium,
+                                                                              ),
+                                                                              Text(
+                                                                                '${stockItemsItem.amount.toString()} ${stockItemsItem.unit}',
+                                                                                style: FlutterFlowTheme.of(context).labelSmall,
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                        Expanded(
+                                                                          child:
+                                                                              Column(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.min,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.start,
+                                                                            children: [
+                                                                              Text(
+                                                                                () {
+                                                                                  if (dateTimeFormat(
+                                                                                        'yMd',
+                                                                                        functions.newCustomFunction3(stockItemsItem.deliveryTime),
+                                                                                        locale: FFLocalizations.of(context).languageCode,
+                                                                                      ) ==
+                                                                                      dateTimeFormat(
+                                                                                        'yMd',
+                                                                                        getCurrentTimestamp,
+                                                                                        locale: FFLocalizations.of(context).languageCode,
+                                                                                      )) {
+                                                                                    return 'Сегодня';
+                                                                                  } else if (dateTimeFormat(
+                                                                                        'yMd',
+                                                                                        functions.newCustomFunction3(stockItemsItem.deliveryTime),
+                                                                                        locale: FFLocalizations.of(context).languageCode,
+                                                                                      ) ==
+                                                                                      dateTimeFormat(
+                                                                                        'yMd',
+                                                                                        functions.tomorrowdate(),
+                                                                                        locale: FFLocalizations.of(context).languageCode,
+                                                                                      )) {
+                                                                                    return 'Завтра';
+                                                                                  } else {
+                                                                                    return dateTimeFormat(
+                                                                                      'relative',
+                                                                                      functions.newCustomFunction3(stockItemsItem.deliveryTime),
+                                                                                      locale: FFLocalizations.of(context).languageShortCode ?? FFLocalizations.of(context).languageCode,
+                                                                                    );
+                                                                                  }
+                                                                                }(),
+                                                                                style: FlutterFlowTheme.of(context).labelSmall,
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                        Expanded(
+                                                                          child:
+                                                                              Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(1.00, 0.00),
+                                                                            child:
+                                                                                FlutterFlowIconButton(
+                                                                              borderColor: Colors.transparent,
+                                                                              borderRadius: 20.0,
+                                                                              borderWidth: 1.0,
+                                                                              buttonSize: 40.0,
+                                                                              icon: Icon(
+                                                                                Icons.add_shopping_cart,
+                                                                                color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                size: 24.0,
+                                                                              ),
+                                                                              onPressed: () {
+                                                                                print('IconButton pressed ...');
+                                                                              },
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
+                                                                },
+                                                              );
+                                                            },
+                                                          ),
+                                                          if (FFAppState()
+                                                                  .sr
+                                                                  .where((e) =>
+                                                                      ('\"${e.code}\"' == codesItem) &&
+                                                                      ('\"${e.brand}\"' ==
+                                                                          brandsItem) &&
+                                                                      (e.stock ==
+                                                                          1))
+                                                                  .toList()
+                                                                  .sortedList(
+                                                                      (e) => e
+                                                                          .deliveryTime)
+                                                                  .length !=
+                                                              0)
+                                                            Container(
+                                                              decoration:
+                                                                  BoxDecoration(),
+                                                              child: Container(
+                                                                width: double
+                                                                    .infinity,
+                                                                color: Color(
+                                                                    0x00000000),
+                                                                child:
+                                                                    ExpandableNotifier(
+                                                                  child:
+                                                                      ExpandablePanel(
+                                                                    header:
+                                                                        Text(
+                                                                      'Еще на (${FFAppState().sr.where((e) => ('\"${e.code}\"' == codesItem) && ('\"${e.brand}\"' == brandsItem) && (e.stock == 1)).toList().sortedList((e) => e.deliveryTime).length.toString()}) складах',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium,
+                                                                    ),
+                                                                    collapsed:
+                                                                        Container(),
+                                                                    expanded:
+                                                                        Builder(
+                                                                      builder:
+                                                                          (context) {
+                                                                        final stockItemsfull = FFAppState()
+                                                                            .sr
+                                                                            .where((e) =>
+                                                                                ('\"${e.code}\"' == codesItem) &&
+                                                                                ('\"${e.brand}\"' == brandsItem) &&
+                                                                                (e.stock == 1))
+                                                                            .toList()
+                                                                            .sortedList((e) => e.deliveryTime)
+                                                                            .toList();
+                                                                        return ListView
+                                                                            .builder(
+                                                                          padding:
+                                                                              EdgeInsets.zero,
+                                                                          primary:
+                                                                              false,
+                                                                          shrinkWrap:
+                                                                              true,
+                                                                          scrollDirection:
+                                                                              Axis.vertical,
+                                                                          itemCount:
+                                                                              stockItemsfull.length,
+                                                                          itemBuilder:
+                                                                              (context, stockItemsfullIndex) {
+                                                                            final stockItemsfullItem =
+                                                                                stockItemsfull[stockItemsfullIndex];
+                                                                            return Visibility(
+                                                                              visible: stockItemsfullIndex > 3,
+                                                                              child: Text(
+                                                                                stockItemsfullItem.warehouseName,
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        );
+                                                                      },
+                                                                    ),
+                                                                    theme:
+                                                                        ExpandableThemeData(
+                                                                      tapHeaderToExpand:
+                                                                          true,
+                                                                      tapBodyToExpand:
+                                                                          false,
+                                                                      tapBodyToCollapse:
+                                                                          false,
+                                                                      headerAlignment:
+                                                                          ExpandablePanelHeaderAlignment
+                                                                              .center,
+                                                                      hasIcon:
+                                                                          false,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                Container(
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                  ),
+                                                  child: Container(
+                                                    width: double.infinity,
+                                                    color: Colors.white,
+                                                    child: ExpandableNotifier(
+                                                      child: ExpandablePanel(
+                                                        header: Text(
+                                                          'Все предложения',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .titleSmall,
+                                                        ),
+                                                        collapsed: Container(),
+                                                        expanded: Container(
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                          ),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10.0,
+                                                                        10.0,
+                                                                        10.0,
+                                                                        10.0),
+                                                            child: Builder(
+                                                              builder:
+                                                                  (context) {
+                                                                final codeItems = FFAppState()
+                                                                    .sr
+                                                                    .where((e) =>
+                                                                        ('\"${e.code}\"' ==
+                                                                            codesItem) &&
+                                                                        ('\"${e.brand}\"' ==
+                                                                            brandsItem))
+                                                                    .toList()
+                                                                    .sortedList(
+                                                                        (e) =>
+                                                                            'delivery_time')
+                                                                    .toList();
+                                                                return ListView
+                                                                    .builder(
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .zero,
+                                                                  primary:
+                                                                      false,
+                                                                  shrinkWrap:
+                                                                      true,
+                                                                  scrollDirection:
+                                                                      Axis.vertical,
+                                                                  itemCount:
+                                                                      codeItems
+                                                                          .length,
+                                                                  itemBuilder:
+                                                                      (context,
+                                                                          codeItemsIndex) {
+                                                                    final codeItemsItem =
+                                                                        codeItems[
+                                                                            codeItemsIndex];
+                                                                    return Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              5.0,
+                                                                              0.0,
+                                                                              5.0),
+                                                                          child:
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.min,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.spaceBetween,
+                                                                            children: [
+                                                                              Expanded(
+                                                                                flex: 2,
+                                                                                child: Container(
+                                                                                  decoration: BoxDecoration(),
+                                                                                  child: Column(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    children: [
+                                                                                      Text(
+                                                                                        '${codeItemsItem.rejects.toString()} %',
+                                                                                        style: FlutterFlowTheme.of(context).labelSmall,
+                                                                                      ),
+                                                                                      Row(
+                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                        mainAxisAlignment: MainAxisAlignment.center,
+                                                                                        children: [
+                                                                                          Opacity(
+                                                                                            opacity: 0.7,
+                                                                                            child: LinearPercentIndicator(
+                                                                                              percent: functions.doubleToPerc(codeItemsItem.rejects)!,
+                                                                                              width: 100.0,
+                                                                                              lineHeight: 5.0,
+                                                                                              animation: true,
+                                                                                              animateFromLastPercent: true,
+                                                                                              progressColor: Color(0xFFDC272B),
+                                                                                              backgroundColor: Color(0xFF1928A5),
+                                                                                              padding: EdgeInsets.zero,
+                                                                                            ),
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                      Text(
+                                                                                        'ВЕРОЯТНОСТЬ ОТКАЗА',
+                                                                                        style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                              fontFamily: 'Asap Condensed',
+                                                                                              color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                              fontSize: 8.0,
+                                                                                              fontWeight: FontWeight.w600,
+                                                                                            ),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                              Expanded(
+                                                                                child: Column(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  children: [
+                                                                                    Text(
+                                                                                      '${codeItemsItem.price.toString()}',
+                                                                                      style: FlutterFlowTheme.of(context).labelLarge,
+                                                                                    ),
+                                                                                    Text(
+                                                                                      '${codeItemsItem.amount.toString()}${codeItemsItem.unit}',
+                                                                                      style: FlutterFlowTheme.of(context).labelMedium,
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              ),
+                                                                              Expanded(
+                                                                                child: Column(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  children: [
+                                                                                    Text(
+                                                                                      () {
+                                                                                        if (dateTimeFormat(
+                                                                                              'yMd',
+                                                                                              functions.newCustomFunction3(codeItemsItem.deliveryTime),
+                                                                                              locale: FFLocalizations.of(context).languageCode,
+                                                                                            ) ==
+                                                                                            dateTimeFormat(
+                                                                                              'yMd',
+                                                                                              getCurrentTimestamp,
+                                                                                              locale: FFLocalizations.of(context).languageCode,
+                                                                                            )) {
+                                                                                          return 'Сегодня';
+                                                                                        } else if (dateTimeFormat(
+                                                                                              'yMd',
+                                                                                              functions.newCustomFunction3(codeItemsItem.deliveryTime),
+                                                                                              locale: FFLocalizations.of(context).languageCode,
+                                                                                            ) ==
+                                                                                            dateTimeFormat(
+                                                                                              'yMd',
+                                                                                              functions.tomorrowdate(),
+                                                                                              locale: FFLocalizations.of(context).languageCode,
+                                                                                            )) {
+                                                                                          return 'Завтра';
+                                                                                        } else {
+                                                                                          return dateTimeFormat(
+                                                                                            'relative',
+                                                                                            functions.newCustomFunction3(codeItemsItem.deliveryTime),
+                                                                                            locale: FFLocalizations.of(context).languageShortCode ?? FFLocalizations.of(context).languageCode,
+                                                                                          );
+                                                                                        }
+                                                                                      }(),
+                                                                                      style: FlutterFlowTheme.of(context).labelSmall,
+                                                                                    ),
+                                                                                    Text(
+                                                                                      dateTimeFormat(
+                                                                                        'Hm',
+                                                                                        functions.newCustomFunction3(codeItemsItem.deliveryTimeMax),
+                                                                                        locale: FFLocalizations.of(context).languageShortCode ?? FFLocalizations.of(context).languageCode,
+                                                                                      ),
+                                                                                      style: FlutterFlowTheme.of(context).labelSmall,
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              ),
+                                                                              Expanded(
+                                                                                child: Align(
+                                                                                  alignment: AlignmentDirectional(1.00, 0.00),
+                                                                                  child: FlutterFlowIconButton(
+                                                                                    borderColor: Colors.transparent,
+                                                                                    borderRadius: 20.0,
+                                                                                    borderWidth: 1.0,
+                                                                                    buttonSize: 40.0,
+                                                                                    icon: Icon(
+                                                                                      Icons.add_shopping_cart,
+                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                      size: 24.0,
+                                                                                    ),
+                                                                                    onPressed: () {
+                                                                                      print('IconButton pressed ...');
+                                                                                    },
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                        Container(
+                                                                          width:
+                                                                              MediaQuery.sizeOf(context).width * 1.0,
+                                                                          height:
+                                                                              1.0,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                Color(0x3EDCDCDC),
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    );
+                                                                  },
+                                                                );
+                                                              },
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        theme:
+                                                            ExpandableThemeData(
+                                                          tapHeaderToExpand:
+                                                              true,
+                                                          tapBodyToExpand:
+                                                              false,
+                                                          tapBodyToCollapse:
+                                                              false,
+                                                          headerAlignment:
+                                                              ExpandablePanelHeaderAlignment
+                                                                  .center,
+                                                          hasIcon: true,
+                                                          expandIcon:
+                                                              FontAwesomeIcons
+                                                                  .plus,
+                                                          collapseIcon:
+                                                              FontAwesomeIcons
+                                                                  .minus,
+                                                          iconSize: 15.0,
+                                                        ),
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
