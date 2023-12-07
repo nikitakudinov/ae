@@ -76,6 +76,9 @@ Future loadFullSearchResults(
           );
         },
       );
+      FFAppState().update(() {
+        FFAppState().sr = [];
+      });
     }
   } else {
     await showDialog(
