@@ -2691,7 +2691,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                       header:
                                                                           Container(
                                                                         height:
-                                                                            40.0,
+                                                                            50.0,
                                                                         decoration:
                                                                             BoxDecoration(),
                                                                         child:
