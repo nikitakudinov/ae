@@ -1835,9 +1835,12 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                                       ),
                                                                                     ),
                                                                                   ),
-                                                                                  Text(
-                                                                                    cODEitemTITLEItem.name,
-                                                                                    style: FlutterFlowTheme.of(context).labelLarge,
+                                                                                  Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                    child: Text(
+                                                                                      cODEitemTITLEItem.name,
+                                                                                      style: FlutterFlowTheme.of(context).labelLarge,
+                                                                                    ),
                                                                                   ),
                                                                                 ],
                                                                               ),
