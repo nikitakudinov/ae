@@ -378,13 +378,18 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                       children: [
                                                                         Expanded(
                                                                           child:
-                                                                              Text(
-                                                                            'МИН. ЦЕНА',
-                                                                            style: FlutterFlowTheme.of(context).labelSmall.override(
-                                                                                  fontFamily: 'Roboto Condensed',
-                                                                                  fontSize: 12.0,
-                                                                                  fontWeight: FontWeight.bold,
-                                                                                ),
+                                                                              Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.00, 0.00),
+                                                                            child:
+                                                                                Text(
+                                                                              'МИН. ЦЕНА',
+                                                                              style: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                    fontFamily: 'Roboto Condensed',
+                                                                                    fontSize: 12.0,
+                                                                                    fontWeight: FontWeight.bold,
+                                                                                  ),
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ],
@@ -521,7 +526,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                         Align(
                                                                       alignment: AlignmentDirectional(
                                                                           1.00,
-                                                                          0.00),
+                                                                          -1.00),
                                                                       child:
                                                                           FlutterFlowIconButton(
                                                                         borderColor:
@@ -625,13 +630,18 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                       children: [
                                                                         Expanded(
                                                                           child:
-                                                                              Text(
-                                                                            'МИН. СРОК',
-                                                                            style: FlutterFlowTheme.of(context).labelSmall.override(
-                                                                                  fontFamily: 'Roboto Condensed',
-                                                                                  fontSize: 12.0,
-                                                                                  fontWeight: FontWeight.bold,
-                                                                                ),
+                                                                              Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.00, 0.00),
+                                                                            child:
+                                                                                Text(
+                                                                              'МИН. СРОК',
+                                                                              style: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                    fontFamily: 'Roboto Condensed',
+                                                                                    fontSize: 12.0,
+                                                                                    fontWeight: FontWeight.bold,
+                                                                                  ),
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ],
