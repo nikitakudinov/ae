@@ -1292,7 +1292,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                         header: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
+                                                  20.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             'Все предложения (${FFAppState().sr.where((e) => e.cross == null || e.cross == '').toList().length.toString()})',
                                             style: FlutterFlowTheme.of(context)
