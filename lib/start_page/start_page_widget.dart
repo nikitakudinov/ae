@@ -289,7 +289,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .labelLarge,
                                                       ),
                                                       Builder(
                                                         builder: (context) {
