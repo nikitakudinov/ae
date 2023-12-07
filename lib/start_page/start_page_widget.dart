@@ -369,6 +369,9 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                       mainAxisSize:
                                                                           MainAxisSize
                                                                               .min,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .center,
                                                                       crossAxisAlignment:
                                                                           CrossAxisAlignment
                                                                               .start,
@@ -613,6 +616,9 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                       mainAxisSize:
                                                                           MainAxisSize
                                                                               .min,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .center,
                                                                       crossAxisAlignment:
                                                                           CrossAxisAlignment
                                                                               .start,
