@@ -996,7 +996,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                                 buttonSize: 30.0,
                                                                                 icon: Icon(
                                                                                   Icons.add_shopping_cart_outlined,
-                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
                                                                                   size: 24.0,
                                                                                 ),
                                                                                 onPressed: () {
