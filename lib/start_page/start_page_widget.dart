@@ -34,7 +34,6 @@ class _StartPageWidgetState extends State<StartPageWidget>
 
   final animationsMap = {
     'iconOnPageLoadAnimation': AnimationInfo(
-      loop: true,
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         RotateEffect(
@@ -172,6 +171,14 @@ class _StartPageWidgetState extends State<StartPageWidget>
           top: true,
           child: Stack(
             children: [
+              Align(
+                alignment: AlignmentDirectional(0.00, 0.00),
+                child: FaIcon(
+                  FontAwesomeIcons.redoAlt,
+                  color: Color(0x7C606A85),
+                  size: 80.0,
+                ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation']!),
+              ),
               if (FFAppState().sr.length > 0)
                 SingleChildScrollView(
                   child: Column(
@@ -2913,14 +2920,6 @@ class _StartPageWidgetState extends State<StartPageWidget>
                     ],
                   ),
                 ),
-              Align(
-                alignment: AlignmentDirectional(0.00, 0.00),
-                child: FaIcon(
-                  FontAwesomeIcons.redoAlt,
-                  color: Color(0x7C606A85),
-                  size: 80.0,
-                ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation']!),
-              ),
             ],
           ),
         ),
