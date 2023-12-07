@@ -817,7 +817,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 15.0),
+                                  15.0, 15.0, 15.0, 15.0),
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: Color(0xFFE4E4E4),
