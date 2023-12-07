@@ -10,7 +10,6 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -153,6 +152,22 @@ class _StartPageWidgetState extends State<StartPageWidget> {
           top: true,
           child: Stack(
             children: [
+              if (FFAppState().sr.length == 0)
+                Opacity(
+                  opacity: 0.8,
+                  child: Align(
+                    alignment: AlignmentDirectional(0.00, 0.00),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(0.0),
+                      child: Image.asset(
+                        'assets/images/Double_Ring-1s-200px.gif',
+                        width: 70.0,
+                        height: 70.0,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ),
               if (FFAppState().sr.length > 0)
                 SingleChildScrollView(
                   child: Column(
@@ -2918,15 +2933,6 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                     ],
                   ),
                 ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: SvgPicture.asset(
-                  'assets/images/Double_Ring-2.9s-200px.svg',
-                  width: 300.0,
-                  height: 200.0,
-                  fit: BoxFit.cover,
-                ),
-              ),
             ],
           ),
         ),
