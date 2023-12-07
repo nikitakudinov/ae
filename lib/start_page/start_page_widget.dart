@@ -550,6 +550,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                             FFAppState()
                                                     .SEARCHBRANDCODEvisibility =
                                                 false;
+                                            FFAppState().sr = [];
                                           });
                                           await action_blocks
                                               .loadFullSearchResults(
