@@ -1,6 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -11,7 +10,7 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -26,27 +25,10 @@ class StartPageWidget extends StatefulWidget {
   _StartPageWidgetState createState() => _StartPageWidgetState();
 }
 
-class _StartPageWidgetState extends State<StartPageWidget>
-    with TickerProviderStateMixin {
+class _StartPageWidgetState extends State<StartPageWidget> {
   late StartPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'iconOnPageLoadAnimation': AnimationInfo(
-      loop: true,
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        RotateEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 450.ms,
-          begin: 0.0,
-          end: 5.0,
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -135,7 +117,6 @@ class _StartPageWidgetState extends State<StartPageWidget>
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         appBar: AppBar(
           backgroundColor: Colors.white,
           automaticallyImplyLeading: false,
@@ -172,16 +153,6 @@ class _StartPageWidgetState extends State<StartPageWidget>
           top: true,
           child: Stack(
             children: [
-              if (FFAppState().sr.length == 0)
-                Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
-                  child: FaIcon(
-                    FontAwesomeIcons.redoAlt,
-                    color: Color(0x7C606A85),
-                    size: 60.0,
-                  ).animateOnPageLoad(
-                      animationsMap['iconOnPageLoadAnimation']!),
-                ),
               if (FFAppState().sr.length > 0)
                 SingleChildScrollView(
                   child: Column(
@@ -2947,6 +2918,15 @@ class _StartPageWidgetState extends State<StartPageWidget>
                     ],
                   ),
                 ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                child: SvgPicture.asset(
+                  'assets/images/Double_Ring-2.9s-200px.svg',
+                  width: 300.0,
+                  height: 200.0,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ],
           ),
         ),
