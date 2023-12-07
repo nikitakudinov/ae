@@ -195,7 +195,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       15.0, 15.0, 15.0, 15.0),
                                   child: Text(
-                                    'Нет предложений по вашему запросу',
+                                    'Нет предложений по вашему запросу но есть варианты среди ${FFAppState().sr.where((e) => e.cross == '1').toList().length.toString()}',
                                     style: FlutterFlowTheme.of(context)
                                         .labelLarge
                                         .override(
