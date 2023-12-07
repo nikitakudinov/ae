@@ -893,16 +893,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                     .warehouseName,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelSmall
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Roboto Condensed',
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold,
-                                                                    ),
+                                                                    .labelMedium,
                                                               ),
                                                             ),
                                                           ),
