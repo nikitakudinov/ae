@@ -172,9 +172,9 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Hello World',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  brandsItem,
+                                  style: FlutterFlowTheme.of(context)
+                                      .headlineLarge,
                                 ),
                                 Builder(
                                   builder: (context) {
