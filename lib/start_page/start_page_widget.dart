@@ -271,170 +271,182 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                     },
                                                   ),
                                                 ),
-                                                Container(
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                  ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Text(
-                                                        'Наличие',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelLarge,
-                                                      ),
-                                                      Builder(
-                                                        builder: (context) {
-                                                          final stockItems = FFAppState()
-                                                              .sr
-                                                              .where((e) =>
-                                                                  ('\"${e.code}\"' == codesItem) &&
-                                                                  ('\"${e.brand}\"' ==
-                                                                      brandsItem) &&
-                                                                  (e.stock ==
-                                                                      1))
-                                                              .toList()
-                                                              .sortedList((e) =>
-                                                                  e.deliveryTime)
-                                                              .toList()
-                                                              .take(3)
-                                                              .toList();
-                                                          return ListView
-                                                              .builder(
-                                                            padding:
-                                                                EdgeInsets.zero,
-                                                            primary: false,
-                                                            shrinkWrap: true,
-                                                            scrollDirection:
-                                                                Axis.vertical,
-                                                            itemCount:
-                                                                stockItems
-                                                                    .length,
-                                                            itemBuilder: (context,
-                                                                stockItemsIndex) {
-                                                              final stockItemsItem =
-                                                                  stockItems[
-                                                                      stockItemsIndex];
-                                                              return Text(
-                                                                stockItemsItem
-                                                                    .warehouseName,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium,
-                                                              );
-                                                            },
-                                                          );
-                                                        },
-                                                      ),
-                                                      if (FFAppState()
-                                                              .sr
-                                                              .where((e) =>
-                                                                  ('\"${e.code}\"' == codesItem) &&
-                                                                  ('\"${e.brand}\"' ==
-                                                                      brandsItem) &&
-                                                                  (e.stock ==
-                                                                      1))
-                                                              .toList()
-                                                              .sortedList((e) =>
-                                                                  e.deliveryTime)
-                                                              .length !=
-                                                          0)
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Container(
-                                                            width:
-                                                                double.infinity,
-                                                            color: Colors.white,
-                                                            child:
-                                                                ExpandableNotifier(
-                                                              child:
-                                                                  ExpandablePanel(
-                                                                header: Text(
-                                                                  'Еще на (${FFAppState().sr.where((e) => ('\"${e.code}\"' == codesItem) && ('\"${e.brand}\"' == brandsItem) && (e.stock == 1)).toList().sortedList((e) => e.deliveryTime).length.toString()}) складах',
+                                                if (FFAppState()
+                                                        .sr
+                                                        .where((e) =>
+                                                            ('\"${e.code}\"' ==
+                                                                codesItem) &&
+                                                            ('\"${e.brand}\"' ==
+                                                                brandsItem) &&
+                                                            (e.stock == 1))
+                                                        .toList()
+                                                        .sortedList((e) =>
+                                                            e.deliveryTime)
+                                                        .length !=
+                                                    0)
+                                                  Container(
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          'Наличие',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .labelLarge,
+                                                        ),
+                                                        Builder(
+                                                          builder: (context) {
+                                                            final stockItems = FFAppState()
+                                                                .sr
+                                                                .where((e) =>
+                                                                    ('\"${e.code}\"' == codesItem) &&
+                                                                    ('\"${e.brand}\"' ==
+                                                                        brandsItem) &&
+                                                                    (e.stock ==
+                                                                        1))
+                                                                .toList()
+                                                                .sortedList((e) =>
+                                                                    e.deliveryTime)
+                                                                .toList()
+                                                                .take(3)
+                                                                .toList();
+                                                            return ListView
+                                                                .builder(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .zero,
+                                                              primary: false,
+                                                              shrinkWrap: true,
+                                                              scrollDirection:
+                                                                  Axis.vertical,
+                                                              itemCount:
+                                                                  stockItems
+                                                                      .length,
+                                                              itemBuilder: (context,
+                                                                  stockItemsIndex) {
+                                                                final stockItemsItem =
+                                                                    stockItems[
+                                                                        stockItemsIndex];
+                                                                return Text(
+                                                                  stockItemsItem
+                                                                      .warehouseName,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelMedium,
-                                                                ),
-                                                                collapsed:
-                                                                    Container(),
-                                                                expanded:
-                                                                    Builder(
-                                                                  builder:
-                                                                      (context) {
-                                                                    final stockItemsfull = FFAppState()
-                                                                        .sr
-                                                                        .where((e) =>
-                                                                            ('\"${e.code}\"' == codesItem) &&
-                                                                            ('\"${e.brand}\"' ==
-                                                                                brandsItem) &&
-                                                                            (e.stock ==
-                                                                                1))
-                                                                        .toList()
-                                                                        .sortedList((e) =>
-                                                                            e.deliveryTime)
-                                                                        .toList();
-                                                                    return ListView
-                                                                        .builder(
-                                                                      padding:
-                                                                          EdgeInsets
-                                                                              .zero,
-                                                                      primary:
-                                                                          false,
-                                                                      shrinkWrap:
-                                                                          true,
-                                                                      scrollDirection:
-                                                                          Axis.vertical,
-                                                                      itemCount:
-                                                                          stockItemsfull
-                                                                              .length,
-                                                                      itemBuilder:
-                                                                          (context,
-                                                                              stockItemsfullIndex) {
-                                                                        final stockItemsfullItem =
-                                                                            stockItemsfull[stockItemsfullIndex];
-                                                                        return Text(
-                                                                          stockItemsfullItem
-                                                                              .warehouseName,
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).bodyMedium,
-                                                                        );
-                                                                      },
-                                                                    );
-                                                                  },
-                                                                ),
-                                                                theme:
-                                                                    ExpandableThemeData(
-                                                                  tapHeaderToExpand:
-                                                                      true,
-                                                                  tapBodyToExpand:
-                                                                      false,
-                                                                  tapBodyToCollapse:
-                                                                      false,
-                                                                  headerAlignment:
-                                                                      ExpandablePanelHeaderAlignment
-                                                                          .center,
-                                                                  hasIcon: true,
+                                                                      .bodyMedium,
+                                                                );
+                                                              },
+                                                            );
+                                                          },
+                                                        ),
+                                                        if (FFAppState()
+                                                                .sr
+                                                                .where((e) =>
+                                                                    ('\"${e.code}\"' == codesItem) &&
+                                                                    ('\"${e.brand}\"' ==
+                                                                        brandsItem) &&
+                                                                    (e.stock ==
+                                                                        1))
+                                                                .toList()
+                                                                .sortedList((e) =>
+                                                                    e.deliveryTime)
+                                                                .length !=
+                                                            0)
+                                                          Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                            ),
+                                                            child: Container(
+                                                              width: double
+                                                                  .infinity,
+                                                              color:
+                                                                  Colors.white,
+                                                              child:
+                                                                  ExpandableNotifier(
+                                                                child:
+                                                                    ExpandablePanel(
+                                                                  header: Text(
+                                                                    'Еще на (${FFAppState().sr.where((e) => ('\"${e.code}\"' == codesItem) && ('\"${e.brand}\"' == brandsItem) && (e.stock == 1)).toList().sortedList((e) => e.deliveryTime).length.toString()}) складах',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium,
+                                                                  ),
+                                                                  collapsed:
+                                                                      Container(),
+                                                                  expanded:
+                                                                      Builder(
+                                                                    builder:
+                                                                        (context) {
+                                                                      final stockItemsfull = FFAppState()
+                                                                          .sr
+                                                                          .where((e) =>
+                                                                              ('\"${e.code}\"' == codesItem) &&
+                                                                              ('\"${e.brand}\"' ==
+                                                                                  brandsItem) &&
+                                                                              (e.stock ==
+                                                                                  1))
+                                                                          .toList()
+                                                                          .sortedList((e) =>
+                                                                              e.deliveryTime)
+                                                                          .toList();
+                                                                      return ListView
+                                                                          .builder(
+                                                                        padding:
+                                                                            EdgeInsets.zero,
+                                                                        primary:
+                                                                            false,
+                                                                        shrinkWrap:
+                                                                            true,
+                                                                        scrollDirection:
+                                                                            Axis.vertical,
+                                                                        itemCount:
+                                                                            stockItemsfull.length,
+                                                                        itemBuilder:
+                                                                            (context,
+                                                                                stockItemsfullIndex) {
+                                                                          final stockItemsfullItem =
+                                                                              stockItemsfull[stockItemsfullIndex];
+                                                                          return Text(
+                                                                            stockItemsfullItem.warehouseName,
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                          );
+                                                                        },
+                                                                      );
+                                                                    },
+                                                                  ),
+                                                                  theme:
+                                                                      ExpandableThemeData(
+                                                                    tapHeaderToExpand:
+                                                                        true,
+                                                                    tapBodyToExpand:
+                                                                        false,
+                                                                    tapBodyToCollapse:
+                                                                        false,
+                                                                    headerAlignment:
+                                                                        ExpandablePanelHeaderAlignment
+                                                                            .center,
+                                                                    hasIcon:
+                                                                        true,
+                                                                  ),
                                                                 ),
                                                               ),
                                                             ),
                                                           ),
-                                                        ),
-                                                    ],
+                                                      ],
+                                                    ),
                                                   ),
-                                                ),
                                                 Container(
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
