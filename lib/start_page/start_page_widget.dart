@@ -1652,7 +1652,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                   ),
                 Container(
                   decoration: BoxDecoration(
-                    color: Color(0xFFDADADA),
+                    color: Color(0xFFE9E9E9),
                   ),
                   child: Container(
                     width: double.infinity,
@@ -1815,7 +1815,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                               children: [
                                                                                 Container(
                                                                                   decoration: BoxDecoration(
-                                                                                    color: Color(0xFFE4E4E4),
+                                                                                    color: Color(0xFFD1D1D1),
                                                                                     borderRadius: BorderRadius.circular(3.0),
                                                                                   ),
                                                                                   child: Padding(
