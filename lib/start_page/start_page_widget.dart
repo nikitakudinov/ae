@@ -528,15 +528,18 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                         CrossAxisAlignment
                                                                             .start,
                                                                     children: [
-                                                                      Text(
-                                                                        'МИН.  ЦЕНА',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .labelSmall
-                                                                            .override(
-                                                                              fontFamily: 'Roboto Condensed',
-                                                                              fontSize: 12.0,
-                                                                              fontWeight: FontWeight.bold,
-                                                                            ),
+                                                                      Expanded(
+                                                                        child:
+                                                                            Text(
+                                                                          'МИН. ЦЕНА',
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .labelSmall
+                                                                              .override(
+                                                                                fontFamily: 'Roboto Condensed',
+                                                                                fontSize: 12.0,
+                                                                                fontWeight: FontWeight.bold,
+                                                                              ),
+                                                                        ),
                                                                       ),
                                                                     ],
                                                                   ),
@@ -770,15 +773,18 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                         CrossAxisAlignment
                                                                             .start,
                                                                     children: [
-                                                                      Text(
-                                                                        'МИН. СРОКИ',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .labelSmall
-                                                                            .override(
-                                                                              fontFamily: 'Roboto Condensed',
-                                                                              fontSize: 12.0,
-                                                                              fontWeight: FontWeight.bold,
-                                                                            ),
+                                                                      Expanded(
+                                                                        child:
+                                                                            Text(
+                                                                          'МИН. СРОКИ',
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .labelSmall
+                                                                              .override(
+                                                                                fontFamily: 'Roboto Condensed',
+                                                                                fontSize: 12.0,
+                                                                                fontWeight: FontWeight.bold,
+                                                                              ),
+                                                                        ),
                                                                       ),
                                                                     ],
                                                                   ),
