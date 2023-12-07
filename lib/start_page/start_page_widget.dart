@@ -381,11 +381,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                               0)
                                                             Container(
                                                               decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                              ),
+                                                                  BoxDecoration(),
                                                               child: Container(
                                                                 width: double
                                                                     .infinity,
