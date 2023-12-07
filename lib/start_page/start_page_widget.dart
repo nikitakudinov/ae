@@ -1384,7 +1384,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                       .fromLTRB(
                                                                           0.0,
                                                                           0.0,
-                                                                          15.0,
+                                                                          25.0,
                                                                           0.0),
                                                             ),
                                                           ),
