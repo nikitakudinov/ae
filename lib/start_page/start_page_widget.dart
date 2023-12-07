@@ -901,13 +901,16 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                                 CrossAxisAlignment.start,
                                                                             children: [
                                                                               Expanded(
-                                                                                child: Text(
-                                                                                  stockItemsItem.warehouseName,
-                                                                                  style: FlutterFlowTheme.of(context).labelSmall.override(
-                                                                                        fontFamily: 'Roboto Condensed',
-                                                                                        fontSize: 12.0,
-                                                                                        fontWeight: FontWeight.bold,
-                                                                                      ),
+                                                                                child: Align(
+                                                                                  alignment: AlignmentDirectional(-1.00, 0.00),
+                                                                                  child: Text(
+                                                                                    stockItemsItem.warehouseName,
+                                                                                    style: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                          fontFamily: 'Roboto Condensed',
+                                                                                          fontSize: 12.0,
+                                                                                          fontWeight: FontWeight.bold,
+                                                                                        ),
+                                                                                  ),
                                                                                 ),
                                                                               ),
                                                                             ],
