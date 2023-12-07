@@ -56,6 +56,27 @@ Future loadFullSearchResults(
           .toList()
           .cast<String>();
     });
+    if (AeGroup.fullsearchCall
+            .data(
+              (jsonFULLSEARCH?.jsonBody ?? ''),
+            )
+            .length ==
+        0) {
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return AlertDialog(
+            title: Text('Нет предложений по вашему запросу.'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(alertDialogContext),
+                child: Text('Ok'),
+              ),
+            ],
+          );
+        },
+      );
+    }
   } else {
     await showDialog(
       context: context,
