@@ -1446,7 +1446,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 10.0, 0.0, 10.0),
+                                      0.0, 5.0, 0.0, 5.0),
                                   child: Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 1.0,
