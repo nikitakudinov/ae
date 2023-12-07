@@ -1709,7 +1709,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    5.0, 0.0, 0.0, 0.0),
+                                                    10.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               valueOrDefault<String>(
                                                 functions
@@ -1762,95 +1762,92 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                             CrossAxisAlignment
                                                                 .start,
                                                         children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        15.0),
-                                                            child: Container(
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                              ),
-                                                              child: Padding(
-                                                                padding: EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        10.0,
-                                                                        0.0,
-                                                                        10.0,
-                                                                        0.0),
-                                                                child: Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .min,
-                                                                  children: [
-                                                                    Builder(
-                                                                      builder:
-                                                                          (context) {
-                                                                        final cODEitemTITLE = FFAppState()
-                                                                            .sr
-                                                                            .where((e) =>
-                                                                                ('\"${e.code}\"' == codesItem) &&
-                                                                                ('\"${e.brand}\"' == brandsItem))
-                                                                            .toList()
-                                                                            .take(1)
-                                                                            .toList();
-                                                                        return ListView
-                                                                            .builder(
-                                                                          padding:
-                                                                              EdgeInsets.zero,
-                                                                          primary:
-                                                                              false,
-                                                                          shrinkWrap:
-                                                                              true,
-                                                                          scrollDirection:
-                                                                              Axis.vertical,
-                                                                          itemCount:
-                                                                              cODEitemTITLE.length,
-                                                                          itemBuilder:
-                                                                              (context, cODEitemTITLEIndex) {
-                                                                            final cODEitemTITLEItem =
-                                                                                cODEitemTITLE[cODEitemTITLEIndex];
-                                                                            return Visibility(
-                                                                              visible: cODEitemTITLEIndex == 0,
-                                                                              child: Column(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                children: [
-                                                                                  Container(
-                                                                                    decoration: BoxDecoration(
-                                                                                      color: Color(0xFFE4E4E4),
-                                                                                      borderRadius: BorderRadius.circular(3.0),
-                                                                                    ),
-                                                                                    child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
-                                                                                      child: Text(
-                                                                                        cODEitemTITLEItem.code,
-                                                                                        style: FlutterFlowTheme.of(context).titleMedium,
-                                                                                      ),
-                                                                                    ),
+                                                          Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          10.0,
+                                                                          0.0,
+                                                                          10.0,
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .min,
+                                                                children: [
+                                                                  Builder(
+                                                                    builder:
+                                                                        (context) {
+                                                                      final cODEitemTITLE = FFAppState()
+                                                                          .sr
+                                                                          .where((e) =>
+                                                                              ('\"${e.code}\"' == codesItem) &&
+                                                                              ('\"${e.brand}\"' ==
+                                                                                  brandsItem))
+                                                                          .toList()
+                                                                          .take(
+                                                                              1)
+                                                                          .toList();
+                                                                      return ListView
+                                                                          .builder(
+                                                                        padding:
+                                                                            EdgeInsets.zero,
+                                                                        primary:
+                                                                            false,
+                                                                        shrinkWrap:
+                                                                            true,
+                                                                        scrollDirection:
+                                                                            Axis.vertical,
+                                                                        itemCount:
+                                                                            cODEitemTITLE.length,
+                                                                        itemBuilder:
+                                                                            (context,
+                                                                                cODEitemTITLEIndex) {
+                                                                          final cODEitemTITLEItem =
+                                                                              cODEitemTITLE[cODEitemTITLEIndex];
+                                                                          return Visibility(
+                                                                            visible:
+                                                                                cODEitemTITLEIndex == 0,
+                                                                            child:
+                                                                                Column(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                                                              children: [
+                                                                                Container(
+                                                                                  decoration: BoxDecoration(
+                                                                                    color: Color(0xFFE4E4E4),
+                                                                                    borderRadius: BorderRadius.circular(3.0),
                                                                                   ),
-                                                                                  Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                  child: Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                                                                                     child: Text(
-                                                                                      cODEitemTITLEItem.name,
-                                                                                      style: FlutterFlowTheme.of(context).labelLarge,
+                                                                                      cODEitemTITLEItem.code,
+                                                                                      style: FlutterFlowTheme.of(context).titleMedium,
                                                                                     ),
                                                                                   ),
-                                                                                ],
-                                                                              ),
-                                                                            );
-                                                                          },
-                                                                        );
-                                                                      },
-                                                                    ),
-                                                                  ],
-                                                                ),
+                                                                                ),
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                  child: Text(
+                                                                                    cODEitemTITLEItem.name,
+                                                                                    style: FlutterFlowTheme.of(context).labelLarge,
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          );
+                                                                        },
+                                                                      );
+                                                                    },
+                                                                  ),
+                                                                ],
                                                               ),
                                                             ),
                                                           ),
@@ -2312,7 +2309,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
-                                                                          0.0,
+                                                                          10.0,
                                                                           0.0,
                                                                           15.0),
                                                               child: Container(
