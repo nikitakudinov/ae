@@ -42,7 +42,7 @@ class _StartPageWidgetState extends State<StartPageWidget>
           delay: 0.ms,
           duration: 450.ms,
           begin: 0.0,
-          end: 1.5,
+          end: 5.0,
         ),
       ],
     ),
