@@ -171,6 +171,11 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                               mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                Text(
+                                  'Hello World',
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
                                 Builder(
                                   builder: (context) {
                                     final codes = FFAppState().codes.toList();
@@ -214,60 +219,6 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                       mainAxisSize:
                                                           MainAxisSize.max,
                                                       children: [
-                                                        Builder(
-                                                          builder: (context) {
-                                                            final cODEitemTITLE = FFAppState()
-                                                                .sr
-                                                                .where((e) =>
-                                                                    ('\"${e.code}\"' ==
-                                                                        codesItem) &&
-                                                                    ('\"${e.brand}\"' ==
-                                                                        brandsItem))
-                                                                .toList()
-                                                                .take(1)
-                                                                .toList();
-                                                            return ListView
-                                                                .builder(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .zero,
-                                                              primary: false,
-                                                              shrinkWrap: true,
-                                                              scrollDirection:
-                                                                  Axis.vertical,
-                                                              itemCount:
-                                                                  cODEitemTITLE
-                                                                      .length,
-                                                              itemBuilder: (context,
-                                                                  cODEitemTITLEIndex) {
-                                                                final cODEitemTITLEItem =
-                                                                    cODEitemTITLE[
-                                                                        cODEitemTITLEIndex];
-                                                                return Visibility(
-                                                                  visible:
-                                                                      cODEitemTITLEIndex ==
-                                                                          0,
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      Text(
-                                                                        cODEitemTITLEItem
-                                                                            .brand,
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .titleLarge,
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                );
-                                                              },
-                                                            );
-                                                          },
-                                                        ),
                                                         Builder(
                                                           builder: (context) {
                                                             final cODEitemTITLE = FFAppState()
