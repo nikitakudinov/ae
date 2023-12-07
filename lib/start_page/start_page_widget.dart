@@ -180,6 +180,33 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                         expanded: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 0.0, 15.0, 0.0),
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                  border: Border.all(
+                                    color: Color(0x84FF5963),
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      15.0, 15.0, 15.0, 15.0),
+                                  child: Text(
+                                    'Нет предложений по вашему запросу',
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelLarge
+                                        .override(
+                                          fontFamily: 'Roboto Condensed',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ),
                             Builder(
                               builder: (context) {
                                 final requiredarticle = FFAppState()
