@@ -986,7 +986,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                           child:
                                                                               Align(
                                                                             alignment:
-                                                                                AlignmentDirectional(1.00, 0.00),
+                                                                                AlignmentDirectional(0.00, 0.00),
                                                                             child:
                                                                                 FlutterFlowIconButton(
                                                                               borderColor: Colors.transparent,
