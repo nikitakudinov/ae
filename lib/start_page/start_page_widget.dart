@@ -1656,7 +1656,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                   ),
                   child: Container(
                     width: double.infinity,
-                    color: Colors.white,
+                    color: Color(0xFFD5D5D5),
                     child: ExpandableNotifier(
                       controller: _model.expandableController4,
                       child: ExpandablePanel(
