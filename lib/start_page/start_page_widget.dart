@@ -2689,17 +2689,24 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                     child:
                                                                         ExpandablePanel(
                                                                       header:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                          Container(
+                                                                        height:
+                                                                            40.0,
+                                                                        decoration:
+                                                                            BoxDecoration(),
                                                                         child:
-                                                                            Text(
-                                                                          'Все предложения (${FFAppState().sr.where((e) => ('\"${e.code}\"' == codesItem) && ('\"${e.brand}\"' == brandsItem) && (e.stock != 1)).toList().sortedList((e) => e.deliveryTime).length.toString()})',
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).titleSmall,
+                                                                            Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              10.0,
+                                                                              10.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Text(
+                                                                            'Все предложения (${FFAppState().sr.where((e) => ('\"${e.code}\"' == codesItem) && ('\"${e.brand}\"' == brandsItem) && (e.stock != 1)).toList().sortedList((e) => e.deliveryTime).length.toString()})',
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).titleSmall,
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                       collapsed:
