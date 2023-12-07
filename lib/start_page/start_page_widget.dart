@@ -886,7 +886,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                             stockItemsIndex];
                                                                     return Container(
                                                                       height:
-                                                                          30.0,
+                                                                          35.0,
                                                                       decoration:
                                                                           BoxDecoration(),
                                                                       child:
@@ -1076,7 +1076,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                               return Visibility(
                                                                                 visible: stockItemsfullIndex > 2,
                                                                                 child: Container(
-                                                                                  height: 30.0,
+                                                                                  height: 35.0,
                                                                                   decoration: BoxDecoration(),
                                                                                   child: Row(
                                                                                     mainAxisSize: MainAxisSize.min,
