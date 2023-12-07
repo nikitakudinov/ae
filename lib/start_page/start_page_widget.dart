@@ -1454,7 +1454,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                           1.0,
                                       height: 1.0,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFFB5B5B5),
+                                        color: Color(0xFFD3D3D3),
                                       ),
                                     ),
                                   ),
