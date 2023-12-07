@@ -395,7 +395,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                       children: [
                                                                         Expanded(
                                                                           flex:
-                                                                              2,
+                                                                              3,
                                                                           child:
                                                                               Column(
                                                                             mainAxisSize:
