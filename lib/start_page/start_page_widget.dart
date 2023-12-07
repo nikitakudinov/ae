@@ -1165,11 +1165,20 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                     color: Colors.white,
                                                     child: ExpandableNotifier(
                                                       child: ExpandablePanel(
-                                                        header: Text(
-                                                          'Все предложения',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleSmall,
+                                                        header: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            'Все предложения',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .titleSmall,
+                                                          ),
                                                         ),
                                                         collapsed: Container(),
                                                         expanded: Container(
