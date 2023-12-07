@@ -1048,7 +1048,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                 _model.expandableController2,
                                             child: ExpandablePanel(
                                               header: Text(
-                                                'Еще на (${FFAppState().sr.where((e) => ('\"${e.code}\"' == codesItem) && ('\"${e.brand}\"' == brandsItem) && (e.stock == 1)).toList().sortedList((e) => e.deliveryTime).length.toString()}) складах',
+                                                'Еще на (${FFAppState().sr.where((e) => (e.cross == null || e.cross == '') && (e.stock == 1)).toList().sortedList((e) => e.deliveryTime).length.toString()}) складах',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium,
@@ -1056,17 +1056,12 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                               collapsed: Container(),
                                               expanded: Builder(
                                                 builder: (context) {
-                                                  final stockItemsfull = FFAppState()
+                                                  final stockitem = FFAppState()
                                                       .sr
                                                       .where((e) =>
-                                                          ('\"${e.code}\"' ==
-                                                              codesItem) &&
-                                                          ('\"${e.brand}\"' ==
-                                                              brandsItem) &&
+                                                          (e.cross == null ||
+                                                              e.cross == '') &&
                                                           (e.stock == 1))
-                                                      .toList()
-                                                      .sortedList(
-                                                          (e) => e.deliveryTime)
                                                       .toList();
                                                   return ListView.builder(
                                                     padding: EdgeInsets.zero,
@@ -1074,17 +1069,15 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                     shrinkWrap: true,
                                                     scrollDirection:
                                                         Axis.vertical,
-                                                    itemCount:
-                                                        stockItemsfull.length,
+                                                    itemCount: stockitem.length,
                                                     itemBuilder: (context,
-                                                        stockItemsfullIndex) {
-                                                      final stockItemsfullItem =
-                                                          stockItemsfull[
-                                                              stockItemsfullIndex];
+                                                        stockitemIndex) {
+                                                      final stockitemItem =
+                                                          stockitem[
+                                                              stockitemIndex];
                                                       return Visibility(
                                                         visible:
-                                                            stockItemsfullIndex >
-                                                                2,
+                                                            stockitemIndex > 2,
                                                         child: Container(
                                                           height: 35.0,
                                                           decoration:
@@ -1121,7 +1114,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                             0.00),
                                                                         child:
                                                                             Text(
-                                                                          stockItemsfullItem
+                                                                          stockitemItem
                                                                               .warehouseName,
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .labelSmall
@@ -1149,7 +1142,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                           .center,
                                                                   children: [
                                                                     Text(
-                                                                      stockItemsfullItem
+                                                                      stockitemItem
                                                                           .price
                                                                           .toString(),
                                                                       style: FlutterFlowTheme.of(
@@ -1157,7 +1150,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                           .labelMedium,
                                                                     ),
                                                                     Text(
-                                                                      '${stockItemsfullItem.amount.toString()} ${stockItemsfullItem.unit}',
+                                                                      '${stockitemItem.amount.toString()} ${stockitemItem.unit}',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .labelSmall,
@@ -1178,7 +1171,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                       () {
                                                                         if (dateTimeFormat(
                                                                               'yMd',
-                                                                              functions.newCustomFunction3(stockItemsfullItem.deliveryTime),
+                                                                              functions.newCustomFunction3(stockitemItem.deliveryTime),
                                                                               locale: FFLocalizations.of(context).languageCode,
                                                                             ) ==
                                                                             dateTimeFormat(
@@ -1189,7 +1182,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                           return 'Сегодня';
                                                                         } else if (dateTimeFormat(
                                                                               'yMd',
-                                                                              functions.newCustomFunction3(stockItemsfullItem.deliveryTime),
+                                                                              functions.newCustomFunction3(stockitemItem.deliveryTime),
                                                                               locale: FFLocalizations.of(context).languageCode,
                                                                             ) ==
                                                                             dateTimeFormat(
@@ -1201,7 +1194,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                         } else {
                                                                           return dateTimeFormat(
                                                                             'relative',
-                                                                            functions.newCustomFunction3(stockItemsfullItem.deliveryTime),
+                                                                            functions.newCustomFunction3(stockitemItem.deliveryTime),
                                                                             locale:
                                                                                 FFLocalizations.of(context).languageShortCode ?? FFLocalizations.of(context).languageCode,
                                                                           );
