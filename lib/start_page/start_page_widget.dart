@@ -34,6 +34,7 @@ class _StartPageWidgetState extends State<StartPageWidget>
 
   final animationsMap = {
     'iconOnPageLoadAnimation': AnimationInfo(
+      loop: true,
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         RotateEffect(
@@ -177,7 +178,7 @@ class _StartPageWidgetState extends State<StartPageWidget>
                   child: FaIcon(
                     FontAwesomeIcons.redoAlt,
                     color: Color(0x7C606A85),
-                    size: 80.0,
+                    size: 60.0,
                   ).animateOnPageLoad(
                       animationsMap['iconOnPageLoadAnimation']!),
                 ),
@@ -197,18 +198,26 @@ class _StartPageWidgetState extends State<StartPageWidget>
                             child: ExpandableNotifier(
                               controller: _model.expandableController1,
                               child: ExpandablePanel(
-                                header: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      15.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    'Искомый артикул',
-                                    style: FlutterFlowTheme.of(context)
-                                        .headlineSmall
-                                        .override(
-                                          fontFamily: 'Roboto Condensed',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                        ),
+                                header: Align(
+                                  alignment: AlignmentDirectional(-1.00, 0.00),
+                                  child: Container(
+                                    height: 50.0,
+                                    decoration: BoxDecoration(),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          15.0, 0.0, 0.0, 0.0),
+                                      child: Text(
+                                        'Искомый артикул',
+                                        style: FlutterFlowTheme.of(context)
+                                            .headlineSmall
+                                            .override(
+                                              fontFamily: 'Roboto Condensed',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                            ),
+                                      ),
+                                    ),
                                   ),
                                 ),
                                 collapsed: Container(),
@@ -1691,18 +1700,26 @@ class _StartPageWidgetState extends State<StartPageWidget>
                             child: ExpandableNotifier(
                               controller: _model.expandableController4,
                               child: ExpandablePanel(
-                                header: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      15.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    'Аналоги / Кроссы',
-                                    style: FlutterFlowTheme.of(context)
-                                        .headlineSmall
-                                        .override(
-                                          fontFamily: 'Roboto Condensed',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                        ),
+                                header: Align(
+                                  alignment: AlignmentDirectional(-1.00, 0.00),
+                                  child: Container(
+                                    height: 50.0,
+                                    decoration: BoxDecoration(),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          15.0, 0.0, 0.0, 0.0),
+                                      child: Text(
+                                        'Аналоги / Кроссы',
+                                        style: FlutterFlowTheme.of(context)
+                                            .headlineSmall
+                                            .override(
+                                              fontFamily: 'Roboto Condensed',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                            ),
+                                      ),
+                                    ),
                                   ),
                                 ),
                                 collapsed: Container(),
