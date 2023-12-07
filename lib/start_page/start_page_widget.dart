@@ -1112,13 +1112,8 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                             Text(
                                                                           stockitemItem
                                                                               .warehouseName,
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .labelSmall
-                                                                              .override(
-                                                                                fontFamily: 'Roboto Condensed',
-                                                                                fontSize: 12.0,
-                                                                                fontWeight: FontWeight.bold,
-                                                                              ),
+                                                                          style:
+                                                                              FlutterFlowTheme.of(context).labelMedium,
                                                                         ),
                                                                       ),
                                                                     ),
@@ -1211,6 +1206,9 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                   mainAxisAlignment:
                                                                       MainAxisAlignment
                                                                           .center,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .end,
                                                                   children: [
                                                                     FlutterFlowIconButton(
                                                                       borderColor:
