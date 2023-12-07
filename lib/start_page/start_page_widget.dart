@@ -1444,18 +1444,20 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                     );
                                   },
                                 ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 5.0, 0.0, 5.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 1.0,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFB5B5B5),
+                                if (brandsIndex !=
+                                    (FFAppState().brands.length - 1))
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 5.0, 0.0, 5.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 1.0,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFFB5B5B5),
+                                      ),
                                     ),
                                   ),
-                                ),
                               ],
                             ),
                           ),
