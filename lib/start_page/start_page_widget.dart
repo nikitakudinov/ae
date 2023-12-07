@@ -1337,13 +1337,15 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                                 ],
                                                                               ),
                                                                             ),
-                                                                            Container(
-                                                                              width: MediaQuery.sizeOf(context).width * 1.0,
-                                                                              height: 1.0,
-                                                                              decoration: BoxDecoration(
-                                                                                color: Color(0x3EDCDCDC),
+                                                                            if (codeItemsIndex !=
+                                                                                (FFAppState().sr.where((e) => ('\"${e.code}\"' == codesItem) && ('\"${e.brand}\"' == brandsItem) && (e.stock != 1)).toList().length - 1))
+                                                                              Container(
+                                                                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                                                                height: 1.0,
+                                                                                decoration: BoxDecoration(
+                                                                                  color: Color(0x3EDCDCDC),
+                                                                                ),
                                                                               ),
-                                                                            ),
                                                                           ],
                                                                         );
                                                                       },
