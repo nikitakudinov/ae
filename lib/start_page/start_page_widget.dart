@@ -1624,7 +1624,66 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                           ),
                         ),
                         collapsed: Container(),
-                        expanded: Container(),
+                        expanded: Builder(
+                          builder: (context) {
+                            final requiredarticle = FFAppState()
+                                .sr
+                                .where((e) => e.cross == null || e.cross == '')
+                                .toList();
+                            return ListView.builder(
+                              padding: EdgeInsets.zero,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              itemCount: requiredarticle.length,
+                              itemBuilder: (context, requiredarticleIndex) {
+                                final requiredarticleItem =
+                                    requiredarticle[requiredarticleIndex];
+                                return Container(
+                                  width: 100.0,
+                                  height: 100.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          requiredarticleItem.brand,
+                                          style: FlutterFlowTheme.of(context)
+                                              .titleLarge,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          requiredarticleItem.code,
+                                          style: FlutterFlowTheme.of(context)
+                                              .titleMedium,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          requiredarticleItem.name,
+                                          style: FlutterFlowTheme.of(context)
+                                              .titleSmall,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                        ),
                         theme: ExpandableThemeData(
                           tapHeaderToExpand: true,
                           tapBodyToExpand: false,
