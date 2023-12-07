@@ -1624,7 +1624,28 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                           ),
                         ),
                         collapsed: Container(),
-                        expanded: Container(),
+                        expanded: Builder(
+                          builder: (context) {
+                            final crossNull = FFAppState()
+                                .sr
+                                .where((e) => e.cross == null || e.cross == '')
+                                .toList();
+                            return ListView.builder(
+                              padding: EdgeInsets.zero,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              itemCount: crossNull.length,
+                              itemBuilder: (context, crossNullIndex) {
+                                final crossNullItem = crossNull[crossNullIndex];
+                                return Text(
+                                  crossNullItem.brand,
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                );
+                              },
+                            );
+                          },
+                        ),
                         theme: ExpandableThemeData(
                           tapHeaderToExpand: true,
                           tapBodyToExpand: false,
