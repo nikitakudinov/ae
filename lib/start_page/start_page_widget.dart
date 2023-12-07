@@ -215,65 +215,125 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                               .of(context)
                                                           .secondaryBackground,
                                                     ),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final cODEitemTITLE = FFAppState()
-                                                            .sr
-                                                            .where((e) =>
-                                                                ('\"${e.code}\"' ==
-                                                                    codesItem) &&
-                                                                ('\"${e.brand}\"' ==
-                                                                    brandsItem))
-                                                            .toList()
-                                                            .take(1)
-                                                            .toList();
-                                                        return ListView.builder(
-                                                          padding:
-                                                              EdgeInsets.zero,
-                                                          primary: false,
-                                                          shrinkWrap: true,
-                                                          scrollDirection:
-                                                              Axis.vertical,
-                                                          itemCount:
-                                                              cODEitemTITLE
-                                                                  .length,
-                                                          itemBuilder: (context,
-                                                              cODEitemTITLEIndex) {
-                                                            final cODEitemTITLEItem =
-                                                                cODEitemTITLE[
-                                                                    cODEitemTITLEIndex];
-                                                            return Visibility(
-                                                              visible:
-                                                                  cODEitemTITLEIndex ==
-                                                                      0,
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Text(
-                                                                    cODEitemTITLEItem
-                                                                        .code,
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleMedium,
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Builder(
+                                                          builder: (context) {
+                                                            final cODEitemTITLE = FFAppState()
+                                                                .sr
+                                                                .where((e) =>
+                                                                    ('\"${e.code}\"' ==
+                                                                        codesItem) &&
+                                                                    ('\"${e.brand}\"' ==
+                                                                        brandsItem))
+                                                                .toList()
+                                                                .take(1)
+                                                                .toList();
+                                                            return ListView
+                                                                .builder(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .zero,
+                                                              primary: false,
+                                                              shrinkWrap: true,
+                                                              scrollDirection:
+                                                                  Axis.vertical,
+                                                              itemCount:
+                                                                  cODEitemTITLE
+                                                                      .length,
+                                                              itemBuilder: (context,
+                                                                  cODEitemTITLEIndex) {
+                                                                final cODEitemTITLEItem =
+                                                                    cODEitemTITLE[
+                                                                        cODEitemTITLEIndex];
+                                                                return Visibility(
+                                                                  visible:
+                                                                      cODEitemTITLEIndex ==
+                                                                          0,
+                                                                  child: Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Text(
+                                                                        cODEitemTITLEItem
+                                                                            .code,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .titleMedium,
+                                                                      ),
+                                                                    ],
                                                                   ),
-                                                                  Text(
-                                                                    cODEitemTITLEItem
-                                                                        .name,
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelLarge,
-                                                                  ),
-                                                                ],
-                                                              ),
+                                                                );
+                                                              },
                                                             );
                                                           },
-                                                        );
-                                                      },
+                                                        ),
+                                                        Builder(
+                                                          builder: (context) {
+                                                            final cODEitemTITLE = FFAppState()
+                                                                .sr
+                                                                .where((e) =>
+                                                                    ('\"${e.code}\"' ==
+                                                                        codesItem) &&
+                                                                    ('\"${e.brand}\"' ==
+                                                                        brandsItem))
+                                                                .toList()
+                                                                .take(1)
+                                                                .toList();
+                                                            return ListView
+                                                                .builder(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .zero,
+                                                              primary: false,
+                                                              shrinkWrap: true,
+                                                              scrollDirection:
+                                                                  Axis.vertical,
+                                                              itemCount:
+                                                                  cODEitemTITLE
+                                                                      .length,
+                                                              itemBuilder: (context,
+                                                                  cODEitemTITLEIndex) {
+                                                                final cODEitemTITLEItem =
+                                                                    cODEitemTITLE[
+                                                                        cODEitemTITLEIndex];
+                                                                return Visibility(
+                                                                  visible:
+                                                                      cODEitemTITLEIndex ==
+                                                                          0,
+                                                                  child: Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Text(
+                                                                        cODEitemTITLEItem
+                                                                            .code,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .titleMedium,
+                                                                      ),
+                                                                      Text(
+                                                                        cODEitemTITLEItem
+                                                                            .name,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .labelLarge,
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
+                                                              },
+                                                            );
+                                                          },
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
                                                 ),
@@ -429,9 +489,12 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                               (context, stockItemsfullIndex) {
                                                                             final stockItemsfullItem =
                                                                                 stockItemsfull[stockItemsfullIndex];
-                                                                            return Text(
-                                                                              stockItemsfullItem.warehouseName,
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                            return Visibility(
+                                                                              visible: stockItemsfullIndex > 3,
+                                                                              child: Text(
+                                                                                stockItemsfullItem.warehouseName,
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              ),
                                                                             );
                                                                           },
                                                                         );
