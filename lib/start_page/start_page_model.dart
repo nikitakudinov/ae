@@ -25,7 +25,7 @@ class StartPageModel extends FlutterFlowModel<StartPageWidget> {
   // Stores action output result for [Custom Action - dtSR] action in startPage widget.
   List<SearchResultStruct>? dtsr;
   // State field(s) for Expandable widget.
-  late ExpandableController expandableController3;
+  late ExpandableController expandableController1;
 
   /// Initialization and disposal methods.
 
@@ -33,7 +33,7 @@ class StartPageModel extends FlutterFlowModel<StartPageWidget> {
 
   void dispose() {
     unfocusNode.dispose();
-    expandableController3.dispose();
+    expandableController1.dispose();
   }
 
   /// Action blocks are added here.

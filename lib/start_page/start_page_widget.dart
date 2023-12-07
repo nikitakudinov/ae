@@ -84,7 +84,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
       }
     });
 
-    _model.expandableController3 = ExpandableController(initialExpanded: false);
+    _model.expandableController1 = ExpandableController(initialExpanded: false);
   }
 
   @override
@@ -152,6 +152,118 @@ class _StartPageWidgetState extends State<StartPageWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                  ),
+                  child: Container(
+                    width: double.infinity,
+                    color: Colors.white,
+                    child: ExpandableNotifier(
+                      controller: _model.expandableController1,
+                      child: ExpandablePanel(
+                        header: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              15.0, 0.0, 0.0, 0.0),
+                          child: Text(
+                            'Искомый артикул',
+                            style: FlutterFlowTheme.of(context)
+                                .headlineSmall
+                                .override(
+                                  fontFamily: 'Roboto Condensed',
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                ),
+                          ),
+                        ),
+                        collapsed: Container(),
+                        expanded: Builder(
+                          builder: (context) {
+                            final requiredarticle = FFAppState()
+                                .sr
+                                .where((e) => e.cross == null || e.cross == '')
+                                .toList()
+                                .take(1)
+                                .toList();
+                            return ListView.builder(
+                              padding: EdgeInsets.zero,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              itemCount: requiredarticle.length,
+                              itemBuilder: (context, requiredarticleIndex) {
+                                final requiredarticleItem =
+                                    requiredarticle[requiredarticleIndex];
+                                return Container(
+                                  width: 100.0,
+                                  height: 100.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          requiredarticleItem.brand,
+                                          style: FlutterFlowTheme.of(context)
+                                              .headlineSmall
+                                              .override(
+                                                fontFamily: 'Roboto Condensed',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                              ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          requiredarticleItem.code,
+                                          style: FlutterFlowTheme.of(context)
+                                              .titleMedium,
+                                        ),
+                                      ),
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.85,
+                                        decoration: BoxDecoration(),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  15.0, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            requiredarticleItem.name,
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleSmall,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                        ),
+                        theme: ExpandableThemeData(
+                          tapHeaderToExpand: true,
+                          tapBodyToExpand: false,
+                          tapBodyToCollapse: false,
+                          headerAlignment:
+                              ExpandablePanelHeaderAlignment.center,
+                          hasIcon: true,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
                 Builder(
                   builder: (context) {
                     final brands = FFAppState().brands.toList();
@@ -1598,103 +1710,6 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                       },
                     );
                   },
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                  ),
-                  child: Container(
-                    width: double.infinity,
-                    color: Colors.white,
-                    child: ExpandableNotifier(
-                      controller: _model.expandableController3,
-                      child: ExpandablePanel(
-                        header: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 0.0, 0.0, 0.0),
-                          child: Text(
-                            'Искомый артикул',
-                            style: FlutterFlowTheme.of(context)
-                                .headlineSmall
-                                .override(
-                                  fontFamily: 'Roboto Condensed',
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                ),
-                          ),
-                        ),
-                        collapsed: Container(),
-                        expanded: Builder(
-                          builder: (context) {
-                            final requiredarticle = FFAppState()
-                                .sr
-                                .where((e) => e.cross == null || e.cross == '')
-                                .toList();
-                            return ListView.builder(
-                              padding: EdgeInsets.zero,
-                              shrinkWrap: true,
-                              scrollDirection: Axis.vertical,
-                              itemCount: requiredarticle.length,
-                              itemBuilder: (context, requiredarticleIndex) {
-                                final requiredarticleItem =
-                                    requiredarticle[requiredarticleIndex];
-                                return Container(
-                                  width: 100.0,
-                                  height: 100.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            15.0, 0.0, 0.0, 0.0),
-                                        child: Text(
-                                          requiredarticleItem.brand,
-                                          style: FlutterFlowTheme.of(context)
-                                              .titleLarge,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            15.0, 0.0, 0.0, 0.0),
-                                        child: Text(
-                                          requiredarticleItem.code,
-                                          style: FlutterFlowTheme.of(context)
-                                              .titleMedium,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            15.0, 0.0, 0.0, 0.0),
-                                        child: Text(
-                                          requiredarticleItem.name,
-                                          style: FlutterFlowTheme.of(context)
-                                              .titleSmall,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                );
-                              },
-                            );
-                          },
-                        ),
-                        theme: ExpandableThemeData(
-                          tapHeaderToExpand: true,
-                          tapBodyToExpand: false,
-                          tapBodyToCollapse: false,
-                          headerAlignment:
-                              ExpandablePanelHeaderAlignment.center,
-                          hasIcon: true,
-                        ),
-                      ),
-                    ),
-                  ),
                 ),
               ],
             ),
