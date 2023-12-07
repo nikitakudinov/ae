@@ -310,7 +310,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 10.0, 10.0, 10.0),
+                                      15.0, 10.0, 15.0, 10.0),
                                   child: Builder(
                                     builder: (context) {
                                       final codeitems = FFAppState()
@@ -603,7 +603,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 10.0, 10.0),
+                                      15.0, 0.0, 15.0, 10.0),
                                   child: Builder(
                                     builder: (context) {
                                       final codeItems = FFAppState()
@@ -1818,20 +1818,14 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                                     color: Color(0xFFD1D1D1),
                                                                                     borderRadius: BorderRadius.circular(3.0),
                                                                                   ),
-                                                                                  child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
-                                                                                    child: Text(
-                                                                                      cODEitemTITLEItem.code,
-                                                                                      style: FlutterFlowTheme.of(context).titleMedium,
-                                                                                    ),
+                                                                                  child: Text(
+                                                                                    cODEitemTITLEItem.code,
+                                                                                    style: FlutterFlowTheme.of(context).titleMedium,
                                                                                   ),
                                                                                 ),
-                                                                                Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                                                                  child: Text(
-                                                                                    cODEitemTITLEItem.name,
-                                                                                    style: FlutterFlowTheme.of(context).labelLarge,
-                                                                                  ),
+                                                                                Text(
+                                                                                  cODEitemTITLEItem.name,
+                                                                                  style: FlutterFlowTheme.of(context).labelLarge,
                                                                                 ),
                                                                               ],
                                                                             ),
