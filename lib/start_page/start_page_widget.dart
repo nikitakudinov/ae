@@ -400,6 +400,8 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                               Column(
                                                                             mainAxisSize:
                                                                                 MainAxisSize.min,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
                                                                             crossAxisAlignment:
                                                                                 CrossAxisAlignment.start,
                                                                             children: [
@@ -423,6 +425,8 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                               Column(
                                                                             mainAxisSize:
                                                                                 MainAxisSize.min,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
                                                                             crossAxisAlignment:
                                                                                 CrossAxisAlignment.center,
                                                                             children: [
@@ -468,6 +472,8 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                               Column(
                                                                             mainAxisSize:
                                                                                 MainAxisSize.min,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
                                                                             crossAxisAlignment:
                                                                                 CrossAxisAlignment.center,
                                                                             children: [
@@ -487,6 +493,8 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                               Column(
                                                                             mainAxisSize:
                                                                                 MainAxisSize.min,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
                                                                             children: [
                                                                               Text(
                                                                                 () {
