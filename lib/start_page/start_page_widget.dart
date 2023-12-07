@@ -626,7 +626,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                         Expanded(
                                                                           child:
                                                                               Text(
-                                                                            'МИН. СРОКИ',
+                                                                            'МИН. СРОК',
                                                                             style: FlutterFlowTheme.of(context).labelSmall.override(
                                                                                   fontFamily: 'Roboto Condensed',
                                                                                   fontSize: 12.0,
