@@ -1652,11 +1652,11 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                   ),
                 Container(
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    color: Color(0xFFDADADA),
                   ),
                   child: Container(
                     width: double.infinity,
-                    color: Color(0xFFD5D5D5),
+                    color: Color(0x00000000),
                     child: ExpandableNotifier(
                       controller: _model.expandableController4,
                       child: ExpandablePanel(
