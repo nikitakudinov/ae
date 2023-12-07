@@ -1789,32 +1789,6 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                       MainAxisSize
                                                                           .min,
                                                                   children: [
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          5.0,
-                                                                          0.0,
-                                                                          5.0),
-                                                                      child:
-                                                                          Material(
-                                                                        color: Colors
-                                                                            .transparent,
-                                                                        elevation:
-                                                                            3.0,
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              MediaQuery.sizeOf(context).width * 1.0,
-                                                                          height:
-                                                                              1.0,
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            color:
-                                                                                Color(0xFFD3D3D3),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
                                                                     Builder(
                                                                       builder:
                                                                           (context) {
@@ -1848,9 +1822,18 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 crossAxisAlignment: CrossAxisAlignment.start,
                                                                                 children: [
-                                                                                  Text(
-                                                                                    cODEitemTITLEItem.code,
-                                                                                    style: FlutterFlowTheme.of(context).titleMedium,
+                                                                                  Container(
+                                                                                    decoration: BoxDecoration(
+                                                                                      color: Color(0xFFE4E4E4),
+                                                                                      borderRadius: BorderRadius.circular(3.0),
+                                                                                    ),
+                                                                                    child: Padding(
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                                                                                      child: Text(
+                                                                                        cODEitemTITLEItem.code,
+                                                                                        style: FlutterFlowTheme.of(context).titleMedium,
+                                                                                      ),
+                                                                                    ),
                                                                                   ),
                                                                                   Text(
                                                                                     cODEitemTITLEItem.name,
