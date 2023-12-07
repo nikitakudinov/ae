@@ -171,14 +171,16 @@ class _StartPageWidgetState extends State<StartPageWidget>
           top: true,
           child: Stack(
             children: [
-              Align(
-                alignment: AlignmentDirectional(0.00, 0.00),
-                child: FaIcon(
-                  FontAwesomeIcons.redoAlt,
-                  color: Color(0x7C606A85),
-                  size: 80.0,
-                ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation']!),
-              ),
+              if (FFAppState().sr.length == 0)
+                Align(
+                  alignment: AlignmentDirectional(0.00, 0.00),
+                  child: FaIcon(
+                    FontAwesomeIcons.redoAlt,
+                    color: Color(0x7C606A85),
+                    size: 80.0,
+                  ).animateOnPageLoad(
+                      animationsMap['iconOnPageLoadAnimation']!),
+                ),
               if (FFAppState().sr.length > 0)
                 SingleChildScrollView(
                   child: Column(
