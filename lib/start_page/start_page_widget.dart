@@ -526,26 +526,35 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                                         Column(
                                                                       mainAxisSize:
                                                                           MainAxisSize
-                                                                              .min,
+                                                                              .max,
                                                                       mainAxisAlignment:
                                                                           MainAxisAlignment
                                                                               .center,
                                                                       children: [
-                                                                        FlutterFlowIconButton(
-                                                                          borderColor:
-                                                                              Colors.transparent,
-                                                                          icon:
-                                                                              Icon(
-                                                                            Icons.add_shopping_cart,
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondaryText,
-                                                                            size:
-                                                                                24.0,
+                                                                        Container(
+                                                                          width:
+                                                                              30.0,
+                                                                          height:
+                                                                              30.0,
+                                                                          decoration:
+                                                                              BoxDecoration(),
+                                                                          child:
+                                                                              FlutterFlowIconButton(
+                                                                            borderColor:
+                                                                                Colors.transparent,
+                                                                            buttonSize:
+                                                                                30.0,
+                                                                            icon:
+                                                                                Icon(
+                                                                              Icons.add_shopping_cart,
+                                                                              color: FlutterFlowTheme.of(context).secondaryText,
+                                                                              size: 24.0,
+                                                                            ),
+                                                                            onPressed:
+                                                                                () {
+                                                                              print('IconButton pressed ...');
+                                                                            },
                                                                           ),
-                                                                          onPressed:
-                                                                              () {
-                                                                            print('IconButton pressed ...');
-                                                                          },
                                                                         ),
                                                                       ],
                                                                     ),
