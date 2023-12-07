@@ -487,6 +487,9 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                               ('\"${e.brand}\"' ==
                                                                   brandsItem))
                                                           .toList()
+                                                          .sortedList(
+                                                              (e) => e.price)
+                                                          .toList()
                                                           .take(1)
                                                           .toList();
                                                       return ListView.builder(
