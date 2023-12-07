@@ -1444,11 +1444,16 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                     );
                                   },
                                 ),
-                                Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 1.0,
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFFB5B5B5),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 10.0, 0.0, 10.0),
+                                  child: Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    height: 1.0,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFFB5B5B5),
+                                    ),
                                   ),
                                 ),
                               ],
