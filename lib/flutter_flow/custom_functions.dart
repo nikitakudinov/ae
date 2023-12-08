@@ -133,3 +133,8 @@ String? quotesRemover(String? value) {
   }
   return value.replaceAll('"', '');
 }
+
+bool checjJsonIsEmpty(List<dynamic> json) {
+  // check if json if empty
+  return json.isEmpty;
+}

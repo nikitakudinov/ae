@@ -56,7 +56,11 @@ Future loadFullSearchResults(
           .toList()
           .cast<String>();
     });
-    if (dtFULLSEARCH?.length == 0) {
+    if (functions.checjJsonIsEmpty(AeGroup.fullsearchCall
+        .data(
+          (jsonFULLSEARCH?.jsonBody ?? ''),
+        )!
+        .toList())) {
       await showDialog(
         context: context,
         builder: (alertDialogContext) {
