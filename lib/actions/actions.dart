@@ -23,7 +23,12 @@ Future loadFullSearchResults(
     deliveryKey:
         'A4GAcT7SOcnXN1kucA5bomb4Rj5SO2fV1e5bgkkDgHbY9hrszkUNTsEuZYBmJUwOEPb2iIb01uSVTJYQWkRv05qrVm4c',
   );
-  if ((jsonFULLSEARCH?.succeeded ?? true) == true) {
+  if (((jsonFULLSEARCH?.succeeded ?? true) == true) &&
+      functions.checjJsonIsEmpty(AeGroup.fullsearchCall
+          .data(
+            (jsonFULLSEARCH?.jsonBody ?? ''),
+          )!
+          .toList())) {
     dtFULLSEARCH = await actions.dtSR(
       functions
           .newCustomFunction4(AeGroup.fullsearchCall
@@ -56,26 +61,6 @@ Future loadFullSearchResults(
           .toList()
           .cast<String>();
     });
-    if (functions.checjJsonIsEmpty(AeGroup.fullsearchCall
-        .data(
-          (jsonFULLSEARCH?.jsonBody ?? ''),
-        )!
-        .toList())) {
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return AlertDialog(
-            title: Text('По вашему запросу ничего не найдено.'),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(alertDialogContext),
-                child: Text('Ok'),
-              ),
-            ],
-          );
-        },
-      );
-    }
   } else {
     await showDialog(
       context: context,
