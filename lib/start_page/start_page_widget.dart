@@ -1808,7 +1808,13 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                         ),
                                       ),
                                     ),
-                                  if (FFAppState().sr.length != 0)
+                                  if (FFAppState()
+                                          .sr
+                                          .where((e) =>
+                                              e.cross == null || e.cross == '')
+                                          .toList()
+                                          .length !=
+                                      0)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 15.0),
