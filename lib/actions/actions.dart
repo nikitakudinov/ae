@@ -56,7 +56,7 @@ Future loadFullSearchResults(
           .toList()
           .cast<String>();
     });
-    if (FFAppState().sr.length == 0) {
+    if (dtFULLSEARCH?.length == 0) {
       await showDialog(
         context: context,
         builder: (alertDialogContext) {
