@@ -24,7 +24,7 @@ Future loadFullSearchResults(
         'A4GAcT7SOcnXN1kucA5bomb4Rj5SO2fV1e5bgkkDgHbY9hrszkUNTsEuZYBmJUwOEPb2iIb01uSVTJYQWkRv05qrVm4c',
   );
   if (((jsonFULLSEARCH?.succeeded ?? true) == true) &&
-      functions.checjJsonIsEmpty(AeGroup.fullsearchCall
+      !functions.checjJsonIsEmpty(AeGroup.fullsearchCall
           .data(
             (jsonFULLSEARCH?.jsonBody ?? ''),
           )!
