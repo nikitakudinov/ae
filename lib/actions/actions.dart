@@ -99,7 +99,7 @@ Future getSearchResults(
       context: context,
       builder: (alertDialogContext) {
         return AlertDialog(
-          title: Text('TRUE'),
+          title: Text('К сожалению нет предложений по вашему запросу.'),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(alertDialogContext),
@@ -109,6 +109,9 @@ Future getSearchResults(
         );
       },
     );
+    FFAppState().update(() {
+      FFAppState().sr = [];
+    });
   } else {
     await action_blocks.loadFullSearchResults(
       context,
