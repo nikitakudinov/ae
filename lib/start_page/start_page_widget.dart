@@ -556,7 +556,6 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                             FFAppState()
                                                     .SEARCHBRANDCODEvisibility =
                                                 false;
-                                            FFAppState().sr = [];
                                           });
                                         },
                                         child: Column(
