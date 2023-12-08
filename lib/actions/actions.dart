@@ -94,11 +94,7 @@ Future getSearchResults(
     deliveryKey:
         'A4GAcT7SOcnXN1kucA5bomb4Rj5SO2fV1e5bgkkDgHbY9hrszkUNTsEuZYBmJUwOEPb2iIb01uSVTJYQWkRv05qrVm4c',
   );
-  if (functions.checjJsonIsEmpty(AeGroup.fullsearchCall
-      .data(
-        (jsonFULLSEARCH?.jsonBody ?? ''),
-      )!
-      .toList())) {
+  if ((jsonFULLSEARCH?.succeeded ?? true)) {
     await showDialog(
       context: context,
       builder: (alertDialogContext) {
