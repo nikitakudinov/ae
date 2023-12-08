@@ -1369,7 +1369,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                           .where((e) =>
                                               e.cross == null || e.cross == '')
                                           .toList()
-                                          .length !=
+                                          .length ==
                                       0)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
