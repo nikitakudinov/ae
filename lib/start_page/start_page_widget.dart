@@ -536,6 +536,12 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
+                                          await action_blocks.getSearchResults(
+                                            context,
+                                            brand: serchResultsItem.brand,
+                                            code: serchResultsItem.code,
+                                          );
+                                          setState(() {});
                                           setState(() {
                                             FFAppState().addToSearchRequests(
                                                 SearchRequestStruct(
@@ -552,12 +558,6 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                 false;
                                             FFAppState().sr = [];
                                           });
-                                          await action_blocks.getSearchResults(
-                                            context,
-                                            brand: serchResultsItem.brand,
-                                            code: serchResultsItem.code,
-                                          );
-                                          setState(() {});
                                         },
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
