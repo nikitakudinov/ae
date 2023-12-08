@@ -182,6 +182,12 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInCodes(int _index, String _value) {
     _codes.insert(_index, _value);
   }
+
+  bool _LOADINGvisibility = false;
+  bool get LOADINGvisibility => _LOADINGvisibility;
+  set LOADINGvisibility(bool _value) {
+    _LOADINGvisibility = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

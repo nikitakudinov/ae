@@ -56,6 +56,7 @@ Future loadFullSearchResults(
               ?.toList())!
           .toList()
           .cast<String>();
+      FFAppState().LOADINGvisibility = false;
     });
   } else {
     await showDialog(
@@ -99,7 +100,7 @@ Future getSearchResults(
       context: context,
       builder: (alertDialogContext) {
         return AlertDialog(
-          title: Text('К сожалению нет предложений по вашему запросу.'),
+          title: Text('231'),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(alertDialogContext),
@@ -113,6 +114,9 @@ Future getSearchResults(
       FFAppState().sr = [];
     });
   } else {
+    FFAppState().update(() {
+      FFAppState().LOADINGvisibility = true;
+    });
     await action_blocks.loadFullSearchResults(
       context,
       brand: brand,

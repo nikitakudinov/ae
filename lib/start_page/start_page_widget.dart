@@ -163,7 +163,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
           top: true,
           child: Stack(
             children: [
-              if (FFAppState().sr.length == 0)
+              if (FFAppState().LOADINGvisibility)
                 Opacity(
                   opacity: 0.8,
                   child: Align(
