@@ -552,8 +552,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                                 false;
                                             FFAppState().sr = [];
                                           });
-                                          await action_blocks
-                                              .loadFullSearchResults(
+                                          await action_blocks.getSearchResults(
                                             context,
                                             brand: serchResultsItem.brand,
                                             code: serchResultsItem.code,

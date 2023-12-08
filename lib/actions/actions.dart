@@ -78,3 +78,55 @@ Future loadFullSearchResults(
     );
   }
 }
+
+Future getSearchResults(
+  BuildContext context, {
+  String? brand,
+  String? code,
+}) async {
+  ApiCallResponse? jsonFULLSEARCH;
+
+  jsonFULLSEARCH = await AeGroup.fullsearchCall.call(
+    brand: brand,
+    code: code,
+    withCrosses: 1,
+    withOffers: 1,
+    deliveryKey:
+        'A4GAcT7SOcnXN1kucA5bomb4Rj5SO2fV1e5bgkkDgHbY9hrszkUNTsEuZYBmJUwOEPb2iIb01uSVTJYQWkRv05qrVm4c',
+  );
+  if (functions.checjJsonIsEmpty(AeGroup.fullsearchCall
+      .data(
+        (jsonFULLSEARCH?.jsonBody ?? ''),
+      )!
+      .toList())) {
+    await showDialog(
+      context: context,
+      builder: (alertDialogContext) {
+        return AlertDialog(
+          title: Text('TRUE'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(alertDialogContext),
+              child: Text('Ok'),
+            ),
+          ],
+        );
+      },
+    );
+  } else {
+    await showDialog(
+      context: context,
+      builder: (alertDialogContext) {
+        return AlertDialog(
+          title: Text('false'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(alertDialogContext),
+              child: Text('Ok'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
