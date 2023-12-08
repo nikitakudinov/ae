@@ -1,13 +1,11 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_manager.dart';
 import '/backend/schema/structs/index.dart';
-import '/components/allert_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/actions/actions.dart' as action_blocks;
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 
 Future loadFullSearchResults(
@@ -59,6 +57,7 @@ Future loadFullSearchResults(
           .toList()
           .cast<String>();
       FFAppState().LOADINGvisibility = false;
+      FFAppState().ALLERTvisibility = false;
     });
   } else {
     await showDialog(
@@ -98,24 +97,9 @@ Future getSearchResults(
         (jsonFULLSEARCH?.jsonBody ?? ''),
       )!
       .toList())) {
-    await showAlignedDialog(
-      context: context,
-      isGlobal: true,
-      avoidOverflow: false,
-      targetAnchor:
-          AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-      followerAnchor:
-          AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-      builder: (dialogContext) {
-        return Material(
-          color: Colors.transparent,
-          child: AllertWidget(),
-        );
-      },
-    );
-
     FFAppState().update(() {
       FFAppState().sr = [];
+      FFAppState().ALLERTvisibility = true;
     });
   } else {
     FFAppState().update(() {

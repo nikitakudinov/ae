@@ -188,6 +188,12 @@ class FFAppState extends ChangeNotifier {
   set LOADINGvisibility(bool _value) {
     _LOADINGvisibility = _value;
   }
+
+  bool _ALLERTvisibility = false;
+  bool get ALLERTvisibility => _ALLERTvisibility;
+  set ALLERTvisibility(bool _value) {
+    _ALLERTvisibility = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
