@@ -2161,14 +2161,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                               collapsed: Container(),
                               expanded: Builder(
                                 builder: (context) {
-                                  final brands = FFAppState()
-                                      .brands
-                                      .where((e) => valueOrDefault<bool>(
-                                            e !=
-                                                '\"${FFAppState().sr.where((e) => e.cross == null || e.cross == '').toList().first.brand}\"',
-                                            true,
-                                          ))
-                                      .toList();
+                                  final brands = FFAppState().brands.toList();
                                   return ListView.builder(
                                     padding: EdgeInsets.zero,
                                     primary: false,
